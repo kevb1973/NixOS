@@ -1,0 +1,20 @@
+To Update this App
+==================
+
+First, unlink the old result. Garbage collect to remove from store.
+> unlink ./result
+> nix-collect-garbage -d (del-user-gens)
+
+Get the hash for the new version.
+> nix-prefetch-git --url https://github.com/leo-arch/clifm --rev "v1.12"
+
+Edit the default.nix to add the new version number and hash.
+
+Then build the new package:
+> nix-build -E 'with import <nixpkgs> {}; callPackage ./default.nix {}'
+
+If package builds, link the executable to ~/bin
+> ln -s ~/Code/clifm-nix/result/bin/clifm ~/bin/clifm
+
+
+

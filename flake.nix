@@ -19,6 +19,19 @@
     lib = nixpkgs.lib;
 
   in {
+    homeManagerConfig = {
+      kev = home-manager.lib.homeManagerConfiguration {
+        inherit system pkgs;
+        username = "kev";
+        homeDirectory = "/home/kev";
+        configuration = {
+          imports = [
+            ./home.nix
+          ];
+        };
+      };
+    };
+    
     nixosConfigurations = {
       halcyon = lib.nixosSystem {
         inherit system;
@@ -26,7 +39,9 @@
         modules = [
           ./configuration.nix
           # Pin nixpkgs so nix commands don't redownload the registry every time
-          { nix.registry.self.flake = nixpkgs;}
+#          { 
+#            nix.registry.self.flake = nixpkgs;
+#          }
         ];
       };
     };

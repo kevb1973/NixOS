@@ -25,6 +25,8 @@
 
         modules = [
           ./configuration.nix
+          # Pin nixpkgs so nix commands don't redownload the registry every time
+          { nix.registry.self.flake = nixpkgs;}
         ];
       };
     };

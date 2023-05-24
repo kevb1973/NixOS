@@ -133,13 +133,10 @@
           unclutter
           pywal
           lxappearance
-          networkmanagerapplet
           numlockx
           playerctl
           libnotify
           xorg.xev
-          pamixer
-          ncpamixer
           feh
           xclip
         ];
@@ -209,48 +206,6 @@
     extraGroups = [ "networkmanager" "wheel" "kvm" "libvirtd" "input" ];
     shell = pkgs.fish;
     packages = with pkgs; [
-  #    any-nix-shell
-      anydesk
-      appeditor
-      broot
-      cheat
-  #    clifm
-      firefox
-      fishPlugins.tide
-      flameshot
-      fzf
-      gitui
-      gnome.gnome-calendar
-      gnome.gnome-clocks
-  #    gnome-extension-manager
-      gnome.file-roller
-      gnome.gnome-tweaks
-      gnome.nautilus
-      gucharmap
-  #    hyprland
-      kakoune
-      kitty
-  #    krita
-  #    libreoffice-fresh
-      meld
-      mplayer
-      mpv
-      ncspot
-      nushell
-      nu_scripts
-      obsidian
-      pulsemixer
-      redshift
-      rssguard
-      speedcrunch
-      spotify
-  #    tdesktop
-      xfce.thunar-archive-plugin
-      xfce.thunar-volman
-      yt-dlp
-      websocat
-      wev
-      zathura
     ];
   };
   
@@ -271,16 +226,11 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     (callPackage ./pkgs/clifm { })
-    bat
     distrobox
-    emacs
-    exa
     fd
     gitFull
-    gnomeExtensions.arcmenu
     gnome.zenity
     handlr
-    helix
     nil
     htop
     jdk
@@ -290,20 +240,15 @@
     mfcl2700dnlpr
     mfcl2700dncupswrapper
     neovim
-    ncdu
     nodejs
     nodePackages.bash-language-server
     os-prober
     podman
     python3
-  #  ripgrep
-    stow
     sox
     unar
     unzip
     vifm-full
-  #  virt-manager
-    wakeonlan
     wget
   ];
 

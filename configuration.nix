@@ -223,7 +223,7 @@
   # == System Packages == #
 
   # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # $ nix search nixpkgs#wget
   environment.systemPackages = with pkgs; [
     (callPackage ./pkgs/clifm { })
     distrobox

@@ -57,6 +57,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.firewall.allowedTCPPorts = [ 2121 ];
 
   # Set your time zone.
   time.timeZone = "America/Toronto";
@@ -249,6 +250,7 @@
     unar
     unzip
     vifm-full
+    virtualenv
     wget
   ];
 

@@ -37,6 +37,7 @@
     ncdu
     ncpamixer
     nix-prefetch-git
+    nvd
     obsidian
     pamixer
     pulsemixer

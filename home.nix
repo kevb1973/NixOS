@@ -40,6 +40,7 @@
     nvd
     obsidian
     pamixer
+    pavucontrol
     pulsemixer
     ripgrep
     rssguard

@@ -214,7 +214,7 @@
   
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [ "electron-21.4.0" ];
+  #nixpkgs.config.permittedInsecurePackages = [ "electron-21.4.0" ];
   nixpkgs.overlays = [
     (self: super: {
       waybar = super.waybar.overrideAttrs (oldAttrs: {

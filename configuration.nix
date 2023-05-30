@@ -150,6 +150,7 @@
   # Enable Fonts
   fonts.fonts = with pkgs; [
     roboto
+    roboto-mono
     font-awesome
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
   ];
@@ -175,8 +176,8 @@
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
-#    alsa.enable = true;
-#    alsa.support32Bit = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
@@ -228,6 +229,8 @@
   # $ nix search nixpkgs#wget
   environment.systemPackages = with pkgs; [
     (callPackage ./pkgs/clifm { })
+    alsa-utils
+    atool
     distrobox
     fd
     gitFull

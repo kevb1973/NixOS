@@ -266,7 +266,7 @@
     dconf.enable = true;
     fish.enable = true;
     #gpaste.enable = true;
-    kdeconnect.enable = true;
+    kdeconnect.enable = false;
     #neovim.defaultEditor = true;
     neovim.vimAlias = true;
     ssh.startAgent = true;

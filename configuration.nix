@@ -28,6 +28,7 @@
   # Bootloader.
 
   boot = {
+    initrd.kernelModules = [ "amdgpu" ];
     loader = {
       systemd-boot.enable = false;
       efi = {
@@ -116,6 +117,7 @@
         #defaultSession = "xfce+i3";
     };
     videoDrivers = [ "amdgpu" ];
+    deviceSection = ''Option "TearFree" "true"'';
     windowManager = {
       i3 = {
         enable = true;

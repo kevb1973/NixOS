@@ -33,6 +33,8 @@
     gnome.gnome-clocks
     gnome.file-roller
     gucharmap
+    kde-gtk-config
+    logseq
     mplayer
     ncdu
     ncpamixer

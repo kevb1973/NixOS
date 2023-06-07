@@ -17,4 +17,10 @@ If package builds, link the executable to ~/bin
 > ln -s ~/Code/clifm-nix/result/bin/clifm ~/bin/clifm
 
 
+Note: The above is from when I did a manual build of the package. By
+incorporating the nix file into configuration.nix, the package is built
+as part of the nixos-rebuild process and linking the binary is not needed.
 
+The nix file will still need to be updated for new versions using the process
+above to get he needed hash from github. Just update the nix file and then
+rebuild the system to get the new version.

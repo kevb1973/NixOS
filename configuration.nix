@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -78,6 +78,9 @@
   
   # Auto optimize nix store.
   nix.settings.auto-optimise-store = true;
+  
+  # Pin nixpkgs to speed up nix commands
+  nix.registry.nixpkgs.flake = inputs.nixpkgs;
   
   # Auto discard system generations
   nix.gc = {
@@ -208,7 +211,7 @@
   users.users.kev = {
     isNormalUser = true;
     description = "kev";
-    extraGroups = [ "networkmanager" "wheel" "kvm" "libvirtd" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "kvm" "libvirtd" "input" "audio" ];
     shell = pkgs.fish;
     packages = with pkgs; [
     ];

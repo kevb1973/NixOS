@@ -5,11 +5,10 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./sway.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./sway.nix
+  ];
 
   # Hardware Tweaks
   hardware.cpu.amd.updateMicrocode = true;
@@ -36,17 +35,17 @@
         efiSysMountPoint = "/boot/efi";
       };
       grub = {
-         enable = true;
-         copyKernels = true;
-         efiSupport = true;
+        enable = true;
+        copyKernels = true;
+        efiSupport = true;
         # splashImage = ./backgrounds/grub-nixos-3.png;
         # splashMode = "stretch";
-         devices = [ "nodev" ];
-         useOSProber = true;
+        devices = [ "nodev" ];
+        useOSProber = true;
       };
     };
     tmp.useTmpfs = true;
-    kernelPackages = pkgs.linuxPackages_latest; 
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   networking.hostName = "halcyon"; # Define your hostname.
@@ -65,29 +64,24 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
-  #i18n.inputMethod = {
-  #  enabled = "ibus";
-  #  ibus.engines = with pkgs.ibus-engines; [ typing-booster ];
-  #};
-
 
   # Change default stop job timeout for systemd (default is 90s)
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=10s
   '';
-  
+
   # Auto optimize nix store.
   nix.settings.auto-optimise-store = true;
-  
+
   # Pin nixpkgs to speed up nix commands
   nix.registry.nixpkgs.flake = inputs.nixpkgs;
-  
+
   # Auto discard system generations
   nix.gc = {
     automatic = true;
     dates = "daily";
     options = "--delete-older-than 2d";
-  };  
+  };
 
   services.xserver = {
     enable = true;
@@ -96,9 +90,9 @@
     libinput.mouse = {
       accelProfile = "flat";
       accelSpeed = "1.2";
-#      buttonMapping = "1 8 3 4 5 6 7 2 9";
-#      scrollMethod = "button";
-#      scrollButton = 3;
+    # buttonMapping = "1 8 3 4 5 6 7 2 9";
+    # scrollMethod = "button";
+    # scrollButton = 3;
     };
     desktopManager = {
       xterm.enable = false;
@@ -109,26 +103,24 @@
       };
     };
     displayManager = {
-        startx.enable = true; #console login
-        #gdm.enable = true;
-        #gdm.wayland= true;
-        #lightdm.enable = true;
-        #sddm.enable = true;
-        #lightdm.greeters.slick.enable = true;
-        
-        #defaultSession = "none+i3";
-        #defaultSession = "xfce+i3";
+      startx.enable = true; # console login
+      #gdm.enable = true;
+      #gdm.wayland= true;
+      #lightdm.enable = true;
+      #sddm.enable = true;
+      #lightdm.greeters.slick.enable = true;
+      #defaultSession = "none+i3";
+      #defaultSession = "xfce+i3";
     };
     videoDrivers = [ "amdgpu" ];
     deviceSection = ''Option "TearFree" "true"'';
     windowManager = {
       i3 = {
-        enable = true;
+        enable = false;
         #package = pkgs.i3-gaps;
         extraPackages = with pkgs; [
-          dmenu #application launcher most people use
+          dmenu # application launcher most people use
           i3status # gives you the default i3 status bar
-          jgmenu
           i3-gaps
           i3a
           picom
@@ -140,7 +132,6 @@
           pywal
           lxappearance
           numlockx
-          playerctl
           libnotify
           xorg.xev
           feh
@@ -154,9 +145,13 @@
   qt.platformTheme = "gnome";
   # Enable Fonts
   fonts.fonts = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
     roboto
     roboto-mono
     font-awesome
+    source-code-pro
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
   ];
   # Enable CUPS to print documents
@@ -165,7 +160,7 @@
 
   #DBus service for accessing list of user a/c and info about them. (needed for clifm)
   services.accounts-daemon.enable = true;
-  
+
   #Avahi daemon
   #services.avahi.enable = true;
   # Enable Bluetooth Services for Window Managers
@@ -174,10 +169,10 @@
 
   #Enable Flatpak
   services.flatpak.enable = true;
-  
+
   # Enable sound with pipewire.
-#  sound.enable = true;
-#  hardware.pulseaudio.enable = false;
+  #  sound.enable = true;
+  #  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -213,13 +208,13 @@
     description = "kev";
     extraGroups = [ "networkmanager" "wheel" "kvm" "libvirtd" "input" "audio" ];
     shell = pkgs.fish;
-    packages = with pkgs; [
-    ];
+  #  packages = with pkgs; [ ];
   };
-  
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   #nixpkgs.config.permittedInsecurePackages = [ "electron-21.4.0" ];
+
   nixpkgs.overlays = [
     (self: super: {
       waybar = super.waybar.overrideAttrs (oldAttrs: {
@@ -241,7 +236,7 @@
     gitFull
     gnome.zenity
     handlr
-    nil
+    helix
     htop
     jdk
     killall
@@ -250,6 +245,8 @@
     mfcl2700dnlpr
     mfcl2700dncupswrapper
     neovim
+    nil
+    nixfmt
     nodejs
     nodePackages.bash-language-server
     os-prober
@@ -262,7 +259,6 @@
     virtualenv
     wget
   ];
-
 
   programs = {
     command-not-found.enable = false;
@@ -285,13 +281,14 @@
 
   # List services that you want to enable:
 
-  services = { 
+  services = {
     fstrim = {
       enable = true;
       interval = "weekly"; # the default
     };
     geoclue2.enable = true;
   };
+
   #services.emacs.install = true;
   #services.emacs.enable = true;
   # Enable the OpenSSH daemon.

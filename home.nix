@@ -33,19 +33,21 @@
     gnome.gnome-clocks
     gnome.file-roller
     gucharmap
+    jgmenu
     kde-gtk-config
     logseq
     mplayer
     ncdu
     ncpamixer
+    newsboat
     nix-prefetch-git
     nvd
     obsidian
     pamixer
     pavucontrol
+    playerctl
     pulsemixer
     ripgrep
-    rssguard
     rust-analyzer
     speedcrunch
     spotify
@@ -92,19 +94,19 @@
     btop.enable = true;
     emacs.enable = true;
     exa.enable = true;
-    helix = {
-      enable = true;
-      settings = {
-        theme = "tokyonight";
-        editor.lsp.display-messages = true;
-        keys.normal = {
-          space.space = "file_picker";
-          space.w = ":w";
-          space.q = ":q";
-          esc = [ "collapse_selection" "keep_primary_selection" ];
-        };
-      };
-    };
+  #  helix = {
+  #    enable = true;
+  #    settings = {
+  #      theme = "tokyonight";
+  #      editor.lsp.display-messages = true;
+  #      keys.normal = {
+  #        space.space = "file_picker";
+  #        space.w = ":w";
+  #        space.q = ":q";
+  #        esc = [ "collapse_selection" "keep_primary_selection" ];
+  #      };
+  #    };
+  #  };
     fzf.enable = true;
     gitui.enable = true;
     firefox.enable = true;

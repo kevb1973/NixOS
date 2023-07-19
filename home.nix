@@ -34,8 +34,8 @@
     gnome.file-roller
     gucharmap
     jgmenu
-    kde-gtk-config
-    logseq
+   # kde-gtk-config
+   # logseq
     mplayer
     ncdu
     ncpamixer
@@ -52,6 +52,7 @@
     speedcrunch
     spotify
     stow
+    telegram-desktop
     xfce.thunar-archive-plugin
     xfce.thunar-volman
     wakeonlan
@@ -90,10 +91,11 @@
 
   # Let Home Manager install and manage itself.
   programs = {
-    home-manager.enable = true;
     btop.enable = true;
     emacs.enable = true;
     exa.enable = true;
+    home-manager.enable = true;
+    waybar.enable = true;
   #  helix = {
   #    enable = true;
   #    settings = {

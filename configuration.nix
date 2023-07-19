@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [ # Include the results of the hardware scan.
@@ -215,13 +215,13 @@
   nixpkgs.config.allowUnfree = true;
   #nixpkgs.config.permittedInsecurePackages = [ "electron-21.4.0" ];
 
-  nixpkgs.overlays = [
-    (self: super: {
-      waybar = super.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      });
-    })
-  ];
+  #nixpkgs.overlays = [
+  #  (self: super: {
+  #    waybar = super.waybar.overrideAttrs (oldAttrs: {
+  #      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+  #    });
+  #  })
+  #];
 
   # == System Packages == #
 

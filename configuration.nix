@@ -57,7 +57,8 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.firewall.allowedTCPPorts = [ 2121 ];
+  networking.firewall.allowedTCPPorts = [ 2121 6475 6476 ];
+  networking.firewall.allowedUDPPorts = [ 36475 ];
 
   # Set your time zone.
   time.timeZone = "America/Toronto";
@@ -144,7 +145,7 @@
   # Set theme for QT apps
   qt.platformTheme = "gnome";
   # Enable Fonts
-  fonts.fonts = with pkgs; [
+  fonts.packages= with pkgs; [
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji

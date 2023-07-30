@@ -26,6 +26,7 @@
     # '')
     anydesk
     appeditor
+    beebeep
     broot
     cheat
     fishPlugins.tide
@@ -35,7 +36,7 @@
     gucharmap
     jgmenu
    # kde-gtk-config
-   # logseq
+    logseq
     mplayer
     ncdu
     ncpamixer

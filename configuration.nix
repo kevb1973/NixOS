@@ -99,8 +99,8 @@
       xterm.enable = false;
       gnome.enable = false;
       xfce = {
-        enable = true;
-        enableXfwm = true;
+        enable = false;
+        enableXfwm = false;
       };
     };
     displayManager = {
@@ -120,23 +120,23 @@
         enable = false;
         #package = pkgs.i3-gaps;
         extraPackages = with pkgs; [
-          dmenu # application launcher most people use
-          i3status # gives you the default i3 status bar
-          i3-gaps
-          i3a
-          picom
-          dunst
-          rofi
-          rofi-power-menu
-          polybarFull
-          unclutter
-          pywal
+         # dmenu # application launcher most people use
+         # i3status # gives you the default i3 status bar
+         # i3-gaps
+         # i3a
+         # picom
+         # dunst
+         # rofi
+         # rofi-power-menu
+         # polybarFull
+         # unclutter
+         # pywal
           lxappearance
-          numlockx
+         # numlockx
           libnotify
-          xorg.xev
+         # xorg.xev
           feh
-          xclip
+         # xclip
         ];
       };
     };
@@ -291,7 +291,7 @@
   };
 
   #services.emacs.install = true;
-  #services.emacs.enable = true;
+  services.emacs.enable = true;
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 

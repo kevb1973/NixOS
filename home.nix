@@ -27,33 +27,34 @@
     anydesk
     appeditor
     beebeep
-    broot
-    cheat
+    # broot
+    # cheat
     fishPlugins.tide
     gcc
     gnome.gnome-clocks
     gnome.file-roller
     gucharmap
     jgmenu
-   # kde-gtk-config
+    # kde-gtk-config
     logseq
     mplayer
     ncdu
     ncpamixer
     newsboat
     nix-prefetch-git
-    nvd
+    # nvd
     obsidian
     pamixer
     pavucontrol
     playerctl
     pulsemixer
     ripgrep
-    rust-analyzer
+    # rust-analyzer
     speedcrunch
     spotify
     stow
     telegram-desktop
+    # typst
     xfce.thunar-archive-plugin
     xfce.thunar-volman
     wakeonlan
@@ -120,6 +121,11 @@
       shellIntegration.enableFishIntegration = true;
       # Use "kitty +kitten themes" to view available themes
       theme = "Tokyo Night";
+      settings = {
+        confirm_os_window_close = 0;
+        scrollback_lines = 10000;
+        enable_audio_bell = false;
+      };
     };
     mpv.enable = true;
     ncspot.enable = true;

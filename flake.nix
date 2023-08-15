@@ -6,7 +6,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
-  
+
   outputs = inputs@{ nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
       halcyon = nixpkgs.lib.nixosSystem {
@@ -18,11 +18,11 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.kev= import ./home.nix;
+            home-manager.users.kev = import ./home.nix;
           }
         ];
       };
     };
   };
 }
- 
+

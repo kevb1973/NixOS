@@ -79,6 +79,9 @@
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=10s
   '';
+  # Disable systemd "wait online" as it gets stuck waiting for connection on 2nd NIC
+  systemd.network.wait-online.enable = false;
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   # Auto optimize nix store.
   nix.settings.auto-optimise-store = true;

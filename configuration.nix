@@ -45,9 +45,18 @@
       };
     };
     tmp.useTmpfs = true;
+    kernelModules = ["amd-pstate"];
     kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = [
+      #"initcall_blacklist=acpi_cpufreq_init"
+      #"amd_pstate=active"
+      "nowatchdog"
+      "nmi_watchdog=0"
+      "quiet"
+    ];
   };
 
+  powerManagement.enable = true;
   networking.hostName = "halcyon"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 

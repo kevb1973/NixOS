@@ -42,7 +42,7 @@
     ncpamixer
     newsboat
     nix-prefetch-git
-    # nvd
+    nvd
     obsidian
     pamixer
     pavucontrol

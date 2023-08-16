@@ -35,6 +35,7 @@
     gnome.file-roller
     gucharmap
     jgmenu
+    lazygit
     # kde-gtk-config
     logseq
     mplayer

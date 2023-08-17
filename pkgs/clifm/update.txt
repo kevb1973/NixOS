@@ -6,7 +6,7 @@ First, unlink the old result. Garbage collect to remove from store.
 > nix-collect-garbage -d (del-user-gens)
 
 Get the hash for the new version.
-> nix-prefetch-git --url https://github.com/leo-arch/clifm --rev "v1.12"
+> nix-prefetch-git --url https://github.com/leo-arch/clifm --rev "v1.13"
 
 Edit the default.nix to add the new version number and hash.
 

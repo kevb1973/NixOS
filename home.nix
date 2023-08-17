@@ -55,7 +55,7 @@
     spotify
     stow
     telegram-desktop
-    # typst
+    thunderbird
     xfce.thunar-archive-plugin
     xfce.thunar-volman
     wakeonlan

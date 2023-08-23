@@ -242,7 +242,6 @@
           # $ nix search nixpkgs#wget
           environment.systemPackages = with pkgs; [
             (callPackage ./pkgs/clifm { })
-            inputs.nix-software-center.packages.${system}.nix-software-center
             alsa-utils
             atool
             distrobox

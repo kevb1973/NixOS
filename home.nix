@@ -25,12 +25,13 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     anydesk
+    any-nix-shell
     appeditor
     beebeep
     # broot
     # cheat
-    fishPlugins.tide
-    gcc
+    # fishPlugins.tide
+    # gcc
     gnome.gnome-clocks
     gnome.file-roller
     gucharmap
@@ -41,7 +42,7 @@
     mplayer
     ncdu
     ncpamixer
-    newsboat
+    # newsboat
     nix-prefetch-git
     nvd
     obsidian
@@ -113,7 +114,7 @@
   #    };
   #  };
     fzf.enable = true;
-    gitui.enable = true;
+    gitui.enable = false;
     firefox.enable = true;
     kitty = {
       enable = true;

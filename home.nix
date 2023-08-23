@@ -30,6 +30,7 @@
     beebeep
     # broot
     # cheat
+    emacs29
     # fishPlugins.tide
     # gcc
     gnome.gnome-clocks
@@ -51,7 +52,9 @@
     playerctl
     pulsemixer
     ripgrep
+    rofimoji
     # rust-analyzer
+    shadowfox
     speedcrunch
     spotify
     stow
@@ -96,7 +99,7 @@
   # Let Home Manager install and manage itself.
   programs = {
     btop.enable = true;
-    emacs.enable = true;
+  # emacs.enable = true;
     exa.enable = true;
     home-manager.enable = true;
     waybar.enable = true;
@@ -115,7 +118,10 @@
   #  };
     fzf.enable = true;
     gitui.enable = false;
-    firefox.enable = true;
+    firefox = {
+      enable = true;
+  #   package = pkgs.firefox-wayland;
+      };
     kitty = {
       enable = true;
       font.name = "FiraCode Nerd Font";

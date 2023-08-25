@@ -44,6 +44,7 @@
     ncdu
     ncpamixer
     # newsboat
+    neofetch
     nix-prefetch-git
     nvd
     obsidian

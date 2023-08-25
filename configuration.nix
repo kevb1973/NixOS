@@ -5,7 +5,7 @@
 { pkgs, inputs, ... }:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [ 
   ./hardware-configuration.nix
   ./sway.nix
   ];
@@ -75,13 +75,37 @@
     # Select internationalisation properties.
     i18n.defaultLocale = "en_CA.UTF-8";
 
-    # Change default stop job timeout for systemd (default is 90s)
-    systemd.extraConfig = ''
-      DefaultTimeoutStopSec=10s
-    '';
-    # Disable systemd "wait online" as it gets stuck waiting for connection on 2nd NIC
-    systemd.network.wait-online.enable = false;
-    systemd.services.NetworkManager-wait-online.enable = false;
+    # Portals for flatpaks etc.
+    xdg = {
+      portal = {
+        enable = true;
+        extraPortals = with pkgs; [
+          xdg-desktop-portal-wlr
+          xdg-desktop-portal-gtk
+        ];
+      };
+    };
+
+    systemd = {
+      user.services.polkit-gnome-authentication-agent-1 = {
+        description = "polkit-gnome-authentication-agent-1";
+        wantedBy = [ "graphical-session.target" ];
+        wants = [ "graphical-session.target" ];
+        after = [ "graphical-session.target" ];
+        serviceConfig = {
+          Type = "simple";
+          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+          Restart = "on-failure";
+          RestartSec = 1;
+          TimeoutStopSec = 10;
+        };
+      };
+      extraConfig = ''
+        DefaultTimeoutStopSec=10s
+      '';
+      network.wait-online.enable = false; # Disable systemd "wait online" as it gets stuck waiting for connection on 2nd NIC
+      services.NetworkManager-wait-online.enable = false;
+    };
 
     # Auto optimize nix store.
     nix.settings.auto-optimise-store = true;
@@ -173,7 +197,6 @@
 
     #DBus service for accessing list of user a/c and info about them. (needed for clifm)
     services.accounts-daemon.enable = true;
-
     #Avahi daemon
     #services.avahi.enable = true;
     # Enable Bluetooth Services for Window Managers
@@ -227,106 +250,119 @@
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
     #nixpkgs.config.permittedInsecurePackages = [ "electron-21.4.0" ];
+    
+    environment.pathsToLink = [ "/libexec" ]; #enable polkit
 
-    #nixpkgs.overlays = [
-      #  (self: super: {
-        #    waybar = super.waybar.overrideAttrs (oldAttrs: {
-          #      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-          #    });
-          #  })
-          #];
+    # List packages installed in system profile. To search, run:
+    # $ nix search nixpkgs#wget
+    environment.systemPackages = with pkgs; [
+      (callPackage ./pkgs/clifm { })
+      alsa-utils
+      atool
+      bemenu
+      distrobox
+      dracula-theme
+      fd
+      gammastep
+      glib
+      gitFull
+      gnome.adwaita-icon-theme
+      gnome.zenity
+      grim
+      handlr
+      helix
+      htop
+      jdk
+      killall
+      libinput
+      lua
+      mako
+      mfcl2700dnlpr
+      mfcl2700dncupswrapper
+      neovim
+      nil
+      nixfmt
+      nodejs
+      nodePackages.bash-language-server
+      os-prober
+      # podman
+      python3
+      slurp
+      sox
+      #sway
+      swaybg
+      swayidle
+      swaylock
+      swaynotificationcenter
+      unar
+      unzip
+      vifm-full
+      virtualenv
+      waybar
+      wayland
+      wget
+      wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+      wofi
+      xdg-utils # for openning default programms when clicking links
+    ];
 
-          # == System Packages == #
+    programs = {
+      command-not-found.enable = false;
+      dconf.enable = true;
+      fish.enable = true;
+      #gpaste.enable = true;
+      kdeconnect.enable = false;
+      #neovim.defaultEditor = true;
+      neovim.vimAlias = true;
+      ssh.startAgent = true;
+      sway = {
+        enable = true;
+        wrapperFeatures.gtk = true;
+      };
+    };
 
-          # List packages installed in system profile. To search, run:
-          # $ nix search nixpkgs#wget
-          environment.systemPackages = with pkgs; [
-            (callPackage ./pkgs/clifm { })
-            alsa-utils
-            atool
-            distrobox
-            fd
-            gitFull
-            gnome.zenity
-            handlr
-            helix
-            htop
-            jdk
-            killall
-            libinput
-            lua
-            mfcl2700dnlpr
-            mfcl2700dncupswrapper
-            neovim
-            nil
-            nixfmt
-            nodejs
-            nodePackages.bash-language-server
-            os-prober
-            # podman
-            python3
-            screenfetch
-            sox
-            unar
-            unzip
-            vifm-full
-            virtualenv
-            wget
-          ];
+    # Some programs need SUID wrappers, can be configured further or are
+    # started in user sessions.
+    # programs.mtr.enable = true;
+    # programs.gnupg.agent = {
+      #   enable = true;
+      #   enableSSHSupport = true;
+      # };
 
-          programs = {
-            command-not-found.enable = false;
-            dconf.enable = true;
-            fish.enable = true;
-            #gpaste.enable = true;
-            kdeconnect.enable = false;
-            #neovim.defaultEditor = true;
-            neovim.vimAlias = true;
-            ssh.startAgent = true;
-          };
+      # List services that you want to enable:
 
-          # Some programs need SUID wrappers, can be configured further or are
-          # started in user sessions.
-          # programs.mtr.enable = true;
-          # programs.gnupg.agent = {
-            #   enable = true;
-            #   enableSSHSupport = true;
-            # };
+      services = {
+        fstrim = {
+          enable = true;
+          interval = "weekly"; # the default
+        };
+        geoclue2.enable = true;
+      };
 
-            # List services that you want to enable:
+      services.emacs.enable = false;
 
-            services = {
-              fstrim = {
-                enable = true;
-                interval = "weekly"; # the default
-              };
-              geoclue2.enable = true;
-            };
+      services.freshrss = {
+        enable = true;
+        baseUrl = "http://freshrss";
+        defaultUser = "kev";
+        passwordFile = "/run/secrets/freshrss";
+        authType = "none";
+      };
+      # Enable the OpenSSH daemon.
+      # services.openssh.enable = true;
 
-            services.emacs.enable = false;
+      # Open ports in the firewall.
+      # networking.firewall.allowedTCPPorts = [ 80 ];
+      # networking.firewall.allowedUDPPorts = [ ... ];
+      # Or disable the firewall altogether.
+      # networking.firewall.enable = false;
 
-            services.freshrss = {
-              enable = true;
-              baseUrl = "http://freshrss";
-              defaultUser = "kev";
-              passwordFile = "/run/secrets/freshrss";
-              authType = "none";
-            };
-            # Enable the OpenSSH daemon.
-            # services.openssh.enable = true;
-
-            # Open ports in the firewall.
-            # networking.firewall.allowedTCPPorts = [ 80 ];
-            # networking.firewall.allowedUDPPorts = [ ... ];
-            # Or disable the firewall altogether.
-            # networking.firewall.enable = false;
-
-            # This value determines the NixOS release from which the default
-            # settings for stateful data, like file locations and database versions
-            # on your system were taken. It‘s perfectly fine and recommended to leave
-            # this value at the release version of the first install of this system.
-            # Before changing this value read the documentation for this option
-            # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-            system.stateVersion = "22.11"; # Did you read the comment?
+      # This value determines the NixOS release from which the default
+      # settings for stateful data, like file locations and database versions
+      # on your system were taken. It‘s perfectly fine and recommended to leave
+      # this value at the release version of the first install of this system.
+      # Before changing this value read the documentation for this option
+      # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+      system.stateVersion = "22.11"; # Did you read the comment?
 
 }

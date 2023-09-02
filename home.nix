@@ -25,18 +25,23 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     anydesk
-    any-nix-shell
+    # any-nix-shell
     appeditor
     beebeep
     # broot
-    # cheat
+    calibre
+    cheat
     emacs29
+    feh
+    firefox-devedition
     # fishPlugins.tide
     # gcc
     gnome.gnome-clocks
     gnome.file-roller
     gucharmap
+    gvfs
     jgmenu
+    jq
     lazygit
     # kde-gtk-config
     logseq
@@ -53,19 +58,22 @@
     playerctl
     pulsemixer
     ripgrep
-    rofimoji
     # rust-analyzer
     shadowfox
+    sl
     speedcrunch
     spotify
     stow
     telegram-desktop
+    xfce.thunar
+    xfce.thunar-volman
     thunderbird
     xfce.thunar-archive-plugin
     xfce.thunar-volman
-    wakeonlan
-    websocat
+    wakeonlan # fro lgtv control
+    websocat # for lgtv control
     wev
+    wtype # for wofi-emoji
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -99,11 +107,12 @@
 
   # Let Home Manager install and manage itself.
   programs = {
+    bat.enable = true;
     btop.enable = true;
   # emacs.enable = true;
     exa.enable = true;
-    home-manager.enable = true;
-    waybar.enable = true;
+    fzf.enable = true;
+    gitui.enable = false;
   #  helix = {
   #    enable = true;
   #    settings = {
@@ -117,12 +126,7 @@
   #      };
   #    };
   #  };
-    fzf.enable = true;
-    gitui.enable = false;
-    firefox = {
-      enable = true;
-  #   package = pkgs.firefox-wayland;
-      };
+    home-manager.enable = true;
     kitty = {
       enable = true;
       font.name = "FiraCode Nerd Font";
@@ -138,9 +142,31 @@
     };
     mpv.enable = true;
     ncspot.enable = true;
+    starship = {
+      enable = true;
+      settings = {
+        add_newline = false;
+        format = "$shlvl$shell$username$hostname$nix_shell$git_branch$git_commit$git_state$git_status$directory$jobs$cmd_duration$character";
+        shlvl = {
+          disabled = false;
+          symbol = "↓";
+          style = "bright-red bold";
+        };
+        shell = {
+          disabled = false;
+          format = "$indicator";
+          fish_indicator = "";
+          bash_indicator = "[BASH](bright-white) ";
+        };
+        username = {
+          style_user = "bright-white bold";
+          style_root = "bright-red bold";
+        };
+      };
+    };
+    waybar.enable = true;
     yt-dlp.enable = true;
     zathura.enable = true;
-    bat.enable = true;
   };
 
   services = {

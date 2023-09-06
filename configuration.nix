@@ -123,16 +123,21 @@
     enable = true;
     settings = {
       default_session = {
-        command = "cage -s -- gtkgreet";
+        command = "cage -s -- gtkgreet -l -b ";
         user = "greeter";
       };
     };
   };
 
   environment.etc = {
-    "greetd/environments".text = ''Hyprland sway fish'';
+    "greetd/environments".text = ''
+      Hyprland
+      sway
+      fish
+      '';
     "xdg/gtk-3.0".source = ./gtk-3.0;
     "xdg/gtk-4.0".source = ./gtk-4.0;
+    "xdg/wallpaper".source = ./wallpaper;
   };
 
   services.xserver = {

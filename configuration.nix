@@ -123,7 +123,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "cage -s -- gtkgreet -l -b ";
+        command = "cage -s -- gtkgreet -l -b /etc/xdg/wallpaper/nix-wallpaper-simple-dark-gray_bottom.png";
         user = "greeter";
       };
     };

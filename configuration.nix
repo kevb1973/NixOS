@@ -122,20 +122,18 @@
   services.greetd = {
     enable = true;
     settings = {
-      default_session.command = ''
-        ${pkgs.greetd.tuigreet}/bin/tuigreet \
-          --time \
-          --asterisks \
-          --user-menu \
-          --cmd sway
-      '';
+      default_session = {
+        command = "cage -s -- gtkgreet";
+        user = "greeter";
+      };
     };
   };
 
-  environment.etc."greetd/environments".text = ''
-    sway
-    fish
-  '';
+  environment.etc = {
+    "greetd/environments".text = ''Hyprland sway fish'';
+    "xdg/gtk-3.0".source = ./gtk-3.0;
+    "xdg/gtk-4.0".source = ./gtk-4.0;
+  };
 
   services.xserver = {
     enable = false;
@@ -275,8 +273,10 @@
   environment.systemPackages = with pkgs; [
     (callPackage ./pkgs/clifm { })
     alsa-utils
+    anydesk
     atool
     bemenu
+    cage
     distrobox
     dracula-theme
     fd
@@ -286,6 +286,7 @@
     gnome.adwaita-icon-theme
     gnome.zenity
     grim
+    greetd.gtkgreet
     handlr
     helix
     home-manager
@@ -302,11 +303,13 @@
     nixfmt
     nodejs
     nodePackages.bash-language-server
+    # obsidian
     os-prober
     # podman
     python3
     slurp
     sox
+    #spotify
     #sway
     swaybg
     swayidle
@@ -341,11 +344,11 @@
   };
 
   # Thunar Setup
-  programs.thunar.enable = true;
-  programs.thunar.plugins = with pkgs.xfce; [
-    thunar-archive-plugin
-    thunar-volman
-  ];
+  # programs.thunar.enable = true;
+  # programs.thunar.plugins = with pkgs.xfce; [
+  #   thunar-archive-plugin
+  #   thunar-volman
+  # ];
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
 

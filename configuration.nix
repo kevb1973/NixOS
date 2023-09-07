@@ -264,7 +264,66 @@
     description = "kev";
     extraGroups = [ "networkmanager" "wheel" "kvm" "libvirtd" "input" "audio" ];
     shell = pkgs.fish;
-    #  packages = with pkgs; [ ];
+    packages = with pkgs; [
+      appeditor
+      bat
+      beebeep
+      # broot
+      btop
+      calibre
+      cheat
+      # cowsay
+      emacs29-pgtk
+      emacs-all-the-icons-fonts
+      exa
+      feh
+      firefox-devedition
+      fzf
+      vimPlugins.firenvim
+      fishPlugins.tide
+      foliate
+      gammastep
+      # gcc
+      gnome.gnome-clocks
+      gnome.file-roller
+      gucharmap
+      hyprland
+      jgmenu
+      jq
+      kitty
+      lazygit
+      logseq
+      mplayer
+      ncdu
+      ncpamixer
+      neofetch
+      nix-prefetch-git
+      nvd
+      nwg-menu
+      nwg-drawer
+      obsidian
+      pamixer
+      pavucontrol
+      playerctl
+      pulsemixer
+      ripgrep
+      shadowfox
+      sl
+      speedcrunch
+      stow
+      swww
+      telegram-desktop
+      thunderbird
+      wakeonlan # fro lgtv control
+      waybar
+      waypaper
+      websocat # for lgtv control
+      wev
+      wtype # for wofi-emoji
+      yt-dlp
+      zathura
+
+    ];
   };
 
   # Allow unfree packages
@@ -294,7 +353,6 @@
     greetd.gtkgreet
     handlr
     helix
-    home-manager
     htop
     jdk
     killall

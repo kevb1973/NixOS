@@ -202,8 +202,9 @@
   qt.platformTheme = "gnome";
   # Enable Fonts
   fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk
+    alegreya
+    fira-code
+    # noto-fonts
     noto-fonts-emoji
     roboto
     roboto-mono
@@ -338,6 +339,7 @@
     (callPackage ./pkgs/clifm { })
     alsa-utils
     anydesk
+    archiver
     atool
     bemenu
     cage
@@ -397,7 +399,9 @@
     #gpaste.enable = true;
     kdeconnect.enable = false;
     #neovim.defaultEditor = true;
-    neovim.vimAlias = true;
+    neovim = {
+      vimAlias = true;
+    };
     ssh.startAgent = true;
     sway = {
       enable = true;
@@ -407,11 +411,12 @@
   };
 
   # Thunar Setup
-  # programs.thunar.enable = true;
-  # programs.thunar.plugins = with pkgs.xfce; [
-  #   thunar-archive-plugin
-  #   thunar-volman
-  # ];
+   programs.thunar.enable = true;
+   programs.thunar.plugins = with pkgs.xfce; [
+     thunar-archive-plugin
+     thunar-volman
+   ];
+
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
 

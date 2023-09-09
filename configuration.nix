@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, lib, ... }:
 
 {
   imports = [ ./hardware-configuration.nix ./sway.nix ];
@@ -53,7 +53,11 @@
     ];
   };
 
-  powerManagement.enable = true;
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = lib.mkDefault "performance";
+  };
+
   networking.hostName = "halcyon"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -273,7 +277,7 @@
       btop
       calibre
       cheat
-      # cowsay
+      cliphist
       emacs29-pgtk
       emacs-all-the-icons-fonts
       exa
@@ -284,7 +288,7 @@
       fishPlugins.tide
       foliate
       gammastep
-      # gcc
+      gcc
       gnome.gnome-clocks
       gnome.file-roller
       gucharmap
@@ -294,17 +298,17 @@
       kitty
       lazygit
       logseq
+      gnumake
       mplayer
       ncdu
       ncpamixer
       neofetch
       nix-prefetch-git
       nvd
-      nwg-menu
-      nwg-drawer
       obsidian
       pamixer
       pavucontrol
+      pistol #file preview for clifm
       playerctl
       pulsemixer
       ripgrep
@@ -343,6 +347,7 @@
     atool
     bemenu
     cage
+    cliphist
     distrobox
     dracula-theme
     fd
@@ -360,7 +365,6 @@
     killall
     libinput
     lua
-    mako
     mfcl2700dnlpr
     mfcl2700dncupswrapper
     neovim
@@ -372,6 +376,8 @@
     os-prober
     # podman
     python3
+    libsForQt5.qt5.qtwayland
+    qt6.qtwayland
     slurp
     sox
     #spotify

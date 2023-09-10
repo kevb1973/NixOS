@@ -110,24 +110,27 @@
     services.NetworkManager-wait-online.enable = false;
   };
 
-  # Auto optimize nix store.
-  nix.settings.auto-optimise-store = true;
-
-  # Pin nixpkgs to speed up nix commands
-  nix.registry.nixpkgs.flake = inputs.nixpkgs;
-
-  # Auto discard system generations
-  nix.gc = {
-    automatic = true;
-    dates = "daily";
-    options = "--delete-older-than 2d";
+  nix = {
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+    gc = { # Auto discard system generations
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 2d";
+    };
+    nixPath = [ "/etc/nix/inputs" ]; #Fix <nixpkgs> for flakes. See environment.etc."nix/inputs/nixpkgs"
+    package = pkgs.nixFlakes;
+    registry.nixpkgs.flake = inputs.nixpkgs; # Pin nixpkgs to speed up nix commands
+    settings.auto-optimise-store = true; # Auto optimize nix store.
   };
 
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "cage -s -- gtkgreet -l -b /etc/xdg/wallpaper/nix-wallpaper-simple-dark-gray_bottom.png";
+        command =
+          "cage -s -- gtkgreet -l -b /etc/xdg/wallpaper/nix-wallpaper-simple-dark-gray_bottom.png";
         user = "greeter";
       };
     };
@@ -138,10 +141,11 @@
       Hyprland
       sway
       fish
-      '';
+    '';
     "xdg/gtk-3.0".source = ./gtk-3.0;
     "xdg/gtk-4.0".source = ./gtk-4.0;
     "xdg/wallpaper".source = ./wallpaper;
+    "nix/inputs/nixpkgs".source = "${inputs.nixpkgs}"; # needed to fix <nixpkgs> on flake. See also nix.nixPath
   };
 
   services.xserver = {
@@ -248,13 +252,6 @@
     #media-session.enable = true;
   };
 
-  nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
-
   # Setup podman for distrobox
   virtualisation.podman.enable = true;
   virtualisation.podman.dockerCompat = true;
@@ -308,7 +305,7 @@
       obsidian
       pamixer
       pavucontrol
-      pistol #file preview for clifm
+      pistol # file preview for clifm
       playerctl
       pulsemixer
       ripgrep
@@ -406,9 +403,7 @@
     #gpaste.enable = true;
     kdeconnect.enable = false;
     #neovim.defaultEditor = true;
-    neovim = {
-      vimAlias = true;
-    };
+    neovim = { vimAlias = true; };
     ssh.startAgent = true;
     sway = {
       enable = true;
@@ -418,11 +413,11 @@
   };
 
   # Thunar Setup
-   programs.thunar.enable = true;
-   programs.thunar.plugins = with pkgs.xfce; [
-     thunar-archive-plugin
-     thunar-volman
-   ];
+  programs.thunar.enable = true;
+  programs.thunar.plugins = with pkgs.xfce; [
+    thunar-archive-plugin
+    thunar-volman
+  ];
 
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images

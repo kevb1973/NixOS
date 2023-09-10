@@ -365,6 +365,7 @@
     killall
     libinput
     lua
+    materia-theme
     mfcl2700dnlpr
     mfcl2700dncupswrapper
     neovim

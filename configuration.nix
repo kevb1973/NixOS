@@ -245,7 +245,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -264,10 +264,11 @@
   users.users.kev = {
     isNormalUser = true;
     description = "kev";
-    extraGroups = [ "networkmanager" "wheel" "kvm" "libvirtd" "input" "audio" ];
+    extraGroups = [ "networkmanager" "adbusers" "wheel" "kvm" "libvirtd" "input" "audio" ];
     shell = pkgs.fish;
     packages = with pkgs; [
       appeditor
+      android-tools
       bat
       beebeep
       # broot
@@ -275,11 +276,11 @@
       calibre
       cheat
       cliphist
-      emacs29-pgtk
+      emacs29
       emacs-all-the-icons-fonts
-      exa
+      eza
       feh
-      firefox-devedition
+      firefox-beta
       fzf
       vimPlugins.firenvim
       fishPlugins.tide
@@ -316,6 +317,7 @@
       swww
       telegram-desktop
       thunderbird
+      virt-manager
       wakeonlan # fro lgtv control
       waybar
       waypaper
@@ -397,11 +399,12 @@
   ];
 
   programs = {
+    adb.enable = true;
     command-not-found.enable = false;
     dconf.enable = true;
     fish.enable = true;
     #gpaste.enable = true;
-    kdeconnect.enable = false;
+    kdeconnect.enable = true;
     #neovim.defaultEditor = true;
     neovim = { vimAlias = true; };
     ssh.startAgent = true;

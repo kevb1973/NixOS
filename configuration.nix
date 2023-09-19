@@ -343,6 +343,7 @@
       swww
       tartube # front end for yt-dlp
       telegram-desktop
+      tree-sitter
       thunderbird
       virt-manager
       wakeonlan # fro lgtv control

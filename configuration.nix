@@ -35,12 +35,11 @@
         enable = true;
         copyKernels = true;
         efiSupport = true;
-        # splashImage = ./backgrounds/grub-nixos-3.png;
-        # splashMode = "stretch";
         devices = [ "nodev" ];
         useOSProber = true;
       };
     };
+
     tmp.useTmpfs = true;
     kernelModules = [ "amd-pstate" ];
     kernelPackages = pkgs.linuxPackages_latest;
@@ -51,6 +50,8 @@
       "nmi_watchdog=0"
       "quiet"
     ];
+    # Below setting needed as system state ver < 23.11
+    swraid.enable = false;
   };
 
   powerManagement = {
@@ -58,7 +59,13 @@
     cpuFreqGovernor = lib.mkDefault "performance";
   };
 
-  networking.hostName = "halcyon"; # Define your hostname.
+  networking = {
+    hostName = "halcyon";
+    nameservers = [ "9.9.9.9" "2620:fe::fe" ];
+    dhcpcd.extraConfig = "nohook resolv.conf";
+    networkmanager.dns = "none";
+  };
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -119,9 +126,12 @@
       dates = "daily";
       options = "--delete-older-than 2d";
     };
-    nixPath = [ "/etc/nix/inputs" ]; #Fix <nixpkgs> for flakes. See environment.etc."nix/inputs/nixpkgs"
+    nixPath = [
+      "/etc/nix/inputs"
+    ]; # Fix <nixpkgs> for flakes. See environment.etc."nix/inputs/nixpkgs"
     package = pkgs.nixFlakes;
-    registry.nixpkgs.flake = inputs.nixpkgs; # Pin nixpkgs to speed up nix commands
+    registry.nixpkgs.flake =
+      inputs.nixpkgs; # Pin nixpkgs to speed up nix commands
     settings.auto-optimise-store = true; # Auto optimize nix store.
   };
 
@@ -145,7 +155,22 @@
     "xdg/gtk-3.0".source = ./gtk-3.0;
     "xdg/gtk-4.0".source = ./gtk-4.0;
     "xdg/wallpaper".source = ./wallpaper;
-    "nix/inputs/nixpkgs".source = "${inputs.nixpkgs}"; # needed to fix <nixpkgs> on flake. See also nix.nixPath
+    "nix/inputs/nixpkgs".source =
+      "${inputs.nixpkgs}"; # needed to fix <nixpkgs> on flake. See also nix.nixPath
+  };
+
+  # TODO: Consolidate services under this section.
+  services = {
+    # resolved = {
+    #   enable = true;
+    #   dnssec = "true";
+    #   domains = [ "~." ];
+    #   fallbackDns = [  "9.9.9.9" "2620:fe::fe" ];
+    #   extraConfig = ''
+    #    DNSOverTLS=yes
+    #  '';
+    #};
+
   };
 
   services.xserver = {
@@ -264,7 +289,8 @@
   users.users.kev = {
     isNormalUser = true;
     description = "kev";
-    extraGroups = [ "networkmanager" "adbusers" "wheel" "kvm" "libvirtd" "input" "audio" ];
+    extraGroups =
+      [ "networkmanager" "adbusers" "wheel" "kvm" "libvirtd" "input" "audio" ];
     shell = pkgs.fish;
     packages = with pkgs; [
       appeditor
@@ -315,6 +341,7 @@
       speedcrunch
       stow
       swww
+      tartube # front end for yt-dlp
       telegram-desktop
       thunderbird
       virt-manager

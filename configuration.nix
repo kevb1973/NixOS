@@ -300,6 +300,7 @@
       # broot
       btop
       calibre
+      cargo
       cheat
       cliphist
       emacs29
@@ -327,6 +328,7 @@
       ncdu
       ncpamixer
       neofetch
+      neovide #nvim gui front end
       nix-prefetch-git
       nvd
       obsidian
@@ -336,10 +338,12 @@
       playerctl
       pulsemixer
       ripgrep
+      scrcpy
       shadowfox
       sl
       speedcrunch
       stow
+      stylua
       swww
       tartube # front end for yt-dlp
       telegram-desktop

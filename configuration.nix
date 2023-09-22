@@ -7,24 +7,30 @@
 {
   imports = [ ./hardware-configuration.nix ./sway.nix ];
 
-  # Hardware Tweaks
-  hardware.cpu.amd.updateMicrocode = true;
-  hardware.enableAllFirmware = true;
-  hardware.enableRedistributableFirmware = true;
-  hardware.opengl.enable = true;
-  # Vulcan
-  hardware.opengl.driSupport = true;
-  # For 32 bit applications
-  hardware.opengl.driSupport32Bit = true;
-  #hardware.opengl.extraPackages = with pkgs; [
-  #  rocm-opencl-icd
-  #  rocm-opencl-runtime
-  #];
+  hardware = {
+    bluetooth.enable = true;
+    cpu.amd.updateMicrocode = true;
+    enableAllFirmware = true;
+    enableRedistributableFirmware = true;
+    opengl = {
+      enable = true;
+      # Vulcan
+      driSupport = true;
+      driSupport32Bit = true;
+      #extraPackages = with pkgs; [
+      #  rocm-opencl-icd
+      #  rocm-opencl-runtime
+      #];
+    };
+  };
 
   # Bootloader.
 
   boot = {
-    initrd.kernelModules = [ "amdgpu" ];
+    initrd = {
+      kernelModules = [ "amdgpu" ];
+      systemd.network.wait-online.enable = false;
+    };
     loader = {
       systemd-boot.enable = false;
       efi = {
@@ -63,24 +69,14 @@
     hostName = "halcyon";
     nameservers = [ "9.9.9.9" "2620:fe::fe" ];
     dhcpcd.extraConfig = "nohook resolv.conf";
+    firewall.allowedTCPPorts = [ 80 2121 2234 6475 6476 ];
+    firewall.allowedUDPPorts = [ 36475 ];
     networkmanager.dns = "none";
+    networkmanager.enable = true;
+    wireless.enable = false;  # Enables wireless support via wpa_supplicant.
   };
 
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-  networking.firewall.allowedTCPPorts = [ 80 2121 2234 6475 6476 ];
-  networking.firewall.allowedUDPPorts = [ 36475 ];
-
-  # Set your time zone.
   time.timeZone = "America/Toronto";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
 
   # Portals for flatpaks etc.
@@ -112,8 +108,7 @@
     extraConfig = ''
       DefaultTimeoutStopSec=10s
     '';
-    network.wait-online.enable =
-      false; # Disable systemd "wait online" as it gets stuck waiting for connection on 2nd NIC
+    network.wait-online.enable = false; # Disable systemd "wait online" as it gets stuck waiting for connection on 2nd NIC
     services.NetworkManager-wait-online.enable = false;
   };
 
@@ -135,16 +130,6 @@
     settings.auto-optimise-store = true; # Auto optimize nix store.
   };
 
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command =
-          "cage -s -- gtkgreet -l -b /etc/xdg/wallpaper/nix-wallpaper-simple-dark-gray_bottom.png";
-        user = "greeter";
-      };
-    };
-  };
 
   environment.etc = {
     "greetd/environments".text = ''
@@ -159,78 +144,102 @@
       "${inputs.nixpkgs}"; # needed to fix <nixpkgs> on flake. See also nix.nixPath
   };
 
-  # TODO: Consolidate services under this section.
   services = {
-    # resolved = {
-    #   enable = true;
-    #   dnssec = "true";
-    #   domains = [ "~." ];
-    #   fallbackDns = [  "9.9.9.9" "2620:fe::fe" ];
-    #   extraConfig = ''
-    #    DNSOverTLS=yes
-    #  '';
-    #};
 
-  };
-
-  services.xserver = {
-    enable = false;
-    layout = "us";
-    xkbVariant = "";
-    libinput.mouse = {
-      accelProfile = "flat";
-      accelSpeed = "1.2";
-      # buttonMapping = "1 8 3 4 5 6 7 2 9";
-      # scrollMethod = "button";
-      # scrollButton = 3;
+    freshrss = {
+      enable = true;
+      baseUrl = "http://freshrss";
+      defaultUser = "kev";
+      passwordFile = "/run/secrets/freshrss";
+      authType = "none";
     };
-    desktopManager = {
-      xterm.enable = false;
-      gnome.enable = false;
-      xfce = {
-        enable = false;
-        enableXfwm = false;
+
+    fstrim = {
+      enable = true;
+      interval = "weekly"; # the default
+    };
+
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command =
+            "cage -s -- gtkgreet -l -b /etc/xdg/wallpaper/nix-wallpaper-simple-dark-gray_bottom.png";
+          user = "greeter";
+        };
       };
     };
-    displayManager = {
-      #startx.enable = true; # console login
-      #gdm.enable = true;
-      #gdm.wayland= true;
-      #lightdm.enable = true;
-      #sddm.enable = true;
-      #lightdm.greeters.slick.enable = true;
-      #defaultSession = "none+i3";
-      #defaultSession = "xfce+i3";
+
+    accounts-daemon.enable = true;
+    blueman.enable = true;
+    flatpak.enable = true;
+    geoclue2.enable = true;
+    gvfs.enable = true; # Mount, trash, and other functionalities
+    openssh.enable = false;
+    printing.drivers = [ pkgs.brlaser ];
+    printing.enable = true;
+    tumbler.enable = true; # Thumbnail support for images
+    
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # If you want to use JACK applications, uncomment this
+      jack.enable = true;
+
+      # use the example session manager (no others are packaged yet so this is enabled by default,
+      # no need to redefine it in your config for now)
+      #media-session.enable = true;
     };
-    videoDrivers = [ "amdgpu" ];
-    deviceSection = ''Option "TearFree" "true"'';
-    windowManager = {
-      i3 = {
-        enable = false;
-        #package = pkgs.i3-gaps;
-        extraPackages = with pkgs; [
-          # dmenu # application launcher most people use
-          # i3status # gives you the default i3 status bar
-          # i3-gaps
-          # i3a
-          # picom
-          # dunst
-          # rofi
-          # rofi-power-menu
-          # polybarFull
-          # unclutter
-          # pywal
-          lxappearance
-          # numlockx
-          libnotify
-          # xorg.xev
-          feh
-          # xclip
-        ];
+
+    xserver = {
+      enable = false;
+      layout = "us";
+      xkbVariant = "";
+      videoDrivers = [ "amdgpu" ];
+      deviceSection = ''Option "TearFree" "true"'';
+
+      desktopManager = {
+        xterm.enable = false;
+        gnome.enable = false;
+        xfce = {
+          enable = false;
+          enableXfwm = false;
+        };
+      };
+
+      libinput.mouse = {
+        accelProfile = "flat";
+        accelSpeed = "1.2";
+        # buttonMapping = "1 8 3 4 5 6 7 2 9";
+        # scrollMethod = "button";
+        # scrollButton = 3;
+      };
+
+      displayManager = {
+        #startx.enable = true; # console login
+        #gdm.enable = true;
+        #gdm.wayland= true;
+        #lightdm.enable = true;
+        #sddm.enable = true;
+        #lightdm.greeters.slick.enable = true;
+        #defaultSession = "none+i3";
+        #defaultSession = "xfce+i3";
+      };
+
+      windowManager = {
+        i3 = {
+          enable = false;
+          extraPackages = with pkgs; [
+            lxappearance
+            libnotify
+            feh
+          ];
+        };
       };
     };
   };
-
   # Set theme for QT apps
   qt.platformTheme = "gnome";
   # Enable Fonts
@@ -245,43 +254,15 @@
     source-code-pro
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
   ];
-  # Enable CUPS to print documents
-  services.printing.enable = true;
-  services.printing.drivers = [ pkgs.brlaser ];
 
-  #DBus service for accessing list of user a/c and info about them. (needed for clifm)
-  services.accounts-daemon.enable = true;
-  #Avahi daemon
-  #services.avahi.enable = true;
-  # Enable Bluetooth Services for Window Managers
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
-
-  #Enable Flatpak
-  services.flatpak.enable = true;
-
-  # Enable sound with pipewire.
-  #  sound.enable = true;
-  #  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
 
   # Setup podman for distrobox
-  virtualisation.podman.enable = true;
-  virtualisation.podman.dockerCompat = true;
-  virtualisation.libvirtd.enable = true;
-
+  virtualisation = {
+    podman.enable = true;
+    podman.dockerCompat = true;
+    libvirtd.enable = true;
+  };
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -293,29 +274,35 @@
       [ "networkmanager" "adbusers" "wheel" "kvm" "libvirtd" "input" "audio" ];
     shell = pkgs.fish;
     packages = with pkgs; [
-      appeditor
+      # broot
       android-tools
+      anydesk
+      appeditor
       bat
       beebeep
-      # broot
+      bemenu
       btop
       calibre
       cargo
       cheat
       cliphist
-      emacs29
+      dracula-theme
       emacs-all-the-icons-fonts
+      emacs29
       eza
+      fd
       feh
       firefox-beta
-      fzf
-      vimPlugins.firenvim
       fishPlugins.tide
       foliate
+      fzf
+      gammastep
       gammastep
       gcc
-      gnome.gnome-clocks
       gnome.file-roller
+      gnome.gnome-clocks
+      gnumake
+      grim
       gucharmap
       hyprland
       jgmenu
@@ -323,7 +310,7 @@
       kitty
       lazygit
       logseq
-      gnumake
+      materia-theme
       mplayer
       ncdu
       ncpamixer
@@ -341,24 +328,33 @@
       scrcpy
       shadowfox
       sl
+      slurp
       speedcrunch
       stow
       stylua
+      swaybg
+      swayidle
+      swaylock
+      swaynotificationcenter
       swww
       tartube # front end for yt-dlp
       telegram-desktop
-      tree-sitter
       thunderbird
+      tree-sitter
+      vimPlugins.firenvim
       virt-manager
       wakeonlan # fro lgtv control
+      waybar
       waybar
       waypaper
       websocat # for lgtv control
       wev
+      wget
+      wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+      wofi
       wtype # for wofi-emoji
       yt-dlp
       zathura
-
     ];
   };
 
@@ -366,96 +362,72 @@
   nixpkgs.config.allowUnfree = true;
   #nixpkgs.config.permittedInsecurePackages = [ "electron-21.4.0" ];
 
-  environment.pathsToLink = [ "/libexec" ]; # enable polkit
 
   # List packages installed in system profile. To search, run:
   # $ nix search nixpkgs#wget
-  environment.systemPackages = with pkgs; [
-    (callPackage ./pkgs/clifm { })
-    alsa-utils
-    anydesk
-    archiver
-    atool
-    bemenu
-    cage
-    cliphist
-    distrobox
-    dracula-theme
-    fd
-    gammastep
-    glib
-    gitFull
-    gnome.adwaita-icon-theme
-    gnome.zenity
-    grim
-    greetd.gtkgreet
-    handlr
-    helix
-    htop
-    jdk
-    killall
-    libinput
-    lua
-    materia-theme
-    mfcl2700dnlpr
-    mfcl2700dncupswrapper
-    neovim
-    nil
-    nixfmt
-    nodejs
-    nodePackages.bash-language-server
-    # obsidian
-    os-prober
-    # podman
-    python3
-    libsForQt5.qt5.qtwayland
-    qt6.qtwayland
-    slurp
-    sox
-    #spotify
-    #sway
-    swaybg
-    swayidle
-    swaylock
-    swaynotificationcenter
-    unar
-    unzip
-    vifm-full
-    virtualenv
-    waybar
-    wayland
-    wget
-    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-    wofi
-    xdg-utils # for openning default programms when clicking links
-  ];
-
+  environment = {
+    pathsToLink = [ "/libexec" ]; # enable polkit
+    systemPackages = with pkgs; [
+      (callPackage ./pkgs/clifm { })
+      alsa-utils
+      archiver
+      atool
+      cage
+      distrobox
+      glib
+      gitFull
+      gnome.adwaita-icon-theme
+      gnome.zenity
+      greetd.gtkgreet
+      handlr
+      helix
+      htop
+      jdk
+      killall
+      libinput
+      lua
+      mfcl2700dnlpr
+      mfcl2700dncupswrapper
+      neovim
+      nil
+      nixfmt
+      nodejs
+      nodePackages.bash-language-server
+      os-prober
+      python3
+      libsForQt5.qt5.qtwayland
+      qt6.qtwayland
+      sox
+      unar
+      unzip
+      vifm-full
+      virtualenv
+      wayland
+      xdg-utils # for openning default programms when clicking links
+    ];
+  };
   programs = {
+    #gpaste.enable = true;
+    #neovim.defaultEditor = true;
     adb.enable = true;
     command-not-found.enable = false;
     dconf.enable = true;
     fish.enable = true;
-    #gpaste.enable = true;
-    kdeconnect.enable = true;
-    #neovim.defaultEditor = true;
+    kdeconnect.enable = false;
     neovim = { vimAlias = true; };
     ssh.startAgent = true;
     sway = {
       enable = true;
       wrapperFeatures.gtk = true;
     };
-
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-volman
+      ];
+    };
   };
-
-  # Thunar Setup
-  programs.thunar.enable = true;
-  programs.thunar.plugins = with pkgs.xfce; [
-    thunar-archive-plugin
-    thunar-volman
-  ];
-
-  services.gvfs.enable = true; # Mount, trash, and other functionalities
-  services.tumbler.enable = true; # Thumbnail support for images
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -464,28 +436,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # List services that you want to enable:
-
-  services = {
-    fstrim = {
-      enable = true;
-      interval = "weekly"; # the default
-    };
-    geoclue2.enable = true;
-  };
-
-  services.emacs.enable = false;
-
-  services.freshrss = {
-    enable = true;
-    baseUrl = "http://freshrss";
-    defaultUser = "kev";
-    passwordFile = "/run/secrets/freshrss";
-    authType = "none";
-  };
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ 80 ];

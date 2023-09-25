@@ -234,7 +234,6 @@
           enable = false;
           extraPackages = with pkgs; [
             lxappearance
-            libnotify
             feh
           ];
         };
@@ -310,7 +309,9 @@
       jq
       kitty
       lazygit
+      libnotify
       logseq
+      mako
       materia-theme
       mplayer
       ncdu
@@ -336,7 +337,6 @@
       swaybg
       swayidle
       swaylock
-      swaynotificationcenter
       swww
       tartube # front end for yt-dlp
       telegram-desktop

@@ -71,9 +71,10 @@
     dhcpcd.extraConfig = "nohook resolv.conf";
     firewall.allowedTCPPorts = [ 80 2121 2234 6475 6476 ];
     firewall.allowedUDPPorts = [ 36475 ];
-    networkmanager.dns = "none";
-    networkmanager.enable = true;
     networkmanager = {
+      enable = true;
+      dns = "none";
+    };
     wireless.enable = false;  # Enables wireless support via wpa_supplicant.
   };
 

@@ -73,6 +73,7 @@
     firewall.allowedUDPPorts = [ 36475 ];
     networkmanager.dns = "none";
     networkmanager.enable = true;
+    networkmanager = {
     wireless.enable = false;  # Enables wireless support via wpa_supplicant.
   };
 

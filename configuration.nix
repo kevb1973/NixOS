@@ -280,6 +280,7 @@
       btop
       calibre
       cargo
+      cava #terminal audio visualizer
       cheat
       cliphist
       dracula-theme
@@ -300,7 +301,7 @@
       gnumake
       grim
       gucharmap
-      hyprland
+      # hyprland
       jgmenu
       jq
       kitty
@@ -324,6 +325,7 @@
       pulsemixer
       ripgrep
       scrcpy
+      sddm-chili-theme
       shadowfox
       sl
       slurp
@@ -334,6 +336,7 @@
       swayidle
       swaylock
       swww
+      syncthing
       tartube # front end for yt-dlp
       telegram-desktop
       thunderbird
@@ -411,6 +414,12 @@
     command-not-found.enable = false;
     dconf.enable = true;
     fish.enable = true;
+
+    hyprland = {
+      enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    };
+
     kdeconnect.enable = false;
     neovim = { vimAlias = true; };
     ssh.startAgent = true;

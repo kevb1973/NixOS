@@ -369,7 +369,6 @@
     pathsToLink = [ "/libexec" ]; # enable polkit
     systemPackages = with pkgs; [
       (callPackage ./pkgs/clifm { })
-      (python310.withPackages(ps: with ps; [pyftpdlib]))
       alsa-utils
       archiver
       atool

@@ -134,11 +134,11 @@
 
 
   environment.etc = {
-    "greetd/environments".text = ''
-      Hyprland
-      sway
-      fish
-    '';
+    # "greetd/environments".text = ''
+    #   Hyprland
+    #   sway
+    #   fish
+    # '';
     "xdg/gtk-3.0".source = ./gtk-3.0;
     "xdg/gtk-4.0".source = ./gtk-4.0;
     "xdg/wallpaper".source = ./wallpaper;
@@ -161,16 +161,16 @@
       interval = "weekly"; # the default
     };
 
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command =
-            "cage -s -- gtkgreet -l -b /etc/xdg/wallpaper/nix-wallpaper-simple-dark-gray_bottom.png";
-          user = "greeter";
-        };
-      };
-    };
+    # greetd = {
+    #   enable = true;
+    #   settings = {
+    #     default_session = {
+    #       command =
+    #         "cage -s -- gtkgreet -l -b /etc/xdg/wallpaper/nix-wallpaper-simple-dark-gray_bottom.png";
+    #       user = "greeter";
+    #     };
+    #   };
+    # };
 
     accounts-daemon.enable = true;
     blueman.enable = true;
@@ -196,7 +196,7 @@
     };
 
     xserver = {
-      enable = false;
+      enable = true;
       layout = "us";
       xkbVariant = "";
       videoDrivers = [ "amdgpu" ];
@@ -211,23 +211,22 @@
         };
       };
 
-      libinput.mouse = {
-        accelProfile = "flat";
-        accelSpeed = "1.2";
-        # buttonMapping = "1 8 3 4 5 6 7 2 9";
-        # scrollMethod = "button";
-        # scrollButton = 3;
+      libinput = {
+        enable = true;
+        mouse = {
+          accelProfile = "flat";
+          accelSpeed = "1.2";
+          # buttonMapping = "1 8 3 4 5 6 7 2 9";
+          # scrollMethod = "button";
+          # scrollButton = 3;
+        };
       };
-
       displayManager = {
-        #startx.enable = true; # console login
-        #gdm.enable = true;
-        #gdm.wayland= true;
-        #lightdm.enable = true;
-        #sddm.enable = true;
-        #lightdm.greeters.slick.enable = true;
-        #defaultSession = "none+i3";
-        #defaultSession = "xfce+i3";
+        # startx.enable = true; # console login
+        sddm = {
+          enable = true;
+          theme = "chili";
+        };
       };
 
       windowManager = {

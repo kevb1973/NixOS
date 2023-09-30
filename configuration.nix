@@ -243,18 +243,14 @@
   # Set theme for QT apps
   qt.platformTheme = "gnome";
   # Enable Fonts
-  fonts.packages = with pkgs; [
-    alegreya
-    fira-code
-    # noto-fonts
-    noto-fonts-emoji
-    roboto
-    roboto-mono
-    font-awesome
-    source-code-pro
-    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
-  ];
-
+  fonts = { 
+    packages = with pkgs; [
+      noto-fonts-lgc-plus
+      noto-fonts-emoji
+      source-code-pro
+      (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    ];
+  };
   security.rtkit.enable = true;
 
   # Setup podman for distrobox

@@ -71,6 +71,7 @@
     dhcpcd.extraConfig = "nohook resolv.conf";
     firewall.allowedTCPPorts = [ 80 2121 2234 6475 6476 ];
     firewall.allowedUDPPorts = [ 36475 ];
+    interfaces.enp42s0.wakeOnLan.enable = true;
     networkmanager = {
       enable = true;
       dns = "none";
@@ -245,14 +246,27 @@
   # Enable Fonts
   fonts = { 
     packages = with pkgs; [
+      font-awesome
       noto-fonts-lgc-plus
       noto-fonts-emoji
       source-code-pro
       (nerdfonts.override { fonts = [ "FiraCode" ]; })
     ];
   };
-  security.rtkit.enable = true;
-
+  security = {
+    rtkit.enable = true;
+    sudo.extraRules = [
+      {
+        users = [ "kev" ];
+        commands = [
+          {
+            command = "ALL";
+            options = [ "NOPASSWD" ];
+          }
+        ];
+      }
+    ];
+  };
   # Setup podman for distrobox
   virtualisation = {
     podman.enable = true;
@@ -294,7 +308,6 @@
       foliate
       fzf
       gammastep
-      gammastep
       gcc
       gnome.file-roller
       gnome.gnome-clocks
@@ -317,7 +330,6 @@
       neovide #nvim gui front end
       nix-prefetch-git
       nvd
-      obsidian
       pamixer
       pavucontrol
       pistol # file preview for clifm
@@ -327,7 +339,6 @@
       scrcpy
       sddm-chili-theme
       shadowfox
-      sl
       slurp
       speedcrunch
       stow
@@ -335,13 +346,12 @@
       swaybg
       swayidle
       swaylock
-      swww
+      # swww
       syncthing
       tartube # front end for yt-dlp
       telegram-desktop
       thunderbird
       tree-sitter
-      vimPlugins.firenvim
       virt-manager
       wakeonlan # fro lgtv control
       waybar
@@ -353,6 +363,7 @@
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
       wofi
       wtype # for wofi-emoji
+      ydotool
       yt-dlp
       zathura
     ];
@@ -372,19 +383,18 @@
       alsa-utils
       archiver
       atool
-      cage
       distrobox
       glib
       gitFull
       gnome.adwaita-icon-theme
       gnome.zenity
-      greetd.gtkgreet
       handlr
       helix
       htop
       jdk
       killall
       libinput
+      libsForQt5.qt5.qtwayland
       lua
       mfcl2700dnlpr
       mfcl2700dncupswrapper
@@ -394,8 +404,8 @@
       nodejs
       nodePackages.bash-language-server
       os-prober
+      pulseaudioFull
       python3
-      libsForQt5.qt5.qtwayland
       qt6.qtwayland
       sox
       unar
@@ -421,6 +431,12 @@
 
     kdeconnect.enable = false;
     neovim = { vimAlias = true; };
+
+    nix-index = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+
     ssh.startAgent = true;
     sway = {
       enable = true;

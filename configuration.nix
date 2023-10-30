@@ -324,6 +324,8 @@
       mako
       materia-theme
       mplayer
+      mpv
+      (mpv.override {scripts = [mpvScripts.mpris];})
       ncdu
       ncpamixer
       neofetch
@@ -363,15 +365,17 @@
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
       wofi
       wtype # for wofi-emoji
+      inputs.yazi.packages.${pkgs.system}.yazi
       ydotool
       yt-dlp
       zathura
+      zoxide
     ];
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  #nixpkgs.config.permittedInsecurePackages = [ "electron-21.4.0" ];
+  nixpkgs.config.permittedInsecurePackages = [ "electron-24.8.6" ];
 
 
   # List packages installed in system profile. To search, run:
@@ -423,6 +427,7 @@
     command-not-found.enable = false;
     dconf.enable = true;
     fish.enable = true;
+    fish.vendor.config.enable = false;
 
     hyprland = {
       enable = true;

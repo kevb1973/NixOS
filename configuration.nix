@@ -343,6 +343,7 @@
       shadowfox
       slurp
       speedcrunch
+      spotify
       stow
       stylua
       swaybg

@@ -305,7 +305,7 @@
       feh
       firefox-beta
       fishPlugins.tide
-      foliate
+      foliate #epub reader
       fzf
       gammastep
       gcc

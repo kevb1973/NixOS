@@ -76,7 +76,7 @@
       enable = true;
       dns = "none";
     };
-    wireless.enable = false;  # Enables wireless support via wpa_supplicant.
+    wireless.enable = false; # Enables wireless support via wpa_supplicant.
   };
 
   time.timeZone = "America/Toronto";
@@ -119,7 +119,8 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-    gc = { # Auto discard system generations
+    gc = {
+      # Auto discard system generations
       automatic = true;
       dates = "daily";
       options = "--delete-older-than 2d";
@@ -130,7 +131,11 @@
     package = pkgs.nixFlakes;
     registry.nixpkgs.flake =
       inputs.nixpkgs; # Pin nixpkgs to speed up nix commands
-    settings.auto-optimise-store = true; # Auto optimize nix store.
+    settings = {
+      auto-optimise-store = true; # Auto optimize nix store.
+      substituters = [ "https://hyprland.cachix.org" ];
+      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+    };
   };
 
 
@@ -182,7 +187,7 @@
     printing.drivers = [ pkgs.brlaser ];
     printing.enable = true;
     tumbler.enable = true; # Thumbnail support for images
-    
+
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -244,7 +249,7 @@
   # Set theme for QT apps
   qt.platformTheme = "gnome";
   # Enable Fonts
-  fonts = { 
+  fonts = {
     packages = with pkgs; [
       font-awesome
       noto-fonts-lgc-plus
@@ -325,7 +330,7 @@
       materia-theme
       mplayer
       mpv
-      (mpv.override {scripts = [mpvScripts.mpris];})
+      (mpv.override { scripts = [ mpvScripts.mpris ]; })
       ncdu
       ncpamixer
       neofetch

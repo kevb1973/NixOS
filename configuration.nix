@@ -295,7 +295,6 @@
       appeditor
       bat
       beebeep
-      bemenu
       btop
       calibre
       cargo
@@ -342,19 +341,17 @@
       pistol # file preview for clifm
       playerctl
       pulsemixer
+      qalculate-gtk
       ripgrep
-      scrcpy
       sddm-chili-theme
       shadowfox
       slurp
-      speedcrunch
       spotify
       stow
       stylua
       swaybg
       swayidle
       swaylock
-      # swww
       syncthing
       tartube # front end for yt-dlp
       telegram-desktop
@@ -362,7 +359,6 @@
       tree-sitter
       virt-manager
       wakeonlan # fro lgtv control
-      waybar
       waybar
       waypaper
       websocat # for lgtv control
@@ -399,7 +395,6 @@
       gnome.adwaita-icon-theme
       gnome.zenity
       handlr
-      helix
       htop
       jdk
       killall
@@ -417,7 +412,6 @@
       pulseaudioFull
       python3
       qt6.qtwayland
-      sox
       unar
       unzip
       vifm-full

@@ -69,8 +69,8 @@
     hostName = "halcyon";
     nameservers = [ "9.9.9.9" "2620:fe::fe" ];
     dhcpcd.extraConfig = "nohook resolv.conf";
-    firewall.allowedTCPPorts = [ 80 2121 2234 6475 6476 ];
-    firewall.allowedUDPPorts = [ 36475 ];
+    firewall.allowedTCPPorts = [ 80 2121 2234 6475 6476 53317 ];
+    firewall.allowedUDPPorts = [ 36475 53317 ];
     interfaces.enp42s0.wakeOnLan.enable = true;
     networkmanager = {
       enable = true;
@@ -287,7 +287,7 @@
     description = "kev";
     extraGroups =
       [ "networkmanager" "adbusers" "wheel" "kvm" "libvirtd" "input" "audio" ];
-    shell = pkgs.fish;
+    # shell = pkgs.fish;
     packages = with pkgs; [
       # broot
       android-tools
@@ -327,7 +327,7 @@
       logseq
       mako
       materia-theme
-      mplayer
+      # mplayer
       mpv
       (mpv.override { scripts = [ mpvScripts.mpris ]; })
       ncdu

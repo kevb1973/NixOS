@@ -318,16 +318,15 @@
       gnumake
       grim
       gucharmap
-      # hyprland
       jgmenu
       jq
       kitty
       lazygit
       libnotify
+      localsend
       logseq
       mako
       materia-theme
-      # mplayer
       mpv
       (mpv.override { scripts = [ mpvScripts.mpris ]; })
       ncdu
@@ -358,6 +357,7 @@
       thunderbird
       tree-sitter
       virt-manager
+      vlc
       wakeonlan # fro lgtv control
       waybar
       waypaper

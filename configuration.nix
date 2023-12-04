@@ -94,19 +94,33 @@
   };
 
   systemd = {
-    user.services.polkit-gnome-authentication-agent-1 = {
-      description = "polkit-gnome-authentication-agent-1";
-      wantedBy = [ "graphical-session.target" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
-      serviceConfig = {
-        Type = "simple";
-        ExecStart =
-          "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-        RestartSec = 1;
-        TimeoutStopSec = 10;
-      };
-    };
+    # user.services.polkit-kde-authentication-agent-1 = {
+    #   after = [ "graphical-session.target" ];
+    #   description = "polkit-kde-authentication-agent-1";
+    #   wantedBy = [ "graphical-session.target" ];
+    #   wants = [ "graphical-session.target" ];
+    #   serviceConfig = {
+    #     Type = "simple";
+    #     ExecStart = "${pkgs.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
+    #     Restart = "on-failure";
+    #     RestartSec = 1;
+    #     TimeoutStopSec = 10;
+    #   };
+    # };
+    # user.services.polkit-gnome-authentication-agent-1 = {
+    #   description = "polkit-gnome-authentication-agent-1";
+    #   wantedBy = [ "graphical-session.target" ];
+    #   wants = [ "graphical-session.target" ];
+    #   after = [ "graphical-session.target" ];
+    #   serviceConfig = {
+    #     Type = "simple";
+    #     ExecStart =
+    #       "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+    #     Restart = "on-failure";
+    #     RestartSec = 1;
+    #     TimeoutStopSec = 10;
+    #   };
+    # };
     extraConfig = ''
       DefaultTimeoutStopSec=10s
     '';
@@ -138,17 +152,29 @@
   };
 
 
-  environment.etc = {
-    # "greetd/environments".text = ''
-    #   Hyprland
-    #   sway
-    #   fish
-    # '';
-    "xdg/gtk-3.0".source = ./gtk-3.0;
-    "xdg/gtk-4.0".source = ./gtk-4.0;
-    "xdg/wallpaper".source = ./wallpaper;
-    "nix/inputs/nixpkgs".source =
-      "${inputs.nixpkgs}"; # needed to fix <nixpkgs> on flake. See also nix.nixPath
+  environment = {
+    etc = {
+      # "greetd/environments".text = ''
+      #   Hyprland
+      #   sway
+      #   fish
+      # '';
+      "xdg/gtk-3.0".source = ./gtk-3.0;
+      "xdg/gtk-4.0".source = ./gtk-4.0;
+      "xdg/wallpaper".source = ./wallpaper;
+      "nix/inputs/nixpkgs".source =
+        "${inputs.nixpkgs}"; # needed to fix <nixpkgs> on flake. See also nix.nixPath
+    };
+    variables = {
+      # NIXOS_OZONE_WL = "1"; # hint electron apps to use wayland (Logseq doesn't like it.. slow start, crashy)
+      GTK_IM_MODULE = "ibus";
+      NIX_ALLOW_UNFREE = "1";
+      QT_IM_MODULE = "ibus";
+      QT_QPA_PLATFORM = "wayland";
+      QT_QPA_PLATFORMTHEME = "qt5ct";
+      XMODIFIERS = "@im=ibus";
+      _JAVA_AWT_WM_NONREPARENTING = "1";
+    };
   };
 
   services = {
@@ -179,8 +205,10 @@
 
     accounts-daemon.enable = true;
     blueman.enable = true;
+    dbus.enable = true;
     flatpak.enable = true;
     geoclue2.enable = true;
+    gnome.gnome-keyring.enable = true;
     gvfs.enable = true; # Mount, trash, and other functionalities
     openssh.enable = false;
     printing.drivers = [ pkgs.brlaser ];
@@ -192,12 +220,7 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-      # If you want to use JACK applications, uncomment this
       jack.enable = true;
-
-      # use the example session manager (no others are packaged yet so this is enabled by default,
-      # no need to redefine it in your config for now)
-      #media-session.enable = true;
     };
 
     xserver = {
@@ -238,26 +261,32 @@
         i3 = {
           enable = false;
           extraPackages = with pkgs; [
-            lxappearance
-            feh
+            # lxappearance
+            # feh
           ];
         };
       };
     };
   };
   # Set theme for QT apps
-  qt.platformTheme = "gnome";
+  qt = {
+    enable = true;
+    platformTheme = "qt5ct";
+    style = "adwaita-dark";
+  };
+
   # Enable Fonts
   fonts = {
     packages = with pkgs; [
       font-awesome
       noto-fonts-lgc-plus
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       source-code-pro
       (nerdfonts.override { fonts = [ "FiraCode" ]; })
     ];
   };
   security = {
+    polkit.enable = true;
     rtkit.enable = true;
     sudo.extraRules = [
       {
@@ -292,6 +321,7 @@
       android-tools
       anydesk
       appeditor
+      authenticator
       bat
       beebeep
       btop
@@ -299,6 +329,7 @@
       cargo
       cava #terminal audio visualizer
       cheat
+      clifm
       cliphist
       dracula-theme
       emacs-all-the-icons-fonts
@@ -322,15 +353,17 @@
       kitty
       lazygit
       libnotify
+      libsForQt5.polkit-kde-agent
+      libsForQt5.kalarm
       localsend
       logseq
       mako
-      materia-theme
+      # materia-theme
       mpv
       (mpv.override { scripts = [ mpvScripts.mpris ]; })
+      mate.mate-polkit
       ncdu
       ncpamixer
-      neofetch
       neovide #nvim gui front end
       nix-prefetch-git
       nvd
@@ -366,7 +399,8 @@
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
       wofi
       wtype # for wofi-emoji
-      inputs.yazi.packages.${pkgs.system}.yazi
+      # inputs.yazi.packages.${pkgs.system}.yazi
+      yazi
       ydotool
       yt-dlp
       zathura
@@ -384,7 +418,6 @@
   environment = {
     pathsToLink = [ "/libexec" ]; # enable polkit
     systemPackages = with pkgs; [
-      (callPackage ./pkgs/clifm { })
       alsa-utils
       archiver
       atool
@@ -399,6 +432,7 @@
       killall
       libinput
       libsForQt5.qt5.qtwayland
+      libsForQt5.qt5ct
       lua
       mfcl2700dnlpr
       mfcl2700dncupswrapper
@@ -411,6 +445,8 @@
       pulseaudioFull
       python3
       qt6.qtwayland
+      qt6Packages.qt6ct
+      qt6Packages.qtstyleplugin-kvantum
       unar
       unzip
       vifm-full

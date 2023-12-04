@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     hyprland.url = "github:hyprwm/Hyprland";
-    yazi.url = "github:sxyazi/yazi";
   };
 
   outputs = inputs@{ nixpkgs, ... }: {

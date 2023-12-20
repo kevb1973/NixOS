@@ -410,7 +410,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  # nixpkgs.config.permittedInsecurePackages = [ "electron-24.8.6" ];
+  # nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
 
 
   # List packages installed in system profile. To search, run:
@@ -431,6 +431,7 @@
       jdk
       killall
       libinput
+      libsForQt5.breeze-icons
       libsForQt5.qt5.qtwayland
       libsForQt5.qt5ct
       lua

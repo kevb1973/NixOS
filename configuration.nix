@@ -27,6 +27,10 @@
   # Bootloader.
 
   boot = {
+    extraModprobeConfig = ''
+      options kvm ignore_msrs=1
+      allow_unsafe_interrupts=1
+    '';
     initrd = {
       kernelModules = [ "amdgpu" ];
       systemd.network.wait-online.enable = false;
@@ -55,6 +59,8 @@
       "nowatchdog"
       "nmi_watchdog=0"
       "quiet"
+      "amd_iommu=on"
+      "iommu=pt"
     ];
     # Below setting needed as system state ver < 23.11
     swraid.enable = false;
@@ -304,7 +310,14 @@
   virtualisation = {
     podman.enable = true;
     podman.dockerCompat = true;
-    libvirtd.enable = true;
+    libvirtd = {
+      enable = true;
+      onBoot = "ignore";
+      onShutdown = "shutdown";
+      qemu = {
+        runAsRoot = true;
+      };
+    };
   };
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;

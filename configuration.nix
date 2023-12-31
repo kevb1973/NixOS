@@ -334,7 +334,7 @@
     # shell = pkgs.fish;
     packages = with pkgs; [
       # broot
-      android-tools
+      # android-tools
       anydesk
       appeditor
       authenticator
@@ -371,7 +371,7 @@
       libnotify
       libsForQt5.polkit-kde-agent
       libsForQt5.kalarm
-      localsend
+      # localsend
       logseq
       mako
       # materia-theme
@@ -383,6 +383,7 @@
       neovide #nvim gui front end
       nix-prefetch-git
       nvd
+      obsidian
       pamixer
       pavucontrol
       pistol # file preview for clifm
@@ -426,7 +427,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  # nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
+  nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
 
 
   # List packages installed in system profile. To search, run:

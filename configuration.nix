@@ -344,7 +344,6 @@
       calibre
       cargo
       cava #terminal audio visualizer
-      cheat
       clifm
       cliphist
       dracula-theme
@@ -364,6 +363,7 @@
       gnumake
       grim
       gucharmap
+      jc # convert output to json for many utils. Useful with Nushell
       jgmenu
       jq
       kitty
@@ -402,6 +402,7 @@
       swaylock
       syncthing
       tartube # front end for yt-dlp
+      tealdeer # command line help 'tldr'
       telegram-desktop
       thunderbird
       tree-sitter

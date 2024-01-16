@@ -333,6 +333,8 @@
       [ "networkmanager" "adbusers" "wheel" "kvm" "libvirtd" "input" "audio" ];
     # shell = pkgs.fish;
     packages = with pkgs; [
+      # broot
+      # android-tools
       anydesk
       appeditor
       authenticator
@@ -342,10 +344,10 @@
       calibre
       cargo
       cava #terminal audio visualizer
+      cheat
       clifm
       cliphist
       dracula-theme
-      dijo #habit tracker
       emacs-all-the-icons-fonts
       emacs29
       eza
@@ -357,15 +359,11 @@
       fzf
       gammastep
       gcc
-      gdu #disk space analyzer
       gnome.file-roller
       gnome.gnome-clocks
       gnumake
       grim
-      grimblast #wrapper for grim/slurp
-      gtg
       gucharmap
-      jc # convert output to json for many utils. Useful with Nushell
       jgmenu
       jq
       kitty
@@ -384,9 +382,8 @@
       ncpamixer
       neovide #nvim gui front end
       nix-prefetch-git
-      nushell
       nvd
-      # obsidian
+      obsidian
       pamixer
       pavucontrol
       pistol # file preview for clifm
@@ -405,7 +402,6 @@
       swaylock
       syncthing
       tartube # front end for yt-dlp
-      tealdeer # command line help 'tldr'
       telegram-desktop
       thunderbird
       tree-sitter
@@ -426,9 +422,6 @@
       yt-dlp
       zathura
       zoxide
-
-      # broot
-      # android-tools
     ];
   };
 

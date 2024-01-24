@@ -6,7 +6,7 @@
   time.timeZone = "America/Toronto";
   i18n.defaultLocale = "en_CA.UTF-8";
   system.stateVersion = "22.11"; # Don't change unless fresh install from new ISO
-# --- HARDWARE{{{1
+  # --- HARDWARE{{{1
   hardware = {
     bluetooth.enable = true;
     cpu.amd.updateMicrocode = true;
@@ -24,7 +24,7 @@
       #];
     };
   };
-# --- BOOT --- {{{1
+  # --- BOOT --- {{{1
   boot = {
     extraModprobeConfig = ''
       options kvm ignore_msrs=1
@@ -64,12 +64,12 @@
       "iommu=pt"
     ];
   };
-# --- POWER MGMT{{{1
+  # --- POWER MGMT{{{1
   powerManagement = {
     enable = true;
     cpuFreqGovernor = lib.mkDefault "performance";
   };
-# --- NETWORKING{{{1
+  # --- NETWORKING{{{1
   networking = {
     hostName = "halcyon";
     nameservers = [ "9.9.9.9" "2620:fe::fe" ];
@@ -83,7 +83,7 @@
       dns = "none";
     };
   };
-# --- XDG PORTALS{{{1
+  # --- XDG PORTALS{{{1
   xdg = {
     portal = {
       enable = true;
@@ -93,7 +93,7 @@
       ];
     };
   };
-# --- SYSTEMD{{{1
+  # --- SYSTEMD{{{1
   systemd = {
     extraConfig = ''
       DefaultTimeoutStopSec=10s
@@ -101,7 +101,7 @@
     network.wait-online.enable = false; # Disable systemd "wait online" as it gets stuck waiting for connection on 2nd NIC
     services.NetworkManager-wait-online.enable = false;
   };
-# --- NIX{{{1
+  # --- NIX{{{1
   nix = {
     extraOptions = ''
       experimental-features = nix-command flakes
@@ -126,7 +126,7 @@
       trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
   };
-# --- ENVIRONMENT{{{1
+  # --- ENVIRONMENT{{{1
   environment = {
     pathsToLink = [ "/libexec" ]; # enable polkit
     # --- ETC{{{2
@@ -366,18 +366,15 @@
       # localsend
       logseq
       mako
-      # materia-theme
-      # mpv
       (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.sponsorblock ]; })
       mate.mate-polkit
       ncdu
       ncpamixer
-      neovide #nvim gui front end
+      neovide # nvim gui front end
       nix-prefetch-git
       nix-search-cli
       nushell
-      nvd
-      # obsidian
+      nvd # nix derivation diff tool
       pamixer
       pavucontrol
       pistol # file preview for clifm

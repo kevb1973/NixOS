@@ -254,7 +254,7 @@
         # startx.enable = true; # console login
         sddm = {
           enable = true;
-          theme = "chili";
+          theme = "sddm-chili-theme";
         };
       };
       # --- WINDOW MANAGER{{{3

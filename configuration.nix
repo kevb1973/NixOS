@@ -5,10 +5,7 @@
   imports = [ ./hardware-configuration.nix ./sway.nix ];
   time.timeZone = "America/Toronto";
   i18n.defaultLocale = "en_CA.UTF-8";
-  system = {
-    stateVersion = "22.11"; # Don't change unless fresh install from new ISO
-    copySystemConfiguration = true; # Save copy of configuration.nix in /run/current-system
-    };
+ system.stateVersion = "22.11"; # Don't change unless fresh install from new ISO
   # --- HARDWARE{{{1
   hardware = {
     bluetooth.enable = true;

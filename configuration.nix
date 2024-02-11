@@ -28,7 +28,6 @@
   boot = {
     extraModprobeConfig = ''
       options kvm ignore_msrs=1
-      allow_unsafe_interrupts=1
     '';
     tmp.useTmpfs = true;
     kernelModules = [ "amd-pstate" ];
@@ -180,6 +179,7 @@
       qt6.qtwayland
       qt6Packages.qt6ct
       qt6Packages.qtstyleplugin-kvantum
+      sddm-chili-theme
       unar
       unzip
       vifm-full
@@ -225,8 +225,10 @@
     # --- XSERVER{{{2
     xserver = {
       enable = true;
-      layout = "us";
-      xkbVariant = "";
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
       videoDrivers = [ "amdgpu" ];
       deviceSection = ''Option "TearFree" "true"'';
       # --- DESKTOP MANAGER{{{3
@@ -254,7 +256,7 @@
         # startx.enable = true; # console login
         sddm = {
           enable = true;
-          theme = "sddm-chili-theme";
+          theme = "chili";
         };
       };
       # --- WINDOW MANAGER{{{3
@@ -382,7 +384,6 @@
       pulsemixer
       qalculate-gtk
       ripgrep
-      sddm-chili-theme
       shadowfox
       slurp
       spotify

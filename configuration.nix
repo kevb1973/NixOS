@@ -357,6 +357,7 @@
       grimblast #wrapper for grim/slurp
       gtg
       gucharmap
+      helix
       jc # convert output to json for many utils. Useful with Nushell
       jgmenu
       jq
@@ -367,6 +368,7 @@
       libsForQt5.kalarm
       # localsend
       logseq
+      lunarvim
       mako
       (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.sponsorblock ]; })
       mate.mate-polkit
@@ -384,6 +386,7 @@
       pulsemixer
       qalculate-gtk
       ripgrep
+      scrcpy
       shadowfox
       slurp
       spotify
@@ -411,6 +414,7 @@
       wofi
       wtype # for wofi-emoji
       # inputs.yazi.packages.${pkgs.system}.yazi
+      yad
       yazi
       ydotool
       yt-dlp

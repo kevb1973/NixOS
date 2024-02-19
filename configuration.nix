@@ -370,7 +370,7 @@
       logseq
       lunarvim
       mako
-      (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.sponsorblock ]; })
+      (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.sponsorblock mpvScripts.visualizer ]; })
       mate.mate-polkit
       ncdu
       ncpamixer

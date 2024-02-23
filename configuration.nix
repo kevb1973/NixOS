@@ -2,7 +2,7 @@
 
 # --- MISC{{{1
 {
-  imports = [ ./hardware-configuration.nix ./sway.nix ];
+ imports = [ ./hardware-configuration.nix ./sway.nix ];
   time.timeZone = "America/Toronto";
   i18n.defaultLocale = "en_CA.UTF-8";
  system.stateVersion = "22.11"; # Don't change unless fresh install from new ISO
@@ -166,10 +166,12 @@
       libsForQt5.qt5.qtwayland
       libsForQt5.qt5ct
       lua
+      lua-language-server
       mfcl2700dnlpr
       mfcl2700dncupswrapper
       neovim
-      nil
+      # nil
+      nixd
       nixfmt
       nodejs
       nodePackages.bash-language-server
@@ -371,6 +373,7 @@
       lunarvim
       mako
       (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.sponsorblock mpvScripts.visualizer ]; })
+      marksman # language server for markdown.
       mate.mate-polkit
       ncdu
       ncpamixer

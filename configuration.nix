@@ -152,41 +152,41 @@
       alsa-utils
       archiver
       atool
-      distrobox
+      # distrobox
       glib
       gitFull
       gnome.adwaita-icon-theme
-      gnome.zenity
+      # gnome.zenity
       handlr
-      htop
+      # htop
       jdk
       killall
       libinput
       libsForQt5.breeze-icons
-      libsForQt5.qt5.qtwayland
+      # libsForQt5.qt5.qtwayland
       libsForQt5.qt5ct
       lua
       lua-language-server
       mfcl2700dnlpr
       mfcl2700dncupswrapper
       neovim
-      # nil
-      nixd
+      nil
+      # nixd
       nixfmt
       nodejs
       nodePackages.bash-language-server
       os-prober
       pulseaudioFull
       python3
-      qt6.qtwayland
-      qt6Packages.qt6ct
-      qt6Packages.qtstyleplugin-kvantum
+      # qt6.qtwayland
+      # qt6Packages.qt6ct
+      # qt6Packages.qtstyleplugin-kvantum
       sddm-chili-theme
       unar
       unzip
-      vifm-full
-      virtualenv
-      wayland
+      # vifm-full
+      # virtualenv
+      # wayland
       xdg-utils # for openning default programms when clicking links
     ];
   };
@@ -329,38 +329,38 @@
     packages = with pkgs; [
       anydesk
       appeditor
+      archiver
       authenticator
       bat
       beebeep
+      bitwarden
       btop
       calibre
       cargo
-      cava #terminal audio visualizer
+      cava # Terminal audio visualizer
       clifm
       cliphist
       dracula-theme
-      dijo #habit tracker
-      emacs-all-the-icons-fonts
-      emacs29
+      # Emacs-all-the-icons-fonts
+      emacs
       eza
       fd
       feh
-      firefox
       fishPlugins.tide
-      foliate #epub reader
+      fuzzel # Launcher
       fzf
       gammastep
       gcc
-      gdu #disk space analyzer
+      gdu # Disk space analyzer
       gnome.file-roller
       gnome.gnome-clocks
       gnumake
       grim
-      grimblast #wrapper for grim/slurp
-      gtg
+      grimblast # Wrapper for grim/slurp
       gucharmap
       helix
-      jc # convert output to json for many utils. Useful with Nushell
+      http-server # Simple http server. Using with surfingkeys config.
+      jc # Convert output to json for many utils. Useful with Nushell
       jgmenu
       jq
       kitty
@@ -372,25 +372,26 @@
       logseq
       lunarvim
       mako
+      marksman # Language server for markdown.
+      mediainfo # Provides info on media files. 
       (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.sponsorblock mpvScripts.visualizer ]; })
-      marksman # language server for markdown.
-      mate.mate-polkit
+      mpv-shim-default-shaders
       ncdu
       ncpamixer
-      neovide # nvim gui front end
+      neovide # Nvim gui front end
       nix-prefetch-git
       nix-search-cli
       nushell
-      nvd # nix derivation diff tool
+      nvd # Nix derivation diff tool
       pamixer
       pavucontrol
-      pistol # file preview for clifm
+      pistol # File preview for clifm
       playerctl
-      pulsemixer
       qalculate-gtk
+      qmplay2
       ripgrep
       scrcpy
-      shadowfox
+      # shadowfox
       slurp
       spotify
       stow
@@ -399,25 +400,26 @@
       swayidle
       swaylock
       syncthing
-      tartube # front end for yt-dlp
-      tealdeer # command line help 'tldr'
-      telegram-desktop
+      tartube # Front end for yt-dlp
+      tealdeer # Command line help 'tldr'
+      # telegram-desktop
       thunderbird
       nodePackages.tiddlywiki
       tree-sitter
       virt-manager
+      vivaldi
       vlc
-      wakeonlan # fro lgtv control
+      wakeonlan # For lgtv control
       waybar
       waypaper
-      websocat # for lgtv control
+      websocat # For lgtv control
       wev
       wget
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
       wofi
-      wtype # for wofi-emoji
-      # inputs.yazi.packages.${pkgs.system}.yazi
+      wtype # For wofi-emoji
       yad
+      # inputs.yazi.packages.${pkgs.system}.yazi
       yazi
       ydotool
       yt-dlp
@@ -432,6 +434,10 @@
     adb.enable = true;
     command-not-found.enable = false;
     dconf.enable = true;
+    firefox = {
+      enable = true;
+      nativeMessagingHosts.packages = [ pkgs.tridactyl-native];
+    };
     fish.enable = true;
     fish.vendor.config.enable = false;
     ssh.startAgent = true;

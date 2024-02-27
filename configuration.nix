@@ -324,7 +324,7 @@
     description = "kev";
     extraGroups =
       [ "networkmanager" "adbusers" "wheel" "kvm" "libvirtd" "input" "audio" ];
-    # shell = pkgs.fish;
+    shell = pkgs.fish;
     # --- USER PACKAGES{{{1
     packages = with pkgs; [
       anydesk
@@ -346,7 +346,6 @@
       eza
       fd
       feh
-      fishPlugins.tide
       fuzzel # Launcher
       fzf
       gammastep
@@ -438,8 +437,13 @@
       enable = true;
       nativeMessagingHosts.packages = [ pkgs.tridactyl-native];
     };
-    fish.enable = true;
-    fish.vendor.config.enable = false;
+    fish = {
+      enable = true;
+      # vendor.config.enable = false;
+      promptInit = ''
+        ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+      '';
+    };
     ssh.startAgent = true;
     kdeconnect.enable = false;
     neovim = { vimAlias = true; };

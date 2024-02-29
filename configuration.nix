@@ -150,6 +150,7 @@
     # --- SYSTEM PACKAGES{{{1
     systemPackages = with pkgs; [
       alsa-utils
+      any-nix-shell
       archiver
       atool
       # distrobox

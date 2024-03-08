@@ -365,6 +365,11 @@
       eza
       fd
       feh
+      fishPlugins.tide
+      fishPlugins.puffer
+      fishPlugins.grc
+      fishPlugins.fzf
+      fishPlugins.autopair
       fuzzel # Launcher
       fzf
       gammastep
@@ -373,6 +378,7 @@
       gnome.file-roller
       gnome.gnome-clocks
       # gnumake
+      grc # generic text colourizer. Using with fishPlugins.grc
       grim
       grimblast # Wrapper for grim/slurp
       gucharmap
@@ -411,6 +417,7 @@
       scrcpy
       slurp
       spotify
+      steam-run
       stow
       stylua
       swaybg
@@ -462,6 +469,38 @@
       # vendor.config.enable = false;
       promptInit = ''
         ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+      '';
+      shellAbbrs = {
+        "npi --set-cursor" = "nix profile install nixpkgs#%";
+        "ns --set-cursor" = "nix shell nixpkgs#%";
+        "nr --set-cursor" = "nix run nixpkgs#%";
+      };
+      shellAliases = {
+        cat = "bat";
+        conf = "neovide  ~/NixOS/configuration.nix";
+        e = "lvim";
+        ee = "neovide --neovim-bin lvim";
+        gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
+        lg = "lazygit";
+        lp = "nix profile list | grep -E 'Flake attribute|Index'";
+        rb = "sudo nixos-rebuild switch --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
+        referrer = "nix-store --query --referrers";
+        repair-store = "sudo nix-store --verify --check-contents --repair";
+        rp = "nix profile remove ";
+        sdg = "sudo nix-collect-garbage -d";
+        sg = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+        sgc = "sudo nix store gc -v";
+        storebin = "nix-store -q --roots (which $argv)";
+        sys = "sudo du -hs /nix/store/ /var/";
+        udg = "nix-collect-garbage -d";
+        ug = "nix-env --list-generations";
+        ugc = "nix store gc -v";
+        up = "nix flake update --flake /home/kev/NixOS";
+        uup = "nix profile upgrade '.*'";
+        verify-store = "sudo nix-store --verify --check-contents";
+      };
+      interactiveShellInit = '' # Set Neovim as default man viewer
+        set -x MANPAGER "nvim -c 'Man!'"
       '';
     };
     # --- FZF{{{2

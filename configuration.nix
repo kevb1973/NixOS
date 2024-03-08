@@ -3,8 +3,8 @@
 # --- MISC{{{1
 {
  imports = [ ./hardware-configuration.nix ./sway.nix ];
-  time.timeZone = "America/Toronto";
-  i18n.defaultLocale = "en_CA.UTF-8";
+ time.timeZone = "America/Toronto";
+ i18n.defaultLocale = "en_CA.UTF-8";
  system.stateVersion = "22.11"; # Don't change unless fresh install from new ISO
   # --- HARDWARE{{{1
   hardware = {
@@ -82,14 +82,41 @@
       dns = "none";
     };
   };
-  # --- XDG PORTALS{{{1
+  # --- XDG{{{1
   xdg = {
+    # --- Portals{{{2
     portal = {
       enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-wlr
         xdg-desktop-portal-gtk
       ];
+    };
+    # --- Mime Types{{{2
+    mime = {
+      enable = true;
+      defaultApplications = {
+        "application/pdf" = "org.pwmt.zathura.desktop";
+        "application/vnd.apple.mpegurl" = "vlc.desktop";
+        "application/x-extension-htm" = "vivaldi-stable.desktop";
+        "application/x-extension-html" = "vivaldi-stable.desktop";
+        "application/x-extension-shtml" = "vivaldi-stable.desktop";
+        "application/x-extension-xht" = "vivaldi-stable.desktop";
+        "application/x-extension-xhtml" = "vivaldi-stable.desktop";
+        "application/x-shellscript" = "lvim.desktop";
+        "application/xhtml+xml" = "vivaldi-stable.desktop";
+        "audio/x-mpegurl" = "vlc.desktop";
+        "image/png" = "feh.desktop";
+        "text/*" = "lvim.desktop";
+        "text/css" = "lvim.desktop";
+        "text/html" = "vivaldi-stable.desktop";
+        "text/markdown" = "calibre-ebook-viewer.desktop";
+        "text/plain" = "lvim.desktop";
+        "video/*" = "umpv.desktop";
+        "x-scheme-handler/chrome" = "vivaldi-stable.desktop";
+        "x-scheme-handler/http" = "vivaldi-stable.desktop";
+        "x-scheme-handler/https" = "vivaldi-stable.desktop";
+      };
     };
   };
   # --- SYSTEMD{{{1
@@ -153,18 +180,14 @@
       any-nix-shell
       archiver
       atool
-      # distrobox
       glib
       gitFull
       gnome.adwaita-icon-theme
-      # gnome.zenity
-      handlr
-      # htop
       jdk
       killall
       libinput
+      libcxxStdenv # Needed to build binaries for tree-sitter
       libsForQt5.breeze-icons
-      # libsForQt5.qt5.qtwayland
       libsForQt5.qt5ct
       lua
       lua-language-server
@@ -172,22 +195,16 @@
       mfcl2700dncupswrapper
       neovim
       nil
-      # nixd
+      nixd
       nixfmt
       nodejs
       nodePackages.bash-language-server
       os-prober
       pulseaudioFull
       python3
-      # qt6.qtwayland
-      # qt6Packages.qt6ct
-      # qt6Packages.qtstyleplugin-kvantum
       sddm-chili-theme
       unar
       unzip
-      # vifm-full
-      # virtualenv
-      # wayland
       xdg-utils # for openning default programms when clicking links
     ];
   };
@@ -328,6 +345,7 @@
     shell = pkgs.fish;
     # --- USER PACKAGES{{{1
     packages = with pkgs; [
+      # android-tools
       anydesk
       appeditor
       archiver
@@ -342,19 +360,19 @@
       clifm
       cliphist
       dracula-theme
-      # Emacs-all-the-icons-fonts
       emacs
+      emacsPackages.all-the-icons-nerd-fonts
       eza
       fd
       feh
       fuzzel # Launcher
       fzf
       gammastep
-      gcc
+      # gcc
       gdu # Disk space analyzer
       gnome.file-roller
       gnome.gnome-clocks
-      gnumake
+      # gnumake
       grim
       grimblast # Wrapper for grim/slurp
       gucharmap
@@ -391,7 +409,6 @@
       qmplay2
       ripgrep
       scrcpy
-      # shadowfox
       slurp
       spotify
       stow
@@ -402,7 +419,6 @@
       syncthing
       tartube # Front end for yt-dlp
       tealdeer # Command line help 'tldr'
-      # telegram-desktop
       thunderbird
       nodePackages.tiddlywiki
       tree-sitter
@@ -419,25 +435,28 @@
       wofi
       wtype # For wofi-emoji
       yad
-      # inputs.yazi.packages.${pkgs.system}.yazi
       yazi
       ydotool
       yt-dlp
       zathura
       zoxide
-      # broot
-      # android-tools
     ];
   };
   # --- PROGRAMS{{{1
   programs = {
+    # --- Misc{{{2
     adb.enable = true;
     command-not-found.enable = false;
     dconf.enable = true;
+    ssh.startAgent = true;
+    kdeconnect.enable = false;
+    neovim = { vimAlias = true; };
+    # --- Firefox{{{2
     firefox = {
       enable = true;
       nativeMessagingHosts.packages = [ pkgs.tridactyl-native];
     };
+    # --- Fish{{{2
     fish = {
       enable = true;
       # vendor.config.enable = false;
@@ -445,21 +464,35 @@
         ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
       '';
     };
-    ssh.startAgent = true;
-    kdeconnect.enable = false;
-    neovim = { vimAlias = true; };
+    # --- FZF{{{2
+    fzf = {
+      keybindings = false;
+      fuzzyCompletion = false;
+    };
+    # --- Hyprland{{{2
     hyprland = {
       enable = true;
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
+    # --- Nix-Index{{{2
     nix-index = {
       enable = true;
       enableFishIntegration = true;
     };
+    # --- Nix-ld{{{2
+    nix-ld = {
+      enable = true;
+        libraries = with pkgs; [
+          # Add missing dynamic libraries for unpackged programs here.. not systemPackages or user packages.
+          gtk3
+        ];
+    };
+    # --- Sway{{{2
     sway = {
       enable = true;
       wrapperFeatures.gtk = true;
     };
+    # --- Thunar{{{2
     thunar = {
       enable = true;
       plugins = with pkgs.xfce; [

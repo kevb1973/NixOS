@@ -2,7 +2,7 @@
 
 # --- MISC{{{1
 {
- imports = [ ./hardware-configuration.nix ./sway.nix ];
+ imports = [ ./hardware-configuration.nix ];
  time.timeZone = "America/Toronto";
  i18n.defaultLocale = "en_CA.UTF-8";
  system.stateVersion = "22.11"; # Don't change unless fresh install from new ISO
@@ -12,6 +12,7 @@
     cpu.amd.updateMicrocode = true;
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
+    pulseaudio.enable = false;
     # --- OPENGL{{{2
     opengl = {
       enable = true;
@@ -87,10 +88,10 @@
     # --- Portals{{{2
     portal = {
       enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-wlr
-        xdg-desktop-portal-gtk
-      ];
+       extraPortals = with pkgs; [
+         # xdg-desktop-portal-wlr
+         # xdg-desktop-portal-gtk
+       ];
     };
     # --- Mime Types{{{2
     mime = {
@@ -103,15 +104,15 @@
         "application/x-extension-shtml" = "vivaldi-stable.desktop";
         "application/x-extension-xht" = "vivaldi-stable.desktop";
         "application/x-extension-xhtml" = "vivaldi-stable.desktop";
-        "application/x-shellscript" = "lvim.desktop";
+        "application/x-shellscript" = "neovide-lvim.desktop";
         "application/xhtml+xml" = "vivaldi-stable.desktop";
         "audio/x-mpegurl" = "vlc.desktop";
         "image/png" = "feh.desktop";
-        "text/*" = "lvim.desktop";
-        "text/css" = "lvim.desktop";
+        "text/*" = "neovide-lvim.desktop";
+        "text/css" = "neovide-lvim.desktop";
         "text/html" = "vivaldi-stable.desktop";
         "text/markdown" = "calibre-ebook-viewer.desktop";
-        "text/plain" = "lvim.desktop";
+        "text/plain" = "neovide-lvim.desktop";
         "video/*" = "umpv.desktop";
         "x-scheme-handler/chrome" = "vivaldi-stable.desktop";
         "x-scheme-handler/http" = "vivaldi-stable.desktop";
@@ -170,7 +171,7 @@
       NIX_ALLOW_UNFREE = "1";
       QT_IM_MODULE = "ibus";
       QT_QPA_PLATFORM = "wayland";
-      QT_QPA_PLATFORMTHEME = "qt5ct";
+      QT_QPA_PLATFORMTHEME = "gnome";
       XMODIFIERS = "@im=ibus";
       _JAVA_AWT_WM_NONREPARENTING = "1";
     };
@@ -187,8 +188,8 @@
       killall
       libinput
       libcxxStdenv # Needed to build binaries for tree-sitter
-      libsForQt5.breeze-icons
-      libsForQt5.qt5ct
+      # libsForQt5.breeze-icons
+      # libsForQt5.qt5ct
       lua
       lua-language-server
       mfcl2700dnlpr
@@ -200,7 +201,7 @@
       nodejs
       nodePackages.bash-language-server
       os-prober
-      pulseaudioFull
+      # pulseaudioFull
       python3
       sddm-chili-theme
       unar
@@ -239,7 +240,7 @@
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
-      pulse.enable = true;
+      pulse.enable = false;
       jack.enable = true;
     };
     # --- XSERVER{{{2
@@ -254,7 +255,8 @@
       # --- DESKTOP MANAGER{{{3
       desktopManager = {
         xterm.enable = false;
-        gnome.enable = false;
+        gnome.enable = true;
+        plasma6.enable = false;
         xfce = {
           enable = false;
           enableXfwm = false;
@@ -294,7 +296,7 @@
   # --- QT{{{1
   qt = {
     enable = true;
-    platformTheme = "qt5ct";
+    platformTheme = "gnome";
     style = "adwaita-dark";
   };
   # --- FONTS{{{1
@@ -304,6 +306,7 @@
       noto-fonts-lgc-plus
       noto-fonts-color-emoji
       source-code-pro
+      victor-mono
       (nerdfonts.override { fonts = [ "FiraCode" ]; })
     ];
   };
@@ -380,18 +383,19 @@
       # gnumake
       grc # generic text colourizer. Using with fishPlugins.grc
       grim
-      grimblast # Wrapper for grim/slurp
+      # grimblast # Wrapper for grim/slurp
       gucharmap
       helix
       http-server # Simple http server. Using with surfingkeys config.
+      inputs.hyprland-contrib.packages.${pkgs.system}.grimblast # Wrapper for grim/slurp. . Using flake as nixpkgs ver pulls in old hyprland
       jc # Convert output to json for many utils. Useful with Nushell
       jgmenu
       jq
       kitty
       lazygit
       libnotify
-      libsForQt5.polkit-kde-agent
-      libsForQt5.kalarm
+      # libsForQt5.polkit-kde-agent
+      # libsForQt5.kalarm
       # localsend
       logseq
       lunarvim
@@ -431,6 +435,7 @@
       tree-sitter
       virt-manager
       vivaldi
+      vivaldi-ffmpeg-codecs
       vlc
       wakeonlan # For lgtv control
       waybar
@@ -466,15 +471,17 @@
     # --- Fish{{{2
     fish = {
       enable = true;
-      # vendor.config.enable = false;
+      # --- Prompt{{{3
       promptInit = ''
         ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
       '';
+      # --- Abbr{{{3
       shellAbbrs = {
         "npi --set-cursor" = "nix profile install nixpkgs#%";
         "ns --set-cursor" = "nix shell nixpkgs#%";
         "nr --set-cursor" = "nix run nixpkgs#%";
       };
+      # --- Aliases{{{3
       shellAliases = {
         cat = "bat";
         conf = "neovide  ~/NixOS/configuration.nix";
@@ -495,10 +502,11 @@
         udg = "nix-collect-garbage -d";
         ug = "nix-env --list-generations";
         ugc = "nix store gc -v";
-        up = "nix flake update --flake /home/kev/NixOS";
+        up = "nix flake update /home/kev/NixOS";
         uup = "nix profile upgrade '.*'";
         verify-store = "sudo nix-store --verify --check-contents";
       };
+      # --- Interactive Shell Init{{{3
       interactiveShellInit = '' # Set Neovim as default man viewer
         set -x MANPAGER "nvim -c 'Man!'"
       '';

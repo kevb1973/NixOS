@@ -88,10 +88,10 @@
     # --- Portals{{{2
     portal = {
       enable = true;
-       extraPortals = with pkgs; [
+       # extraPortals = with pkgs; [
          # xdg-desktop-portal-wlr
          # xdg-desktop-portal-gtk
-       ];
+       # ];
     };
     # --- Mime Types{{{2
     mime = {
@@ -99,24 +99,25 @@
       defaultApplications = {
         "application/pdf" = "org.pwmt.zathura.desktop";
         "application/vnd.apple.mpegurl" = "vlc.desktop";
-        "application/x-extension-htm" = "vivaldi-stable.desktop";
-        "application/x-extension-html" = "vivaldi-stable.desktop";
-        "application/x-extension-shtml" = "vivaldi-stable.desktop";
-        "application/x-extension-xht" = "vivaldi-stable.desktop";
-        "application/x-extension-xhtml" = "vivaldi-stable.desktop";
+        "application/x-extension-htm" = "firefox.desktop";
+        "application/x-extension-html" = "firefox.desktop";
+        "application/x-extension-shtml" = "firefox.desktop";
+        "application/x-extension-xht" = "firefox.desktop";
+        "application/x-extension-xhtml" = "firefox.desktop";
         "application/x-shellscript" = "neovide-lvim.desktop";
-        "application/xhtml+xml" = "vivaldi-stable.desktop";
+        "application/xhtml+xml" = "firefox.desktop";
         "audio/x-mpegurl" = "vlc.desktop";
         "image/png" = "feh.desktop";
         "text/*" = "neovide-lvim.desktop";
         "text/css" = "neovide-lvim.desktop";
-        "text/html" = "vivaldi-stable.desktop";
+        "text/html" = "firefox.desktop";
         "text/markdown" = "calibre-ebook-viewer.desktop";
         "text/plain" = "neovide-lvim.desktop";
         "video/*" = "umpv.desktop";
-        "x-scheme-handler/chrome" = "vivaldi-stable.desktop";
-        "x-scheme-handler/http" = "vivaldi-stable.desktop";
-        "x-scheme-handler/https" = "vivaldi-stable.desktop";
+        "x-scheme-handler/chrome" = "firefox.desktop";
+        "x-scheme-handler/http" = "firefox.desktop";
+        "x-scheme-handler/https" = "firefox.desktop";
+        "x-scheme-handler/mpv" = "open-in-mpv.desktop";
       };
     };
   };
@@ -170,7 +171,7 @@
       GTK_IM_MODULE = "ibus";
       NIX_ALLOW_UNFREE = "1";
       QT_IM_MODULE = "ibus";
-      QT_QPA_PLATFORM = "wayland";
+      QT_QPA_PLATFORM = "wayland;xcb";
       QT_QPA_PLATFORMTHEME = "gnome";
       XMODIFIERS = "@im=ibus";
       _JAVA_AWT_WM_NONREPARENTING = "1";
@@ -196,12 +197,12 @@
       mfcl2700dncupswrapper
       neovim
       nil
-      nixd
       nixfmt
       nodejs
+      nix-tree # Explore package dependencies
       nodePackages.bash-language-server
       os-prober
-      # pulseaudioFull
+      pulseaudioFull
       python3
       sddm-chili-theme
       unar
@@ -210,6 +211,7 @@
     ];
   };
   # --- SERVICES{{{1
+    # --- GENERAL{{{2
   services = {
     accounts-daemon.enable = true;
     blueman.enable = true;
@@ -240,10 +242,15 @@
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
-      pulse.enable = false;
+      pulse.enable = true;
       jack.enable = true;
     };
+    # --- DESKTOPMANAGER.PLASMA6{{{2
+    desktopManager = {
+      plasma6.enable = false;
+    };
     # --- XSERVER{{{2
+    # --- GENERAL{{{3
     xserver = {
       enable = true;
       xkb = {
@@ -255,8 +262,7 @@
       # --- DESKTOP MANAGER{{{3
       desktopManager = {
         xterm.enable = false;
-        gnome.enable = true;
-        plasma6.enable = false;
+        gnome.enable = false;
         xfce = {
           enable = false;
           enableXfwm = false;
@@ -276,9 +282,20 @@
       # --- DISPLAY MANAGER{{{3
       displayManager = {
         # startx.enable = true; # console login
+        # session = [
+        #   {
+        #     manage = "window";
+        #     name = "Niri";
+        #     start = '' 
+        #       ${pkgs.niri}/bin/niri-session &
+        #       waitPID=$!
+        #     '';
+        #   }
+        # ];
         sddm = {
           enable = true;
           theme = "chili";
+          wayland.enable = true;
         };
       };
       # --- WINDOW MANAGER{{{3
@@ -328,8 +345,14 @@
   };
   # --- VIRTUALIZATION{{{1
   virtualisation = {
-    podman.enable = true;
-    podman.dockerCompat = true;
+    docker = {
+      enable = true;
+    };
+    podman = {
+      enable = false;
+      dockerCompat = true;
+      dockerSocket.enable = true;
+    };
     libvirtd = {
       enable = true;
       onBoot = "ignore";
@@ -344,13 +367,14 @@
     isNormalUser = true;
     description = "kev";
     extraGroups =
-      [ "networkmanager" "adbusers" "wheel" "kvm" "libvirtd" "input" "audio" ];
+      [ "networkmanager" "adbusers" "wheel" "kvm" "libvirtd" "input" "audio" "podman" "docker" ];
     shell = pkgs.fish;
     # --- USER PACKAGES{{{1
     packages = with pkgs; [
       # android-tools
       anydesk
       appeditor
+      arc-theme
       archiver
       authenticator
       bat
@@ -362,6 +386,7 @@
       cava # Terminal audio visualizer
       clifm
       cliphist
+      docker
       dracula-theme
       emacs
       emacsPackages.all-the-icons-nerd-fonts
@@ -376,14 +401,13 @@
       fuzzel # Launcher
       fzf
       gammastep
-      # gcc
       gdu # Disk space analyzer
+      gnome-extension-manager
+      gnome.gnome-tweaks
       gnome.file-roller
       gnome.gnome-clocks
-      # gnumake
       grc # generic text colourizer. Using with fishPlugins.grc
       grim
-      # grimblast # Wrapper for grim/slurp
       gucharmap
       helix
       http-server # Simple http server. Using with surfingkeys config.
@@ -391,11 +415,11 @@
       jc # Convert output to json for many utils. Useful with Nushell
       jgmenu
       jq
+      kdePackages.kalarm
+      kdePackages.polkit-kde-agent-1
       kitty
       lazygit
       libnotify
-      # libsForQt5.polkit-kde-agent
-      # libsForQt5.kalarm
       # localsend
       logseq
       lunarvim
@@ -431,16 +455,21 @@
       tartube # Front end for yt-dlp
       tealdeer # Command line help 'tldr'
       thunderbird
+      treesheets
       nodePackages.tiddlywiki
       tree-sitter
       virt-manager
-      vivaldi
-      vivaldi-ffmpeg-codecs
+      # vivaldi
+      # vivaldi-ffmpeg-codecs
       vlc
       wakeonlan # For lgtv control
-      waybar
+
+      # waybar
+      inputs.nixpkgs-trunk.legacyPackages.${pkgs.system}.waybar
+
       waypaper
       websocat # For lgtv control
+      wttrbar
       wev
       wget
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
@@ -455,8 +484,8 @@
     ];
   };
   # --- PROGRAMS{{{1
+  # --- Misc{{{2
   programs = {
-    # --- Misc{{{2
     adb.enable = true;
     command-not-found.enable = false;
     dconf.enable = true;
@@ -528,7 +557,7 @@
     };
     # --- Nix-ld{{{2
     nix-ld = {
-      enable = true;
+      enable = false;
         libraries = with pkgs; [
           # Add missing dynamic libraries for unpackged programs here.. not systemPackages or user packages.
           gtk3
@@ -551,6 +580,6 @@
   # --- NIXPKGS{{{1
   nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages = [ "electron-25.9.0" ];
+    # permittedInsecurePackages = [ "electron-25.9.0" ];
   };
 }

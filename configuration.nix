@@ -372,7 +372,7 @@
     # --- USER PACKAGES{{{1
     packages = with pkgs; [
       # android-tools
-      anydesk
+      # anydesk
       appeditor
       arc-theme
       archiver

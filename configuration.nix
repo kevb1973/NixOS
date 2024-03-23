@@ -386,6 +386,7 @@
       cava # Terminal audio visualizer
       clifm
       cliphist
+      diff-so-fancy
       docker
       dracula-theme
       emacs
@@ -426,6 +427,7 @@
       mako
       marksman # Language server for markdown.
       mediainfo # Provides info on media files. 
+      meld
       (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.sponsorblock mpvScripts.visualizer ]; })
       mpv-shim-default-shaders
       ncdu

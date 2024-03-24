@@ -172,7 +172,7 @@
       NIX_ALLOW_UNFREE = "1";
       QT_IM_MODULE = "ibus";
       QT_QPA_PLATFORM = "wayland;xcb";
-      QT_QPA_PLATFORMTHEME = "gnome";
+      QT_QPA_PLATFORMTHEME = "qt5ct";
       XMODIFIERS = "@im=ibus";
       _JAVA_AWT_WM_NONREPARENTING = "1";
     };
@@ -313,8 +313,8 @@
   # --- QT{{{1
   qt = {
     enable = true;
-    platformTheme = "gnome";
-    style = "adwaita-dark";
+    platformTheme = "qt5ct";
+    style = "kvantum";
   };
   # --- FONTS{{{1
   fonts = {
@@ -418,6 +418,8 @@
       jq
       kdePackages.kalarm
       kdePackages.polkit-kde-agent-1
+      kdePackages.qtstyleplugin-kvantum
+      kdePackages.qt6ct
       kitty
       lazygit
       libnotify

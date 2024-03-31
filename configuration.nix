@@ -40,13 +40,13 @@
     };
     # --- BOOT LOADER --- {{{2
     loader = {
-      systemd-boot.enable = false;
+      systemd-boot.enable = true;
       efi = {
         canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
+        efiSysMountPoint = "/boot";
       };
       grub = {
-        enable = true;
+        enable = false;
         copyKernels = true;
         efiSupport = true;
         devices = [ "nodev" ];
@@ -168,11 +168,15 @@
     # --- ENV VARIABLES{{{2
     variables = {
       # NIXOS_OZONE_WL = "1"; # hint electron apps to use wayland (Logseq doesn't like it.. slow start, crashy)
+      CLUTTER_BACKEND = "wayland";
+      GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
       NIX_ALLOW_UNFREE = "1";
+      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_IM_MODULE = "ibus";
       QT_QPA_PLATFORM = "wayland;xcb";
       QT_QPA_PLATFORMTHEME = "qt5ct";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       XMODIFIERS = "@im=ibus";
       _JAVA_AWT_WM_NONREPARENTING = "1";
     };
@@ -412,6 +416,7 @@
       gucharmap
       helix
       http-server # Simple http server. Using with surfingkeys config.
+      hyprpicker
       inputs.hyprland-contrib.packages.${pkgs.system}.grimblast # Wrapper for grim/slurp. . Using flake as nixpkgs ver pulls in old hyprland
       jc # Convert output to json for many utils. Useful with Nushell
       jgmenu
@@ -423,9 +428,10 @@
       kitty
       lazygit
       libnotify
+      libsForQt5.qtstyleplugin-kvantum 
       # localsend
       logseq
-      lunarvim
+      # lunarvim
       mako
       marksman # Language server for markdown.
       mediainfo # Provides info on media files. 
@@ -561,10 +567,10 @@
     };
     # --- Nix-ld{{{2
     nix-ld = {
-      enable = false;
+      enable = true;
         libraries = with pkgs; [
           # Add missing dynamic libraries for unpackged programs here.. not systemPackages or user packages.
-          gtk3
+          stdenv.cc.cc
         ];
     };
     # --- Sway{{{2

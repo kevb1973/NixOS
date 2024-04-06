@@ -202,7 +202,7 @@
       mfcl2700dncupswrapper
       neovim
       nil
-      nixfmt
+      nixfmt-rfc-style
       nodejs
       nix-tree # Explore package dependencies
       nodePackages.bash-language-server

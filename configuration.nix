@@ -212,6 +212,7 @@
       sddm-chili-theme
       unar
       unzip
+      usbutils
       xdg-utils # for openning default programms when clicking links
     ];
   };
@@ -219,7 +220,8 @@
     # --- GENERAL{{{2
   services = {
     accounts-daemon.enable = true;
-    blueman.enable = true;
+    avahi.enable = true;
+    blueman.enable = false;
     dbus.enable = true;
     flatpak.enable = true;
     geoclue2.enable = true;
@@ -297,6 +299,7 @@
         #     '';
         #   }
         # ];
+        defaultSession = "hyprland";
         sddm = {
           enable = true;
           theme = "catppuccin-sddm-corners";
@@ -351,7 +354,7 @@
   # --- VIRTUALIZATION{{{1
   virtualisation = {
     docker = {
-      enable = true;
+      enable = false;
     };
     podman = {
       enable = false;
@@ -389,6 +392,7 @@
       calibre
       cargo
       cava # Terminal audio visualizer
+      celestia
       clifm
       cliphist
       diff-so-fancy
@@ -404,6 +408,7 @@
       fishPlugins.grc
       fishPlugins.fzf
       fishPlugins.autopair
+      foliate
       fuzzel # Launcher
       fzf
       gammastep
@@ -457,6 +462,7 @@
       slurp
       spotify
       steam-run
+      stellarium
       stow
       stylua
       swaybg
@@ -506,7 +512,7 @@
     # --- Firefox{{{2
     firefox = {
       enable = true;
-      nativeMessagingHosts.packages = [ pkgs.tridactyl-native];
+      # nativeMessagingHosts.packages = [ pkgs.fx-cast-bridge ];
     };
     # --- Fish{{{2
     fish = {
@@ -547,7 +553,6 @@
         verify-store = "sudo nix-store --verify --check-contents";
       };
       # --- Interactive Shell Init{{{3
-      interactiveShellInit = '' # Set Neovim as default man viewer
         set -x MANPAGER "nvim -c 'Man!'"
       '';
     };

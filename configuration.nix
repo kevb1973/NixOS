@@ -186,6 +186,7 @@
       any-nix-shell
       archiver
       atool
+      catppuccin-sddm-corners
       glib
       gitFull
       gnome.adwaita-icon-theme
@@ -298,7 +299,7 @@
         # ];
         sddm = {
           enable = true;
-          theme = "chili";
+          theme = "catppuccin-sddm-corners";
           wayland.enable = true;
         };
       };

@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
     # nixpkgs-trunk.url = "github:nixos/nixpkgs";
+    # niri.url = "github:sodiboo/niri-flake";
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-contrib = {
       url = "github:hyprwm/contrib";
@@ -16,7 +17,7 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, ... }: {
+  outputs = inputs@{ self, nixpkgs, ... }: {
     nixosConfigurations = {
       halcyon = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
@@ -32,6 +33,14 @@
               flake = nixpkgs;
             };
           })
+          # niri.nixosModules.niri
+          # {
+          #   programs.niri.enable = true;
+          # }
+          # { # If you wish to use the unstable version of niri, you can set it like so:
+          #   nixpkgs.overlays = [ niri.overlays.niri ];
+          #   # programs.niri.package = pkgs.niri-unstable;
+          # }
         ];
       };
     };

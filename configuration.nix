@@ -543,7 +543,8 @@
         verify-store = "sudo nix-store --verify --check-contents";
       };
       # --- Interactive Shell Init{{{3
-        set -x MANPAGER "nvim -c 'Man!'"
+      interactiveShellInit = '' # Set Lunarvim as default man viewer
+        set -x MANPAGER "lvim -c 'Man!'"
       '';
     };
     # --- FZF{{{2

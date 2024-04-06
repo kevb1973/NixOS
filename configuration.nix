@@ -289,16 +289,6 @@
       # --- DISPLAY MANAGER{{{3
       displayManager = {
         # startx.enable = true; # console login
-        # session = [
-        #   {
-        #     manage = "window";
-        #     name = "Niri";
-        #     start = '' 
-        #       ${pkgs.niri}/bin/niri-session &
-        #       waitPID=$!
-        #     '';
-        #   }
-        # ];
         defaultSession = "hyprland";
         sddm = {
           enable = true;

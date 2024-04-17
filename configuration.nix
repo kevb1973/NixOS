@@ -520,9 +520,9 @@
       # --- Aliases{{{3
       shellAliases = {
         cat = "bat";
-        conf = "neovide  ~/NixOS/configuration.nix";
-        e = "nvim";
-        ee = "neovide";
+        conf = "emacsclient -r  ~/NixOS/configuration.org";
+        e = "emacsclient -nw";
+        ee = "emacsclient -r";
         gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
         lg = "lazygit";
         lp = "nix profile list | grep -E 'Flake attribute|Index'";

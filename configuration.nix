@@ -169,7 +169,7 @@
       # NIXOS_OZONE_WL = "1"; # hint electron apps to use wayland (Logseq doesn't like it.. slow start, crashy)
       ALTERNATE_EDITOR = ""; #allow emacsclient to start daemon if not already running
       CLUTTER_BACKEND = "wayland";
-      EDITOR = "emacsclient -nw";
+      EDITOR = "emacsclient -r";
       GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
       NIX_ALLOW_UNFREE = "1";

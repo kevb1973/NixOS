@@ -190,7 +190,7 @@
       # NIXOS_OZONE_WL = "1"; # hint electron apps to use wayland (Logseq doesn't like it.. slow start, crashy)
       ALTERNATE_EDITOR = ""; #allow emacsclient to start daemon if not already running
       CLUTTER_BACKEND = "wayland";
-      EDITOR = "emacsclient -nw";
+      EDITOR = "emacsclient -r";
       GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
       NIX_ALLOW_UNFREE = "1";
@@ -1055,4 +1055,565 @@ bind =, s, exec, ~/Games/Hodoku/hodoku
 bind =, s, submap, reset
 bind =, escape, submap, reset
 submap=reset
+#+END_SRC
+* surfingkeys.js
+** Constants
+#+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
+const {
+  aceVimMap,
+  mapkey,
+  imap,
+  imapkey,
+  KeyboardUtils,
+  getClickableElements,
+  vmapkey,
+  vmap,
+  map,
+  unmap,
+  unmapAllExcept,
+  vunmap,
+  cmap,
+  addSearchAlias,
+  removeSearchAlias,
+  tabOpenLink,
+  readText,
+  Clipboard,
+  Front,
+  Hints,
+  Visual,
+  RUNTIME
+} = api;
+
+#+END_SRC
+** Functions
+#+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
+function mouseOver(element){
+  let event = new MouseEvent('mouseover', {
+    'view': window,
+    'bubbles': true,
+    'cancelable': true
+  });
+  element.dispatchEvent(event);
+}
+function mouseOut(element){
+  let event = new MouseEvent('mouseout', {
+    'view': window,
+    'bubbles': true,
+    'cancelable': true
+  });
+  element.dispatchEvent(event);
+}
+#+END_SRC
+** Keybinds
+*** Remap
+#+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
+map('E', 'x');
+map('<Ctrl-E>', 'X');
+map('x', 'T');
+map('<ArrowUp>', 'k');
+map('<ArrowDown>', 'j');
+map('a', 'D', /8kun/) //remap mouseout to an easier key for 8kun
+map('<Alt-`>', '<Ctrl-6>');
+map('e', 'ya')
+imap('<Alt-`>', '<Ctrl-6>');
+vmap('<ArrowLeft>', 'h');
+vmap('<ArrowRight>', 'l');
+vmap('<ArrowUp>', 'k');
+vmap('<ArrowDown>', 'j');
+cmap('<ArrowUp>', '<Tab>');
+cmap('<ArrowDown>', '<Shift-Tab>');
+#+END_SRC
+*** Unmap
+#+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
+unmapAllExcept(['f', 'q', 'i', ';e', 't', 'X', '<Alt-`>'], /mail.google.com/i);
+unmapAllExcept(["f", "q", ";e", "t", "m", "X", "<Alt-`>", "'"], /www.sudokuslam.com/i);
+// Unbind defaults
+unmap('g0');
+unmap('g$');
+unmap('gx0');
+unmap('gxt');
+unmap('gxT');
+unmap('gx$');
+unmap('gxp');
+unmap('gxx');
+unmap('R');
+unmap(';gt');
+unmap(';gw');
+unmap('>>');
+unmap('<<');
+unmap('sb');
+unmap('sw');
+unmap('W');
+//unmap('x');
+unmap('X');
+unmap('i', /8kun/);
+unmap('n', /twitter.com/);
+unmap('.', /twitter.com/);
+#+END_SRC
+*** Map
+**** Function Binds
+#+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
+mapkey('d', 'Mouse Over', function(){
+  Hints.create("", function(element){
+      mouseOver(element);
+  }, {multipleHits: false})
+}, {domain: /.*/ig});
+mapkey('h', 'Mouse Move', function(){
+  Hints.create("", function(element){
+      mouseIn(element);
+  }, {multipleHits: false})
+}, {domain: /.*/ig});
+mapkey('D', 'Mouse Out', function(){
+  Array.from(document.querySelectorAll('a')).forEach(a => {
+      mouseOut(a);
+  })
+}, {domain: /.*/ig});
+#+END_SRC
+
+**** Domain Specific Binds
+***** GAW
+#+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
+mapkey('h', 'Jump to HOT', function() {
+   window.open('/', '_self');
+}, {domain: /.win/});
+mapkey('n', 'Jump to NEW', function() {
+   window.open('/new', '_self');
+}, {domain: /.win/});
+#+END_SRC
+***** Telegram
+#+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
+mapkey('f', 'Custom hints for Telegram', function() {
+    Hints.create(".anchor-url, .row-clickable, .toggle-emoticons, .emoji, .btn-icon, .rp, .reaction, video, canvas, .interactive.dark.media-inner, .CommentButton, .icon-smile.icon, .icon-attach.icon, .icon-arrow-right.icon, .icon-search.icon, .ripple-container, .icon-calendar.icon, div.clickable.div-button.day-button, .primary.default.Button, .icon-previous.icon, .icon-next.icon", Hints.dispatchMouseClick);
+}, {domain: /web.telegram.org/});
+#+END_SRC
+***** Sudokuslam
+#+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
+mapkey('<Space>', 'Custom Hints for SudokuSlam', function() {
+   Hints.create("#win-another-puzzle, #pausebox", Hints.dispatchMouseClick);
+}, {domain: /www.sudokuslam.com/});
+
+mapkey('h', 'Get hint for SudokuSlam', function() {
+   Hints.create("#get-hint-go", Hints.dispatchMouseClick);
+}, {domain: /www.sudokuslam.com/});
+#+END_SRC
+***** 8kun
+#+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
+mapkey('f', 'Custom Hints for 8kun', function() {
+   Hints.create("\
+   img, img[title='Collapse-video'], video, a[class^='mentioned'], a[href*='qresearch'],.post-btn, .post-submenu, .post-item, a[title='Options'],\
+   .options_tab_icon, .linkifyplus, .spoiler, a.hoverZoomLink\
+   ", Hints.dispatchMouseClick);
+}, {domain: /8kun.top/});
+
+mapkey('i', '8kun image hover', function() {
+   Hints.create("img", imageHoverStart);
+}, {domain: /8kun.top/});
+
+mapkey('C', 'Open QResearch Catalog', function() {
+   window.open('https://8kun.top/qresearch/catalog.html', '_self');
+}, {domain: /8kun.top/});
+#+END_SRC
+***** X
+#+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
+mapkey('l', 'Custom hints for X - Like', function() {
+    Hints.create("div[data-testid='like']", Hints.dispatchMouseClick);
+}, {domain: /twitter.com/});
+
+mapkey('n', 'X-Community Notes', function() {
+   window.open('https://twitter.com/i/communitynotes', '_self');
+}, {domain: /twitter.com/});
+#+END_SRC
+***** DDG
+#+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
+mapkey('f', 'Custom hints for DDG', function() {
+    Hints.create("a[data-testid='result-title-a'], .js-dropdown-button, .js-dropdown-items, .zcm__link, #more-results, .js-images-show-more.module__header--link.module__header, .hide--mob.module__footer.js-images-show-more", Hints.dispatchMouseClick);
+}, {domain: /duckduckgo.com/});
+#+END_SRC
+***** Tiddlywiki
+#+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
+mapkey('h', 'Tiddiwiki - Go to Index', function() {
+//   window.open('http://10.0.0.167:8081/#Index:Index', '_self');
+    Hints.create("button[aria-label='home']", Hints.dispatchMouseClick);
+}, {domain: /10.0.0.167/});
+
+mapkey('n', 'Tiddiwiki - New Tiddler', function() {
+    Hints.create("button[aria-label='new tiddler']", Hints.dispatchMouseClick);
+}, {domain: /10.0.0.167/});
+
+mapkey('j', 'Tiddiwiki - New Journal', function() {
+    Hints.create("button[aria-label='new journal']", Hints.dispatchMouseClick);
+}, {domain: /10.0.0.167/});
+
+mapkey('x', 'Tiddiwiki - Close Tiddler', function() {
+    Hints.create(".tc-tiddler-controls>button[aria-label='close']", Hints.dispatchMouseClick);
+}, {domain: /10.0.0.167/});
+
+mapkey('e', 'Tiddiwiki - Edit Tiddler', function() {
+    Hints.create("button[aria-label='edit'", Hints.dispatchMouseClick);
+}, {domain: /10.0.0.167/});
+#+END_SRC
+***** Youtube
+#+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
+mapkey('l', 'Custom hints for Youtube - Like', function() {
+    Hints.create("html body ytd-app div#content.style-scope.ytd-app ytd-page-manager#page-manager.style-scope.ytd-app ytd-watch-flexy.style-scope.ytd-page-manager.hide-skeleton div#columns.style-scope.ytd-watch-flexy div#primary.style-scope.ytd-watch-flexy div#primary-inner.style-scope.ytd-watch-flexy div#below.style-scope.ytd-watch-flexy ytd-watch-metadata.watch-active-metadata.style-scope.ytd-watch-flexy div#above-the-fold.style-scope.ytd-watch-metadata div#top-row.style-scope.ytd-watch-metadata div#actions.item.style-scope.ytd-watch-metadata div#actions-inner.style-scope.ytd-watch-metadata div#menu.style-scope.ytd-watch-metadata ytd-menu-renderer.style-scope.ytd-watch-metadata div#top-level-buttons-computed.top-level-buttons.style-scope.ytd-menu-renderer segmented-like-dislike-button-view-model.YtSegmentedLikeDislikeButtonViewModelHost.style-scope.ytd-menu-renderer yt-smartimation.smartimation.smartimation--enable-masking div.smartimation__content div.YtSegmentedLikeDislikeButtonViewModelSegmentedButtonsWrapper like-button-view-model.YtLikeButtonViewModelHost toggle-button-view-model button-view-model.yt-spec-button-view-model button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading.yt-spec-button-shape-next--segmented-start yt-touch-feedback-shape div.yt-spec-touch-feedback-shape.yt-spec-touch-feedback-shape--touch-response div.yt-spec-touch-feedback-shape__fill", Hints.dispatchMouseClick);
+}, {domain: /youtube.com/});
+#+END_SRC
+** Settings
+#+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
+settings.scrollStepSize = 200;
+settings.hintAlign = "left";
+settings.richHintsForKeystroke = 500;
+settings.focusFirstCandidate = false;
+settings.focusAfterClose = "last";
+settings.scrollFriction = 0;
+settings.defaultSearchEngine = "d";
+settings.enableEmojiInsertion = true;
+settings.tabsThreshold = 0;
+settings.omnibarPosition = "bottom";
+// settings.cursorAtEndOfInput = false;
+//settings.nextLinkRegex = '/(\b(>>|next|more|continue)\b)/i';
+//settings.prevLinkRegex = '/(\b(<<|prev(ious)?|back)\b)/i';
+settings.clickablePat = '/(https?|thunder|magnet):\/\/\S+/i';
+settings.stealFocusOnLoad = true;
+settings.ignoredFrameHosts = ["https://tpc.googlesyndication.com"]; //maybe figure out which youtube frames to ignore..
+settings.modeAfterYank = 'Normal';
+//settings.editableSelector = '/textarea/i'
+Hints.setNumeric();
+Hints.style('border: solid 3px #387da4; color:#efe1eb; background: none; background-color: #387da4;');
+Hints.style("div{border: solid 3px #707070; color:#efe1eb; background: none; background-color: #552a48;} div.begin{color:#efe1eb;}", "text");
+
+// Override Settings
+//if (window.location.origin === "https://duckduckgo.com") {
+//    settings.nextLinkRegex = /more results/i;
+//}
+if (window.location.origin === "https://www.sudokuslam.com") {
+    settings.digitForRepeat = false;
+}
+if (window.location.origin === "https://www.youtube.com") {
+    settings.digitForRepeat = false;
+}
+#+END_SRC
+** Search Aliases
+*** Removed
+#+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
+removeSearchAlias('b');
+removeSearchAlias('g');
+removeSearchAlias('w');
+#+END_SRC
+*** Added
+#+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
+addSearchAlias('am', 'Amazon', 'https://www.amazon.ca/s?k=');
+addSearchAlias('br', 'Brave Search', 'https://search.brave.com/search?q=');
+addSearchAlias('di', 'Dictionary', 'https://www.britannica.com/dictionary/');
+addSearchAlias('gh', 'Github General', 'https://github.com/search?&q=');
+addSearchAlias('ghc', 'Github Code', 'https://github.com/search?type=code&q=');
+addSearchAlias('ghp', 'Search Nix PRs', 'https://github.com/NixOS/nixpkgs/pulls?q=is%3Apr+is%3Aopen+');
+addSearchAlias('ghr', 'GitHub Repos', 'https://github.com/search?type=repositories&q=');
+addSearchAlias('gm', 'Google Maps', 'https://maps.google.com/maps?q=');
+addSearchAlias('im', 'IMDB', 'https://www.imdb.com/find?s=all&q=');
+addSearchAlias('md', 'MagnetDL', 'http://www.magnetdl.com/search/?m=1&q=');
+addSearchAlias('no', 'Search Nix Options', 'https://search.nixos.org/options?channel=unstable&size=50&sort=relevance&type=packages&query=');
+addSearchAlias('np', 'Search Nix Packages', 'https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=');
+addSearchAlias('pb', 'The Bay', 'https://thepiratebay.org/search.php?all=on&search=Pirate&q=');
+addSearchAlias('prt', 'NixOS Pull Request Tracker', 'https://nixpk.gs/pr-tracker.html?pr=');
+addSearchAlias('re', 'Reddit', 'https://www.reddit.com/search/?q=');
+addSearchAlias('sp', 'Spotify', 'https://open.spotify.com/search/');
+addSearchAlias('ud', 'Urban Dictionary', 'http://www.urbandictionary.com/define.php?term=');
+addSearchAlias('wb', 'Wayback', 'https://web.archive.org/web/submit?type=urlquery&url=');
+addSearchAlias('wi', 'Wokepedia', 'https://en.wikipedia.org/wiki/Special:Search?search=');
+addSearchAlias('x', 'X', 'https://twitter.com/search?src=typed_query&q=');
+#+END_SRC
+** Theme
+#+BEGIN_SRC css :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
+settings.theme = `
+.sk_theme {
+  font-family: Input Sans Condensed, Charcoal, sans-serif;
+  font-size: 12pt;
+  background: #002B36;
+  color: #93A1A1;
+}
+.sk_theme input {
+  color: #93A1A1;
+}
+.sk_theme .url {
+  color: #268BD2;
+}
+.sk_theme .annotation {
+  color: #93A1A1;
+}
+.sk_theme kbd {
+  background: #EEE8D5;
+  color: #111;
+}
+.sk_theme .omnibar_highlight {
+  color: #CB4B16;
+}
+.sk_theme .omnibar_folder {
+  color: #2AA198;
+}
+.sk_theme .omnibar_timestamp {
+  color: #657B83;
+}
+.sk_theme .omnibar_visitcount {
+  color: #B58900;
+}
+.sk_theme .prompt, .sk_theme .resultPage {
+  color: #93A1A1;
+}
+.sk_theme .feature_name {
+  color: #859900;
+}
+.sk_theme .separator {
+  color: #859900;
+}
+.sk_theme #sk_omnibarSearchResult ul li:nth-child(odd) {
+  background: #002F3B;
+}
+.sk_theme #sk_omnibarSearchResult ul li.focused {
+  background: #083D4A;
+}
+#sk_status, #sk_find {
+  font-size: 12pt;
+}
+#sk_keystroke {
+  background: #002B36;
+}
+.expandRichHints span.annotation {
+  color: #93A1A1;
+}`;
+#+END_SRC
+* waybar
+** config
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/waybar/.config/waybar/config"
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+
+    "modules-left": ["custom/launcher", "hyprland/workspaces", "hyprland/submap", "custom/spotify"],
+    "modules-center": ["cava"],
+    "modules-right": ["custom/weather", "tray", "idle_inhibitor", "custom/lgtv", "pulseaudio", "clock"],
+    "sway/mode": {
+        "format": " {}"
+    },
+    "sway/workspaces": {
+        "format": "{name}",
+        "disable-scroll": false,
+        "enable-bar-scroll": true,
+    },
+    "hyprland/workspaces": {
+      "on-scroll-up": "hyprctl dispatch workspace e+1",
+      "on-scroll-down": "hyprctl dispatch workspace e-1",
+     "on-click": "activate",
+    },
+
+    "hyprland/submap": {
+      "format": "{}",
+      "max-length": 30,
+      "tooltip": false
+    },
+
+    "sway/window": {
+        "max-length": 80,
+        "tooltip": false
+    },
+    "clock": {
+        "format": "{:%a %b %d %I:%M%p}",
+        "tooltip": false
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "format-charging": "{capacity}% ",
+        "interval": 30,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": false
+    },
+    "network": {
+        "format": "{icon}",
+        "format-alt": "{ipaddr}/{cidr} {icon}",
+        "format-alt-click": "click-right",
+        "format-icons": {
+            "wifi": ["", "" ,""],
+            "ethernet": [""],
+            "disconnected": [""]
+        },
+        "on-click": "kitty -e nmtui",
+    "tooltip": false
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-alt": "{volume} {icon}",
+        "format-alt-click": "click-right",
+        "format-muted": "婢",
+        "format-icons": {
+            "phone": [" ", " ", " ", " "],
+            "default": [" ", " ", " "]
+        },
+        "max-volume": 110,
+        "scroll-step": 1,
+        "on-click": "pavucontrol",
+        "tooltip": false
+    },
+    "custom/spotify": {
+        "interval": 1,
+        "return-type": "json",
+        "exec": "/home/kev/.config/waybar/modules/spotify.sh",
+        "exec-if": "pgrep firefox || pgrep vivaldi",
+        "escape": true
+    },
+    "custom/storage": {
+        "format": "{} ",
+        "format-alt": "{percentage}% ",
+        "format-alt-click": "click-right",
+        "return-type": "json",
+        "interval": 60,
+        "exec": "~/.config/waybar/modules/storage.sh"
+    },
+    "backlight": {
+        "format": "{icon}",
+        "format-alt": "{percent}% {icon}",
+        "format-alt-click": "click-right",
+        "format-icons": ["", ""],
+        "on-scroll-down": "light -A 1",
+        "on-scroll-up": "light -U 1"
+    },
+    "custom/weather": {
+        "format": "{}",
+        "format-alt": "{alt}: {}",
+        "format-alt-click": "click-right",
+        "interval": 1800,
+        "return-type": "json",
+        "exec": "wttrbar --date-format \"%m/%d\" --location Oshawa --hide-conditions --ampm --custom-indicator \"{ICON}{temp_C}({FeelsLikeC})\"",
+        "exec-if": "ping wttr.in -c1"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": " ",
+            "deactivated": " "
+        },
+        "tooltip": false
+    },
+    "custom/mail": {
+        "format": "",
+        "format-alt": "{alt} ",
+        "format-alt-click": "click-right",
+        "interval": 60,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/mail.py",
+        "tooltip": false
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10,
+    },
+    "custom/launcher": {
+//        "format": " <span color='#6a92d7'> </span>",
+        "format": "  ",
+        "on-click": "jgmenu_run",
+    },
+    "custom/kev-menu": {
+        "format": " #",
+        "on-click": "/home/kev/bin/jgmenu_kev.sh -c",
+        "on-click-right": "/home/kev/bin/jgmenu_spotify",
+    },
+    "custom/mako": {
+        "format": "@",
+        "on-click": "makoctl menu wofi -W 15% -H 10% -x 800 -y 5 -d -p 'Choose Action: '",
+    },
+    "custom/lgtv": {
+        "format": "󰻅 ",
+        "on-click": "lgtvgui",
+    },
+    "cava": {
+    //        "cava_config": "$XDG_CONFIG_HOME/cava/config",
+            "framerate": 30,
+            "autosens": 0,
+            "sensitivity": 5,
+            "bars": 35,
+            "lower_cutoff_freq": 25,
+            "higher_cutoff_freq": 12000,
+            "method": "pipewire",
+            "source": "auto",
+            "stereo": true,
+            "reverse": false,
+            "bar_delimiter": 0,
+            "monstercat": false,
+            "waves": true,
+            "noise_reduction": 0.77,
+            "input_delay": 2,
+            "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+            "actions": {
+                "on-click-right": "mode"
+            },
+    },
+}
+#+END_SRC
+** style.css
+#+BEGIN_SRC css :tangle "/home/kev/dotfiles/waybar/.config/waybar/style.css"
+,* {
+    border: none;
+    border-radius: 0;
+    font-family: Victor Mono, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(250, 250, 250, 0.4);
+    border-bottom: 1px solid rgba(100, 114, 125, 1);
+    color: white;
+    padding: 0 2px;
+}
+
+tooltip {
+  background: rgba(43, 48, 59, 0.8);
+  border: 1px solid rgba(100, 114, 125, 0.5);
+}
+tooltip label {
+  color: white;
+}
+
+#workspaces button {
+    padding: 0 2px;
+    background: transparent;
+    color: white;
+    border-top: 3px solid transparent;
+}
+
+#workspaces button.focused, #workspaces button.active {
+	border-top: 3px  solid white ;
+	color:  white ;
+}
+
+#mode, #clock, #battery, #tray, #idle_inhibitor, #custom-lgtv, #pulseaudio {
+    padding: 0 10px;
+    background-color: rgba(43, 48, 59, 0);
+}
+
+#mode {
+    background: #64727D;
+    border-bottom: 3px solid white;
+}
+
+#clock {
+    color: rgba(255, 255, 255, 1.0);
+}
+
+#cava {
+  min-width: 800px;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: black;
+    }
+}
+
 #+END_SRC

@@ -189,13 +189,16 @@
       archiver
       atool
       catppuccin-sddm-corners
+      cmake
       glib
       gitFull
       gnome.adwaita-icon-theme
+      gnumake
       jdk
       killall
-      libinput
       libcxxStdenv # Needed to build binaries for tree-sitter
+      libinput
+      libtool
       # libsForQt5.breeze-icons
       # libsForQt5.qt5ct
       lua

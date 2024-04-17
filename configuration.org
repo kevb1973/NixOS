@@ -1,4 +1,4 @@
-#+STARTUP: overview
+#+STARTUP: show2levels
 * configuration.nix
 #+PROPERTY: header-args :tangle "/home/kev/NixOS/configuration.nix"
 ** Header
@@ -212,13 +212,16 @@
       archiver
       atool
       catppuccin-sddm-corners
+      cmake
       glib
       gitFull
       gnome.adwaita-icon-theme
+      gnumake
       jdk
       killall
-      libinput
       libcxxStdenv # Needed to build binaries for tree-sitter
+      libinput
+      libtool
       # libsForQt5.breeze-icons
       # libsForQt5.qt5ct
       lua
@@ -562,9 +565,9 @@
       # --- Aliases{{{3
       shellAliases = {
         cat = "bat";
-        conf = "neovide  ~/NixOS/configuration.nix";
-        e = "nvim";
-        ee = "neovide";
+        conf = "emacsclient -r  ~/NixOS/configuration.org";
+        e = "emacsclient -nw";
+        ee = "emacsclient -r";
         gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
         lg = "lazygit";
         lp = "nix profile list | grep -E 'Flake attribute|Index'";
@@ -702,6 +705,7 @@
   };
 } #End of configuration.nix
 #+END_SRC
+
 * hyprland.conf
 ** Autostarts
 #+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"

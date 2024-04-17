@@ -19,10 +19,11 @@
       # Vulcan
       driSupport = true;
       driSupport32Bit = true;
-      #extraPackages = with pkgs; [
-      #  rocm-opencl-icd
-      #  rocm-opencl-runtime
-      #];
+      # extraPackages = with pkgs; [
+        # amdvlk
+        # rocm-opencl-icd
+        # rocm-opencl-runtime
+      # ];
     };
   };
   # --- BOOT --- {{{1
@@ -31,7 +32,7 @@
       options kvm ignore_msrs=1
     '';
     tmp.useTmpfs = true;
-    kernelModules = [ "amd-pstate" ];
+    # kernelModules = [ "amd-pstate" ];
     kernelPackages = pkgs.linuxPackages_latest;
     swraid.enable = false; # Setting needed as system state ver < 23.11
     initrd = {
@@ -57,11 +58,11 @@
     kernelParams = [
       #"initcall_blacklist=acpi_cpufreq_init"
       #"amd_pstate=active"
-      "nowatchdog"
-      "nmi_watchdog=0"
+      # "nowatchdog"
+      # "nmi_watchdog=0"
       "quiet"
-      "amd_iommu=on"
-      "iommu=pt"
+      # "amd_iommu=on"
+      # "iommu=pt"
     ];
   };
   # --- POWER MGMT{{{1
@@ -104,15 +105,15 @@
         "application/x-extension-shtml" = "firefox.desktop";
         "application/x-extension-xht" = "firefox.desktop";
         "application/x-extension-xhtml" = "firefox.desktop";
-        "application/x-shellscript" = "neovide-lvim.desktop";
+        "application/x-shellscript" = "neovide.desktop";
         "application/xhtml+xml" = "firefox.desktop";
         "audio/x-mpegurl" = "vlc.desktop";
         "image/png" = "feh.desktop";
-        "text/*" = "neovide-lvim.desktop";
-        "text/css" = "neovide-lvim.desktop";
+        "text/*" = "neovide.desktop";
+        "text/css" = "neovide.desktop";
         "text/html" = "firefox.desktop";
         "text/markdown" = "calibre-ebook-viewer.desktop";
-        "text/plain" = "neovide-lvim.desktop";
+        "text/plain" = "neovide.desktop";
         "video/*" = "umpv.desktop";
         "x-scheme-handler/chrome" = "firefox.desktop";
         "x-scheme-handler/http" = "firefox.desktop";
@@ -169,6 +170,7 @@
     variables = {
       # NIXOS_OZONE_WL = "1"; # hint electron apps to use wayland (Logseq doesn't like it.. slow start, crashy)
       CLUTTER_BACKEND = "wayland";
+      EDITOR = "nvim";
       GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
       NIX_ALLOW_UNFREE = "1";
@@ -177,6 +179,7 @@
       QT_QPA_PLATFORM = "wayland;xcb";
       QT_QPA_PLATFORMTHEME = "qt5ct";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      VISUAL = "neovide";
       XMODIFIERS = "@im=ibus";
       _JAVA_AWT_WM_NONREPARENTING = "1";
     };
@@ -231,6 +234,20 @@
     printing.drivers = [ pkgs.brlaser ];
     printing.enable = true;
     tumbler.enable = true; # Thumbnail support for images
+    # --- DESKTOPMANAGER.PLASMA6{{{2
+    desktopManager = {
+      plasma6.enable = false;
+    };
+    # --- DISPLAY MANAGER{{{2
+    displayManager = {
+      # startx.enable = true; # console login
+      defaultSession = "hyprland";
+      sddm = {
+        enable = true;
+        theme = "catppuccin-sddm-corners";
+        wayland.enable = true;
+      };
+    };
     # --- FRESH-RSS{{{2
     freshrss = {
       enable = true;
@@ -252,19 +269,13 @@
       pulse.enable = true;
       jack.enable = true;
     };
-    # --- DESKTOPMANAGER.PLASMA6{{{2
-    desktopManager = {
-      plasma6.enable = false;
-    };
     # --- XSERVER{{{2
-    # --- GENERAL{{{3
     xserver = {
       enable = true;
       xkb = {
         layout = "us";
         variant = "";
       };
-      videoDrivers = [ "amdgpu" ];
       deviceSection = ''Option "TearFree" "true"'';
       # --- DESKTOP MANAGER{{{3
       desktopManager = {
@@ -284,16 +295,6 @@
           # buttonMapping = "1 8 3 4 5 6 7 2 9";
           # scrollMethod = "button";
           # scrollButton = 3;
-        };
-      };
-      # --- DISPLAY MANAGER{{{3
-      displayManager = {
-        # startx.enable = true; # console login
-        defaultSession = "hyprland";
-        sddm = {
-          enable = true;
-          theme = "catppuccin-sddm-corners";
-          wayland.enable = true;
         };
       };
       # --- WINDOW MANAGER{{{3
@@ -376,8 +377,8 @@
       archiver
       authenticator
       bat
-      beebeep
-      bitwarden
+      # beebeep
+      # bitwarden
       btop
       calibre
       cargo
@@ -386,7 +387,8 @@
       clifm
       cliphist
       diff-so-fancy
-      docker
+      discord
+      # docker
       dracula-theme
       emacs
       emacsPackages.all-the-icons-nerd-fonts
@@ -426,7 +428,7 @@
       libnotify
       libsForQt5.qtstyleplugin-kvantum 
       # localsend
-      logseq
+      # logseq
       # lunarvim
       mako
       marksman # Language server for markdown.
@@ -491,13 +493,11 @@
     ];
   };
   # --- PROGRAMS{{{1
-  # --- Misc{{{2
   programs = {
     adb.enable = true;
     command-not-found.enable = false;
     dconf.enable = true;
     ssh.startAgent = true;
-    kdeconnect.enable = false;
     neovim = { vimAlias = true; };
     # --- Firefox{{{2
     firefox = {
@@ -521,8 +521,8 @@
       shellAliases = {
         cat = "bat";
         conf = "neovide  ~/NixOS/configuration.nix";
-        e = "lvim";
-        ee = "neovide --neovim-bin lvim";
+        e = "nvim";
+        ee = "neovide";
         gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
         lg = "lazygit";
         lp = "nix profile list | grep -E 'Flake attribute|Index'";
@@ -543,14 +543,14 @@
         verify-store = "sudo nix-store --verify --check-contents";
       };
       # --- Interactive Shell Init{{{3
-      interactiveShellInit = '' # Set Lunarvim as default man viewer
-        set -x MANPAGER "lvim -c 'Man!'"
+      interactiveShellInit = '' # Set Neovim as default man viewer
+        set -x MANPAGER "nvim -c 'Man!'"
       '';
     };
     # --- FZF{{{2
     fzf = {
-      keybindings = false;
-      fuzzyCompletion = false;
+      keybindings = true;
+      fuzzyCompletion = true;
     };
     # --- Hyprland{{{2
     hyprland = {
@@ -567,7 +567,62 @@
       enable = true;
         libraries = with pkgs; [
           # Add missing dynamic libraries for unpackged programs here.. not systemPackages or user packages.
+          alsa-lib
+          at-spi2-atk
+          at-spi2-core
+          atk
+          cairo
+          cups
+          curl
+          dbus
+          expat
+          fontconfig
+          freetype
+          fuse3
+          gdk-pixbuf
+          glib
+          gtk2
+          gtk3
+          gtk4
+          harfbuzz
+          icu
+          krb5
+          libGL
+          libappindicator-gtk3
+          libdrm
+          libglvnd
+          libnotify
+          libpulseaudio
+          libunwind
+          libusb1
+          libuuid
+          libxkbcommon
+          libxml2
+          mesa
+          nspr
+          nss
+          openssl
+          pango
+          pipewire
           stdenv.cc.cc
+          systemd
+          vulkan-loader
+          xorg.libX11
+          xorg.libXScrnSaver
+          xorg.libXcomposite
+          xorg.libXcursor
+          xorg.libXdamage
+          xorg.libXext
+          xorg.libXfixes
+          xorg.libXi
+          xorg.libXrandr
+          xorg.libXrender
+          xorg.libXtst
+          xorg.libxcb
+          xorg.libxkbfile
+          xorg.libxshmfence
+          xorg.libXinerama
+          zlib
         ];
     };
     # --- Sway{{{2

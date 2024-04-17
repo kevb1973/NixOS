@@ -1,0 +1,1000 @@
+#+STARTUP: overview
+* configuration.nix
+#+PROPERTY: header-args :tangle "./configuration.nix"
+** Header
+#+BEGIN_SRC nix
+{ pkgs, inputs, lib, ... }:
+
+{
+ imports = [ ./hardware-configuration.nix ];
+ time.timeZone = "America/Toronto";
+ i18n.defaultLocale = "en_CA.UTF-8";
+ system.stateVersion = "22.11"; # Don't change unless fresh install from new ISO
+#+END_SRC
+** Hardware
+#+BEGIN_SRC nix
+  hardware = {
+    bluetooth.enable = true;
+    cpu.amd.updateMicrocode = true;
+    enableAllFirmware = true;
+    enableRedistributableFirmware = true;
+    pulseaudio.enable = false;
+    opengl = {
+      enable = true;
+      # Vulcan
+      driSupport = true;
+      driSupport32Bit = true;
+      # extraPackages = with pkgs; [
+        # amdvlk
+        # rocm-opencl-icd
+        # rocm-opencl-runtime
+      # ];
+    };
+  };
+#+END_SRC
+** Boot
+#+BEGIN_SRC nix
+  boot = {
+    extraModprobeConfig = ''
+      options kvm ignore_msrs=1
+    '';
+    tmp.useTmpfs = true;
+    # kernelModules = [ "amd-pstate" ];
+    kernelPackages = pkgs.linuxPackages_latest;
+    swraid.enable = false; # Setting needed as system state ver < 23.11
+    initrd = {
+      kernelModules = [ "amdgpu" ];
+      systemd.network.wait-online.enable = false;
+    };
+    # --- BOOT LOADER --- {{{2
+    loader = {
+      systemd-boot.enable = true;
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot";
+      };
+      grub = {
+        enable = false;
+        copyKernels = true;
+        efiSupport = true;
+        devices = [ "nodev" ];
+        useOSProber = true;
+      };
+    };
+    # --- KERNEL PARAMS --- {{{2
+    kernelParams = [
+      #"initcall_blacklist=acpi_cpufreq_init"
+      #"amd_pstate=active"
+      # "nowatchdog"
+      # "nmi_watchdog=0"
+      "quiet"
+      # "amd_iommu=on"
+      # "iommu=pt"
+    ];
+  };
+#+END_SRC
+** Power Management
+#+BEGIN_SRC nix
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = lib.mkDefault "performance";
+  };
+#+END_SRC
+** Networking
+#+BEGIN_SRC nix
+  networking = {
+    hostName = "halcyon";
+    nameservers = [ "9.9.9.9" "2620:fe::fe" ];
+    dhcpcd.extraConfig = "nohook resolv.conf";
+    firewall.allowedTCPPorts = [ 80 8080 2121 2234 6475 6476 53317 ];
+    firewall.allowedUDPPorts = [ 36475 53317 ];
+    interfaces.enp42s0.wakeOnLan.enable = true;
+    wireless.enable = false; # Enables wireless support via wpa_supplicant.
+    networkmanager = {
+      enable = true;
+      dns = "none";
+    };
+  };
+#+END_SRC
+** XDG
+#+BEGIN_SRC nix
+  xdg = {
+    # --- Portals{{{2
+    portal = {
+      enable = true;
+       # extraPortals = with pkgs; [
+         # xdg-desktop-portal-wlr
+         # xdg-desktop-portal-gtk
+       # ];
+    };
+    # --- Mime Types{{{2
+    mime = {
+      enable = true;
+      defaultApplications = {
+        "application/pdf" = "org.pwmt.zathura.desktop";
+        "application/vnd.apple.mpegurl" = "vlc.desktop";
+        "application/x-extension-htm" = "firefox.desktop";
+        "application/x-extension-html" = "firefox.desktop";
+        "application/x-extension-shtml" = "firefox.desktop";
+        "application/x-extension-xht" = "firefox.desktop";
+        "application/x-extension-xhtml" = "firefox.desktop";
+        "application/x-shellscript" = "neovide.desktop";
+        "application/xhtml+xml" = "firefox.desktop";
+        "audio/x-mpegurl" = "vlc.desktop";
+        "image/png" = "feh.desktop";
+        "text/*" = "neovide.desktop";
+        "text/css" = "neovide.desktop";
+        "text/html" = "firefox.desktop";
+        "text/markdown" = "calibre-ebook-viewer.desktop";
+        "text/plain" = "neovide.desktop";
+        "video/*" = "umpv.desktop";
+        "x-scheme-handler/chrome" = "firefox.desktop";
+        "x-scheme-handler/http" = "firefox.desktop";
+        "x-scheme-handler/https" = "firefox.desktop";
+        "x-scheme-handler/mpv" = "open-in-mpv.desktop";
+      };
+    };
+  };
+#+END_SRC
+** Systemd
+#+BEGIN_SRC nix
+  systemd = {
+    extraConfig = ''
+      DefaultTimeoutStopSec=10s
+    '';
+    network.wait-online.enable = false; # Disable systemd "wait online" as it gets stuck waiting for connection on 2nd NIC
+    services.NetworkManager-wait-online.enable = false;
+  };
+#+END_SRC
+** Nix
+#+BEGIN_SRC nix
+  nix = {
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+    package = pkgs.nixFlakes;
+    registry.nixpkgs.flake = inputs.nixpkgs; # Pin nixpkgs to speed up nix commands
+    gc = {
+      # Auto discard system generations
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 2d";
+    };
+    nixPath = [
+      "/etc/nix/inputs"
+    ]; # Fix <nixpkgs> for flakes. See environment.etc."nix/inputs/nixpkgs"
+    settings = {
+      auto-optimise-store = true; # Auto optimize nix store.
+      builders-use-substitutes = true;
+      substituters = [
+        "https://hyprland.cachix.org"
+      ];
+      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+    };
+  };
+#+END_SRC
+** Environment
+#+BEGIN_SRC nix
+  environment = {
+    pathsToLink = [ "/libexec" ]; # enable polkit
+    # --- ETC{{{2
+    etc = {
+      "xdg/gtk-3.0".source = ./gtk-3.0;
+      "xdg/gtk-4.0".source = ./gtk-4.0;
+      "xdg/wallpaper".source = ./wallpaper;
+      "nix/inputs/nixpkgs".source =
+        "${inputs.nixpkgs}"; # needed to fix <nixpkgs> on flake. See also nix.nixPath
+    };
+    # --- ENV VARIABLES{{{2
+    variables = {
+      # NIXOS_OZONE_WL = "1"; # hint electron apps to use wayland (Logseq doesn't like it.. slow start, crashy)
+      CLUTTER_BACKEND = "wayland";
+      EDITOR = "nvim";
+      GDK_BACKEND = "wayland,x11";
+      GTK_IM_MODULE = "ibus";
+      NIX_ALLOW_UNFREE = "1";
+      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+      QT_IM_MODULE = "ibus";
+      QT_QPA_PLATFORM = "wayland;xcb";
+      QT_QPA_PLATFORMTHEME = "qt5ct";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      VISUAL = "neovide";
+      XMODIFIERS = "@im=ibus";
+      _JAVA_AWT_WM_NONREPARENTING = "1";
+    };
+#+END_SRC
+** Environment.systemPackages
+#+BEGIN_SRC nix
+    systemPackages = with pkgs; [
+      alsa-utils
+      any-nix-shell
+      archiver
+      atool
+      catppuccin-sddm-corners
+      glib
+      gitFull
+      gnome.adwaita-icon-theme
+      jdk
+      killall
+      libinput
+      libcxxStdenv # Needed to build binaries for tree-sitter
+      # libsForQt5.breeze-icons
+      # libsForQt5.qt5ct
+      lua
+      lua-language-server
+      mfcl2700dnlpr
+      mfcl2700dncupswrapper
+      neovim
+      nil
+      nixfmt-rfc-style
+      nodejs
+      nix-tree # Explore package dependencies
+      nodePackages.bash-language-server
+      os-prober
+      pulseaudioFull
+      python3
+      sddm-chili-theme
+      unar
+      unzip
+      usbutils
+      xdg-utils # for openning default programms when clicking links
+    ];
+  };
+#+END_SRC
+** Services
+#+BEGIN_SRC nix
+  services = {
+    accounts-daemon.enable = true;
+    avahi.enable = true;
+    blueman.enable = false;
+    dbus.enable = true;
+    flatpak.enable = true;
+    geoclue2.enable = true;
+    gnome.gnome-keyring.enable = true;
+    gvfs.enable = true; # Mount, trash, and other functionalities
+    openssh.enable = false;
+    printing.drivers = [ pkgs.brlaser ];
+    printing.enable = true;
+    tumbler.enable = true; # Thumbnail support for images
+    # --- DESKTOPMANAGER.PLASMA6{{{2
+    desktopManager = {
+      plasma6.enable = false;
+    };
+    # --- DISPLAY MANAGER{{{2
+    displayManager = {
+      # startx.enable = true; # console login
+      defaultSession = "hyprland";
+      sddm = {
+        enable = true;
+        theme = "catppuccin-sddm-corners";
+        wayland.enable = true;
+      };
+    };
+    # --- FRESH-RSS{{{2
+    freshrss = {
+      enable = true;
+      baseUrl = "http://freshrss";
+      defaultUser = "kev";
+      passwordFile = "/run/secrets/freshrss";
+      authType = "none";
+    };
+    # --- FSTRIM{{{2
+    fstrim = {
+      enable = true;
+      interval = "weekly"; # the default
+    };
+    # --- PIPEWIRE{{{2
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true;
+    };
+    # --- XSERVER{{{2
+    xserver = {
+      enable = true;
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
+      deviceSection = ''Option "TearFree" "true"'';
+      # --- DESKTOP MANAGER{{{3
+      desktopManager = {
+        xterm.enable = false;
+        gnome.enable = false;
+        xfce = {
+          enable = false;
+          enableXfwm = false;
+        };
+      };
+      # --- LIBINPUT{{{3
+      libinput = {
+        enable = true;
+        mouse = {
+          accelProfile = "flat";
+          accelSpeed = "1.2";
+          # buttonMapping = "1 8 3 4 5 6 7 2 9";
+          # scrollMethod = "button";
+          # scrollButton = 3;
+        };
+      };
+      # --- WINDOW MANAGER{{{3
+      windowManager = {
+        i3 = {
+          enable = false;
+          extraPackages = [
+            # lxappearance
+            # feh
+          ];
+        };
+      };
+    };
+  };
+#+END_SRC
+** QT
+#+BEGIN_SRC nix
+  qt = {
+    enable = true;
+    platformTheme = "qt5ct";
+    style = "kvantum";
+  };
+#+END_SRC
+** Fonts
+#+BEGIN_SRC nix
+  fonts = {
+    packages = with pkgs; [
+      font-awesome
+      noto-fonts-lgc-plus
+      noto-fonts-color-emoji
+      source-code-pro
+      victor-mono
+      (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    ];
+  };
+#+END_SRC
+** Security
+#+BEGIN_SRC nix
+  security = {
+    polkit.enable = true;
+    rtkit.enable = true;
+    sudo.extraRules = [
+      {
+        users = [ "kev" ];
+        commands = [
+          {
+            command = "ALL";
+            options = [ "NOPASSWD" ];
+          }
+        ];
+      }
+    ];
+  };
+#+END_SRC
+** Virtualisation
+#+BEGIN_SRC nix
+  virtualisation = {
+    docker = {
+      enable = false;
+    };
+    podman = {
+      enable = false;
+      dockerCompat = true;
+      dockerSocket.enable = true;
+    };
+    libvirtd = {
+      enable = true;
+      onBoot = "ignore";
+      onShutdown = "shutdown";
+      qemu = {
+        runAsRoot = true;
+      };
+    };
+  };
+#+END_SRC
+** Users
+*** Settings
+#+BEGIN_SRC nix
+  users.users.kev = {
+    isNormalUser = true;
+    description = "kev";
+    extraGroups =
+      [ "networkmanager" "adbusers" "wheel" "kvm" "libvirtd" "input" "audio" "podman" "docker" ];
+    shell = pkgs.fish;
+#+END_SRC
+*** Packages
+#+BEGIN_SRC nix
+    packages = with pkgs; [
+      # android-tools
+      # anydesk
+      appeditor
+      arc-theme
+      archiver
+      authenticator
+      bat
+      # bitwarden
+      btop
+      calibre
+      cargo
+      cava # Terminal audio visualizer
+      celestia
+      clifm
+      cliphist
+      diff-so-fancy
+      discord
+      # docker
+      dracula-theme
+      emacs
+      emacsPackages.all-the-icons-nerd-fonts
+      eza
+      fd
+      feh
+      fishPlugins.tide
+      fishPlugins.puffer
+      fishPlugins.grc
+      fishPlugins.fzf
+      fishPlugins.autopair
+      foliate
+      fuzzel # Launcher
+      fzf
+      gammastep
+      gdu # Disk space analyzer
+      gnome-extension-manager
+      gnome.gnome-tweaks
+      gnome.file-roller
+      gnome.gnome-clocks
+      grc # generic text colourizer. Using with fishPlugins.grc
+      grim
+      gucharmap
+      helix
+      http-server # Simple http server. Using with surfingkeys config.
+      hyprpicker
+      inputs.hyprland-contrib.packages.${pkgs.system}.grimblast # Wrapper for grim/slurp. . Using flake as nixpkgs ver pulls in old hyprland
+      jc # Convert output to json for many utils. Useful with Nushell
+      jgmenu
+      jq
+      kdePackages.kalarm
+      kdePackages.polkit-kde-agent-1
+      kdePackages.qtstyleplugin-kvantum
+      kdePackages.qt6ct
+      kitty
+      lazygit
+      libnotify
+      libsForQt5.qtstyleplugin-kvantum
+      # localsend
+      # logseq
+      # lunarvim
+      mako
+      marksman # Language server for markdown.
+      mediainfo # Provides info on media files.
+      meld
+      (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.sponsorblock mpvScripts.visualizer ]; })
+      mpv-shim-default-shaders
+      ncdu
+      ncpamixer
+      neovide # Nvim gui front end
+      nix-prefetch-git
+      nix-search-cli
+      nushell
+      nvd # Nix derivation diff tool
+      pamixer
+      pavucontrol
+      pistol # File preview for clifm
+      playerctl
+      qalculate-gtk
+      qmplay2
+      ripgrep
+      scrcpy
+      slurp
+      spotify
+      steam-run
+      stellarium
+      stow
+      stylua
+      swaybg
+      swayidle
+      swaylock
+      syncthing
+      tartube # Front end for yt-dlp
+      tealdeer # Command line help 'tldr'
+      thunderbird
+      treesheets
+      nodePackages.tiddlywiki
+      tree-sitter
+      virt-manager
+      # vivaldi
+      # vivaldi-ffmpeg-codecs
+      vlc
+      wakeonlan # For lgtv control
+
+      waybar
+      # inputs.nixpkgs-trunk.legacyPackages.${pkgs.system}.waybar
+
+      waypaper
+      websocat # For lgtv control
+      wttrbar
+      wev
+      wget
+      wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+      wofi
+      wtype # For wofi-emoji
+      yad
+      yazi
+      ydotool
+      yt-dlp
+      zathura
+      zoxide
+    ];
+  };
+#+END_SRC
+** Programs
+*** General
+#+BEGIN_SRC nix
+  programs = {
+    adb.enable = true;
+    command-not-found.enable = false;
+    dconf.enable = true;
+    ssh.startAgent = true;
+    neovim = { vimAlias = true; };
+#+END_SRC
+*** Firefox
+#+BEGIN_SRC nix
+    firefox = {
+      enable = true;
+      # nativeMessagingHosts.packages = [ pkgs.fx-cast-bridge ];
+    };
+#+END_SRC
+*** Fish
+#+BEGIN_SRC nix
+    fish = {
+      enable = true;
+      # --- Prompt{{{3
+      promptInit = ''
+        ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+      '';
+      # --- Abbr{{{3
+      shellAbbrs = {
+        "npi --set-cursor" = "nix profile install nixpkgs#%";
+        "ns --set-cursor" = "nix shell nixpkgs#%";
+        "nr --set-cursor" = "nix run nixpkgs#%";
+      };
+      # --- Aliases{{{3
+      shellAliases = {
+        cat = "bat";
+        conf = "neovide  ~/NixOS/configuration.nix";
+        e = "nvim";
+        ee = "neovide";
+        gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
+        lg = "lazygit";
+        lp = "nix profile list | grep -E 'Flake attribute|Index'";
+        rb = "sudo nixos-rebuild switch --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
+        referrer = "nix-store --query --referrers";
+        repair-store = "sudo nix-store --verify --check-contents --repair";
+        rp = "nix profile remove ";
+        sdg = "sudo nix-collect-garbage -d";
+        sg = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+        sgc = "sudo nix store gc -v";
+        storebin = "nix-store -q --roots (which $argv)";
+        sys = "sudo du -hs /nix/store/ /var/";
+        udg = "nix-collect-garbage -d";
+        ug = "nix-env --list-generations";
+        ugc = "nix store gc -v";
+        up = "nix flake update /home/kev/NixOS";
+        uup = "nix profile upgrade '.*'";
+        verify-store = "sudo nix-store --verify --check-contents";
+      };
+      # --- Interactive Shell Init{{{3
+      interactiveShellInit = '' # Set Neovim as default man viewer
+        set -x MANPAGER "nvim -c 'Man!'"
+      '';
+    };
+#+END_SRC
+*** FZF
+#+BEGIN_SRC nix
+    fzf = {
+      keybindings = true;
+      fuzzyCompletion = true;
+    };
+#+END_SRC
+*** Hyprland
+#+BEGIN_SRC nix
+    hyprland = {
+      enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    };
+#+END_SRC
+*** Nix-Index
+#+BEGIN_SRC nix
+    nix-index = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+#+END_SRC
+*** Nix-ld
+#+BEGIN_SRC nix
+    nix-ld = {
+      enable = true;
+        libraries = with pkgs; [
+          # Add missing dynamic libraries for unpackged programs here.. not systemPackages or user packages.
+          alsa-lib
+          at-spi2-atk
+          at-spi2-core
+          atk
+          cairo
+          cups
+          curl
+          dbus
+          expat
+          fontconfig
+          freetype
+          fuse3
+          gdk-pixbuf
+          glib
+          gtk2
+          gtk3
+          gtk4
+          harfbuzz
+          icu
+          krb5
+          libGL
+          libappindicator-gtk3
+          libdrm
+          libglvnd
+          libnotify
+          libpulseaudio
+          libunwind
+          libusb1
+          libuuid
+          libxkbcommon
+          libxml2
+          mesa
+          nspr
+          nss
+          openssl
+          pango
+          pipewire
+          stdenv.cc.cc
+          systemd
+          vulkan-loader
+          xorg.libX11
+          xorg.libXScrnSaver
+          xorg.libXcomposite
+          xorg.libXcursor
+          xorg.libXdamage
+          xorg.libXext
+          xorg.libXfixes
+          xorg.libXi
+          xorg.libXrandr
+          xorg.libXrender
+          xorg.libXtst
+          xorg.libxcb
+          xorg.libxkbfile
+          xorg.libxshmfence
+          xorg.libXinerama
+          zlib
+        ];
+    };
+#+END_SRC
+*** Sway
+#+BEGIN_SRC nix
+    sway = {
+      enable = true;
+      wrapperFeatures.gtk = true;
+    };
+#+END_SRC
+*** Thunar
+#+BEGIN_SRC nix
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-volman
+      ];
+    };
+  }; #End of programs
+#+END_SRC
+** Nixpkgs
+#+BEGIN_SRC nix
+  nixpkgs.config = {
+    allowUnfree = true;
+    # permittedInsecurePackages = [ "electron-25.9.0" ];
+  };
+} #End of configuration.nix
+#+END_SRC
+* hyprland.conf
+#+PROPERTY: header-args :tangle "./hyprland.conf"
+** Autostarts
+#+BEGIN_SRC conf
+exec-once = waypaper --restore
+exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec-once = /home/kev/bin/nixos-polkit-agent
+exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=$XDG_CURRENT_DESKTOP
+exec-once = waybar & configure-gtk & gammastep-indicator -c ~/.config/gammastep/gammastep.conf & ssh-add
+exec-once = wl-paste --watch cliphist store
+exec-once = mako -c ~/.config/mako/config
+exec-once = [workspace 8 silent] kitty -e http-server -p 8085 -c-1 ~/dotfiles/firefox_ext_confs/surfingkeys
+# exec-once = syncthing serve
+# exec-once = localsend autostart
+exec-once = [workspace 8 silent] kitty tiddlywiki /home/kev/Code/tiddiwiki --listen host=localhost port=8081
+exec-once = playerctld daemon
+exec-once = sudo -b ydotoold --socket-path="$HOME/.ydotool_socket" --socket-own="$(id -u):$(id -g)"
+exec-once = [workspace 7 silent] kalarm --tray
+exec-once = [workspace 6 silent] discord
+exec-once = [workspace 2 silent] kitty
+exec-once = [workspace 1] firefox
+#+END_SRC
+** Inputs
+#+BEGIN_SRC conf
+input {
+    kb_layout = us
+    kb_variant =
+    kb_model =
+    kb_options = ctrl:nocaps
+    kb_rules =
+    follow_mouse = 1
+
+    touchpad {
+        natural_scroll = false
+    }
+
+    sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+    numlock_by_default = true
+}
+#+END_SRC
+** General
+#+BEGIN_SRC conf
+general {
+
+    gaps_in = 5
+    gaps_out = 5
+    border_size = 1
+   # col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
+    col.active_border = rgba(7984A4ee)
+    col.inactive_border = rgba(595959aa)
+    cursor_inactive_timeout = 2
+    layout = master
+}
+#+END_SRC
+** Decoration
+#+BEGIN_SRC conf
+decoration {
+    blur {
+        enabled = false
+        size = 10
+        passes =1
+        new_optimizations = true
+        ignore_opacity = true
+        noise = 0
+        brightness = 0.60
+    }
+    active_opacity = 1.00
+    inactive_opacity = 0.95
+    rounding = 0
+    drop_shadow = true
+    shadow_range = 4
+    shadow_render_power = 3
+    col.shadow = rgba(1a1a1aee)
+}
+#+END_SRC
+** Animations
+#+BEGIN_SRC conf
+animations {
+    enabled = yes
+    bezier = wind, 0.05, 0.9, 0.1, 1.05
+    bezier = winIn, 0.1, 1.1, 0.1, 1.1
+    bezier = winOut, 0.3, -0.3, 0, 1
+    bezier = liner, 1, 1, 1, 1
+    animation = windows, 1, 2, wind, slide
+    animation = windowsIn, 1, 2, winIn, slide
+    animation = windowsOut, 1, 2, winOut, slide
+    animation = windowsMove, 1, 2, wind, slide
+    animation = border, 1, 1, liner
+    animation = borderangle, 1, 30, liner, loop
+    animation = fade, 1, 10, default
+    animation = workspaces, 1, 2, wind
+}
+#+END_SRC
+** Layouts
+*** Dwindle
+#+BEGIN_SRC conf
+dwindle {
+    pseudotile = true # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+    preserve_split = true # you probably want this
+}
+#+END_SRC
+*** Master
+#+BEGIN_SRC conf
+master {
+    new_is_master = true
+    orientation = right
+    special_scale_factor = 0.98
+    no_gaps_when_only = 1
+    drop_at_cursor = true
+}
+#+END_SRC
+** Misc
+#+BEGIN_SRC conf
+misc {
+    disable_hyprland_logo = true
+    mouse_move_enables_dpms = true
+    key_press_enables_dpms = true
+}
+env = XCURSOR_SIZE,24
+# Blur Waybar background
+blurls = waybar
+
+# --- Gestures{{{1
+gestures {
+    workspace_swipe = false
+}
+
+binds {
+      workspace_back_and_forth = true
+}
+#+END_SRC
+** Window Rules
+#+BEGIN_SRC conf
+windowrulev2 = float,class:firefox,title:Picture-in-Picture
+windowrulev2 = float,class:qalculate-gtk
+windowrulev2 = move 1435 35,class:qalculate-gtk
+windowrulev2 = size 25% 25%,class:qalculate-gtk
+windowrulev2 = workspace special:calculator,class:(qalculate-gtk)
+windowrulev2 = workspace special:discord,class:discord
+windowrulev2 = float,class:popterm
+windowrulev2 = workspace special:popterm,class:popterm
+windowrulev2 = move 250 50,class:popterm
+windowrulev2 = size 75% 90%,class:popterm
+windowrulev2 = float,class:neovide
+windowrulev2 = move 250 50,class:neovide
+windowrulev2 = size 75% 90%,class:neovide
+windowrulev2 = workspace special:editor,class:neovide
+windowrulev2 = float,title:LGTV
+windowrulev2 = center,title:LGTV
+windowrulev2 = move 1600 35,title:LGTV
+windowrulev2 = stayfocused,class:sudoku-Main, floating:1, fullscreen:0
+#+END_SRC
+
+** Keybinds
+*** General
+#+BEGIN_SRC conf
+  bind = SUPER CONTROL, grave, movetoworkspace,e+0
+  bind = SUPER SHIFT, grave, movetoworkspace,special
+  bind = SUPER, grave, togglespecialworkspace
+  bind = SUPER SHIFT, Q, exit,
+  bind = SUPER SHIFT, X, killactive,
+  bind = SUPER SHIFT, space, togglefloating
+  bind = SUPER, S, pseudo
+  bind = SUPER, KP_DIVIDE, exec, systemctl suspend
+  bind = SUPER, up, movefocus, u
+  bind = SUPER, down, movefocus, d
+  bind = SUPER, left, movefocus, l
+  bind = SUPER, right, movefocus, r
+  bind = SUPER, Backspace, fullscreen, 1
+  bind = SUPER SHIFT, Backspace, fakefullscreen, 1
+  bind = SUPER, KP_Add, exec, /home/kev/bin/hyprzoom in
+  bind = SUPER, KP_Subtract,exec, /home/kev/bin/hyprzoom reset
+  bind = SUPER, e, exec, umpv --ytdl-format=bestvideo+bestaudio/best --fs "$(wl-paste)" # Play clipboard link with mpv
+#+END_SRC
+*** Launchers
+#+BEGIN_SRC conf
+  bind = SUPER SHIFT, W, exec, waypaper
+  bind = ,F10, exec, ydotool mousemove -a -x 0 -y 1920
+  bind = SUPER SHIFT, Z, exec, pkill wofi || wofi --show run
+  bind = SUPER SHIFT, c, exec, cliphist wipe
+  bind = SUPER, KP_ENTER, exec, toggle_term
+  bind = SUPER, KP_MULTIPLY, exec, pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk
+  bind = SUPER, code:90, exec, pgrep -i discord && hyprctl dispatch togglespecialworkspace discord || discord
+  bind = SUPER, Z, exec, pkill fuzzel || fuzzel --show-actions
+  bind = SUPER, b, exec, pkill waybar || waybar
+  bind = SUPER, c, exec, ~/bin/show_cliphist
+  bind = SUPER, code:91, exec, toggle_editor
+  bind = SUPER, return, exec, kitty
+  bind = SUPER, p, exec, hyprpicker -a
+#+END_SRC
+*** Master Layout Binds
+#+BEGIN_SRC conf
+  bind = SUPER, M, layoutmsg, addmaster
+  bind = SUPER SHIFT, M, layoutmsg, removemaster
+  bind = SUPER SHIFT, left, layoutmsg, swapprev
+  bind = SUPER SHIFT, return, layoutmsg, swapwithmaster auto
+  bind = SUPER SHIFT, right, layoutmsg, swapnext
+  bind = SUPER, bracketleft, layoutmsg, orientationprev
+  bind = SUPER, bracketright, layoutmsg, orientationnext
+#+END_SRC
+*** Audio
+#+BEGIN_SRC conf
+bind = ,XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +1%
+bind = ,XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -1%
+bind = ,XF86AudioMute, exec, ~/bin/toggle_mute
+#+END_SRC
+*** MPRIS
+#+BEGIN_SRC conf
+# KP_7, KP_8, KP_9 not working, so used keycodes
+bind = SUPER, code:79, exec, playerctl play-pause
+bind = SUPER, code:80, exec, playerctl previous
+bind = SUPER, code:81, exec, playerctl next
+bind = SUPER, code:83, exec, playerctld shift && ~/bin/currentPlayer
+bind = SUPER, code:84, exec, playerctld unshift && ~/bin/currentPlayer
+#+END_SRC
+*** LGTV
+#+BEGIN_SRC conf
+bind = SUPER, Delete, exec, ~/bin/lgtv system turnOff
+bind = SUPER SHIFT, Delete, exec, ~/bin/lgtv wakeonlan
+bind = SUPER, Prior, exec, ~/bin/lgtv audio setMute true
+bind = SUPER SHIFT, Prior, exec, ~/bin/lgtv audio setMute false
+bind = SUPER, Next, exec, ~/bin/lgtv audio volumeDown
+bind = SUPER SHIFT, Next, exec, ~/bin/lgtv audio volumeUp
+bind = SUPER, t, exec, ~/bin/lgtvgui
+#+END_SRC
+*** Workspace Switching
+#+BEGIN_SRC conf
+bind = SUPER, TAB, exec, /home/kev/bin/Hyprswitch
+bind = SUPER ALT, left, workspace, e-1
+bind = SUPER ALT, right, workspace, e+1
+bind = SUPER, mouse_down, workspace, e+1
+bind = SUPER, mouse_up, workspace, e-1
+bind = SUPER, 1, workspace, 1
+bind = SUPER, 2, workspace, 2
+bind = SUPER, 3, workspace, 3
+bind = SUPER, 4, workspace, 4
+bind = SUPER, 5, workspace, 5
+bind = SUPER, 6, workspace, 6
+bind = SUPER, 7, workspace, 7
+bind = SUPER, 8, workspace, 8
+bind = SUPER, 9, workspace, 9
+bind = SUPER, 0, workspace, 10
+#+END_SRC
+*** Window Move/Resize
+#+BEGIN_SRC conf
+bind = SUPER SHIFT, 1, movetoworkspace, 1
+bind = SUPER SHIFT, 2, movetoworkspace, 2
+bind = SUPER SHIFT, 3, movetoworkspace, 3
+bind = SUPER SHIFT, 4, movetoworkspace, 4
+bind = SUPER SHIFT, 5, movetoworkspace, 5
+bind = SUPER SHIFT, 6, movetoworkspace, 6
+bind = SUPER SHIFT, 7, movetoworkspace, 7
+bind = SUPER SHIFT, 8, movetoworkspace, 8
+bind = SUPER SHIFT, 9, movetoworkspace, 9
+bind = SUPER SHIFT, 0, movetoworkspace, 10
+bindm = SUPER, mouse:272, movewindow
+bindm = SUPER, mouse:273, resizewindow
+#+END_SRC
+*** Screenshots
+#+BEGIN_SRC conf
+bind = SUPER, S, exec, ~/bin/wofi_grimblast
+#+END_SRC
+*** Notification Controls
+#+BEGIN_SRC conf
+bind = SUPER, A, exec, makoctl menu wofi -W 15% -H 10% -x 800 -y 5 -d -p 'Choose Action: '
+bind = SUPER SHIFT, D, exec, makoctl restore
+bind = SUPER, D, exec, makoctl dismiss
+#+END_SRC
+*** Submaps
+**** General
+#+BEGIN_SRC conf
+bind = SUPER, R, submap, resize
+bind = SUPER, L, submap, launcher
+#+END_SRC
+**** Resize
+#+BEGIN_SRC conf
+submap=resize
+binde=,right,resizeactive,20 0
+binde=,left,resizeactive,-20 0
+binde=,up,resizeactive,0 -20
+binde=,down,resizeactive,0 20
+bind = ,escape, submap, reset
+#+END_SRC
+**** Launcher
+#+BEGIN_SRC conf
+submap=launcher
+bind =, f, exec, firefox
+bind =, f, submap, reset
+bind =, e, exec, emacsclient -c
+bind =, e, submap, reset
+bind =, v, exec, neovide --neovim-bin lvim
+bind =, v, submap, reset
+bind =, s, exec, ~/Games/Hodoku/hodoku
+bind =, s, submap, reset
+bind =, escape, submap, reset
+submap=reset
+#+END_SRC

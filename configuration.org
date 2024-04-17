@@ -1,8 +1,8 @@
 #+STARTUP: overview
 * configuration.nix
-#+PROPERTY: header-args :tangle "./configuration.nix"
+#+PROPERTY: header-args :tangle "/home/kev/NixOS/configuration.nix"
 ** Header
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
 { pkgs, inputs, lib, ... }:
 
 {
@@ -12,7 +12,7 @@
  system.stateVersion = "22.11"; # Don't change unless fresh install from new ISO
 #+END_SRC
 ** Hardware
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
   hardware = {
     bluetooth.enable = true;
     cpu.amd.updateMicrocode = true;
@@ -33,7 +33,7 @@
   };
 #+END_SRC
 ** Boot
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
   boot = {
     extraModprobeConfig = ''
       options kvm ignore_msrs=1
@@ -74,14 +74,14 @@
   };
 #+END_SRC
 ** Power Management
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
   powerManagement = {
     enable = true;
     cpuFreqGovernor = lib.mkDefault "performance";
   };
 #+END_SRC
 ** Networking
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
   networking = {
     hostName = "halcyon";
     nameservers = [ "9.9.9.9" "2620:fe::fe" ];
@@ -97,7 +97,7 @@
   };
 #+END_SRC
 ** XDG
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
   xdg = {
     # --- Portals{{{2
     portal = {
@@ -137,7 +137,7 @@
   };
 #+END_SRC
 ** Systemd
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
   systemd = {
     extraConfig = ''
       DefaultTimeoutStopSec=10s
@@ -147,7 +147,7 @@
   };
 #+END_SRC
 ** Nix
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
   nix = {
     extraOptions = ''
       experimental-features = nix-command flakes
@@ -174,7 +174,7 @@
   };
 #+END_SRC
 ** Environment
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
   environment = {
     pathsToLink = [ "/libexec" ]; # enable polkit
     # --- ETC{{{2
@@ -188,8 +188,9 @@
     # --- ENV VARIABLES{{{2
     variables = {
       # NIXOS_OZONE_WL = "1"; # hint electron apps to use wayland (Logseq doesn't like it.. slow start, crashy)
+      ALTERNATE_EDITOR = ""; #allow emacsclient to start daemon if not already running
       CLUTTER_BACKEND = "wayland";
-      EDITOR = "nvim";
+      EDITOR = "emacsclient -nw";
       GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
       NIX_ALLOW_UNFREE = "1";
@@ -198,13 +199,13 @@
       QT_QPA_PLATFORM = "wayland;xcb";
       QT_QPA_PLATFORMTHEME = "qt5ct";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-      VISUAL = "neovide";
+      VISUAL = "emacsclient -r";
       XMODIFIERS = "@im=ibus";
       _JAVA_AWT_WM_NONREPARENTING = "1";
     };
 #+END_SRC
 ** Environment.systemPackages
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
     systemPackages = with pkgs; [
       alsa-utils
       any-nix-shell
@@ -242,7 +243,7 @@
   };
 #+END_SRC
 ** Services
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
   services = {
     accounts-daemon.enable = true;
     avahi.enable = true;
@@ -333,7 +334,7 @@
   };
 #+END_SRC
 ** QT
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
   qt = {
     enable = true;
     platformTheme = "qt5ct";
@@ -341,7 +342,7 @@
   };
 #+END_SRC
 ** Fonts
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
   fonts = {
     packages = with pkgs; [
       font-awesome
@@ -354,7 +355,7 @@
   };
 #+END_SRC
 ** Security
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
   security = {
     polkit.enable = true;
     rtkit.enable = true;
@@ -372,7 +373,7 @@
   };
 #+END_SRC
 ** Virtualisation
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
   virtualisation = {
     docker = {
       enable = false;
@@ -394,7 +395,7 @@
 #+END_SRC
 ** Users
 *** Settings
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
   users.users.kev = {
     isNormalUser = true;
     description = "kev";
@@ -403,7 +404,7 @@
     shell = pkgs.fish;
 #+END_SRC
 *** Packages
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
     packages = with pkgs; [
       # android-tools
       # anydesk
@@ -529,7 +530,7 @@
 #+END_SRC
 ** Programs
 *** General
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
   programs = {
     adb.enable = true;
     command-not-found.enable = false;
@@ -538,14 +539,14 @@
     neovim = { vimAlias = true; };
 #+END_SRC
 *** Firefox
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
     firefox = {
       enable = true;
       # nativeMessagingHosts.packages = [ pkgs.fx-cast-bridge ];
     };
 #+END_SRC
 *** Fish
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
     fish = {
       enable = true;
       # --- Prompt{{{3
@@ -590,28 +591,28 @@
     };
 #+END_SRC
 *** FZF
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
     fzf = {
       keybindings = true;
       fuzzyCompletion = true;
     };
 #+END_SRC
 *** Hyprland
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
     hyprland = {
       enable = true;
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
 #+END_SRC
 *** Nix-Index
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
     nix-index = {
       enable = true;
       enableFishIntegration = true;
     };
 #+END_SRC
 *** Nix-ld
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
     nix-ld = {
       enable = true;
         libraries = with pkgs; [
@@ -676,14 +677,14 @@
     };
 #+END_SRC
 *** Sway
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
     sway = {
       enable = true;
       wrapperFeatures.gtk = true;
     };
 #+END_SRC
 *** Thunar
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
     thunar = {
       enable = true;
       plugins = with pkgs.xfce; [
@@ -694,7 +695,7 @@
   }; #End of programs
 #+END_SRC
 ** Nixpkgs
-#+BEGIN_SRC nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
   nixpkgs.config = {
     allowUnfree = true;
     # permittedInsecurePackages = [ "electron-25.9.0" ];
@@ -702,9 +703,8 @@
 } #End of configuration.nix
 #+END_SRC
 * hyprland.conf
-#+PROPERTY: header-args :tangle "./hyprland.conf"
 ** Autostarts
-#+BEGIN_SRC conf
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 exec-once = waypaper --restore
 exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec-once = /home/kev/bin/nixos-polkit-agent
@@ -712,6 +712,7 @@ exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CUR
 exec-once = waybar & configure-gtk & gammastep-indicator -c ~/.config/gammastep/gammastep.conf & ssh-add
 exec-once = wl-paste --watch cliphist store
 exec-once = mako -c ~/.config/mako/config
+exec-once = emacs --daemon
 exec-once = [workspace 8 silent] kitty -e http-server -p 8085 -c-1 ~/dotfiles/firefox_ext_confs/surfingkeys
 # exec-once = syncthing serve
 # exec-once = localsend autostart
@@ -724,7 +725,7 @@ exec-once = [workspace 2 silent] kitty
 exec-once = [workspace 1] firefox
 #+END_SRC
 ** Inputs
-#+BEGIN_SRC conf
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 input {
     kb_layout = us
     kb_variant =
@@ -742,7 +743,7 @@ input {
 }
 #+END_SRC
 ** General
-#+BEGIN_SRC conf
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 general {
 
     gaps_in = 5
@@ -756,7 +757,7 @@ general {
 }
 #+END_SRC
 ** Decoration
-#+BEGIN_SRC conf
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 decoration {
     blur {
         enabled = false
@@ -777,7 +778,7 @@ decoration {
 }
 #+END_SRC
 ** Animations
-#+BEGIN_SRC conf
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 animations {
     enabled = yes
     bezier = wind, 0.05, 0.9, 0.1, 1.05
@@ -796,14 +797,14 @@ animations {
 #+END_SRC
 ** Layouts
 *** Dwindle
-#+BEGIN_SRC conf
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 dwindle {
     pseudotile = true # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
     preserve_split = true # you probably want this
 }
 #+END_SRC
 *** Master
-#+BEGIN_SRC conf
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 master {
     new_is_master = true
     orientation = right
@@ -813,7 +814,7 @@ master {
 }
 #+END_SRC
 ** Misc
-#+BEGIN_SRC conf
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 misc {
     disable_hyprland_logo = true
     mouse_move_enables_dpms = true
@@ -833,7 +834,7 @@ binds {
 }
 #+END_SRC
 ** Window Rules
-#+BEGIN_SRC conf
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 windowrulev2 = float,class:firefox,title:Picture-in-Picture
 windowrulev2 = float,class:qalculate-gtk
 windowrulev2 = move 1435 35,class:qalculate-gtk
@@ -848,6 +849,7 @@ windowrulev2 = float,class:neovide
 windowrulev2 = move 250 50,class:neovide
 windowrulev2 = size 75% 90%,class:neovide
 windowrulev2 = workspace special:editor,class:neovide
+windowrulev2 = workspace special:editor,class:Emacs
 windowrulev2 = float,title:LGTV
 windowrulev2 = center,title:LGTV
 windowrulev2 = move 1600 35,title:LGTV
@@ -856,7 +858,7 @@ windowrulev2 = stayfocused,class:sudoku-Main, floating:1, fullscreen:0
 
 ** Keybinds
 *** General
-#+BEGIN_SRC conf
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
   bind = SUPER CONTROL, grave, movetoworkspace,e+0
   bind = SUPER SHIFT, grave, movetoworkspace,special
   bind = SUPER, grave, togglespecialworkspace
@@ -876,7 +878,7 @@ windowrulev2 = stayfocused,class:sudoku-Main, floating:1, fullscreen:0
   bind = SUPER, e, exec, umpv --ytdl-format=bestvideo+bestaudio/best --fs "$(wl-paste)" # Play clipboard link with mpv
 #+END_SRC
 *** Launchers
-#+BEGIN_SRC conf
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
   bind = SUPER SHIFT, W, exec, waypaper
   bind = ,F10, exec, ydotool mousemove -a -x 0 -y 1920
   bind = SUPER SHIFT, Z, exec, pkill wofi || wofi --show run
@@ -892,7 +894,7 @@ windowrulev2 = stayfocused,class:sudoku-Main, floating:1, fullscreen:0
   bind = SUPER, p, exec, hyprpicker -a
 #+END_SRC
 *** Master Layout Binds
-#+BEGIN_SRC conf
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
   bind = SUPER, M, layoutmsg, addmaster
   bind = SUPER SHIFT, M, layoutmsg, removemaster
   bind = SUPER SHIFT, left, layoutmsg, swapprev
@@ -902,13 +904,13 @@ windowrulev2 = stayfocused,class:sudoku-Main, floating:1, fullscreen:0
   bind = SUPER, bracketright, layoutmsg, orientationnext
 #+END_SRC
 *** Audio
-#+BEGIN_SRC conf
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 bind = ,XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +1%
 bind = ,XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -1%
 bind = ,XF86AudioMute, exec, ~/bin/toggle_mute
 #+END_SRC
 *** MPRIS
-#+BEGIN_SRC conf
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 # KP_7, KP_8, KP_9 not working, so used keycodes
 bind = SUPER, code:79, exec, playerctl play-pause
 bind = SUPER, code:80, exec, playerctl previous
@@ -917,7 +919,7 @@ bind = SUPER, code:83, exec, playerctld shift && ~/bin/currentPlayer
 bind = SUPER, code:84, exec, playerctld unshift && ~/bin/currentPlayer
 #+END_SRC
 *** LGTV
-#+BEGIN_SRC conf
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 bind = SUPER, Delete, exec, ~/bin/lgtv system turnOff
 bind = SUPER SHIFT, Delete, exec, ~/bin/lgtv wakeonlan
 bind = SUPER, Prior, exec, ~/bin/lgtv audio setMute true
@@ -927,7 +929,7 @@ bind = SUPER SHIFT, Next, exec, ~/bin/lgtv audio volumeUp
 bind = SUPER, t, exec, ~/bin/lgtvgui
 #+END_SRC
 *** Workspace Switching
-#+BEGIN_SRC conf
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 bind = SUPER, TAB, exec, /home/kev/bin/Hyprswitch
 bind = SUPER ALT, left, workspace, e-1
 bind = SUPER ALT, right, workspace, e+1
@@ -945,7 +947,7 @@ bind = SUPER, 9, workspace, 9
 bind = SUPER, 0, workspace, 10
 #+END_SRC
 *** Window Move/Resize
-#+BEGIN_SRC conf
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 bind = SUPER SHIFT, 1, movetoworkspace, 1
 bind = SUPER SHIFT, 2, movetoworkspace, 2
 bind = SUPER SHIFT, 3, movetoworkspace, 3
@@ -960,23 +962,23 @@ bindm = SUPER, mouse:272, movewindow
 bindm = SUPER, mouse:273, resizewindow
 #+END_SRC
 *** Screenshots
-#+BEGIN_SRC conf
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 bind = SUPER, S, exec, ~/bin/wofi_grimblast
 #+END_SRC
 *** Notification Controls
-#+BEGIN_SRC conf
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 bind = SUPER, A, exec, makoctl menu wofi -W 15% -H 10% -x 800 -y 5 -d -p 'Choose Action: '
 bind = SUPER SHIFT, D, exec, makoctl restore
 bind = SUPER, D, exec, makoctl dismiss
 #+END_SRC
 *** Submaps
 **** General
-#+BEGIN_SRC conf
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 bind = SUPER, R, submap, resize
 bind = SUPER, L, submap, launcher
 #+END_SRC
 **** Resize
-#+BEGIN_SRC conf
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 submap=resize
 binde=,right,resizeactive,20 0
 binde=,left,resizeactive,-20 0
@@ -985,7 +987,7 @@ binde=,down,resizeactive,0 20
 bind = ,escape, submap, reset
 #+END_SRC
 **** Launcher
-#+BEGIN_SRC conf
+#+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 submap=launcher
 bind =, f, exec, firefox
 bind =, f, submap, reset

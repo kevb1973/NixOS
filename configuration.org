@@ -1,6 +1,6 @@
+#+TITLE: Kev's Configs
 #+STARTUP: show2levels
 * configuration.nix
-#+PROPERTY: header-args :tangle "/home/kev/NixOS/configuration.nix"
 ** Header
 #+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
 { pkgs, inputs, lib, ... }:
@@ -706,6 +706,58 @@
 } #End of configuration.nix
 #+END_SRC
 
+* flake.nix
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/flake.nix"
+{
+  description = "Halcyon System Configuration";
+
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    # nixpkgs-trunk.url = "github:nixos/nixpkgs";
+    # niri.url = "github:sodiboo/niri-flake";
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+  };
+
+  outputs = inputs@{ self, nixpkgs, ... }: {
+    nixosConfigurations = {
+      halcyon = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        system = "x86_64-linux";
+        modules = [
+          ./configuration.nix
+          ({ pkgs, ... }: {
+            nix.registry.sys = {
+              from = {
+                type = "indirect";
+                id = "sys";
+              };
+              flake = nixpkgs;
+            };
+          })
+          # niri.nixosModules.niri
+          # {
+          #   programs.niri.enable = true;
+          # }
+          # { # If you wish to use the unstable version of niri, you can set it like so:
+          #   nixpkgs.overlays = [ niri.overlays.niri ];
+          #   # programs.niri.package = pkgs.niri-unstable;
+          # }
+        ];
+      };
+    };
+  };
+}
+
+#+END_SRC
 * hyprland.conf
 ** Autostarts
 #+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"

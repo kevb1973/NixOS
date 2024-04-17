@@ -1,19 +1,17 @@
 { pkgs, inputs, lib, ... }:
 
-# --- MISC{{{1
 {
  imports = [ ./hardware-configuration.nix ];
  time.timeZone = "America/Toronto";
  i18n.defaultLocale = "en_CA.UTF-8";
  system.stateVersion = "22.11"; # Don't change unless fresh install from new ISO
-  # --- HARDWARE{{{1
+
   hardware = {
     bluetooth.enable = true;
     cpu.amd.updateMicrocode = true;
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
     pulseaudio.enable = false;
-    # --- OPENGL{{{2
     opengl = {
       enable = true;
       # Vulcan
@@ -26,7 +24,7 @@
       # ];
     };
   };
-  # --- BOOT --- {{{1
+
   boot = {
     extraModprobeConfig = ''
       options kvm ignore_msrs=1
@@ -65,12 +63,12 @@
       # "iommu=pt"
     ];
   };
-  # --- POWER MGMT{{{1
+
   powerManagement = {
     enable = true;
     cpuFreqGovernor = lib.mkDefault "performance";
   };
-  # --- NETWORKING{{{1
+
   networking = {
     hostName = "halcyon";
     nameservers = [ "9.9.9.9" "2620:fe::fe" ];
@@ -84,7 +82,7 @@
       dns = "none";
     };
   };
-  # --- XDG{{{1
+
   xdg = {
     # --- Portals{{{2
     portal = {
@@ -122,7 +120,7 @@
       };
     };
   };
-  # --- SYSTEMD{{{1
+
   systemd = {
     extraConfig = ''
       DefaultTimeoutStopSec=10s
@@ -130,7 +128,7 @@
     network.wait-online.enable = false; # Disable systemd "wait online" as it gets stuck waiting for connection on 2nd NIC
     services.NetworkManager-wait-online.enable = false;
   };
-  # --- NIX{{{1
+
   nix = {
     extraOptions = ''
       experimental-features = nix-command flakes
@@ -155,7 +153,7 @@
       trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
   };
-  # --- ENVIRONMENT{{{1
+
   environment = {
     pathsToLink = [ "/libexec" ]; # enable polkit
     # --- ETC{{{2
@@ -169,8 +167,9 @@
     # --- ENV VARIABLES{{{2
     variables = {
       # NIXOS_OZONE_WL = "1"; # hint electron apps to use wayland (Logseq doesn't like it.. slow start, crashy)
+      ALTERNATE_EDITOR = ""; #allow emacsclient to start daemon if not already running
       CLUTTER_BACKEND = "wayland";
-      EDITOR = "nvim";
+      EDITOR = "emacsclient -nw";
       GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
       NIX_ALLOW_UNFREE = "1";
@@ -179,11 +178,11 @@
       QT_QPA_PLATFORM = "wayland;xcb";
       QT_QPA_PLATFORMTHEME = "qt5ct";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-      VISUAL = "neovide";
+      VISUAL = "emacsclient -r";
       XMODIFIERS = "@im=ibus";
       _JAVA_AWT_WM_NONREPARENTING = "1";
     };
-    # --- SYSTEM PACKAGES{{{1
+
     systemPackages = with pkgs; [
       alsa-utils
       any-nix-shell
@@ -219,8 +218,7 @@
       xdg-utils # for openning default programms when clicking links
     ];
   };
-  # --- SERVICES{{{1
-    # --- GENERAL{{{2
+
   services = {
     accounts-daemon.enable = true;
     avahi.enable = true;
@@ -309,13 +307,13 @@
       };
     };
   };
-  # --- QT{{{1
+
   qt = {
     enable = true;
     platformTheme = "qt5ct";
     style = "kvantum";
   };
-  # --- FONTS{{{1
+
   fonts = {
     packages = with pkgs; [
       font-awesome
@@ -326,7 +324,7 @@
       (nerdfonts.override { fonts = [ "FiraCode" ]; })
     ];
   };
-  # --- SECURITY{{{1
+
   security = {
     polkit.enable = true;
     rtkit.enable = true;
@@ -342,7 +340,7 @@
       }
     ];
   };
-  # --- VIRTUALIZATION{{{1
+
   virtualisation = {
     docker = {
       enable = false;
@@ -361,14 +359,14 @@
       };
     };
   };
-  # --- USER SETTINGS{{{1
+
   users.users.kev = {
     isNormalUser = true;
     description = "kev";
     extraGroups =
       [ "networkmanager" "adbusers" "wheel" "kvm" "libvirtd" "input" "audio" "podman" "docker" ];
     shell = pkgs.fish;
-    # --- USER PACKAGES{{{1
+
     packages = with pkgs; [
       # android-tools
       # anydesk
@@ -377,7 +375,6 @@
       archiver
       authenticator
       bat
-      # beebeep
       # bitwarden
       btop
       calibre
@@ -426,13 +423,13 @@
       kitty
       lazygit
       libnotify
-      libsForQt5.qtstyleplugin-kvantum 
+      libsForQt5.qtstyleplugin-kvantum
       # localsend
       # logseq
       # lunarvim
       mako
       marksman # Language server for markdown.
-      mediainfo # Provides info on media files. 
+      mediainfo # Provides info on media files.
       meld
       (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.sponsorblock mpvScripts.visualizer ]; })
       mpv-shim-default-shaders
@@ -492,19 +489,19 @@
       zoxide
     ];
   };
-  # --- PROGRAMS{{{1
+
   programs = {
     adb.enable = true;
     command-not-found.enable = false;
     dconf.enable = true;
     ssh.startAgent = true;
     neovim = { vimAlias = true; };
-    # --- Firefox{{{2
+
     firefox = {
       enable = true;
       # nativeMessagingHosts.packages = [ pkgs.fx-cast-bridge ];
     };
-    # --- Fish{{{2
+
     fish = {
       enable = true;
       # --- Prompt{{{3
@@ -547,22 +544,22 @@
         set -x MANPAGER "nvim -c 'Man!'"
       '';
     };
-    # --- FZF{{{2
+
     fzf = {
       keybindings = true;
       fuzzyCompletion = true;
     };
-    # --- Hyprland{{{2
+
     hyprland = {
       enable = true;
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
-    # --- Nix-Index{{{2
+
     nix-index = {
       enable = true;
       enableFishIntegration = true;
     };
-    # --- Nix-ld{{{2
+
     nix-ld = {
       enable = true;
         libraries = with pkgs; [
@@ -625,12 +622,12 @@
           zlib
         ];
     };
-    # --- Sway{{{2
+
     sway = {
       enable = true;
       wrapperFeatures.gtk = true;
     };
-    # --- Thunar{{{2
+
     thunar = {
       enable = true;
       plugins = with pkgs.xfce; [
@@ -638,10 +635,10 @@
         thunar-volman
       ];
     };
-  };
-  # --- NIXPKGS{{{1
+  }; #End of programs
+
   nixpkgs.config = {
     allowUnfree = true;
     # permittedInsecurePackages = [ "electron-25.9.0" ];
   };
-}
+} #End of configuration.nix

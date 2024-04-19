@@ -1,6 +1,6 @@
 #+TITLE: Kev's Configs
 #+STARTUP: show2levels
-* configuration.nix
+* NixOS
 ** Header
 #+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
 { pkgs, inputs, lib, ... }:
@@ -706,7 +706,7 @@
 } #End of configuration.nix
 #+END_SRC
 
-* flake.nix
+* NixOS (Flake)
 #+BEGIN_SRC nix :tangle "/home/kev/NixOS/flake.nix"
 {
   description = "Halcyon System Configuration";
@@ -758,7 +758,7 @@
 }
 
 #+END_SRC
-* hyprland.conf
+* Hyprland
 ** Autostarts
 #+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 exec-once = waypaper --restore
@@ -1056,7 +1056,7 @@ bind =, s, submap, reset
 bind =, escape, submap, reset
 submap=reset
 #+END_SRC
-* surfingkeys.js
+* Surfingkeys
 ** Constants
 #+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
 const {
@@ -1112,7 +1112,7 @@ map('<Ctrl-E>', 'X');
 map('x', 'T');
 map('<ArrowUp>', 'k');
 map('<ArrowDown>', 'j');
-map('a', 'D', /8kun/) //remap mouseout to an easier key for 8kun
+map('a', 'D', /8kun/); //remap mouseout to an easier key for 8kun
 map('<Alt-`>', '<Ctrl-6>');
 map('e', 'ya')
 imap('<Alt-`>', '<Ctrl-6>');
@@ -1382,7 +1382,7 @@ settings.theme = `
   color: #93A1A1;
 }`;
 #+END_SRC
-* waybar
+* Waybar
 ** config
 #+BEGIN_SRC conf :tangle "/home/kev/dotfiles/waybar/.config/waybar/config"
 {

@@ -390,7 +390,7 @@
       discord
       # docker
       dracula-theme
-      emacs29-pgtk
+      emacs
       emacsPackages.all-the-icons-nerd-fonts
       eza
       fd

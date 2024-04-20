@@ -428,7 +428,7 @@
       discord
       # docker
       dracula-theme
-      emacs29-pgtk
+      emacs
       emacsPackages.all-the-icons-nerd-fonts
       eza
       fd
@@ -905,7 +905,7 @@ windowrulev2 = float,class:neovide
 windowrulev2 = move 250 50,class:neovide
 windowrulev2 = size 75% 90%,class:neovide
 windowrulev2 = workspace special:editor,class:neovide
-windowrulev2 = workspace special:editor,class:emacs
+windowrulev2 = workspace special:editor,class:Emacs
 windowrulev2 = float,title:LGTV
 windowrulev2 = center,title:LGTV
 windowrulev2 = move 1600 35,title:LGTV

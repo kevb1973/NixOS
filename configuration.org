@@ -428,7 +428,7 @@
       discord
       # docker
       dracula-theme
-      emacs
+      emacs29-pgtk
       emacsPackages.all-the-icons-nerd-fonts
       eza
       fd
@@ -905,7 +905,7 @@ windowrulev2 = float,class:neovide
 windowrulev2 = move 250 50,class:neovide
 windowrulev2 = size 75% 90%,class:neovide
 windowrulev2 = workspace special:editor,class:neovide
-windowrulev2 = workspace special:editor,class:Emacs
+windowrulev2 = workspace special:editor,class:emacs
 windowrulev2 = float,title:LGTV
 windowrulev2 = center,title:LGTV
 windowrulev2 = move 1600 35,title:LGTV
@@ -1112,7 +1112,7 @@ map('<Ctrl-E>', 'X');
 map('x', 'T');
 map('<ArrowUp>', 'k');
 map('<ArrowDown>', 'j');
-map('a', 'D', /8kun/); //remap mouseout to an easier key for 8kun
+map('a', '<shift-d>', /8kun.top/); //remap mouseout to an easier key for 8kun
 map('<Alt-`>', '<Ctrl-6>');
 map('e', 'ya')
 imap('<Alt-`>', '<Ctrl-6>');

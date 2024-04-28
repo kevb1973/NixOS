@@ -318,6 +318,7 @@
   };
 
   fonts = {
+    # fontDir.enable = true;
     packages = with pkgs; [
       font-awesome
       noto-fonts-lgc-plus
@@ -349,7 +350,7 @@
       enable = false;
     };
     podman = {
-      enable = false;
+      enable = true;
       dockerCompat = true;
       dockerSocket.enable = true;
     };
@@ -368,9 +369,10 @@
     description = "kev";
     extraGroups =
       [ "networkmanager" "adbusers" "wheel" "kvm" "libvirtd" "input" "audio" "podman" "docker" ];
-    shell = pkgs.fish;
+    # shell = pkgs.fish;
 
     packages = with pkgs; [
+      alacritty
       # android-tools
       # anydesk
       appeditor
@@ -388,6 +390,7 @@
       cliphist
       diff-so-fancy
       discord
+      distrobox
       # docker
       dracula-theme
       emacs
@@ -415,6 +418,7 @@
       helix
       http-server # Simple http server. Using with surfingkeys config.
       hyprpicker
+      hyprshade
       inputs.hyprland-contrib.packages.${pkgs.system}.grimblast # Wrapper for grim/slurp. . Using flake as nixpkgs ver pulls in old hyprland
       jc # Convert output to json for many utils. Useful with Nushell
       jgmenu
@@ -439,6 +443,7 @@
       ncdu
       ncpamixer
       neovide # Nvim gui front end
+      nh # nix helper
       nix-prefetch-git
       nix-search-cli
       nushell
@@ -465,6 +470,7 @@
       tealdeer # Command line help 'tldr'
       thunderbird
       treesheets
+      ueberzugpp
       nodePackages.tiddlywiki
       tree-sitter
       virt-manager
@@ -521,24 +527,29 @@
       shellAliases = {
         cat = "bat";
         conf = "emacsclient -r  ~/NixOS/configuration.org";
+        dg = "nh clean all";
         e = "emacsclient -nw";
         ee = "emacsclient -r";
         gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
         lg = "lazygit";
         lp = "nix profile list | grep -E 'Flake attribute|Index'";
-        rb = "sudo nixos-rebuild switch --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
+        np = "nh search"; # search nix packages
+        # rb = "sudo nixos-rebuild switch --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
+        rb = "nh os switch ~/NixOS";
         referrer = "nix-store --query --referrers";
         repair-store = "sudo nix-store --verify --check-contents --repair";
         rp = "nix profile remove ";
-        sdg = "sudo nix-collect-garbage -d";
+        # sdg = "sudo nix-collect-garbage -d";
         sg = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
         sgc = "sudo nix store gc -v";
         storebin = "nix-store -q --roots (which $argv)";
         sys = "sudo du -hs /nix/store/ /var/";
-        udg = "nix-collect-garbage -d";
+        # udg = "nix-collect-garbage -d";
+        udg = "nh clean user";
         ug = "nix-env --list-generations";
         ugc = "nix store gc -v";
-        up = "nix flake update /home/kev/NixOS";
+        # up = "nix flake update /home/kev/NixOS";
+        up = "nh os switch --update --ask ~/NixOS";
         uup = "nix profile upgrade '.*'";
         verify-store = "sudo nix-store --verify --check-contents";
       };
@@ -546,6 +557,10 @@
       interactiveShellInit = '' # Set Neovim as default man viewer
         set -x MANPAGER "nvim -c 'Man!'"
       '';
+    };
+
+    fuse = {
+      userAllowOther = true;
     };
 
     fzf = {
@@ -582,7 +597,9 @@
           gdk-pixbuf
           glib
           gtk2
+          gtk2-x11
           gtk3
+          gtk3-x11
           gtk4
           harfbuzz
           icu

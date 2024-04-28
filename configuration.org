@@ -1,5 +1,75 @@
 #+TITLE: Kev's Configs
 #+STARTUP: show2levels
+* Fish Shell
+** config.fish
+#+BEGIN_SRC sh :tangle "/home/kev/dotfiles/fish/.config/fish/config.fish"
+if status is-interactive
+    # Commands to run in interactive sessionif status is-interactive
+    # Commands to run in interactive sessions can go here
+    zoxide init fish | source
+    any-nix-shell fish --info-right | source
+    set -gx ALTERNATE_EDITOR ''
+    set -gx MANPAGER "nvim -c 'Man!'"
+end
+
+if status is-login
+    set -gx YDOTOOL_SOCKET "/home/kev/.ydotool_socket"
+end
+
+# Created by `pipx` on 2023-05-25 21:07:51
+set PATH $PATH /home/kev/.local/bin /home/kev/.config/emacs/bin
+# set fish_function_path $fish_function_path $__fish_config_dir/functions/*/
+
+#+END_SRC
+** functions.fish
+#+BEGIN_SRC sh :tangle "/home/kev/dotfiles/fish/.config/fish/functions/functions.fish"
+
+function checkup # Update system flake
+  pushd ~/NixOS && nix flake update --output-lock-file /dev/null && popd
+end
+
+function icat # Disply images in terminal
+  kitty +kitten icat $argv
+end
+
+function arch # Enter Arch distrobox
+  distrobox enter arch
+end
+
+function c # start clifm
+  clifm --data-dir (dirname (readlink (which clifm)) | sed "s/bin/share/g") $argv
+end
+
+function vf # alias vifm to vf
+  vifm $argv
+end
+
+function y # alias yazi to y
+  # yazi $argv
+  set tmp (mktemp -t "yazi-cwd.XXXXX")
+	yazi --cwd-file="$tmp"
+	if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+		cd -- "$cwd"
+	end
+	rm -f -- "$tmp"
+end
+
+function funcs # List functions
+  grep function ~/.config/fish/functions/functions.fish | sed 's/function//g' | sort
+end
+
+function funcedit # Edit Functions
+  neovide  ~/.config/fish/functions/functions.fish && source ~/.config/fish/functions/functions.fish
+end
+
+function h
+  Hyprland
+end
+
+function store # Visit app location in /nix/store
+  cd (realpath (which $argv) | cut -d/ -f1-4)
+end
+#+END_SRC
 * NixOS
 ** Header
 #+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
@@ -347,6 +417,7 @@
 ** Fonts
 #+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
   fonts = {
+    # fontDir.enable = true;
     packages = with pkgs; [
       font-awesome
       noto-fonts-lgc-plus
@@ -382,7 +453,7 @@
       enable = false;
     };
     podman = {
-      enable = false;
+      enable = true;
       dockerCompat = true;
       dockerSocket.enable = true;
     };
@@ -404,11 +475,12 @@
     description = "kev";
     extraGroups =
       [ "networkmanager" "adbusers" "wheel" "kvm" "libvirtd" "input" "audio" "podman" "docker" ];
-    shell = pkgs.fish;
+    # shell = pkgs.fish;
 #+END_SRC
 *** Packages
 #+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
     packages = with pkgs; [
+      alacritty
       # android-tools
       # anydesk
       appeditor
@@ -426,6 +498,7 @@
       cliphist
       diff-so-fancy
       discord
+      distrobox
       # docker
       dracula-theme
       emacs
@@ -453,6 +526,7 @@
       helix
       http-server # Simple http server. Using with surfingkeys config.
       hyprpicker
+      hyprshade
       inputs.hyprland-contrib.packages.${pkgs.system}.grimblast # Wrapper for grim/slurp. . Using flake as nixpkgs ver pulls in old hyprland
       jc # Convert output to json for many utils. Useful with Nushell
       jgmenu
@@ -477,6 +551,7 @@
       ncdu
       ncpamixer
       neovide # Nvim gui front end
+      nh # nix helper
       nix-prefetch-git
       nix-search-cli
       nushell
@@ -503,6 +578,7 @@
       tealdeer # Command line help 'tldr'
       thunderbird
       treesheets
+      ueberzugpp
       nodePackages.tiddlywiki
       tree-sitter
       virt-manager
@@ -566,24 +642,29 @@
       shellAliases = {
         cat = "bat";
         conf = "emacsclient -r  ~/NixOS/configuration.org";
+        dg = "nh clean all";
         e = "emacsclient -nw";
         ee = "emacsclient -r";
         gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
         lg = "lazygit";
         lp = "nix profile list | grep -E 'Flake attribute|Index'";
-        rb = "sudo nixos-rebuild switch --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
+        np = "nh search"; # search nix packages
+        # rb = "sudo nixos-rebuild switch --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
+        rb = "nh os switch ~/NixOS";
         referrer = "nix-store --query --referrers";
         repair-store = "sudo nix-store --verify --check-contents --repair";
         rp = "nix profile remove ";
-        sdg = "sudo nix-collect-garbage -d";
+        # sdg = "sudo nix-collect-garbage -d";
         sg = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
         sgc = "sudo nix store gc -v";
         storebin = "nix-store -q --roots (which $argv)";
         sys = "sudo du -hs /nix/store/ /var/";
-        udg = "nix-collect-garbage -d";
+        # udg = "nix-collect-garbage -d";
+        udg = "nh clean user";
         ug = "nix-env --list-generations";
         ugc = "nix store gc -v";
-        up = "nix flake update /home/kev/NixOS";
+        # up = "nix flake update /home/kev/NixOS";
+        up = "nh os switch --update --ask ~/NixOS";
         uup = "nix profile upgrade '.*'";
         verify-store = "sudo nix-store --verify --check-contents";
       };
@@ -591,6 +672,12 @@
       interactiveShellInit = '' # Set Neovim as default man viewer
         set -x MANPAGER "nvim -c 'Man!'"
       '';
+    };
+#+END_SRC
+*** Fuse
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
+    fuse = {
+      userAllowOther = true;
     };
 #+END_SRC
 *** FZF
@@ -635,7 +722,9 @@
           gdk-pixbuf
           glib
           gtk2
+          gtk2-x11
           gtk3
+          gtk3-x11
           gtk4
           harfbuzz
           icu
@@ -761,23 +850,28 @@
 * Hyprland
 ** Autostarts
 #+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
+exec-once = hyprshade auto
 exec-once = waypaper --restore
-exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec-once = emacs --daemon
+# exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec-once = /home/kev/bin/nixos-polkit-agent
 exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=$XDG_CURRENT_DESKTOP
-exec-once = waybar & configure-gtk & gammastep-indicator -c ~/.config/gammastep/gammastep.conf & ssh-add
+exec-once = waybar
+exec-once = configure-gtk &
+# exec-once = gammastep-indicator -c ~/.config/gammastep/gammastep.conf
+exec-once = ssh-add
 exec-once = wl-paste --watch cliphist store
 exec-once = mako -c ~/.config/mako/config
-exec-once = emacs --daemon
-exec-once = [workspace 8 silent] kitty -e http-server -p 8085 -c-1 ~/dotfiles/firefox_ext_confs/surfingkeys
+exec-once = [workspace 8 silent] alacritty -e http-server -p 8085 -c-1 ~/dotfiles/firefox_ext_confs/surfingkeys
 # exec-once = syncthing serve
 # exec-once = localsend autostart
-exec-once = [workspace 8 silent] kitty tiddlywiki /home/kev/Code/tiddiwiki --listen host=localhost port=8081
+exec-once = [workspace 8 silent] alacritty -e tiddlywiki /home/kev/Code/tiddiwiki --listen host=localhost port=8081
 exec-once = playerctld daemon
 exec-once = sudo -b ydotoold --socket-path="$HOME/.ydotool_socket" --socket-own="$(id -u):$(id -g)"
-exec-once = [workspace 7 silent] kalarm --tray
+exec-once = [workspace 7 silent] kalarm
 exec-once = [workspace 6 silent] discord
-exec-once = [workspace 2 silent] kitty
+exec-once = [workspace 3 silent] emacsclient -c ~/NixOS/configuration.org
+exec-once = [workspace 2 silent] alacritty
 exec-once = [workspace 1] firefox
 #+END_SRC
 ** Inputs
@@ -871,6 +965,7 @@ master {
 #+END_SRC
 ** Misc
 #+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
+monitor=DP-3,2560x1440@165,0x0,1
 misc {
     disable_hyprland_logo = true
     mouse_move_enables_dpms = true
@@ -905,7 +1000,7 @@ windowrulev2 = float,class:neovide
 windowrulev2 = move 250 50,class:neovide
 windowrulev2 = size 75% 90%,class:neovide
 windowrulev2 = workspace special:editor,class:neovide
-windowrulev2 = workspace special:editor,class:Emacs
+#windowrulev2 = workspace special:editor,class:Emacs
 windowrulev2 = float,title:LGTV
 windowrulev2 = center,title:LGTV
 windowrulev2 = move 1600 35,title:LGTV
@@ -932,6 +1027,7 @@ windowrulev2 = stayfocused,class:sudoku-Main, floating:1, fullscreen:0
   bind = SUPER, KP_Add, exec, /home/kev/bin/hyprzoom in
   bind = SUPER, KP_Subtract,exec, /home/kev/bin/hyprzoom reset
   bind = SUPER, e, exec, umpv --ytdl-format=bestvideo+bestaudio/best --fs "$(wl-paste)" # Play clipboard link with mpv
+  bind = SUPER SHIFT, s, exec, hyprshade toggle
 #+END_SRC
 *** Launchers
 #+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
@@ -946,7 +1042,7 @@ windowrulev2 = stayfocused,class:sudoku-Main, floating:1, fullscreen:0
   bind = SUPER, b, exec, pkill waybar || waybar
   bind = SUPER, c, exec, ~/bin/show_cliphist
   bind = SUPER, code:91, exec, toggle_editor
-  bind = SUPER, return, exec, kitty
+  bind = SUPER, return, exec, alacritty
   bind = SUPER, p, exec, hyprpicker -a
 #+END_SRC
 *** Master Layout Binds
@@ -1305,6 +1401,7 @@ removeSearchAlias('w');
 addSearchAlias('am', 'Amazon', 'https://www.amazon.ca/s?k=');
 addSearchAlias('br', 'Brave Search', 'https://search.brave.com/search?q=');
 addSearchAlias('di', 'Dictionary', 'https://www.britannica.com/dictionary/');
+addSearchAlias('dd', 'DDG', 'https://duckduckgo.com/?t=h_&q=');
 addSearchAlias('gh', 'Github General', 'https://github.com/search?&q=');
 addSearchAlias('ghc', 'Github Code', 'https://github.com/search?type=code&q=');
 addSearchAlias('ghp', 'Search Nix PRs', 'https://github.com/NixOS/nixpkgs/pulls?q=is%3Apr+is%3Aopen+');
@@ -1560,7 +1657,7 @@ settings.theme = `
     border: none;
     border-radius: 0;
     font-family: Victor Mono, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     min-height: 0;
 }
 

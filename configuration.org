@@ -59,7 +59,7 @@ function funcs # List functions
 end
 
 function funcedit # Edit Functions
-  neovide  ~/.config/fish/functions/functions.fish && source ~/.config/fish/functions/functions.fish
+  emacsclient -t  ~/.config/fish/functions/functions.fish && source ~/.config/fish/functions/functions.fish
 end
 
 function h
@@ -188,15 +188,15 @@ end
         "application/x-extension-shtml" = "firefox.desktop";
         "application/x-extension-xht" = "firefox.desktop";
         "application/x-extension-xhtml" = "firefox.desktop";
-        "application/x-shellscript" = "neovide.desktop";
+        "application/x-shellscript" = "emacsclient.desktop";
         "application/xhtml+xml" = "firefox.desktop";
         "audio/x-mpegurl" = "vlc.desktop";
         "image/png" = "feh.desktop";
-        "text/*" = "neovide.desktop";
-        "text/css" = "neovide.desktop";
+        "text/*" = "emacsclient.desktop";
+        "text/css" = "emacsclient.desktop";
         "text/html" = "firefox.desktop";
         "text/markdown" = "calibre-ebook-viewer.desktop";
-        "text/plain" = "neovide.desktop";
+        "text/plain" = "emacsclient.desktop";
         "video/*" = "umpv.desktop";
         "x-scheme-handler/chrome" = "firefox.desktop";
         "x-scheme-handler/http" = "firefox.desktop";
@@ -222,7 +222,7 @@ end
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.latest;
     registry.nixpkgs.flake = inputs.nixpkgs; # Pin nixpkgs to speed up nix commands
     gc = {
       # Auto discard system generations
@@ -269,6 +269,7 @@ end
       QT_QPA_PLATFORM = "wayland;xcb";
       QT_QPA_PLATFORMTHEME = "qt5ct";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      SSL_CERT_FILE = "/etc/ssl/certs/ca-bundle.crt"; #Needed for X-Plane "AutoOrtho"
       VISUAL = "emacsclient -r";
       XMODIFIERS = "@im=ibus";
       _JAVA_AWT_WM_NONREPARENTING = "1";
@@ -490,6 +491,7 @@ end
       bat
       # bitwarden
       btop
+      cacert
       calibre
       cargo
       cava # Terminal audio visualizer
@@ -506,6 +508,7 @@ end
       eza
       fd
       feh
+      file
       fishPlugins.tide
       fishPlugins.puffer
       fishPlugins.grc
@@ -550,12 +553,13 @@ end
       mpv-shim-default-shaders
       ncdu
       ncpamixer
-      neovide # Nvim gui front end
+      # neovide # Nvim gui front end
       nh # nix helper
       nix-prefetch-git
       nix-search-cli
       nushell
       nvd # Nix derivation diff tool
+      okular
       pamixer
       pavucontrol
       pistol # File preview for clifm
@@ -587,7 +591,8 @@ end
       vlc
       wakeonlan # For lgtv control
 
-      waybar
+      # waybar
+      inputs.waybar.packages.${pkgs.system}.waybar
       # inputs.nixpkgs-trunk.legacyPackages.${pkgs.system}.waybar
 
       waypaper
@@ -616,6 +621,13 @@ end
     dconf.enable = true;
     ssh.startAgent = true;
     neovim = { vimAlias = true; };
+#+END_SRC
+*** Appimage
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
+appimage = {
+  enable = true;
+  # binfmt = true;
+};
 #+END_SRC
 *** Firefox
 #+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
@@ -718,7 +730,7 @@ end
           expat
           fontconfig
           freetype
-          fuse3
+          fuse
           gdk-pixbuf
           glib
           gtk2
@@ -814,6 +826,7 @@ end
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    waybar.url = "github:Alexays/Waybar";
   };
 
   outputs = inputs@{ self, nixpkgs, ... }: {
@@ -992,6 +1005,7 @@ windowrulev2 = move 1435 35,class:qalculate-gtk
 windowrulev2 = size 25% 25%,class:qalculate-gtk
 windowrulev2 = workspace special:calculator,class:(qalculate-gtk)
 windowrulev2 = workspace special:discord,class:discord
+windowrulev2 = workspace special,class:ytdlp
 windowrulev2 = float,class:popterm
 windowrulev2 = workspace special:popterm,class:popterm
 windowrulev2 = move 250 50,class:popterm
@@ -1013,7 +1027,7 @@ windowrulev2 = stayfocused,class:sudoku-Main, floating:1, fullscreen:0
   bind = SUPER CONTROL, grave, movetoworkspace,e+0
   bind = SUPER SHIFT, grave, movetoworkspace,special
   bind = SUPER, grave, togglespecialworkspace
-  bind = SUPER SHIFT, Q, exit,
+  bind = SUPER SHIFT, Q, exec, /home/kev/bin/killhypr
   bind = SUPER SHIFT, X, killactive,
   bind = SUPER SHIFT, space, togglefloating
   bind = SUPER, S, pseudo
@@ -1145,8 +1159,6 @@ bind =, f, exec, firefox
 bind =, f, submap, reset
 bind =, e, exec, emacsclient -c
 bind =, e, submap, reset
-bind =, v, exec, neovide --neovim-bin lvim
-bind =, v, submap, reset
 bind =, s, exec, ~/Games/Hodoku/hodoku
 bind =, s, submap, reset
 bind =, escape, submap, reset
@@ -1406,6 +1418,7 @@ addSearchAlias('gh', 'Github General', 'https://github.com/search?&q=');
 addSearchAlias('ghc', 'Github Code', 'https://github.com/search?type=code&q=');
 addSearchAlias('ghp', 'Search Nix PRs', 'https://github.com/NixOS/nixpkgs/pulls?q=is%3Apr+is%3Aopen+');
 addSearchAlias('ghr', 'GitHub Repos', 'https://github.com/search?type=repositories&q=');
+addSearchAlias('gi', 'Gibiru Search', 'https://gibiru.com/results.html?q=');
 addSearchAlias('gm', 'Google Maps', 'https://maps.google.com/maps?q=');
 addSearchAlias('im', 'IMDB', 'https://www.imdb.com/find?s=all&q=');
 addSearchAlias('md', 'MagnetDL', 'http://www.magnetdl.com/search/?m=1&q=');
@@ -1657,7 +1670,7 @@ settings.theme = `
     border: none;
     border-radius: 0;
     font-family: Victor Mono, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     min-height: 0;
 }
 

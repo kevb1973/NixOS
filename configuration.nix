@@ -400,6 +400,7 @@
       eza
       fd
       feh
+      file
       fishPlugins.tide
       fishPlugins.puffer
       fishPlugins.grc
@@ -444,12 +445,13 @@
       mpv-shim-default-shaders
       ncdu
       ncpamixer
-      neovide # Nvim gui front end
+      # neovide # Nvim gui front end
       nh # nix helper
       nix-prefetch-git
       nix-search-cli
       nushell
       nvd # Nix derivation diff tool
+      okular
       pamixer
       pavucontrol
       pistol # File preview for clifm
@@ -595,7 +597,7 @@
           expat
           fontconfig
           freetype
-          fuse3
+          fuse
           gdk-pixbuf
           glib
           gtk2

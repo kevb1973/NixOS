@@ -483,7 +483,8 @@
       vlc
       wakeonlan # For lgtv control
 
-      waybar
+      # waybar
+      inputs.waybar.packages.${pkgs.system}.waybar
       # inputs.nixpkgs-trunk.legacyPackages.${pkgs.system}.waybar
 
       waypaper

@@ -178,6 +178,7 @@
       QT_QPA_PLATFORM = "wayland;xcb";
       QT_QPA_PLATFORMTHEME = "qt5ct";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      SSL_CERT_FILE = "/etc/ssl/certs/ca-bundle.crt"; #Needed for X-Plane "AutoOrtho"
       VISUAL = "emacsclient -r";
       XMODIFIERS = "@im=ibus";
       _JAVA_AWT_WM_NONREPARENTING = "1";
@@ -382,6 +383,7 @@
       bat
       # bitwarden
       btop
+      cacert
       calibre
       cargo
       cava # Terminal audio visualizer

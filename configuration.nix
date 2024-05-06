@@ -511,6 +511,11 @@
     ssh.startAgent = true;
     neovim = { vimAlias = true; };
 
+appimage = {
+  enable = true;
+  # binfmt = true;
+};
+
     firefox = {
       enable = true;
       # nativeMessagingHosts.packages = [ pkgs.fx-cast-bridge ];

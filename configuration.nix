@@ -465,7 +465,7 @@
       steam-run
       stellarium
       stow
-      stylua
+      strawberry
       swaybg
       swayidle
       swaylock

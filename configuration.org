@@ -874,11 +874,12 @@ exec-once = configure-gtk &
 # exec-once = gammastep-indicator -c ~/.config/gammastep/gammastep.conf
 exec-once = ssh-add
 exec-once = wl-paste --watch cliphist store
-exec-once = mako -c ~/.config/mako/config
+# exec-once = mako -c ~/.config/mako/config
+exec-once = swaync
 exec-once = [workspace 8 silent] alacritty -e http-server -p 8085 -c-1 ~/dotfiles/firefox_ext_confs/surfingkeys
 # exec-once = syncthing serve
 # exec-once = localsend autostart
-exec-once = [workspace 8 silent] alacritty -e tiddlywiki /home/kev/Code/tiddiwiki --listen host=localhost port=8081
+# exec-once = [workspace 8 silent] alacritty -e tiddlywiki /home/kev/Code/tiddiwiki --listen host=localhost port=8081
 exec-once = playerctld daemon
 exec-once = sudo -b ydotoold --socket-path="$HOME/.ydotool_socket" --socket-own="$(id -u):$(id -g)"
 exec-once = [workspace 7 silent] kalarm
@@ -1133,9 +1134,10 @@ bind = SUPER, S, exec, ~/bin/wofi_grimblast
 #+END_SRC
 *** Notification Controls
 #+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
-bind = SUPER, A, exec, makoctl menu wofi -W 15% -H 10% -x 800 -y 5 -d -p 'Choose Action: '
-bind = SUPER SHIFT, D, exec, makoctl restore
-bind = SUPER, D, exec, makoctl dismiss
+# bind = SUPER, A, exec, makoctl menu wofi -W 15% -H 10% -x 800 -y 5 -d -p 'Choose Action: '
+# bind = SUPER SHIFT, D, exec, makoctl restore
+# bind = SUPER, D, exec, makoctl dismiss
+bind = SUPER, A, exec, swaync-client -t -sw
 #+END_SRC
 *** Submaps
 **** General
@@ -1502,7 +1504,7 @@ settings.theme = `
 
     "modules-left": ["custom/launcher", "hyprland/workspaces", "hyprland/submap", "custom/spotify"],
     "modules-center": ["cava"],
-    "modules-right": ["custom/weather", "tray", "idle_inhibitor", "custom/lgtv", "pulseaudio", "clock"],
+    "modules-right": ["custom/weather", "tray", "idle_inhibitor", "custom/lgtv", "pulseaudio", "custom/notification", "clock"],
     "sway/mode": {
         "format": " {}"
     },
@@ -1662,6 +1664,26 @@ settings.theme = `
                 "on-click-right": "mode"
             },
     },
+    "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}:{}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
 }
 #+END_SRC
 ** style.css

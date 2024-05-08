@@ -469,6 +469,7 @@
       swaybg
       swayidle
       swaylock
+      swaynotificationcenter
       syncthing
       tartube # Front end for yt-dlp
       tealdeer # Command line help 'tldr'

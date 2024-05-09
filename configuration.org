@@ -1053,12 +1053,12 @@ windowrulev2 = stayfocused,class:sudoku-Main, floating:1, fullscreen:0
 #+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
   bind = SUPER SHIFT, W, exec, waypaper
   bind = ,F10, exec, ydotool mousemove -a -x 0 -y 1920
-  bind = SUPER SHIFT, Z, exec, pkill wofi || wofi --show run
+  bind = SUPER SHIFT, Z, exec, pkill wofi || wofi --show run -a -i -n -p "Scripts:" -t "alacritty -e" --gtk-dark
   bind = SUPER SHIFT, c, exec, cliphist wipe
   bind = SUPER, KP_ENTER, exec, toggle_term
   bind = SUPER, KP_MULTIPLY, exec, pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk
   bind = SUPER, code:90, exec, pgrep -i discord && hyprctl dispatch togglespecialworkspace discord || discord
-  bind = SUPER, Z, exec, pkill fuzzel || fuzzel --show-actions
+  bind = SUPER, Z, exec, pkill wofi || wofi --show drun -a -i -n -I -p "Apps:" -t "alacritty -e" --gtk-dark
   bind = SUPER, b, exec, pkill waybar || waybar
   bind = SUPER, c, exec, ~/bin/show_cliphist
   bind = SUPER, code:91, exec, toggle_editor

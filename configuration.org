@@ -323,6 +323,7 @@ end
     blueman.enable = false;
     dbus.enable = true;
     flatpak.enable = true;
+    fwupd.enable = true;
     geoclue2.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true; # Mount, trash, and other functionalities

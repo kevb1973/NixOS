@@ -17,11 +17,10 @@
       # Vulcan
       driSupport = true;
       driSupport32Bit = true;
-      # extraPackages = with pkgs; [
-        # amdvlk
-        # rocm-opencl-icd
-        # rocm-opencl-runtime
-      # ];
+      extraPackages = with pkgs; [
+        amdvlk
+        rocmPackages.clr.icd
+      ];
     };
   };
 
@@ -390,6 +389,7 @@
       celestia
       clifm
       cliphist
+      clinfo
       diff-so-fancy
       discord
       distrobox
@@ -452,6 +452,7 @@
       nushell
       nvd # Nix derivation diff tool
       okular
+      ollama # AI
       pamixer
       pavucontrol
       pistol # File preview for clifm

@@ -4,7 +4,15 @@
  imports = [ ./hardware-configuration.nix ];
  time.timeZone = "America/Toronto";
  i18n.defaultLocale = "en_CA.UTF-8";
- system.stateVersion = "22.11"; # Don't change unless fresh install from new ISO
+
+system = {
+  activationScripts = {
+    script.text = ''
+      install -d -m 755 /home/kev/Code/open-webui/data -o root -g root
+    '';
+   };
+  stateVersion = "22.11"; # Don't change unless fresh install from new ISO
+};
 
   hardware = {
     bluetooth.enable = true;
@@ -20,6 +28,7 @@
       extraPackages = with pkgs; [
         amdvlk
         rocmPackages.clr.icd
+        rocmPackages.rocm-smi
       ];
     };
   };
@@ -172,6 +181,7 @@
       GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
       NIX_ALLOW_UNFREE = "1";
+      # OLLAMA_HOST = "0.0.0.0:11434";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_IM_MODULE = "ibus";
       QT_QPA_PLATFORM = "wayland;xcb";
@@ -214,7 +224,6 @@
       os-prober
       pulseaudioFull
       python3
-      rocm-smi
       sddm-chili-theme
       unar
       unzip
@@ -270,7 +279,7 @@
       acceleration = "rocm";
       environmentVariables = {
         OLLAMA_LLM_LIBRARY = "rocm";
-        HSA_OVERRIDE_GFX_VERSION = "10.3.2";
+        HSA_OVERRIDE_GFX_VERSION = "10.3.0";
       };
     };
     # --- PIPEWIRE{{{2
@@ -359,6 +368,12 @@
   virtualisation = {
     docker = {
       enable = false;
+    };
+    oci-containers = {
+      backend = "podman";
+      containers = {
+        open-webui = import ./containers/open-webui.nix;
+      };
     };
     podman = {
       enable = true;

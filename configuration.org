@@ -1076,7 +1076,7 @@ windowrulev2 = stayfocused,class:sudoku-Main, floating:1, fullscreen:0
   bind = SUPER, KP_Add, exec, /home/kev/bin/hyprzoom in
   bind = SUPER, KP_Subtract,exec, /home/kev/bin/hyprzoom reset
   bind = SUPER, e, exec, umpv --ytdl-format=bestvideo+bestaudio/best --fs "$(wl-paste)" # Play clipboard link with mpv
-  bind = SUPER SHIFT, s, exec, hyprshade toggle blue-light-filter
+  bind = SUPER SHIFT, s, exec, hyprshade toggle bluefilter
   bind = SUPER SHIFT, v, exec, hyprshade toggle vibrance
 #+END_SRC
 *** Launchers

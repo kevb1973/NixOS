@@ -307,6 +307,7 @@ end
       os-prober
       pulseaudioFull
       python3
+      rocm-smi
       sddm-chili-theme
       unar
       unzip
@@ -357,6 +358,15 @@ end
     fstrim = {
       enable = true;
       interval = "weekly"; # the default
+    };
+    # --- OLLAMA AI
+    ollama = {
+      enable = true;
+      acceleration = "rocm";
+      environmentVariables = {
+        OLLAMA_LLM_LIBRARY = "rocm";
+        HSA_OVERRIDE_GFX_VERSION = "10.3.0";
+      };
     };
     # --- PIPEWIRE{{{2
     pipewire = {
@@ -526,12 +536,13 @@ end
       gnome.gnome-clocks
       grc # generic text colourizer. Using with fishPlugins.grc
       grim
+      grimblast
       gucharmap
       helix
       http-server # Simple http server. Using with surfingkeys config.
       hyprpicker
       hyprshade
-      inputs.hyprland-contrib.packages.${pkgs.system}.grimblast # Wrapper for grim/slurp. . Using flake as nixpkgs ver pulls in old hyprland
+      # inputs.hyprland-contrib.packages.${pkgs.system}.grimblast # Wrapper for grim/slurp. . Using flake as nixpkgs ver pulls in old hyprland
       jc # Convert output to json for many utils. Useful with Nushell
       jgmenu
       jq
@@ -604,6 +615,7 @@ end
       wev
       wget
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+      wlogout
       wofi
       wtype # For wofi-emoji
       yad
@@ -706,7 +718,7 @@ appimage = {
 #+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
     hyprland = {
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
 #+END_SRC
 *** Nix-Index
@@ -820,15 +832,15 @@ appimage = {
     # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
     # nixpkgs-trunk.url = "github:nixos/nixpkgs";
     # niri.url = "github:sodiboo/niri-flake";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    hyprland-contrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    # hyprland-contrib = {
+    #   url = "github:hyprwm/contrib";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
     waybar.url = "github:Alexays/Waybar";
   };
 
@@ -866,28 +878,28 @@ appimage = {
 * Hyprland
 ** Autostarts
 #+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
-exec-once = hyprshade auto
-exec-once = waypaper --restore
-exec-once = emacs --daemon
-# exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec-once = /home/kev/bin/nixos-polkit-agent
 exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=$XDG_CURRENT_DESKTOP
-exec-once = waybar
 exec-once = configure-gtk &
-# exec-once = gammastep-indicator -c ~/.config/gammastep/gammastep.conf
 exec-once = ssh-add
+exec-once = waypaper --restore
+exec-once = emacs --daemon
+exec-once = playerctld daemon
+# exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec-once = waybar
+# exec-once = gammastep-indicator -c ~/.config/gammastep/gammastep.conf
 exec-once = wl-paste --watch cliphist store
 # exec-once = mako -c ~/.config/mako/config
 exec-once = swaync
+exec-once = [workspace 8 silent] alacritty -e ollama run llama3
 exec-once = [workspace 8 silent] alacritty -e http-server -p 8085 -c-1 ~/dotfiles/firefox_ext_confs/surfingkeys
 # exec-once = syncthing serve
 # exec-once = localsend autostart
 # exec-once = [workspace 8 silent] alacritty -e tiddlywiki /home/kev/Code/tiddiwiki --listen host=localhost port=8081
-exec-once = playerctld daemon
 exec-once = sudo -b ydotoold --socket-path="$HOME/.ydotool_socket" --socket-own="$(id -u):$(id -g)"
 exec-once = [workspace 7 silent] kalarm
-exec-once = [workspace 6 silent] discord
-exec-once = [workspace 3 silent] emacsclient -c ~/NixOS/configuration.org
+exec-once = [workspace special silent] emacsclient -c ~/NixOS/configuration.org
+# exec-once = [workspace 6 silent] discord
 exec-once = [workspace 2 silent] alacritty
 exec-once = [workspace 1] firefox
 #+END_SRC
@@ -919,7 +931,6 @@ general {
    # col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
     col.active_border = rgba(7984A4ee)
     col.inactive_border = rgba(595959aa)
-    cursor_inactive_timeout = 2
     layout = master
 }
 #+END_SRC
@@ -982,9 +993,12 @@ master {
 #+END_SRC
 ** Misc
 #+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
+# cursor:zoom_rigid = false
 monitor=DP-3,2560x1440@165,0x0,1
 misc {
     disable_hyprland_logo = true
+    enable_swallow = true
+    swallow_regex = ^(Alacritty)$
     mouse_move_enables_dpms = true
     key_press_enables_dpms = true
     vrr = 1
@@ -1009,8 +1023,8 @@ windowrulev2 = float,class:qalculate-gtk
 windowrulev2 = move 1435 35,class:qalculate-gtk
 windowrulev2 = size 25% 25%,class:qalculate-gtk
 windowrulev2 = workspace special:calculator,class:(qalculate-gtk)
-windowrulev2 = workspace special:discord,class:discord
 windowrulev2 = workspace special,class:ytdlp
+windowrulev2 = workspace special,class:(Emacs)
 windowrulev2 = float,class:popterm
 windowrulev2 = workspace special:popterm,class:popterm
 windowrulev2 = move 250 50,class:popterm
@@ -1018,7 +1032,6 @@ windowrulev2 = size 75% 90%,class:popterm
 windowrulev2 = float,class:neovide
 windowrulev2 = move 250 50,class:neovide
 windowrulev2 = size 75% 90%,class:neovide
-windowrulev2 = workspace special:editor,class:neovide
 #windowrulev2 = workspace special:editor,class:Emacs
 windowrulev2 = float,title:LGTV
 windowrulev2 = center,title:LGTV
@@ -1032,7 +1045,7 @@ windowrulev2 = stayfocused,class:sudoku-Main, floating:1, fullscreen:0
   bind = SUPER CONTROL, grave, movetoworkspace,e+0
   bind = SUPER SHIFT, grave, movetoworkspace,special
   bind = SUPER, grave, togglespecialworkspace
-  bind = SUPER SHIFT, Q, exec, /home/kev/bin/killhypr
+  bind = SUPER SHIFT, Q, exec, wlogout
   bind = SUPER SHIFT, X, killactive,
   bind = SUPER SHIFT, space, togglefloating
   bind = SUPER, S, pseudo
@@ -1057,7 +1070,7 @@ windowrulev2 = stayfocused,class:sudoku-Main, floating:1, fullscreen:0
   bind = SUPER SHIFT, c, exec, cliphist wipe
   bind = SUPER, KP_ENTER, exec, toggle_term
   bind = SUPER, KP_MULTIPLY, exec, pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk
-  bind = SUPER, code:90, exec, pgrep -i discord && hyprctl dispatch togglespecialworkspace discord || discord
+#  bind = SUPER, code:90, exec, pgrep -i discord && hyprctl dispatch togglespecialworkspace discord || discord
   bind = SUPER, Z, exec, pkill wofi || wofi --show drun -a -i -n -I -p "Apps:" -t "alacritty -e" --gtk-dark
   bind = SUPER, b, exec, pkill waybar || waybar
   bind = SUPER, c, exec, ~/bin/show_cliphist
@@ -1439,6 +1452,7 @@ addSearchAlias('ud', 'Urban Dictionary', 'http://www.urbandictionary.com/define.
 addSearchAlias('wb', 'Wayback', 'https://web.archive.org/web/submit?type=urlquery&url=');
 addSearchAlias('wi', 'Wokepedia', 'https://en.wikipedia.org/wiki/Special:Search?search=');
 addSearchAlias('x', 'X', 'https://twitter.com/search?src=typed_query&q=');
+addSearchAlias('q', 'Qwant', 'https://www.qwant.com/?theme=1&hc=0&s=0&ch=none&q= fs');
 #+END_SRC
 ** Theme
 #+BEGIN_SRC css :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"

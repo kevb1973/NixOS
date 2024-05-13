@@ -6,15 +6,15 @@
     # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
     # nixpkgs-trunk.url = "github:nixos/nixpkgs";
     # niri.url = "github:sodiboo/niri-flake";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    hyprland-contrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    # hyprland-contrib = {
+    #   url = "github:hyprwm/contrib";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
     waybar.url = "github:Alexays/Waybar";
   };
 

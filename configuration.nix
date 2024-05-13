@@ -506,6 +506,7 @@
       wev
       wget
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+      wlogout
       wofi
       wtype # For wofi-emoji
       yad

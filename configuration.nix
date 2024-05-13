@@ -214,6 +214,7 @@
       os-prober
       pulseaudioFull
       python3
+      rocm-smi
       sddm-chili-theme
       unar
       unzip
@@ -269,7 +270,7 @@
       acceleration = "rocm";
       environmentVariables = {
         OLLAMA_LLM_LIBRARY = "rocm";
-        HSA_OVERRIDE_GFX_VERSION = "10.3.0";
+        HSA_OVERRIDE_GFX_VERSION = "10.3.2";
       };
     };
     # --- PIPEWIRE{{{2

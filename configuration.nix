@@ -263,6 +263,15 @@
       enable = true;
       interval = "weekly"; # the default
     };
+    # --- OLLAMA AI
+    ollama = {
+      enable = true;
+      acceleration = "rocm";
+      environmentVariables = {
+        OLLAMA_LLM_LIBRARY = "rocm";
+        HSA_OVERRIDE_GFX_VERSION = "10.3.0";
+      };
+    };
     # --- PIPEWIRE{{{2
     pipewire = {
       enable = true;

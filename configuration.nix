@@ -427,12 +427,13 @@
       gnome.gnome-clocks
       grc # generic text colourizer. Using with fishPlugins.grc
       grim
+      grimblast
       gucharmap
       helix
       http-server # Simple http server. Using with surfingkeys config.
       hyprpicker
       hyprshade
-      inputs.hyprland-contrib.packages.${pkgs.system}.grimblast # Wrapper for grim/slurp. . Using flake as nixpkgs ver pulls in old hyprland
+      # inputs.hyprland-contrib.packages.${pkgs.system}.grimblast # Wrapper for grim/slurp. . Using flake as nixpkgs ver pulls in old hyprland
       jc # Convert output to json for many utils. Useful with Nushell
       jgmenu
       jq
@@ -592,7 +593,7 @@ appimage = {
 
     hyprland = {
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
 
     nix-index = {

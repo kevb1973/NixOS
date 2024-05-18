@@ -1292,8 +1292,8 @@ unmap('W');
 //unmap('x');
 unmap('X');
 unmap('i', /8kun/);
-unmap('n', /twitter.com/);
-unmap('.', /twitter.com/);
+unmap('n', /x.com/);
+unmap('.', /x.com/);
 #+END_SRC
 *** Map
 **** Function Binds
@@ -1362,11 +1362,11 @@ mapkey('C', 'Open QResearch Catalog', function() {
 #+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
 mapkey('l', 'Custom hints for X - Like', function() {
     Hints.create("div[data-testid='like']", Hints.dispatchMouseClick);
-}, {domain: /twitter.com/});
+}, {domain: /x.com/});
 
 mapkey('n', 'X-Community Notes', function() {
-   window.open('https://twitter.com/i/communitynotes', '_self');
-}, {domain: /twitter.com/});
+   window.open('https://x.com/i/communitynotes', '_self');
+}, {domain: /x.com/});
 #+END_SRC
 ***** DDG
 #+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
@@ -1468,7 +1468,7 @@ addSearchAlias('sp', 'Spotify', 'https://open.spotify.com/search/');
 addSearchAlias('ud', 'Urban Dictionary', 'http://www.urbandictionary.com/define.php?term=');
 addSearchAlias('wb', 'Wayback', 'https://web.archive.org/web/submit?type=urlquery&url=');
 addSearchAlias('wi', 'Wokepedia', 'https://en.wikipedia.org/wiki/Special:Search?search=');
-addSearchAlias('x', 'X', 'https://twitter.com/search?src=typed_query&q=');
+addSearchAlias('x', 'X', 'https://x.com/search?src=typed_query&q=');
 addSearchAlias('q', 'Qwant', 'https://www.qwant.com/?theme=1&hc=0&s=0&ch=none&q= fs');
 #+END_SRC
 ** Theme

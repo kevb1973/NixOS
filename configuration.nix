@@ -152,8 +152,9 @@ system = {
     nixPath = [
       "/etc/nix/inputs"
     ]; # Fix <nixpkgs> for flakes. See environment.etc."nix/inputs/nixpkgs"
+    optimise.automatic = true; #Auto optimize once per day at 3:45am (default)
     settings = {
-      auto-optimise-store = true; # Auto optimize nix store.
+      auto-optimise-store = false; # Auto optimize nix store (disabled due to slowing down rebuilds).
       builders-use-substitutes = true;
       substituters = [
         "https://hyprland.cachix.org"
@@ -217,6 +218,7 @@ system = {
       mfcl2700dncupswrapper
       neovim
       nil
+      niri
       nixfmt-rfc-style
       nodejs
       nix-tree # Explore package dependencies
@@ -228,6 +230,7 @@ system = {
       unar
       unzip
       usbutils
+      where-is-my-sddm-theme
       xdg-utils # for openning default programms when clicking links
     ];
   };
@@ -256,7 +259,7 @@ system = {
       defaultSession = "hyprland";
       sddm = {
         enable = true;
-        theme = "catppuccin-sddm-corners";
+        theme = "where-is-my-sddm-theme";
         wayland.enable = true;
       };
     };
@@ -416,6 +419,7 @@ system = {
       clifm
       cliphist
       clinfo
+      ddcutil # Adjust monitor brightness and other settings from cli
       diff-so-fancy
       discord
       distrobox
@@ -462,9 +466,6 @@ system = {
       libnotify
       libsForQt5.qtstyleplugin-kvantum
       # localsend
-      # logseq
-      # lunarvim
-      mako
       marksman # Language server for markdown.
       mediainfo # Provides info on media files.
       meld
@@ -480,8 +481,10 @@ system = {
       nvd # Nix derivation diff tool
       okular
       ollama # AI
+      oterm
       pamixer
       pavucontrol
+      peaclock #TUI Clock/Stopwatch/Timer
       pistol # File preview for clifm
       playerctl
       qalculate-gtk
@@ -575,6 +578,7 @@ appimage = {
         lp = "nix profile list | grep -E 'Name|Store'";
         np = "nh search"; # search nix packages
         # rb = "sudo nixos-rebuild switch --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
+        opt = "nix-store --optimize";
         rb = "nh os switch ~/NixOS";
         referrer = "nix-store --query --referrers";
         repair-store = "sudo nix-store --verify --check-contents --repair";

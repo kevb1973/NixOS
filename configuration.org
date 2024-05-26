@@ -243,8 +243,9 @@ system = {
     nixPath = [
       "/etc/nix/inputs"
     ]; # Fix <nixpkgs> for flakes. See environment.etc."nix/inputs/nixpkgs"
+    optimise.automatic = true; #Auto optimize once per day at 3:45am (default)
     settings = {
-      auto-optimise-store = true; # Auto optimize nix store.
+      auto-optimise-store = false; # Auto optimize nix store (disabled due to slowing down rebuilds).
       builders-use-substitutes = true;
       substituters = [
         "https://hyprland.cachix.org"
@@ -312,6 +313,7 @@ system = {
       mfcl2700dncupswrapper
       neovim
       nil
+      niri
       nixfmt-rfc-style
       nodejs
       nix-tree # Explore package dependencies
@@ -323,6 +325,7 @@ system = {
       unar
       unzip
       usbutils
+      where-is-my-sddm-theme
       xdg-utils # for openning default programms when clicking links
     ];
   };
@@ -353,7 +356,7 @@ system = {
       defaultSession = "hyprland";
       sddm = {
         enable = true;
-        theme = "catppuccin-sddm-corners";
+        theme = "where-is-my-sddm-theme";
         wayland.enable = true;
       };
     };
@@ -526,6 +529,7 @@ system = {
       clifm
       cliphist
       clinfo
+      ddcutil # Adjust monitor brightness and other settings from cli
       diff-so-fancy
       discord
       distrobox
@@ -572,9 +576,6 @@ system = {
       libnotify
       libsForQt5.qtstyleplugin-kvantum
       # localsend
-      # logseq
-      # lunarvim
-      mako
       marksman # Language server for markdown.
       mediainfo # Provides info on media files.
       meld
@@ -590,8 +591,10 @@ system = {
       nvd # Nix derivation diff tool
       okular
       ollama # AI
+      oterm
       pamixer
       pavucontrol
+      peaclock #TUI Clock/Stopwatch/Timer
       pistol # File preview for clifm
       playerctl
       qalculate-gtk
@@ -694,6 +697,7 @@ appimage = {
         lp = "nix profile list | grep -E 'Name|Store'";
         np = "nh search"; # search nix packages
         # rb = "sudo nixos-rebuild switch --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
+        opt = "nix-store --optimize";
         rb = "nh os switch ~/NixOS";
         referrer = "nix-store --query --referrers";
         repair-store = "sudo nix-store --verify --check-contents --repair";
@@ -1250,29 +1254,12 @@ function mouseOut(element){
 }
 #+END_SRC
 ** Keybinds
-*** Remap
-#+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
-map('E', 'x');
-map('<Ctrl-E>', 'X');
-map('x', 'T');
-map('<ArrowUp>', 'k');
-map('<ArrowDown>', 'j');
-map('a', '<shift-d>', /8kun.top/); //remap mouseout to an easier key for 8kun
-map('<Alt-`>', '<Ctrl-6>');
-map('e', 'ya')
-imap('<Alt-`>', '<Ctrl-6>');
-vmap('<ArrowLeft>', 'h');
-vmap('<ArrowRight>', 'l');
-vmap('<ArrowUp>', 'k');
-vmap('<ArrowDown>', 'j');
-cmap('<ArrowUp>', '<Tab>');
-cmap('<ArrowDown>', '<Shift-Tab>');
-#+END_SRC
 *** Unmap
 #+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
 unmapAllExcept(['f', 'q', 'i', ';e', 't', 'X', '<Alt-`>'], /mail.google.com/i);
 unmapAllExcept(["f", "q", ";e", "t", "m", "X", "<Alt-`>", "'"], /www.sudokuslam.com/i);
 // Unbind defaults
+unmap('F');
 unmap('g0');
 unmap('g$');
 unmap('gx0');
@@ -1290,10 +1277,29 @@ unmap('sb');
 unmap('sw');
 unmap('W');
 //unmap('x');
-unmap('X');
+//unmap('X');
 unmap('i', /8kun/);
 unmap('n', /x.com/);
 unmap('.', /x.com/);
+#+END_SRC
+*** Remap
+#+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
+map('E', 'x');
+map('<Ctrl-Shift-e>', 'X');
+map('x', 'T');
+map('<ArrowUp>', 'k');
+map('<ArrowDown>', 'j');
+map('a', '<shift-d>', /8kun.top/); //remap mouseout to an easier key for 8kun
+map('<Alt-`>', '<Ctrl-6>');
+map('e', 'ya');
+map('F', 'pf');
+imap('<Alt-`>', '<Ctrl-6>');
+vmap('<ArrowLeft>', 'h');
+vmap('<ArrowRight>', 'l');
+vmap('<ArrowUp>', 'k');
+vmap('<ArrowDown>', 'j');
+cmap('<ArrowUp>', '<Tab>');
+cmap('<ArrowDown>', '<Shift-Tab>');
 #+END_SRC
 *** Map
 **** Function Binds
@@ -1361,7 +1367,7 @@ mapkey('C', 'Open QResearch Catalog', function() {
 ***** X
 #+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
 mapkey('l', 'Custom hints for X - Like', function() {
-    Hints.create("div[data-testid='like']", Hints.dispatchMouseClick);
+    Hints.create("button[data-testid='like']", Hints.dispatchMouseClick);
 }, {domain: /x.com/});
 
 mapkey('n', 'X-Community Notes', function() {
@@ -1411,7 +1417,7 @@ settings.richHintsForKeystroke = 500;
 settings.focusFirstCandidate = false;
 settings.focusAfterClose = "last";
 settings.scrollFriction = 0;
-settings.defaultSearchEngine = "d";
+settings.defaultSearchEngine = "b";
 settings.enableEmojiInsertion = true;
 settings.tabsThreshold = 0;
 settings.omnibarPosition = "bottom";
@@ -1448,7 +1454,7 @@ removeSearchAlias('w');
 *** Added
 #+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
 addSearchAlias('am', 'Amazon', 'https://www.amazon.ca/s?k=');
-addSearchAlias('br', 'Brave Search', 'https://search.brave.com/search?q=');
+addSearchAlias('b', 'Brave Search', 'https://search.brave.com/search?q=');
 addSearchAlias('di', 'Dictionary', 'https://www.britannica.com/dictionary/');
 addSearchAlias('dd', 'DDG', 'https://duckduckgo.com/?t=h_&q=');
 addSearchAlias('gh', 'Github General', 'https://github.com/search?&q=');

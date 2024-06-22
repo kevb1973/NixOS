@@ -6,11 +6,6 @@
  i18n.defaultLocale = "en_CA.UTF-8";
 
 system = {
-  activationScripts = {
-    script.text = ''
-      install -d -m 755 /home/kev/Code/open-webui/data -o root -g root
-    '';
-   };
   stateVersion = "22.11"; # Don't change unless fresh install from new ISO
 };
 
@@ -29,6 +24,9 @@ system = {
         amdvlk
         rocmPackages.clr.icd
         rocmPackages.rocm-smi
+      ];
+      extraPackages32 = with pkgs; [
+        driversi686Linux.amdvlk
       ];
     };
   };
@@ -79,15 +77,15 @@ system = {
 
   networking = {
     hostName = "halcyon";
-    nameservers = [ "9.9.9.9" "2620:fe::fe" ];
-    dhcpcd.extraConfig = "nohook resolv.conf";
-    firewall.allowedTCPPorts = [ 80 8080 2121 2234 6475 6476 53317 ];
-    firewall.allowedUDPPorts = [ 36475 53317 ];
-    interfaces.enp42s0.wakeOnLan.enable = true;
+    # nameservers = [ "9.9.9.9" "2620:fe::fe" ];
+    # dhcpcd.extraConfig = "nohook resolv.conf";
+    firewall.allowedTCPPorts = [ 80 8080 2121 2234 6475 6476 11434 53317 ];
+    firewall.allowedUDPPorts = [ 11434 36475 53317 ];
+    # interfaces.enp42s0.wakeOnLan.enable = true;
     wireless.enable = false; # Enables wireless support via wpa_supplicant.
     networkmanager = {
       enable = true;
-      dns = "none";
+      # dns = "none";
     };
   };
 
@@ -135,6 +133,9 @@ system = {
     '';
     network.wait-online.enable = false; # Disable systemd "wait online" as it gets stuck waiting for connection on 2nd NIC
     services.NetworkManager-wait-online.enable = false;
+    tmpfiles.rules = [
+      "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+    ];
   };
 
   nix = {
@@ -177,6 +178,7 @@ system = {
     variables = {
       # NIXOS_OZONE_WL = "1"; # hint electron apps to use wayland (Logseq doesn't like it.. slow start, crashy)
       ALTERNATE_EDITOR = ""; #allow emacsclient to start daemon if not already running
+      AMD_VULKAN_ICD = "RADV";
       CLUTTER_BACKEND = "wayland";
       EDITOR = "emacsclient -r";
       GDK_BACKEND = "wayland,x11";
@@ -186,10 +188,11 @@ system = {
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_IM_MODULE = "ibus";
       QT_QPA_PLATFORM = "wayland;xcb";
-      QT_QPA_PLATFORMTHEME = "qt5ct";
+      # QT_QPA_PLATFORMTHEME = "qt5ct";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       SSL_CERT_FILE = "/etc/ssl/certs/ca-bundle.crt"; #Needed for X-Plane "AutoOrtho"
       VISUAL = "emacsclient -r";
+      VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json";
       XMODIFIERS = "@im=ibus";
       _JAVA_AWT_WM_NONREPARENTING = "1";
     };
@@ -249,20 +252,24 @@ system = {
     printing.drivers = [ pkgs.brlaser ];
     printing.enable = true;
     tumbler.enable = true; # Thumbnail support for images
+
     # --- DESKTOPMANAGER.PLASMA6{{{2
     desktopManager = {
       plasma6.enable = false;
+      plasma6.enableQt5Integration = true;
     };
+
     # --- DISPLAY MANAGER{{{2
     displayManager = {
       # startx.enable = true; # console login
       defaultSession = "hyprland";
       sddm = {
         enable = true;
-        theme = "where-is-my-sddm-theme";
+        # theme = "where-is-my-sddm-theme";
         wayland.enable = true;
       };
     };
+
     # --- FRESH-RSS{{{2
     freshrss = {
       enable = true;
@@ -271,28 +278,35 @@ system = {
       passwordFile = "/run/secrets/freshrss";
       authType = "none";
     };
+
     # --- FSTRIM{{{2
     fstrim = {
       enable = true;
       interval = "weekly"; # the default
     };
-    # --- OLLAMA AI
+
     ollama = {
       enable = true;
-      acceleration = "rocm";
-      environmentVariables = {
-        OLLAMA_LLM_LIBRARY = "rocm";
-        HSA_OVERRIDE_GFX_VERSION = "10.3.0";
-      };
+      # acceleration = "rocm";
     };
+
+    open-webui = {
+      enable = true;
+      environment = {
+        OLLAMA_API_BASE_URL = "http://localhost:11434";
+        WEBUI_AUTH = "False";
+      };
+  };
+
     # --- PIPEWIRE{{{2
     pipewire = {
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-      jack.enable = true;
+      jack.enable = false;
     };
+
     # --- XSERVER{{{2
     xserver = {
       enable = true;
@@ -307,9 +321,11 @@ system = {
         gnome.enable = false;
         xfce = {
           enable = false;
-          enableXfwm = false;
+          enableXfwm = true;
         };
       };
+    };
+
       # --- LIBINPUT{{{3
       libinput = {
         enable = true;
@@ -321,24 +337,24 @@ system = {
           # scrollButton = 3;
         };
       };
-      # --- WINDOW MANAGER{{{3
-      windowManager = {
-        i3 = {
-          enable = false;
-          extraPackages = [
-            # lxappearance
-            # feh
-          ];
-        };
-      };
-    };
-  };
 
-  qt = {
-    enable = true;
-    platformTheme = "qt5ct";
-    style = "kvantum";
-  };
+      # --- WINDOW MANAGER{{{3
+      #windowManager = {
+      #  i3 = {
+      #    enable = false;
+      #    extraPackages = [
+      #      # lxappearance
+      #      # feh
+      #    ];
+      #  };
+      #};
+    }; #end services
+
+  # qt = {
+  #   enable = true;
+  #   platformTheme = "qt5ct";
+  #   style = "kvantum";
+  # };
 
   fonts = {
     # fontDir.enable = true;
@@ -372,12 +388,12 @@ system = {
     docker = {
       enable = false;
     };
-    oci-containers = {
-      backend = "podman";
-      containers = {
-        open-webui = import ./containers/open-webui.nix;
-      };
-    };
+    # oci-containers = {
+    #   backend = "podman";
+    #   containers = {
+    #     open-webui = import ./containers/open-webui.nix;
+    #   };
+    # };
     podman = {
       enable = true;
       dockerCompat = true;
@@ -397,7 +413,7 @@ system = {
     isNormalUser = true;
     description = "kev";
     extraGroups =
-      [ "networkmanager" "adbusers" "wheel" "kvm" "libvirtd" "input" "audio" "podman" "docker" ];
+      [ "networkmanager" "adbusers" "wheel" "kvm" "libvirtd" "input" "audio" "podman" "docker" "jackaudio" ];
     # shell = pkgs.fish;
 
     packages = with pkgs; [
@@ -437,7 +453,6 @@ system = {
       fishPlugins.fzf
       fishPlugins.autopair
       foliate
-      fuzzel # Launcher
       fzf
       gammastep
       gdu # Disk space analyzer
@@ -489,11 +504,13 @@ system = {
       playerctl
       qalculate-gtk
       qmplay2
+      rink #terminal calculator/unit convertor
       ripgrep
+      rofi-wayland
       scrcpy
       slurp
       spotify
-      steam-run
+      # steam-run
       stellarium
       stow
       strawberry
@@ -514,8 +531,8 @@ system = {
       # vivaldi-ffmpeg-codecs
       vlc
       wakeonlan # For lgtv control
-
       # waybar
+      wttrbar
       inputs.waybar.packages.${pkgs.system}.waybar
       # inputs.nixpkgs-trunk.legacyPackages.${pkgs.system}.waybar
 
@@ -528,6 +545,7 @@ system = {
       wlogout
       wofi
       wtype # For wofi-emoji
+      xdg-user-dirs
       yad
       yazi
       ydotool
@@ -565,6 +583,10 @@ appimage = {
         "npi --set-cursor" = "nix profile install nixpkgs#%";
         "ns --set-cursor" = "nix shell nixpkgs#%";
         "nr --set-cursor" = "nix run nixpkgs#%";
+        "np --set-cursor" = "np '%'";
+        "ytm --set-cursor" = "yt-dlp -x --audio-format mp3 '%'";
+        "ytv --set-cursor" = "yt-dlp '%'";
+        "rp --set-cursor" = "nix profile remove '%'";
       };
       # --- Aliases{{{3
       shellAliases = {
@@ -582,7 +604,6 @@ appimage = {
         rb = "nh os switch ~/NixOS";
         referrer = "nix-store --query --referrers";
         repair-store = "sudo nix-store --verify --check-contents --repair";
-        rp = "nix profile remove ";
         # sdg = "sudo nix-collect-garbage -d";
         sg = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
         sgc = "sudo nix store gc -v";
@@ -640,6 +661,7 @@ appimage = {
           fuse
           gdk-pixbuf
           glib
+          glibc_memusage
           gtk2
           gtk2-x11
           gtk3
@@ -648,9 +670,11 @@ appimage = {
           harfbuzz
           icu
           krb5
+          libgcc
           libGL
           libappindicator-gtk3
           libdrm
+          libedit
           libglvnd
           libnotify
           libpulseaudio
@@ -665,6 +689,7 @@ appimage = {
           openssl
           pango
           pipewire
+          speechd
           stdenv.cc.cc
           systemd
           vulkan-loader
@@ -683,12 +708,13 @@ appimage = {
           xorg.libxkbfile
           xorg.libxshmfence
           xorg.libXinerama
+          xorg_sys_opengl
           zlib
         ];
     };
 
     sway = {
-      enable = true;
+      enable = false;
       wrapperFeatures.gtk = true;
     };
 

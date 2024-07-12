@@ -15,11 +15,9 @@ system = {
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
     pulseaudio.enable = false;
-    opengl = {
+    graphics = {
       enable = true;
-      # Vulcan
-      driSupport = true;
-      driSupport32Bit = true;
+      enable32Bit = true;
       extraPackages = with pkgs; [
         amdvlk
         rocmPackages.clr.icd
@@ -175,14 +173,19 @@ system = {
         "${inputs.nixpkgs}"; # needed to fix <nixpkgs> on flake. See also nix.nixPath
     };
     # --- ENV VARIABLES{{{2
+    sessionVariables = {
+      HSA_OVERRIDE_GFX_VERSION="10.3.0";
+    };
     variables = {
       # NIXOS_OZONE_WL = "1"; # hint electron apps to use wayland (Logseq doesn't like it.. slow start, crashy)
       ALTERNATE_EDITOR = ""; #allow emacsclient to start daemon if not already running
       AMD_VULKAN_ICD = "RADV";
       CLUTTER_BACKEND = "wayland";
       EDITOR = "emacsclient -r";
-      GDK_BACKEND = "wayland,x11";
+      # GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
+      GTK_THEME=Adwaita:light;
+      HSA_OVERRIDE_GFX_VERSION="10.3.0";
       NIX_ALLOW_UNFREE = "1";
       # OLLAMA_HOST = "0.0.0.0:11434";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
@@ -204,6 +207,7 @@ system = {
       atool
       catppuccin-sddm-corners
       cmake
+      desktop-file-utils
       glib
       gitFull
       gnome.adwaita-icon-theme
@@ -243,6 +247,7 @@ system = {
     avahi.enable = true;
     blueman.enable = false;
     dbus.enable = true;
+    envfs.enable = true; #fixes script shebangs looking in /usr/bin /bin etc.
     flatpak.enable = true;
     fwupd.enable = true;
     geoclue2.enable = true;
@@ -287,11 +292,16 @@ system = {
 
     ollama = {
       enable = true;
-      # acceleration = "rocm";
+      acceleration = "rocm";
+      rocmOverrideGfx = "10.3.0";
+      environmentVariables = {
+        HSA_OVERRIDE_GFX_VERSION = "10.3.0";
+        HIP_VISIBLE_DEVICES = "1";
+      };
     };
 
     open-webui = {
-      enable = true;
+      enable = false;
       environment = {
         OLLAMA_API_BASE_URL = "http://localhost:11434";
         WEBUI_AUTH = "False";
@@ -320,10 +330,11 @@ system = {
         xterm.enable = false;
         gnome.enable = false;
         xfce = {
-          enable = false;
+          enable = true;
           enableXfwm = true;
         };
       };
+      #updateDbusEnvironment = true;
     };
 
       # --- LIBINPUT{{{3
@@ -423,6 +434,7 @@ system = {
       appeditor
       arc-theme
       archiver
+      audacious
       authenticator
       bat
       # bitwarden
@@ -441,7 +453,7 @@ system = {
       distrobox
       # docker
       dracula-theme
-      emacs
+      emacs29-pgtk
       emacsPackages.all-the-icons-nerd-fonts
       eza
       fd
@@ -455,7 +467,9 @@ system = {
       foliate
       fzf
       gammastep
+      gcc
       gdu # Disk space analyzer
+      gh # Github helper.. needed for emacs consult-gh package
       gnome-extension-manager
       gnome.gnome-tweaks
       gnome.file-roller
@@ -486,8 +500,10 @@ system = {
       meld
       (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.sponsorblock mpvScripts.visualizer ]; })
       mpv-shim-default-shaders
+      gnome.nautilus
       ncdu
       ncpamixer
+      ncspot
       # neovide # Nvim gui front end
       nh # nix helper
       nix-prefetch-git
@@ -510,7 +526,7 @@ system = {
       scrcpy
       slurp
       spotify
-      # steam-run
+      steam-run
       stellarium
       stow
       strawberry
@@ -527,7 +543,7 @@ system = {
       nodePackages.tiddlywiki
       tree-sitter
       virt-manager
-      # vivaldi
+      # vivaldi #like it, but had issues with page losing keyboard focus.
       # vivaldi-ffmpeg-codecs
       vlc
       wakeonlan # For lgtv control
@@ -551,6 +567,7 @@ system = {
       ydotool
       yt-dlp
       zathura
+      zim
       zoxide
     ];
   };
@@ -684,6 +701,7 @@ appimage = {
           libxkbcommon
           libxml2
           mesa
+          ncurses
           nspr
           nss
           openssl
@@ -714,7 +732,7 @@ appimage = {
     };
 
     sway = {
-      enable = false;
+      enable = true;
       wrapperFeatures.gtk = true;
     };
 
@@ -727,8 +745,15 @@ appimage = {
     };
   }; #End of programs
 
-  nixpkgs.config = {
-    allowUnfree = true;
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      rocmSupport = true;
     # permittedInsecurePackages = [ "electron-25.9.0" ];
+    };
+    overlays = [(final: prev: {
+        # rofi-calc = prev.rofi-calc.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
+      }
+    )];
   };
 } #End of configuration.nix

@@ -1,15 +1,23 @@
-#+TITLE: Kev's Configs
+#+TITLE: Halcyon Configs
 #+STARTUP: show2levels
 * Fish Shell
 ** config.fish
 #+BEGIN_SRC sh :tangle "/home/kev/dotfiles/fish/.config/fish/config.fish"
 if status is-interactive
-    # Commands to run in interactive sessionif status is-interactive
-    # Commands to run in interactive sessions can go here
-    zoxide init fish | source
-    any-nix-shell fish --info-right | source
-    set -gx ALTERNATE_EDITOR ''
-    set -gx MANPAGER "nvim -c 'Man!'"
+   # Commands to run in interactive sessionif status is-interactive
+   # Commands to run in interactive sessions can go here
+
+   switch (hostname)
+   case halcyon
+        zoxide init fish | source
+        any-nix-shell fish --info-right | source
+        set fish_greeting Halcyon NixOS
+   case arch.halcyon
+        set fish_greeting Halcyon Arch
+   end
+
+   set -gx ALTERNATE_EDITOR ''
+   set -gx MANPAGER "nvim -c 'Man!'"
 end
 
 if status is-login
@@ -94,11 +102,9 @@ system = {
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
     pulseaudio.enable = false;
-    opengl = {
+    graphics = {
       enable = true;
-      # Vulcan
-      driSupport = true;
-      driSupport32Bit = true;
+      enable32Bit = true;
       extraPackages = with pkgs; [
         amdvlk
         rocmPackages.clr.icd
@@ -268,14 +274,19 @@ system = {
         "${inputs.nixpkgs}"; # needed to fix <nixpkgs> on flake. See also nix.nixPath
     };
     # --- ENV VARIABLES{{{2
+    sessionVariables = {
+      HSA_OVERRIDE_GFX_VERSION="10.3.0";
+    };
     variables = {
       # NIXOS_OZONE_WL = "1"; # hint electron apps to use wayland (Logseq doesn't like it.. slow start, crashy)
       ALTERNATE_EDITOR = ""; #allow emacsclient to start daemon if not already running
       AMD_VULKAN_ICD = "RADV";
       CLUTTER_BACKEND = "wayland";
       EDITOR = "emacsclient -r";
-      GDK_BACKEND = "wayland,x11";
+      # GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
+      GTK_THEME=Adwaita:light;
+      HSA_OVERRIDE_GFX_VERSION="10.3.0";
       NIX_ALLOW_UNFREE = "1";
       # OLLAMA_HOST = "0.0.0.0:11434";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
@@ -299,6 +310,7 @@ system = {
       atool
       catppuccin-sddm-corners
       cmake
+      desktop-file-utils
       glib
       gitFull
       gnome.adwaita-icon-theme
@@ -341,6 +353,7 @@ system = {
     avahi.enable = true;
     blueman.enable = false;
     dbus.enable = true;
+    envfs.enable = true; #fixes script shebangs looking in /usr/bin /bin etc.
     flatpak.enable = true;
     fwupd.enable = true;
     geoclue2.enable = true;
@@ -395,13 +408,18 @@ system = {
 #+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
     ollama = {
       enable = true;
-      # acceleration = "rocm";
+      acceleration = "rocm";
+      rocmOverrideGfx = "10.3.0";
+      environmentVariables = {
+        HSA_OVERRIDE_GFX_VERSION = "10.3.0";
+        HIP_VISIBLE_DEVICES = "1";
+      };
     };
 #+END_SRC
 *** Open-WebUI (for Ollama)
 #+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
     open-webui = {
-      enable = true;
+      enable = false;
       environment = {
         OLLAMA_API_BASE_URL = "http://localhost:11434";
         WEBUI_AUTH = "False";
@@ -434,10 +452,11 @@ system = {
         xterm.enable = false;
         gnome.enable = false;
         xfce = {
-          enable = false;
+          enable = true;
           enableXfwm = true;
         };
       };
+      #updateDbusEnvironment = true;
     };
 #+END_SRC
 *** Libinput
@@ -554,6 +573,7 @@ system = {
       appeditor
       arc-theme
       archiver
+      audacious
       authenticator
       bat
       # bitwarden
@@ -572,7 +592,7 @@ system = {
       distrobox
       # docker
       dracula-theme
-      emacs
+      emacs29-pgtk
       emacsPackages.all-the-icons-nerd-fonts
       eza
       fd
@@ -586,7 +606,9 @@ system = {
       foliate
       fzf
       gammastep
+      gcc
       gdu # Disk space analyzer
+      gh # Github helper.. needed for emacs consult-gh package
       gnome-extension-manager
       gnome.gnome-tweaks
       gnome.file-roller
@@ -617,8 +639,10 @@ system = {
       meld
       (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.sponsorblock mpvScripts.visualizer ]; })
       mpv-shim-default-shaders
+      gnome.nautilus
       ncdu
       ncpamixer
+      ncspot
       # neovide # Nvim gui front end
       nh # nix helper
       nix-prefetch-git
@@ -641,7 +665,7 @@ system = {
       scrcpy
       slurp
       spotify
-      # steam-run
+      steam-run
       stellarium
       stow
       strawberry
@@ -658,7 +682,7 @@ system = {
       nodePackages.tiddlywiki
       tree-sitter
       virt-manager
-      # vivaldi
+      # vivaldi #like it, but had issues with page losing keyboard focus.
       # vivaldi-ffmpeg-codecs
       vlc
       wakeonlan # For lgtv control
@@ -682,6 +706,7 @@ system = {
       ydotool
       yt-dlp
       zathura
+      zim
       zoxide
     ];
   };
@@ -834,6 +859,7 @@ appimage = {
           libxkbcommon
           libxml2
           mesa
+          ncurses
           nspr
           nss
           openssl
@@ -866,7 +892,7 @@ appimage = {
 *** Sway
 #+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
     sway = {
-      enable = false;
+      enable = true;
       wrapperFeatures.gtk = true;
     };
 #+END_SRC
@@ -883,9 +909,16 @@ appimage = {
 #+END_SRC
 ** Nixpkgs
 #+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
-  nixpkgs.config = {
-    allowUnfree = true;
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      rocmSupport = true;
     # permittedInsecurePackages = [ "electron-25.9.0" ];
+    };
+    overlays = [(final: prev: {
+        # rofi-calc = prev.rofi-calc.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
+      }
+    )];
   };
 } #End of configuration.nix
 #+END_SRC
@@ -947,7 +980,7 @@ appimage = {
 ** Autostarts
 #+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 exec-once = /home/kev/bin/nixos-polkit-agent
-exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=$XDG_CURRENT_DESKTOP
+exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=$XDG_CURRENT_DESKTOP PATH
 exec-once = configure-gtk &
 exec-once = ssh-add
 exec-once = waypaper --restore
@@ -969,7 +1002,7 @@ exec-once = [workspace 7 silent] kalarm
 exec-once = [workspace special silent] emacsclient -c ~/NixOS/configuration.org
 # exec-once = [workspace 6 silent] discord
 exec-once = [workspace 2 silent] alacritty
-exec-once = [workspace 1] com.vivaldi.Vivaldi
+exec-once = [workspace 1] firefox
 #+END_SRC
 ** Inputs
 #+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
@@ -1016,7 +1049,7 @@ decoration {
     }
     active_opacity = 1.00
     inactive_opacity = 0.95
-    rounding = 0
+    rounding = 3
     drop_shadow = true
     shadow_range = 4
     shadow_render_power = 3
@@ -1031,14 +1064,14 @@ animations {
     bezier = winIn, 0.1, 1.1, 0.1, 1.1
     bezier = winOut, 0.3, -0.3, 0, 1
     bezier = liner, 1, 1, 1, 1
-    animation = windows, 1, 2, wind, slide
-    animation = windowsIn, 1, 2, winIn, slide
-    animation = windowsOut, 1, 2, winOut, slide
-    animation = windowsMove, 1, 2, wind, slide
+    animation = windows, 1, 5, default, popin 80%
+    animation = windowsIn, 1, 5, winIn, slide top
+    animation = windowsOut, 1, 5, winOut, slide bottom
+    animation = windowsMove, 1, 5, wind, slide
     animation = border, 1, 1, liner
     animation = borderangle, 1, 30, liner, loop
     animation = fade, 1, 10, default
-    animation = workspaces, 1, 2, wind
+    animation = workspaces, 1, 5, default, slide
 }
 #+END_SRC
 ** Layouts
@@ -1052,7 +1085,7 @@ dwindle {
 *** Master
 #+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 master {
-    new_is_master = true
+    #new_is_master = true
     orientation = right
     special_scale_factor = 0.98
     no_gaps_when_only = 1
@@ -1071,6 +1104,9 @@ misc {
     key_press_enables_dpms = true
     vrr = 1
 }
+cursor {
+       persistent_warps = true
+}
 env = XCURSOR_SIZE,24
 # Blur Waybar background
 blurls = waybar
@@ -1087,12 +1123,16 @@ binds {
 ** Window Rules
 #+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 windowrulev2 = float,class:firefox,title:Picture-in-Picture
-windowrulev2 = float,class:calculator
-windowrulev2 = move 1915 35,class:calculator
-windowrulev2 = size 25% 25%,class:calculator
-windowrulev2 = workspace special:calculator,class:(calculator)
+windowrulev2 = float,class:qalculate-gtk
+windowrulev2 = move 1915 35,class:qalculate-gtk
+windowrulev2 = size 25% 25%,class:qalculate-gtk
+windowrulev2 = workspace special:calculator,class:qalculate-gtk
+windowrulev2 = workspace special:audacious,class:audacious
+windowrulev2 = workspace special:notes,class:zim
+windowrulev2 = workspace special:ncspot,class:ncspot
+windowrulev2 = workspace special:nautilus,class:(org.gnome.Nautilus)
 windowrulev2 = workspace special,class:ytdlp
-windowrulev2 = workspace special,class:(Emacs)
+windowrulev2 = workspace special,class:emacs
 windowrulev2 = float,class:popterm
 windowrulev2 = workspace special:popterm,class:popterm
 windowrulev2 = move 250 50,class:popterm
@@ -1130,20 +1170,25 @@ windowrulev2 = stayfocused,class:sudoku-Main, floating:1, fullscreen:0
   bind = SUPER, e, exec, umpv --ytdl-format=bestvideo+bestaudio/best --fs "$(wl-paste)" # Play clipboard link with mpv
   bind = SUPER SHIFT, s, exec, hyprshade toggle bluefilter
   bind = SUPER SHIFT, v, exec, hyprshade toggle vibrance
+  bind = SUPER, mouse_down, exec, hyprzoom in
+  bind = SUPER, mouse_up, exec, hyprzoom out
 #+END_SRC
-*** Launchers
+*** Launcher
 #+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
   bind = SUPER SHIFT, W, exec, waypaper
-  bind = ,F10, exec, ydotool mousemove -a -x 0 -y 1920
+  bind = ,F10, exec, ydotool mousemove -a -x 2560 -y 0
   bind = SUPER SHIFT, Z, exec, pkill wofi || wofi --show run -a -i -n -p "Scripts:" -t "alacritty -e" --gtk-dark
   bind = SUPER SHIFT, c, exec, cliphist wipe
+  bind = SUPER, f, exec, toggle_nautilus
+  bind = SUPER, n, exec, toggle_notes
   bind = SUPER, KP_ENTER, exec, toggle_term
   bind = SUPER, KP_MULTIPLY, exec, toggle_calc
 #  bind = SUPER, code:90, exec, pgrep -i discord && hyprctl dispatch togglespecialworkspace discord || discord
   bind = SUPER, Z, exec, pkill wofi || wofi --show drun -a -i -n -I -p "Apps:" -t "alacritty -e" --gtk-dark
   bind = SUPER, b, exec, pkill waybar || waybar
   bind = SUPER, c, exec, ~/bin/show_cliphist
-  bind = SUPER, code:91, exec, toggle_editor
+  bind = SUPER, code:91, exec, toggle_ncspot
+  bind = SUPER SHIFT, code:91, exec, toggle_audacious
   bind = SUPER, return, exec, alacritty
   bind = SUPER, p, exec, hyprpicker -a
 #+END_SRC
@@ -1187,8 +1232,8 @@ bind = SUPER, t, exec, ~/bin/lgtvgui
 bind = SUPER, TAB, exec, /home/kev/bin/Hyprswitch
 bind = SUPER ALT, left, workspace, e-1
 bind = SUPER ALT, right, workspace, e+1
-bind = SUPER, mouse_down, workspace, e+1
-bind = SUPER, mouse_up, workspace, e-1
+# bind = SUPER, mouse_down, workspace, e+1
+# bind = SUPER, mouse_up, workspace, e-1
 bind = SUPER, 1, workspace, 1
 bind = SUPER, 2, workspace, 2
 bind = SUPER, 3, workspace, 3
@@ -1384,7 +1429,7 @@ mapkey('n', 'Jump to NEW', function() {
 ***** Telegram
 #+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
 mapkey('f', 'Custom hints for Telegram', function() {
-    Hints.create(".anchor-url, .row-clickable, .toggle-emoticons, .emoji, .btn-icon, .rp, .reaction, video, canvas, .interactive.dark.media-inner, .CommentButton, .icon-smile.icon, .icon-attach.icon, .icon-arrow-right.icon, .icon-search.icon, .ripple-container, .icon-calendar.icon, div.clickable.div-button.day-button, .primary.default.Button, .icon-previous.icon, .icon-next.icon", Hints.dispatchMouseClick);
+    Hints.create(".anchor-url, .row-clickable, .toggle-emoticons, .emoji-image, .btn-icon, .rp, .reaction, video, canvas, .interactive.dark.media-inner, .CommentButton, .icon-smile.icon, .icon-attach.icon, .icon-arrow-right.icon, .icon-search.icon, .ripple-container, .icon-calendar.icon, div.clickable.div-button.day-button, .primary.default.Button, .icon-previous.icon, .icon-next.icon", Hints.dispatchMouseClick);
 }, {domain: /web.telegram.org/});
 #+END_SRC
 ***** Sudokuslam
@@ -1459,6 +1504,12 @@ mapkey('l', 'Custom hints for Youtube - Like', function() {
     Hints.create("html body ytd-app div#content.style-scope.ytd-app ytd-page-manager#page-manager.style-scope.ytd-app ytd-watch-flexy.style-scope.ytd-page-manager.hide-skeleton div#columns.style-scope.ytd-watch-flexy div#primary.style-scope.ytd-watch-flexy div#primary-inner.style-scope.ytd-watch-flexy div#below.style-scope.ytd-watch-flexy ytd-watch-metadata.watch-active-metadata.style-scope.ytd-watch-flexy div#above-the-fold.style-scope.ytd-watch-metadata div#top-row.style-scope.ytd-watch-metadata div#actions.item.style-scope.ytd-watch-metadata div#actions-inner.style-scope.ytd-watch-metadata div#menu.style-scope.ytd-watch-metadata ytd-menu-renderer.style-scope.ytd-watch-metadata div#top-level-buttons-computed.top-level-buttons.style-scope.ytd-menu-renderer segmented-like-dislike-button-view-model.YtSegmentedLikeDislikeButtonViewModelHost.style-scope.ytd-menu-renderer yt-smartimation.smartimation.smartimation--enable-masking div.smartimation__content div.YtSegmentedLikeDislikeButtonViewModelSegmentedButtonsWrapper like-button-view-model.YtLikeButtonViewModelHost toggle-button-view-model button-view-model.yt-spec-button-view-model button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading.yt-spec-button-shape-next--segmented-start yt-touch-feedback-shape div.yt-spec-touch-feedback-shape.yt-spec-touch-feedback-shape--touch-response div.yt-spec-touch-feedback-shape__fill", Hints.dispatchMouseClick);
 }, {domain: /youtube.com/});
 #+END_SRC
+***** Domain Logistics
+#+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
+mapkey('<Space>', 'Update Delivery Estimate', function() {
+    Hints.create(".refresh-btn", Hints.dispatchMouseClick);
+    }, {domain: /domainlogistics.ca/});
+#+END_SRC
 ** Settings
 #+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
 settings.scrollStepSize = 200;
@@ -1467,7 +1518,7 @@ settings.richHintsForKeystroke = 500;
 settings.focusFirstCandidate = false;
 settings.focusAfterClose = "last";
 settings.scrollFriction = 0;
-settings.defaultSearchEngine = "b";
+settings.defaultSearchEngine = "k";
 settings.enableEmojiInsertion = true;
 settings.tabsThreshold = 0;
 settings.omnibarPosition = "bottom";
@@ -1515,6 +1566,7 @@ addSearchAlias('ghr', 'GitHub Repos', 'https://github.com/search?type=repositori
 addSearchAlias('gi', 'Gibiru Search', 'https://gibiru.com/results.html?q=');
 addSearchAlias('gm', 'Google Maps', 'https://maps.google.com/maps?q=');
 addSearchAlias('im', 'IMDB', 'https://www.imdb.com/find?s=all&q=');
+addSearchAlias('k', 'Kagi', 'https://kagi.com/search?q=');
 addSearchAlias('md', 'MagnetDL', 'http://www.magnetdl.com/search/?m=1&q=');
 addSearchAlias('no', 'Search Nix Options', 'https://search.nixos.org/options?channel=unstable&size=50&sort=relevance&type=packages&query=');
 addSearchAlias('np', 'Search Nix Packages', 'https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=');
@@ -1863,4 +1915,4 @@ Ideal for swimming is 3-4ppm. Probably go with 5ppm (14oz)
 **** Filter rate: 580 Gallons or 2,195 L per hour
 **** Run at least 5 hours per day to fully filter all water
 *** Chemicals
-**** Adjust PH and Alkalinity first! Then check stabilizer and chlorine
+*** Adjust PH and Alkalinity first! Then check stabilizer and chlorine

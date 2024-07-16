@@ -20,8 +20,8 @@ system = {
       enable32Bit = true;
       extraPackages = with pkgs; [
         amdvlk
-        rocmPackages.clr.icd
-        rocmPackages.rocm-smi
+        # rocmPackages.clr.icd
+        # rocmPackages.rocm-smi
       ];
       extraPackages32 = with pkgs; [
         driversi686Linux.amdvlk
@@ -132,7 +132,7 @@ system = {
     network.wait-online.enable = false; # Disable systemd "wait online" as it gets stuck waiting for connection on 2nd NIC
     services.NetworkManager-wait-online.enable = false;
     tmpfiles.rules = [
-      "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+      # "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
     ];
   };
 
@@ -184,7 +184,7 @@ system = {
       EDITOR = "emacsclient -r";
       # GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
-      GTK_THEME=Adwaita:light;
+      GTK_THEME=Adwaita:dark;
       HSA_OVERRIDE_GFX_VERSION="10.3.0";
       NIX_ALLOW_UNFREE = "1";
       # OLLAMA_HOST = "0.0.0.0:11434";
@@ -290,23 +290,23 @@ system = {
       interval = "weekly"; # the default
     };
 
-    ollama = {
-      enable = true;
-      acceleration = "rocm";
-      rocmOverrideGfx = "10.3.0";
-      environmentVariables = {
-        HSA_OVERRIDE_GFX_VERSION = "10.3.0";
-        HIP_VISIBLE_DEVICES = "1";
-      };
-    };
+    #ollama = {
+    #  enable = false;
+    #  acceleration = "rocm";
+    #  rocmOverrideGfx = "10.3.0";
+    #  environmentVariables = {
+    #    HSA_OVERRIDE_GFX_VERSION = "10.3.0";
+    #    HIP_VISIBLE_DEVICES = "1";
+    #  };
+    #};
 
-    open-webui = {
-      enable = false;
-      environment = {
-        OLLAMA_API_BASE_URL = "http://localhost:11434";
-        WEBUI_AUTH = "False";
-      };
-  };
+  #  open-webui = {
+  #    enable = false;
+  #    environment = {
+  #      OLLAMA_API_BASE_URL = "http://localhost:11434";
+  #      WEBUI_AUTH = "False";
+  #    };
+  #};
 
     # --- PIPEWIRE{{{2
     pipewire = {
@@ -508,11 +508,9 @@ system = {
       nh # nix helper
       nix-prefetch-git
       nix-search-cli
-      nushell
       nvd # Nix derivation diff tool
       okular
-      ollama # AI
-      oterm
+      # oterm
       pamixer
       pavucontrol
       peaclock #TUI Clock/Stopwatch/Timer
@@ -520,22 +518,18 @@ system = {
       playerctl
       qalculate-gtk
       qmplay2
-      rink #terminal calculator/unit convertor
       ripgrep
       rofi-wayland
       scrcpy
       slurp
-      spotify
       steam-run
       stellarium
       stow
-      strawberry
       swaybg
       swayidle
       swaylock
       swaynotificationcenter
       syncthing
-      tartube # Front end for yt-dlp
       tealdeer # Command line help 'tldr'
       thunderbird
       treesheets
@@ -748,7 +742,7 @@ appimage = {
   nixpkgs = {
     config = {
       allowUnfree = true;
-      rocmSupport = true;
+      rocmSupport = false;
     # permittedInsecurePackages = [ "electron-25.9.0" ];
     };
     overlays = [(final: prev: {

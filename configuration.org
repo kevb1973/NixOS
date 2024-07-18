@@ -1023,10 +1023,10 @@ general {
 
     gaps_in = 5
     gaps_out = 5
-    border_size = 1
+    border_size = 2
    # col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
-    col.active_border = rgba(0084A4ee)
-    col.inactive_border = rgba(595959aa)
+    col.active_border = rgb(007080)
+    col.inactive_border = rgb(202020)
     layout = master
 }
 #+END_SRC
@@ -1172,6 +1172,7 @@ windowrulev2 = stayfocused,class:sudoku-Main, floating:1, fullscreen:0
 #+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
   bind = SUPER SHIFT, W, exec, waypaper
   bind = ,F10, exec, ydotool mousemove -a -x 2560 -y 0
+  bind = ,F9, exec, ydotool mousemove -a -x 800 -y 100 && ydotool mousemove -a -x 800 -y 90
   bind = SUPER SHIFT, Z, exec, pkill wofi || wofi --show run -a -i -n -p "Scripts:" -t "alacritty -e" --gtk-dark
   bind = SUPER SHIFT, c, exec, cliphist wipe
   bind = SUPER, f, exec, toggle_nautilus
@@ -1347,8 +1348,8 @@ function mouseOut(element){
 ** Keybinds
 *** Unmap
 #+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
-unmapAllExcept(['f', 'q', 'i', ';e', 't', 'X', '<Alt-`>'], /mail.google.com/i);
-unmapAllExcept(["f", "q", ";e", "t", "m", "X", "<Alt-`>", "'"], /www.sudokuslam.com/i);
+unmapAllExcept(['f', 'q', 'i', ';e', 't', 'x', '<Alt-`>'], /mail.google.com/i);
+unmapAllExcept(["f", "q", ";e", "t", "m", "x", "<Alt-`>", "'", "T"], /www.sudokuslam.com/i);
 // Unbind defaults
 unmap('F');
 unmap('g0');
@@ -1369,17 +1370,20 @@ unmap('sw');
 unmap('W');
 //unmap('x');
 //unmap('X');
-unmap('e');
+//unmap('e');
 unmap('i', /8kun/);
 unmap('n', /x.com/);
 unmap('.', /x.com/);
 #+END_SRC
 *** Remap
 #+BEGIN_SRC js :tangle "/home/kev/dotfiles/firefox_ext_confs/surfingkeys/surfingkeys.js"
-map('e', 'x');
-map('x', 'X');
+//map('x', 'X');
+//map('e', 'x');
 //map('<Ctrl-Shift-e>', 'X');
-map('<Alt-Tab>', 'T');
+//map('x', '');
+map('e', 'x');
+map('x', 'T');
+map('E', 'X');
 map('<ArrowUp>', 'k');
 map('<ArrowDown>', 'j');
 map('a', '<shift-d>', /8kun.top/); //remap mouseout to an easier key for 8kun

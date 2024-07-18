@@ -470,6 +470,7 @@ system = {
       gcc
       gdu # Disk space analyzer
       gh # Github helper.. needed for emacs consult-gh package
+      gitui #Another terminal git helper
       gnome-extension-manager
       gnome.gnome-tweaks
       gnome.file-roller

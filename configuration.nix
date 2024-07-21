@@ -205,7 +205,6 @@ system = {
       any-nix-shell
       archiver
       atool
-      catppuccin-sddm-corners
       cmake
       desktop-file-utils
       glib
@@ -220,12 +219,12 @@ system = {
       # libsForQt5.breeze-icons
       # libsForQt5.qt5ct
       lua
-      lua-language-server
+      # lua-language-server
       mfcl2700dnlpr
       mfcl2700dncupswrapper
       neovim
       nil
-      niri
+      # niri
       nixfmt-rfc-style
       nodejs
       nix-tree # Explore package dependencies
@@ -237,7 +236,6 @@ system = {
       unar
       unzip
       usbutils
-      where-is-my-sddm-theme
       xdg-utils # for openning default programms when clicking links
     ];
   };
@@ -471,10 +469,10 @@ system = {
       gdu # Disk space analyzer
       gh # Github helper.. needed for emacs consult-gh package
       gitui #Another terminal git helper
-      gnome-extension-manager
-      gnome.gnome-tweaks
+      # gnome-extension-manager
+      # gnome.gnome-tweaks
       gnome.file-roller
-      gnome.gnome-clocks
+      # gnome.gnome-clocks
       grc # generic text colourizer. Using with fishPlugins.grc
       grim
       grimblast
@@ -499,7 +497,7 @@ system = {
       marksman # Language server for markdown.
       mediainfo # Provides info on media files.
       meld
-      (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.sponsorblock mpvScripts.visualizer ]; })
+      (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.visualizer ]; })
       mpv-shim-default-shaders
       gnome.nautilus
       ncdu
@@ -532,10 +530,10 @@ system = {
       swaynotificationcenter
       syncthing
       tealdeer # Command line help 'tldr'
-      thunderbird
+      # thunderbird
       treesheets
       ueberzugpp
-      nodePackages.tiddlywiki
+      # nodePackages.tiddlywiki
       tree-sitter
       virt-manager
       # vivaldi #like it, but had issues with page losing keyboard focus.
@@ -543,7 +541,6 @@ system = {
       vlc
       wakeonlan # For lgtv control
       # waybar
-      wttrbar
       inputs.waybar.packages.${pkgs.system}.waybar
       # inputs.nixpkgs-trunk.legacyPackages.${pkgs.system}.waybar
 
@@ -554,7 +551,7 @@ system = {
       wget
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
       wlogout
-      wofi
+      # wofi
       wtype # For wofi-emoji
       xdg-user-dirs
       yad
@@ -575,7 +572,7 @@ system = {
     neovim = { vimAlias = true; };
 
 appimage = {
-  enable = true;
+  enable = false;
   # binfmt = true;
 };
 
@@ -610,6 +607,7 @@ appimage = {
         gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
         lg = "lazygit";
         lp = "nix profile list | grep -E 'Name|Store'";
+        lu = ''echo -e "\n\e[1mLast System Update:\e[0m $(ls -l ~/NixOS/flake.lock | awk '{print $6, $7, $8}')\n"'';
         np = "nh search"; # search nix packages
         # rb = "sudo nixos-rebuild switch --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
         opt = "nix-store --optimize";

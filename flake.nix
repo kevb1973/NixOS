@@ -3,9 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
     # nixpkgs-trunk.url = "github:nixos/nixpkgs";
-    # niri.url = "github:sodiboo/niri-flake";
     # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     # hyprland-contrib = {
     #   url = "github:hyprwm/contrib";
@@ -18,7 +19,7 @@
     waybar.url = "github:Alexays/Waybar";
   };
 
-  outputs = inputs@{ self, nixpkgs, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
       halcyon = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
@@ -34,14 +35,15 @@
               flake = nixpkgs;
             };
           })
-          # niri.nixosModules.niri
-          # {
-          #   programs.niri.enable = true;
-          # }
-          # { # If you wish to use the unstable version of niri, you can set it like so:
-          #   nixpkgs.overlays = [ niri.overlays.niri ];
-          #   # programs.niri.package = pkgs.niri-unstable;
-          # }
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.kev = import ./home.nix;
+
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nix
+          }
         ];
       };
     };

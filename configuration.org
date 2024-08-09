@@ -78,6 +78,51 @@ function store # Visit app location in /nix/store
   cd (realpath (which $argv) | cut -d/ -f1-4)
 end
 #+END_SRC
+* Home-Manager
+** Header
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/home.nix"
+{ config, pkgs, ... }:
+
+{
+  home = {
+    username = "kev";
+    homeDirectory = "/home/kev";
+    stateVersion = "24.05";
+  };
+#+END_SRC
+** Packages
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/home.nix"
+  home.packages = with pkgs; [
+    lmstudio
+    nix-inspect
+  ];
+#+END_SRC
+
+** Programs
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/home.nix"
+  programs = {
+    home-manager.enable = true;
+    ncmpcpp.enable = true;
+  };
+#+END_SRC
+** Services
+#+BEGIN_SRC nix :tangle "/home/kev/NixOS/home.nix"
+  services = {
+    mpd = {
+      enable = true;
+      network.startWhenNeeded = true;
+      musicDirectory = /home/kev/Music;
+      extraConfig = ''
+        audio_output {
+          type    "pipewire"
+          name    "My Pipewire"
+        }
+      '';
+    };
+    mpdris2.enable = true;
+  };
+} #end home.nix
+#+END_SRC
 * NixOS
 ** Header
 #+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
@@ -97,7 +142,10 @@ system = {
 ** Hardware
 #+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
   hardware = {
-    bluetooth.enable = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
     cpu.amd.updateMicrocode = true;
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
@@ -227,9 +275,11 @@ system = {
       DefaultTimeoutStopSec=10s
     '';
     network.wait-online.enable = false; # Disable systemd "wait online" as it gets stuck waiting for connection on 2nd NIC
-    services.NetworkManager-wait-online.enable = false;
+    services = {
+      NetworkManager-wait-online.enable = false;
+    };
     tmpfiles.rules = [
-      # "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+      "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
     ];
   };
 #+END_SRC
@@ -285,7 +335,7 @@ system = {
       EDITOR = "emacsclient -r";
       # GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
-      GTK_THEME=Adwaita:dark;
+      GTK_THEME="Adwaita:dark";
       HSA_OVERRIDE_GFX_VERSION="10.3.0";
       NIX_ALLOW_UNFREE = "1";
       # OLLAMA_HOST = "0.0.0.0:11434";
@@ -308,12 +358,14 @@ system = {
       any-nix-shell
       archiver
       atool
+      blender-hip
       cmake
       desktop-file-utils
       glib
       gitFull
-      gnome.adwaita-icon-theme
+      adwaita-icon-theme
       gnumake
+      # hyprlandPlugins.hycov
       jdk
       killall
       libcxxStdenv # Needed to build binaries for tree-sitter
@@ -349,7 +401,7 @@ system = {
   services = {
     accounts-daemon.enable = true;
     avahi.enable = true;
-    blueman.enable = false;
+    blueman.enable = true;
     dbus.enable = true;
     envfs.enable = true; #fixes script shebangs looking in /usr/bin /bin etc.
     flatpak.enable = true;
@@ -401,28 +453,6 @@ system = {
       enable = true;
       interval = "weekly"; # the default
     };
-#+END_SRC
-*** Ollama
-#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
-    #ollama = {
-    #  enable = false;
-    #  acceleration = "rocm";
-    #  rocmOverrideGfx = "10.3.0";
-    #  environmentVariables = {
-    #    HSA_OVERRIDE_GFX_VERSION = "10.3.0";
-    #    HIP_VISIBLE_DEVICES = "1";
-    #  };
-    #};
-#+END_SRC
-*** Open-WebUI (for Ollama)
-#+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
-  #  open-webui = {
-  #    enable = false;
-  #    environment = {
-  #      OLLAMA_API_BASE_URL = "http://localhost:11434";
-  #      WEBUI_AUTH = "False";
-  #    };
-  #};
 #+END_SRC
 *** Pipewire
 #+BEGIN_SRC nix :tangle "/home/kev/NixOS/configuration.nix"
@@ -559,7 +589,7 @@ system = {
     isNormalUser = true;
     description = "kev";
     extraGroups =
-      [ "networkmanager" "adbusers" "wheel" "kvm" "libvirtd" "input" "audio" "podman" "docker" "jackaudio" ];
+      [ "networkmanager" "adbusers" "wheel" "kvm" "libvirtd" "input" "audio" "podman" "docker" "jackaudio" "mpd" ];
     # shell = pkgs.fish;
 #+END_SRC
 *** Packages
@@ -610,7 +640,7 @@ system = {
       gitui #Another terminal git helper
       # gnome-extension-manager
       # gnome.gnome-tweaks
-      gnome.file-roller
+      file-roller
       # gnome.gnome-clocks
       grc # generic text colourizer. Using with fishPlugins.grc
       grim
@@ -638,7 +668,7 @@ system = {
       meld
       (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.visualizer ]; })
       mpv-shim-default-shaders
-      gnome.nautilus
+      nautilus
       ncdu
       ncpamixer
       ncspot
@@ -742,7 +772,7 @@ appimage = {
         "nr --set-cursor" = "nix run nixpkgs#%";
         "np --set-cursor" = "np '%'";
         "ytm --set-cursor" = "yt-dlp -x --audio-format mp3 '%'";
-        "ytv --set-cursor" = "yt-dlp '%'";
+        "ytv --set-cursor" = "ytd-video '%'"; #note: had to use script as <= breaks config due to string interpolation
         "rp --set-cursor" = "nix profile remove '%'";
       };
       # --- Aliases{{{3
@@ -754,12 +784,13 @@ appimage = {
         ee = "emacsclient -r";
         gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
         lg = "lazygit";
+        logout = "sudo systemctl restart display-manager.service";
         lp = "nix profile list | grep -E 'Name|Store'";
         lu = ''echo -e "\n\e[1mLast System Update:\e[0m $(ls -l ~/NixOS/flake.lock | awk '{print $6, $7, $8}')\n"'';
         np = "nh search"; # search nix packages
-        # rb = "sudo nixos-rebuild switch --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
         opt = "nix-store --optimize";
         rb = "nh os switch ~/NixOS";
+        # rb = "sudo nixos-rebuild switch --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
         referrer = "nix-store --query --referrers";
         repair-store = "sudo nix-store --verify --check-contents --repair";
         # sdg = "sudo nix-collect-garbage -d";
@@ -923,9 +954,10 @@ appimage = {
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
     # nixpkgs-trunk.url = "github:nixos/nixpkgs";
-    # niri.url = "github:sodiboo/niri-flake";
     # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     # hyprland-contrib = {
     #   url = "github:hyprwm/contrib";
@@ -938,7 +970,7 @@ appimage = {
     waybar.url = "github:Alexays/Waybar";
   };
 
-  outputs = inputs@{ self, nixpkgs, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
       halcyon = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
@@ -954,14 +986,15 @@ appimage = {
               flake = nixpkgs;
             };
           })
-          # niri.nixosModules.niri
-          # {
-          #   programs.niri.enable = true;
-          # }
-          # { # If you wish to use the unstable version of niri, you can set it like so:
-          #   nixpkgs.overlays = [ niri.overlays.niri ];
-          #   # programs.niri.package = pkgs.niri-unstable;
-          # }
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.kev = import ./home.nix;
+
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nix
+          }
         ];
       };
     };
@@ -974,6 +1007,7 @@ appimage = {
 #+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
 exec-once = /home/kev/bin/nixos-polkit-agent
 exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=$XDG_CURRENT_DESKTOP PATH
+exec-once = . /etc/profiles/per-user/kev/etc/profile.d/hm-session-vars.sh
 exec-once = configure-gtk &
 exec-once = ssh-add
 exec-once = waypaper --restore
@@ -986,7 +1020,7 @@ exec-once = wl-paste --watch cliphist store
 # exec-once = mako -c ~/.config/mako/config
 exec-once = swaync
 # exec-once = [workspace 8 silent] alacritty -e ollama run llama3
-exec-once = [workspace 8 silent] alacritty -e http-server -p 8085 -c-1 ~/dotfiles/firefox_ext_confs/surfingkeys
+exec-once = [workspace 8 silent] kitty http-server -p 8085 -c-1 ~/dotfiles/firefox_ext_confs/surfingkeys
 # exec-once = syncthing serve
 # exec-once = localsend autostart
 # exec-once = [workspace 8 silent] alacritty -e tiddlywiki /home/kev/Code/tiddiwiki --listen host=localhost port=8081
@@ -994,7 +1028,7 @@ exec-once = sudo -b ydotoold --socket-path="$HOME/.ydotool_socket" --socket-own=
 exec-once = [workspace 7 silent] kalarm
 exec-once = [workspace special silent] emacsclient -c ~/NixOS/configuration.org
 # exec-once = [workspace 6 silent] discord
-exec-once = [workspace 2 silent] alacritty
+exec-once = [workspace 2 silent] kitty
 exec-once = [workspace 1] firefox
 #+END_SRC
 ** Inputs
@@ -1122,6 +1156,7 @@ windowrulev2 = workspace special:calculator,class:qalculate-gtk
 windowrulev2 = workspace special:audacious,class:audacious
 windowrulev2 = workspace special:notes,class:zim
 windowrulev2 = workspace special:ncspot,class:ncspot
+windowrulev2 = workspace special:ncmpcpp,class:ncmpcpp
 windowrulev2 = workspace special:nautilus,class:(org.gnome.Nautilus)
 windowrulev2 = workspace special,class:ytdlp
 windowrulev2 = workspace special,class:emacs
@@ -1170,19 +1205,20 @@ windowrulev2 = stayfocused,class:sudoku-Main, floating:1, fullscreen:0
   bind = SUPER SHIFT, W, exec, waypaper
   bind = ,F10, exec, ydotool mousemove -a -x 2560 -y 0
   bind = ,F9, exec, ydotool mousemove -a -x 800 -y 100 && ydotool mousemove -a -x 800 -y 90
-  bind = SUPER SHIFT, Z, exec, pkill wofi || wofi --show run -a -i -n -p "Scripts:" -t "alacritty -e" --gtk-dark
+  bind = SUPER SHIFT, Z, exec, pkill rofi || rofi -show run -a -i -n -p "Scripts:" -terminal "kitty"
   bind = SUPER SHIFT, c, exec, cliphist wipe
   bind = SUPER, f, exec, toggle_nautilus
   bind = SUPER, n, exec, toggle_notes
   bind = SUPER, KP_ENTER, exec, toggle_term
   bind = SUPER, KP_MULTIPLY, exec, toggle_calc
 #  bind = SUPER, code:90, exec, pgrep -i discord && hyprctl dispatch togglespecialworkspace discord || discord
-  bind = SUPER, Z, exec, pkill wofi || wofi --show drun -a -i -n -I -p "Apps:" -t "alacritty -e" --gtk-dark
+  bind = SUPER, Z, exec, pkill rofi || rofi -show drun -a -i -n -I -p "Apps:" -terminal "kitty"
   bind = SUPER, b, exec, pkill waybar || waybar
   bind = SUPER, c, exec, ~/bin/show_cliphist
   bind = SUPER, code:91, exec, toggle_ncspot
+  bind = SUPER SHIFT, code:91, exec, toggle_ncmpcpp
   bind = SUPER SHIFT, code:91, exec, toggle_audacious
-  bind = SUPER, return, exec, alacritty
+  bind = SUPER, return, exec, kitty
   bind = SUPER, p, exec, hyprpicker -a
 #+END_SRC
 *** Master Layout Binds
@@ -1222,7 +1258,7 @@ bind = SUPER, t, exec, ~/bin/lgtvgui
 #+END_SRC
 *** Workspace Switching
 #+BEGIN_SRC conf :tangle "/home/kev/dotfiles/hyprland/.config/hypr/hyprland.conf"
-bind = SUPER, TAB, exec, /home/kev/bin/Hyprswitch
+bind = SUPER, TAB, exec, rofi -show window
 bind = SUPER ALT, left, workspace, e-1
 bind = SUPER ALT, right, workspace, e+1
 # bind = SUPER, mouse_down, workspace, e+1

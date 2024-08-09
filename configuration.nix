@@ -10,7 +10,10 @@ system = {
 };
 
   hardware = {
-    bluetooth.enable = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
     cpu.amd.updateMicrocode = true;
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
@@ -130,9 +133,11 @@ system = {
       DefaultTimeoutStopSec=10s
     '';
     network.wait-online.enable = false; # Disable systemd "wait online" as it gets stuck waiting for connection on 2nd NIC
-    services.NetworkManager-wait-online.enable = false;
+    services = {
+      NetworkManager-wait-online.enable = false;
+    };
     tmpfiles.rules = [
-      # "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+      "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
     ];
   };
 
@@ -184,7 +189,7 @@ system = {
       EDITOR = "emacsclient -r";
       # GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
-      GTK_THEME=Adwaita:dark;
+      GTK_THEME="Adwaita:dark";
       HSA_OVERRIDE_GFX_VERSION="10.3.0";
       NIX_ALLOW_UNFREE = "1";
       # OLLAMA_HOST = "0.0.0.0:11434";
@@ -205,12 +210,14 @@ system = {
       any-nix-shell
       archiver
       atool
+      blender-hip
       cmake
       desktop-file-utils
       glib
       gitFull
-      gnome.adwaita-icon-theme
+      adwaita-icon-theme
       gnumake
+      # hyprlandPlugins.hycov
       jdk
       killall
       libcxxStdenv # Needed to build binaries for tree-sitter
@@ -243,7 +250,7 @@ system = {
   services = {
     accounts-daemon.enable = true;
     avahi.enable = true;
-    blueman.enable = false;
+    blueman.enable = true;
     dbus.enable = true;
     envfs.enable = true; #fixes script shebangs looking in /usr/bin /bin etc.
     flatpak.enable = true;
@@ -287,24 +294,6 @@ system = {
       enable = true;
       interval = "weekly"; # the default
     };
-
-    #ollama = {
-    #  enable = false;
-    #  acceleration = "rocm";
-    #  rocmOverrideGfx = "10.3.0";
-    #  environmentVariables = {
-    #    HSA_OVERRIDE_GFX_VERSION = "10.3.0";
-    #    HIP_VISIBLE_DEVICES = "1";
-    #  };
-    #};
-
-  #  open-webui = {
-  #    enable = false;
-  #    environment = {
-  #      OLLAMA_API_BASE_URL = "http://localhost:11434";
-  #      WEBUI_AUTH = "False";
-  #    };
-  #};
 
     # --- PIPEWIRE{{{2
     pipewire = {
@@ -422,7 +411,7 @@ system = {
     isNormalUser = true;
     description = "kev";
     extraGroups =
-      [ "networkmanager" "adbusers" "wheel" "kvm" "libvirtd" "input" "audio" "podman" "docker" "jackaudio" ];
+      [ "networkmanager" "adbusers" "wheel" "kvm" "libvirtd" "input" "audio" "podman" "docker" "jackaudio" "mpd" ];
     # shell = pkgs.fish;
 
     packages = with pkgs; [
@@ -471,7 +460,7 @@ system = {
       gitui #Another terminal git helper
       # gnome-extension-manager
       # gnome.gnome-tweaks
-      gnome.file-roller
+      file-roller
       # gnome.gnome-clocks
       grc # generic text colourizer. Using with fishPlugins.grc
       grim
@@ -499,7 +488,7 @@ system = {
       meld
       (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.visualizer ]; })
       mpv-shim-default-shaders
-      gnome.nautilus
+      nautilus
       ncdu
       ncpamixer
       ncspot
@@ -594,7 +583,7 @@ appimage = {
         "nr --set-cursor" = "nix run nixpkgs#%";
         "np --set-cursor" = "np '%'";
         "ytm --set-cursor" = "yt-dlp -x --audio-format mp3 '%'";
-        "ytv --set-cursor" = "yt-dlp '%'";
+        "ytv --set-cursor" = "ytd-video '%'"; #note: had to use script as <= breaks config due to string interpolation
         "rp --set-cursor" = "nix profile remove '%'";
       };
       # --- Aliases{{{3
@@ -606,12 +595,13 @@ appimage = {
         ee = "emacsclient -r";
         gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
         lg = "lazygit";
+        logout = "sudo systemctl restart display-manager.service";
         lp = "nix profile list | grep -E 'Name|Store'";
         lu = ''echo -e "\n\e[1mLast System Update:\e[0m $(ls -l ~/NixOS/flake.lock | awk '{print $6, $7, $8}')\n"'';
         np = "nh search"; # search nix packages
-        # rb = "sudo nixos-rebuild switch --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
         opt = "nix-store --optimize";
         rb = "nh os switch ~/NixOS";
+        # rb = "sudo nixos-rebuild switch --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
         referrer = "nix-store --query --referrers";
         repair-store = "sudo nix-store --verify --check-contents --repair";
         # sdg = "sudo nix-collect-garbage -d";

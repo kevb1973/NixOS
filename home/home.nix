@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home = {
@@ -10,6 +10,7 @@
   home.packages = with pkgs; [
     lmstudio
     nix-inspect
+    typescript-language-server
   ];
 
   programs = {

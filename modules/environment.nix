@@ -4,9 +4,9 @@
     pathsToLink = [ "/libexec" ]; # enable polkit
     # --- ETC{{{2
     etc = {
-      "xdg/gtk-3.0".source = ./gtk-3.0;
-      "xdg/gtk-4.0".source = ./gtk-4.0;
-      "xdg/wallpaper".source = ./wallpaper;
+      # "xdg/gtk-3.0".source = ./gtk-3.0;
+      # "xdg/gtk-4.0".source = ./gtk-4.0;
+      # "xdg/wallpaper".source = ./wallpaper;
       "nix/inputs/nixpkgs".source =
         "${inputs.nixpkgs}"; # needed to fix <nixpkgs> on flake. See also nix.nixPath
     };

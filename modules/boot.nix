@@ -34,8 +34,8 @@
       # "nowatchdog"
       # "nmi_watchdog=0"
       "quiet"
-      # "amd_iommu=on"
-      # "iommu=pt"
+      "amd_iommu=on"
+      "iommu=pt"
     ];
   };
 }

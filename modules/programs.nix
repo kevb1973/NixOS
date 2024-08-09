@@ -36,10 +36,9 @@
       # --- Aliases{{{3
       shellAliases = {
         cat = "bat";
-        conf = "emacsclient -r  ~/NixOS/configuration.org";
+        conf = "hx  ~/NixOS/";
         dg = "nh clean all";
-        e = "emacsclient -nw";
-        ee = "emacsclient -r";
+        e = "hx";
         gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
         lg = "lazygit";
         logout = "sudo systemctl restart display-manager.service";

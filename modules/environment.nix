@@ -19,7 +19,7 @@
       ALTERNATE_EDITOR = ""; #allow emacsclient to start daemon if not already running
       AMD_VULKAN_ICD = "RADV";
       CLUTTER_BACKEND = "wayland";
-      EDITOR = "emacsclient -r";
+      EDITOR = "hx";
       # GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
       GTK_THEME="Adwaita:dark";
@@ -32,7 +32,7 @@
       # QT_QPA_PLATFORMTHEME = "qt5ct";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       SSL_CERT_FILE = "/etc/ssl/certs/ca-bundle.crt"; #Needed for X-Plane "AutoOrtho"
-      VISUAL = "emacsclient -r";
+      VISUAL = "hx";
       VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json";
       XMODIFIERS = "@im=ibus";
       _JAVA_AWT_WM_NONREPARENTING = "1";

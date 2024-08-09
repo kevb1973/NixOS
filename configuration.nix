@@ -16,6 +16,7 @@
    ./modules/users.nix
    ./modules/programs.nix
    ./modules/nixpkgs.nix
+   ./modules/boot.nix
   ];
   time.timeZone = "America/Toronto";
   i18n.defaultLocale = "en_CA.UTF-8";

@@ -19,13 +19,13 @@
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";
       };
-      grub = {
-        enable = false;
-        copyKernels = true;
-        efiSupport = true;
-        devices = [ "nodev" ];
-        useOSProber = true;
-      };
+      # grub = {
+      #   enable = false;
+      #   copyKernels = true;
+      #   efiSupport = true;
+      #   devices = [ "nodev" ];
+      #   useOSProber = true;
+      # };
     };
     # --- KERNEL PARAMS --- {{{2
     kernelParams = [

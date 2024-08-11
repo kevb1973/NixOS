@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ...}:
+{ pkgs, ... }:
 {
   services = {
     accounts-daemon.enable = true;

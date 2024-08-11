@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ...}:
+{ pkgs, inputs, ... }:
 {
   users.users.kev = {
     isNormalUser = true;

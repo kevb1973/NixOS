@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ...}:
+{ pkgs, inputs, ... }:
 {
   environment = {
     pathsToLink = [ "/libexec" ]; # enable polkit

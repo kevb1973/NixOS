@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ...}:
+{ ... }:
 {
   xdg = {
     # --- Portals{{{2

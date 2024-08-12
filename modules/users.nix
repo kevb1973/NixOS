@@ -10,14 +10,12 @@
     packages = with pkgs; [
       alacritty
       # android-tools
-      # anydesk
       appeditor
       arc-theme
       archiver
       audacious
       authenticator
       bat
-      # bitwarden
       btop
       cacert
       calibre
@@ -31,7 +29,6 @@
       diff-so-fancy
       discord
       distrobox
-      # docker
       dracula-theme
       emacs29-pgtk
       emacsPackages.all-the-icons-nerd-fonts
@@ -51,10 +48,7 @@
       gdu # Disk space analyzer
       gh # Github helper.. needed for emacs consult-gh package
       gitui #Another terminal git helper
-      # gnome-extension-manager
-      # gnome.gnome-tweaks
       file-roller
-      # gnome.gnome-clocks
       grc # generic text colourizer. Using with fishPlugins.grc
       grim
       grimblast
@@ -85,13 +79,11 @@
       ncdu
       ncpamixer
       ncspot
-      # neovide # Nvim gui front end
       nh # nix helper
       nix-prefetch-git
       nix-search-cli
       nvd # Nix derivation diff tool
       okular
-      # oterm
       pamixer
       pavucontrol
       peaclock #TUI Clock/Stopwatch/Timer
@@ -112,19 +104,14 @@
       swaynotificationcenter
       syncthing
       tealdeer # Command line help 'tldr'
-      # thunderbird
       treesheets
       ueberzugpp
-      # nodePackages.tiddlywiki
       tree-sitter
       virt-manager
-      # vivaldi #like it, but had issues with page losing keyboard focus.
-      # vivaldi-ffmpeg-codecs
       vlc
       wakeonlan # For lgtv control
       # waybar
       inputs.waybar.packages.${pkgs.system}.waybar
-      # inputs.nixpkgs-trunk.legacyPackages.${pkgs.system}.waybar
 
       waypaper
       websocat # For lgtv control
@@ -133,7 +120,6 @@
       wget
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
       wlogout
-      # wofi
       wtype # For wofi-emoji
       xdg-user-dirs
       yad

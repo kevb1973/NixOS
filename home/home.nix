@@ -11,6 +11,8 @@
     lmstudio
     nix-inspect
     typescript-language-server
+    nodePackages.prettier
+    nodePackages.prettier-plugin-toml
   ];
 
   programs = {
@@ -33,10 +35,10 @@
     mpdris2.enable = true;
   };
   dconf.settings = {
-      "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
-      };
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
     };
+  };
 
   gtk = {
     enable = true;
@@ -51,4 +53,4 @@
     platformTheme.name = "adwaita";
     style.name = "adwaita-dark";
   };
-} #end home.nix
+} # end home.nix

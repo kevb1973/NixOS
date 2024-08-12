@@ -16,13 +16,11 @@
     printing.enable = true;
     tumbler.enable = true; # Thumbnail support for images
 
-    # --- DESKTOPMANAGER.PLASMA6{{{2
     desktopManager = {
       plasma6.enable = false;
       plasma6.enableQt5Integration = true;
     };
 
-    # --- DISPLAY MANAGER{{{2
     displayManager = {
       # startx.enable = true; # console login
       defaultSession = "hyprland";
@@ -33,7 +31,6 @@
       };
     };
 
-    # --- FRESH-RSS{{{2
     freshrss = {
       enable = true;
       baseUrl = "http://freshrss";
@@ -42,13 +39,11 @@
       authType = "none";
     };
 
-    # --- FSTRIM{{{2
     fstrim = {
       enable = true;
       interval = "weekly"; # the default
     };
 
-    # --- PIPEWIRE{{{2
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -57,7 +52,6 @@
       jack.enable = false;
     };
 
-    # --- XSERVER{{{2
     xserver = {
       enable = true;
       xkb = {
@@ -65,7 +59,6 @@
         variant = "";
       };
       deviceSection = ''Option "TearFree" "true"'';
-      # --- DESKTOP MANAGER{{{3
       desktopManager = {
         xterm.enable = false;
         gnome.enable = false;
@@ -77,7 +70,6 @@
       #updateDbusEnvironment = true;
     };
 
-    # --- LIBINPUT{{{3
     libinput = {
       enable = true;
       mouse = {

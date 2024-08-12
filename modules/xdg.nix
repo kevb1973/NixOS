@@ -1,7 +1,6 @@
 { ... }:
 {
   xdg = {
-    # --- Portals{{{2
     portal = {
       enable = true;
        # extraPortals = with pkgs; [
@@ -9,7 +8,6 @@
          # xdg-desktop-portal-gtk
        # ];
     };
-    # --- Mime Types{{{2
     mime = {
       enable = true;
       defaultApplications = {

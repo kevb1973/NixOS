@@ -12,7 +12,6 @@
       kernelModules = [ "amdgpu" ];
       systemd.network.wait-online.enable = false;
     };
-    # --- BOOT LOADER --- {{{2
     loader = {
       systemd-boot.enable = true;
       efi = {
@@ -27,7 +26,6 @@
       #   useOSProber = true;
       # };
     };
-    # --- KERNEL PARAMS --- {{{2
     kernelParams = [
       #"initcall_blacklist=acpi_cpufreq_init"
       #"amd_pstate=active"

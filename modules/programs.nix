@@ -19,11 +19,11 @@
 
     fish = {
       enable = true;
-      # --- Prompt{{{3
+      
       promptInit = ''
         ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
       '';
-      # --- Abbr{{{3
+      
       shellAbbrs = {
         "npi --set-cursor" = "nix profile install nixpkgs#%";
         "ns --set-cursor" = "nix shell nixpkgs#%";
@@ -33,7 +33,7 @@
         "ytv --set-cursor" = "ytd-video '%'"; #note: had to use script as <= breaks config due to string interpolation
         "rp --set-cursor" = "nix profile remove '%'";
       };
-      # --- Aliases{{{3
+      
       shellAliases = {
         cat = "bat";
         conf = "hx  ~/NixOS/";
@@ -64,7 +64,7 @@
         uup = "nix profile upgrade '.*'";
         verify-store = "sudo nix-store --verify --check-contents";
       };
-      # --- Interactive Shell Init{{{3
+      
       interactiveShellInit = '' # Set Neovim as default man viewer
         set -x MANPAGER "nvim -c 'Man!'"
       '';

@@ -8,8 +8,8 @@
     services = {
       NetworkManager-wait-online.enable = false;
     };
-    tmpfiles.rules = [
-      "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-    ];
+    # tmpfiles.rules = [
+      # "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+    # ];
   };
 }

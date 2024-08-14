@@ -19,7 +19,7 @@
       btop
       cacert
       calibre
-      cargo
+      # cargo
       cava # Terminal audio visualizer
       celestia
       clifm
@@ -90,12 +90,11 @@
       pistol # File preview for clifm
       playerctl
       qalculate-gtk
-      qmplay2
       ripgrep
       rofi-wayland
       scrcpy
       slurp
-      steam-run
+      # steam-run
       stellarium
       stow
       swaybg

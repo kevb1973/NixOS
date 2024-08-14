@@ -47,7 +47,7 @@
         np = "nh search"; # search nix packages
         opt = "nix-store --optimize";
         rb = "nh os switch ~/NixOS";
-        # rb = "sudo nixos-rebuild switch --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
+        # rb = "nixos-rebuild switch --use-remote-sudo --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
         referrer = "nix-store --query --referrers";
         repair-store = "sudo nix-store --verify --check-contents --repair";
         # sdg = "sudo nix-collect-garbage -d";

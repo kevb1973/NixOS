@@ -41,7 +41,6 @@
       any-nix-shell
       archiver
       atool
-      blender-hip
       cmake
       desktop-file-utils
       glib

@@ -14,7 +14,7 @@
     openssh.enable = false;
     printing.drivers = [ pkgs.brlaser ];
     printing.enable = true;
-    tumbler.enable = true; # Thumbnail support for images
+    tumbler.enable = false; # Thumbnail support for images
 
     desktopManager = {
       plasma6.enable = false;
@@ -63,8 +63,8 @@
         xterm.enable = false;
         gnome.enable = false;
         xfce = {
-          enable = true;
-          enableXfwm = true;
+          enable = false;
+          enableXfwm = false;
         };
       };
       #updateDbusEnvironment = true;

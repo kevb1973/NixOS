@@ -54,6 +54,7 @@
       grimblast
       gucharmap
       helix
+      # inputs.helix.packages.${pkgs.system}.default
       http-server # Simple http server. Using with surfingkeys config.
       hyprpicker
       hyprshade
@@ -104,7 +105,6 @@
       syncthing
       tealdeer # Command line help 'tldr'
       treesheets
-      ueberzugpp
       tree-sitter
       virt-manager
       vlc

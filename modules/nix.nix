@@ -8,7 +8,7 @@
     registry.nixpkgs.flake = inputs.nixpkgs; # Pin nixpkgs to speed up nix commands
     gc = {
       # Auto discard system generations
-      automatic = true;
+      automatic = false; # disabled.. adding 10s to boot.
       dates = "daily";
       options = "--delete-older-than 2d";
     };

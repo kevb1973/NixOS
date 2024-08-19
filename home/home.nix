@@ -8,11 +8,16 @@
   };
 
   home.packages = with pkgs; [
+    dust                                               # Rust disk usage calculator
     lmstudio
     nix-inspect
     typescript-language-server
+    markdown-oxide                                     # markdown LS
     nodePackages.prettier
     nodePackages.prettier-plugin-toml
+    taplo                                              # TOML LS
+    vscode-langservers-extracted                       # Various LS
+    yaml-language-server
   ];
 
   programs = {

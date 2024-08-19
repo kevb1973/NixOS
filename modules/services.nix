@@ -7,7 +7,7 @@
     dbus.enable = true;
     envfs.enable = true; #fixes script shebangs looking in /usr/bin /bin etc.
     flatpak.enable = true;
-    fwupd.enable = true;
+    fwupd.enable = false; # disabled.. slowing boot.. no updates available anyways. (fwdupdmgr get-updates)
     geoclue2.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true; # Mount, trash, and other functionalities

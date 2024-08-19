@@ -5,7 +5,7 @@
       enable = true;
       powerOnBoot = true;
     };
-    cpu.amd.updateMicrocode = true;
+    cpu.amd.updateMicrocode = false; # Checking to see if it's actually updating..
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
     pulseaudio.enable = false;

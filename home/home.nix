@@ -8,15 +8,18 @@
   };
 
   home.packages = with pkgs; [
-    dust                                               # Rust disk usage calculator
+    boxbuddy                                            # Distrobox GUI
+    dust                                                # Rust disk usage calculator
     lmstudio
     nix-inspect
     typescript-language-server
-    markdown-oxide                                     # markdown LS
+    manix                                               # search nixos and home-manager options
+    markdown-oxide                                      # markdown LS
+    nixd
     nodePackages.prettier
     nodePackages.prettier-plugin-toml
-    taplo                                              # TOML LS
-    vscode-langservers-extracted                       # Various LS
+    taplo                                               # TOML LS
+    vscode-langservers-extracted                        # Various LS
     yaml-language-server
   ];
 

@@ -11,6 +11,7 @@
     geoclue2.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true; # Mount, trash, and other functionalities
+    nixos-cli.enable = true;
     openssh.enable = false;
     printing.drivers = [ pkgs.brlaser ];
     printing.enable = true;
@@ -23,6 +24,8 @@
 
     displayManager = {
       # startx.enable = true; # console login
+      autoLogin.enable = true;
+      autoLogin.user = "kev";
       defaultSession = "hyprland";
       sddm = {
         enable = true;

@@ -23,6 +23,7 @@
       GTK_THEME="Adwaita:dark";
       HSA_OVERRIDE_GFX_VERSION="10.3.0";
       NIX_ALLOW_UNFREE = "1";
+      NIXOS_CONFIG = "/home/kev/NixOS";
       # OLLAMA_HOST = "0.0.0.0:11434";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_IM_MODULE = "ibus";

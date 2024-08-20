@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # helix.url = "github:helix-editor/helix";
+    nixos-cli.url = "github:water-sucks/nixos";
+    nixos-cli.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
@@ -20,13 +22,14 @@
     waybar.url = "github:Alexays/Waybar";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, nixos-cli, ... }: {
     nixosConfigurations = {
       halcyon = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
+          nixos-cli.nixosModules.nixos-cli
           ({ pkgs, ... }: {
             nix.registry.sys = {
               from = {

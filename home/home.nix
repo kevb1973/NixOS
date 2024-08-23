@@ -12,6 +12,7 @@
     dust                                                # Rust disk usage calculator
     lmstudio
     nix-inspect
+    (rofimoji.override { rofi = rofi-wayland; })        # Had to override otherwise ran under Xwayland
     typescript-language-server
     manix                                               # search nixos and home-manager options
     markdown-oxide                                      # markdown LS

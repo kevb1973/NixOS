@@ -70,6 +70,7 @@
       os-prober
       pulseaudioFull
       python3
+      qt6.qtwayland
       sddm-chili-theme
       unar
       unzip

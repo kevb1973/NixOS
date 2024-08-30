@@ -16,6 +16,7 @@
     typescript-language-server
     manix                                               # search nixos and home-manager options
     markdown-oxide                                      # markdown LS
+    neovide
     nixd
     nodePackages.prettier
     nodePackages.prettier-plugin-toml

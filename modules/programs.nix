@@ -38,6 +38,7 @@
         cat = "bat";
         conf = "hx  ~/NixOS/";
         dg = "nh clean all";
+        diff = "diff-so-fancy";
         e = "hx";
         gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
         lg = "lazygit";

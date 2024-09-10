@@ -72,6 +72,22 @@
       '';
     };
 
+    foot = {
+      enable = true;
+      enableFishIntegration = true;
+      theme = "tokyonight-storm";
+      settings = {
+        main = {
+          shell = "/run/current-system/sw/bin/fish";
+          font = "Victor Mono:size=13";
+        };
+        key-bindings = {
+          scrollback-up-half-page = "Mod1+Up";
+          scrollback-down-half-page = "Mod1+Down";
+        };
+      };
+    };
+
     fuse = {
       userAllowOther = true;
     };

@@ -35,7 +35,7 @@
       };
       
       shellAliases = {
-        cat = "see"; #note: see is installed by cargo (cargo install see-cat) - check https://github.com/NixOS/nixpkgs/pull/340941 for nixpkg
+        cat = "see"; 
         conf = "hx  ~/NixOS/";
         dg = "nh clean all";
         diff = "diff-so-fancy";

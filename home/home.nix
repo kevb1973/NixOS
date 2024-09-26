@@ -25,6 +25,7 @@
     taplo                                               # TOML LS
     vscode-langservers-extracted                        # Various LS 
     yaml-language-server
+    zellij
   ];
 
   programs = {

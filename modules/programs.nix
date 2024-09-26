@@ -65,6 +65,7 @@
         up = "nh os switch --update --ask ~/NixOS";
         uup = "nix profile upgrade '.*'";
         verify-store = "sudo nix-store --verify --check-contents";
+        y = "yazi";
       };
       
       interactiveShellInit = '' # Set Neovim as default man viewer

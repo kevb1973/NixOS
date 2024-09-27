@@ -20,12 +20,14 @@
     desktopManager = {
       plasma6.enable = false;
       plasma6.enableQt5Integration = true;
+      # cosmic.enable = true;
     };
 
     displayManager = {
       # startx.enable = true; # console login
       autoLogin.enable = true;
       autoLogin.user = "kev";
+      # cosmic-greeter.enable = false;
       defaultSession = "hyprland";
       sddm = {
         enable = true;

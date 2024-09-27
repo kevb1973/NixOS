@@ -8,6 +8,7 @@
     nixos-cli.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    # nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
     # nixpkgs-trunk.url = "github:nixos/nixpkgs";
     # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
@@ -30,6 +31,7 @@
         modules = [
           ./configuration.nix
           nixos-cli.nixosModules.nixos-cli
+          # nixos-cosmic.nixosModules.default
           ({ pkgs, ... }: {
             nix.registry.sys = {
               from = {

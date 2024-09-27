@@ -14,7 +14,7 @@
     nixos-cli.enable = true;
     openssh.enable = false;
     printing.drivers = [ pkgs.brlaser ];
-    printing.enable = false; # disabled for now pending more info on potential exploit 26/09/24
+    printing.enable = false; # disabled due to CUPS Vulernability
     tumbler.enable = false; # Thumbnail support for images
 
     desktopManager = {

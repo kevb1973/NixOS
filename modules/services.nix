@@ -20,17 +20,17 @@
     desktopManager = {
       plasma6.enable = false;
       plasma6.enableQt5Integration = true;
-      cosmic.enable = true;
+      cosmic.enable = false;
     };
 
     displayManager = {
       # startx.enable = true; # console login
       autoLogin.enable = false;
       autoLogin.user = "kev";
-      cosmic-greeter.enable = true;
+      cosmic-greeter.enable = false;
       defaultSession = "hyprland";
       sddm = {
-        enable = false;
+        enable = true;
         # theme = "where-is-my-sddm-theme";
         wayland.enable = true;
       };

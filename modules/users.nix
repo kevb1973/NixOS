@@ -4,7 +4,7 @@
     isNormalUser = true;
     description = "kev";
     extraGroups =
-      [ "networkmanager" "adbusers" "wheel" "kvm" "libvirtd" "input" "audio" "podman" "docker" "jackaudio" "mpd" ];
+      [ "networkmanager" "adbusers" "wheel" "kvm" "libvirtd" "input" "audio" "podman" "docker" "jackaudio" "mpd" "ydotool" ];
     # shell = pkgs.fish;
 
     packages = with pkgs; [

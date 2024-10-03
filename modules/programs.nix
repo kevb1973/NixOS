@@ -103,6 +103,10 @@
       # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
 
+    niri = {
+      enable = true;
+    };
+
     nix-index = {
       enable = true;
       enableFishIntegration = true;
@@ -190,6 +194,10 @@
         thunar-archive-plugin
         thunar-volman
       ];
+    };
+    ydotool = {
+      enable = true;
+      group = "users";
     };
   }; #End of programs
 }

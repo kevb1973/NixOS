@@ -17,6 +17,7 @@
       ALTERNATE_EDITOR = ""; #allow emacsclient to start daemon if not already running
       AMD_VULKAN_ICD = "RADV";
       CLUTTER_BACKEND = "wayland";
+      DISPLAY = ":0"; # for xwayland-satellite in Niri
       EDITOR = "hx";
       # GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
@@ -72,10 +73,12 @@
       python3
       qt6.qtwayland
       sddm-chili-theme
+      sddm-sugar-dark
       unar
       unzip
       usbutils
       xdg-utils # for openning default programms when clicking links
+      xwayland-satellite
     ];
   };
 }

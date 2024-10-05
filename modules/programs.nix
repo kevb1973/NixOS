@@ -38,7 +38,6 @@
         cat = "see"; 
         conf = "hx  ~/NixOS/";
         dg = "nh clean all";
-        diff = "diff-so-fancy";
         e = "hx";
         gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
         lg = "lazygit";
@@ -99,7 +98,7 @@
     };
 
     hyprland = {
-      enable = true;
+      enable = false;
       # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
 

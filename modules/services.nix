@@ -17,6 +17,11 @@
     printing.enable = false; # disabled due to CUPS Vulernability
     tumbler.enable = false; # Thumbnail support for images
 
+    atd = {
+      enable = true; # 'at' daemon for reminders
+      allowEveryone = true;
+    };
+    
     desktopManager = {
       plasma6.enable = false;
       plasma6.enableQt5Integration = true;
@@ -24,13 +29,12 @@
     };
 
     displayManager = {
-      # startx.enable = true; # console login
       autoLogin.enable = false;
       autoLogin.user = "kev";
       # cosmic-greeter.enable = false;
-      defaultSession = "hyprland";
+      defaultSession = "niri";
       sddm = {
-        enable = true;
+        enable = false;
         autoNumlock = true;
         theme = "sugar-dark";
         wayland.enable = true;
@@ -48,6 +52,9 @@
     fstrim = {
       enable = true;
       interval = "weekly"; # the default
+    };
+    getty = {
+      autologinUser = "kev";
     };
 
     pipewire = {
@@ -72,6 +79,14 @@
           enable = false;
           enableXfwm = false;
         };
+      };
+      displayManager = {
+        gdm = {
+          enable = false;
+          wayland = true;
+          autoLogin.delay = 2;
+        };
+        startx.enable = true; # console login
       };
       #updateDbusEnvironment = true;
     };

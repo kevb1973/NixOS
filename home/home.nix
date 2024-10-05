@@ -9,6 +9,7 @@
 
   home.packages = with pkgs; [
     anydesk
+    at
     boxbuddy                                            # Distrobox GUI
     dust                                                # Rust disk usage calculator
     lmstudio
@@ -24,6 +25,7 @@
     see-cat
     taplo                                               # TOML LS
     vscode-langservers-extracted                        # Various LS 
+    yad
     yaml-language-server
     zellij
   ];

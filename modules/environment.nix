@@ -17,7 +17,6 @@
       ALTERNATE_EDITOR = ""; #allow emacsclient to start daemon if not already running
       AMD_VULKAN_ICD = "RADV";
       CLUTTER_BACKEND = "wayland";
-      DISPLAY = ":0"; # for xwayland-satellite in Niri
       EDITOR = "hx";
       # GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
@@ -35,6 +34,7 @@
       VISUAL = "hx";
       VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json";
       XMODIFIERS = "@im=ibus";
+      YDOTOOL_SOCKET = "/run/ydotoold/socket";
       _JAVA_AWT_WM_NONREPARENTING = "1";
     };
 

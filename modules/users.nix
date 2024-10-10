@@ -49,7 +49,6 @@
       hyprshade
       # inputs.hyprland-contrib.packages.${pkgs.system}.grimblast # Wrapper for grim/slurp. . Using flake as nixpkgs ver pulls in old hyprland
       jq
-      kdePackages.kalarm
       kdePackages.polkit-kde-agent-1
       kdePackages.qtstyleplugin-kvantum
       kdePackages.qt6ct

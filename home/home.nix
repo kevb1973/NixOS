@@ -8,26 +8,26 @@
   };
 
   home.packages = with pkgs; [
+    alejandra #nix code formatter
     anydesk
     at
-    boxbuddy                                            # Distrobox GUI
-    dust                                                # Rust disk usage calculator
+    boxbuddy # Distrobox GUI
+    dust # Rust disk usage calculator
     lmstudio
     nix-inspect
-    (rofimoji.override { rofi = rofi-wayland; })        # Had to override otherwise ran under Xwayland
+    (rofimoji.override { rofi = rofi-wayland; }) # Had to override otherwise ran under Xwayland
     typescript-language-server
-    manix                                               # search nixos and home-manager options
-    markdown-oxide                                      # markdown LS
+    manix # search nixos and home-manager options
+    markdown-oxide # markdown LS
     neovide
     nixd
     nodePackages.prettier
     nodePackages.prettier-plugin-toml
     see-cat
-    taplo                                               # TOML LS
-    vscode-langservers-extracted                        # Various LS 
+    taplo # TOML LS
+    vscode-langservers-extracted # Various LS
     yad
     yaml-language-server
-    zellij
   ];
 
   programs = {

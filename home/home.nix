@@ -12,6 +12,7 @@
     anydesk
     at
     boxbuddy # Distrobox GUI
+    clifm
     dust # Rust disk usage calculator
     hydra-check # check build status.. hydra-check --channel unstable <pkg>
     lmstudio

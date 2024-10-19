@@ -36,14 +36,16 @@
       
       shellAliases = {
         cat = "see"; 
+        checkpkg = "hydra-check --channel unstable --short -arch x86_64";
         conf = "hx  ~/NixOS/";
         dg = "nh clean all";
         e = "hx";
+        edit-broken = "hx ~/bin/check_broken"; # Edit list of currently broken packages 
         gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
         lg = "lazygit";
         logout = "sudo systemctl restart display-manager.service";
         lp = "nix profile list | grep -E 'Name|Store'";
-        lu = ''echo -e "\n\e[1mLast System Update:\e[0m $(ls -l ~/NixOS/flake.lock | awk '{print $6, $7, $8}')\n"'';
+        lu = ''echo -e "\n\e[1mLast Flake Update:\e[0m $(ls -l ~/NixOS/flake.lock | awk '{print $6, $7, $8}')\n"'';
         no = "nixos option -i";
         np = "nh search"; # search nix packages
         opt = "nix-store --optimize";
@@ -102,9 +104,9 @@
       # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
 
-    niri = {
-      enable = true;
-    };
+    # niri = {
+    #   enable = true;
+    # };
 
     nix-index = {
       enable = true;

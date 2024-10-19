@@ -13,19 +13,23 @@
     at
     boxbuddy # Distrobox GUI
     dust # Rust disk usage calculator
+    hydra-check # check build status.. hydra-check --channel unstable <pkg>
     lmstudio
     nix-inspect
     (rofimoji.override { rofi = rofi-wayland; }) # Had to override otherwise ran under Xwayland
+    shfmt # bash code formatter
     typescript-language-server
     manix # search nixos and home-manager options
     markdown-oxide # markdown LS
     neovide
+    niri
     nixd
     nodePackages.prettier
     nodePackages.prettier-plugin-toml
     see-cat
     taplo # TOML LS
     vscode-langservers-extracted # Various LS
+    xidel # html scraper
     yad
     yaml-language-server
   ];

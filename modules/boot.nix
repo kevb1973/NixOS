@@ -18,7 +18,7 @@
     };
     loader = {
       systemd-boot.enable = true;
-      timeout = 0; #for silent boot (plymouth)
+      timeout = 2; #for silent boot (plymouth)
       efi = {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";

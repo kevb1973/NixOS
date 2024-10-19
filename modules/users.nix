@@ -15,7 +15,7 @@
       bat
       btop
       cacert
-      calibre
+      # calibre # broken as of 2024-10-15 https://github.com/NixOS/nixpkgs/issues/348845
       cava # Terminal audio visualizer
       clifm
       cliphist

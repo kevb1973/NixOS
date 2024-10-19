@@ -1,4 +1,4 @@
-{ ... }:
+_:
 {
   virtualisation = {
     docker = {
@@ -11,7 +11,7 @@
     #   };
     # };
     podman = {
-      enable = true;
+      enable = false;
       dockerCompat = true;
       dockerSocket.enable = true;
     };

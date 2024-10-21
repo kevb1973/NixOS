@@ -3,25 +3,21 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # helix.url = "github:helix-editor/helix";
-    # niri.url = "github:sodiboo/niri-flake";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixos-cli.url = "github:water-sucks/nixos";
     nixos-cli.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    # helix.url = "github:helix-editor/helix";
+    # niri.url = "github:sodiboo/niri-flake";
     # rust-overlay.follows = ""; #disable unneeded dev stuff foro niri flake
     # nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     # nixpkgs-trunk.url = "github:nixos/nixpkgs";
     # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    # hyprland-contrib = {
-    #   url = "github:hyprwm/contrib";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
+    # hyprland-contrib.url = "github:hyprwm/contrib";
+    # hyprland-contrib.inputs.nixpkgs.follows = "nixpkgs";
+    # hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
+    # hyprland-plugins.inputs.hyprland.follows = "hyprland";
     # waybar.url = "github:Alexays/Waybar";
   };
 

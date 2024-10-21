@@ -37,7 +37,7 @@
       
       shellAliases = {
         cat = "see"; 
-        checkpkg = "hydra-check --channel unstable --short -arch x86_64";
+        checkpkg = "hydra-check --channel unstable --arch x86_64";
         conf = "hx  ~/NixOS/";
         cpr = "nixos info | grep Nixpkgs | awk -F ' ' '{print $4}' | wl-copy";
         dg = "nh clean all";
@@ -55,9 +55,10 @@
         # rb = "nixos-rebuild switch --use-remote-sudo --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
         referrer = "nix-store --query --referrers";
         repair-store = "sudo nix-store --verify --check-contents --repair";
-        rev = "nixos-version | awk -F ' ' {'print $1'} | awk -F '.' '{print $4}'";
+        rev = "nixos-version --hash";
         # sdg = "sudo nix-collect-garbage -d";
-        sg = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+        # sg = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+        sg = "nixos-rebuild list-generations";
         sgc = "sudo nix store gc -v";
         storebin = "nix-store -q --roots (which $argv)";
         # sys = "sudo du -hs /nix/store/ /var/"; #replaced with a script that uses dust for speed.

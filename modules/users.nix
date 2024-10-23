@@ -9,24 +9,23 @@
 
     packages = with pkgs; [
       # android-tools
-      appeditor
+      # appeditor
       archiver
       authenticator
-      bat
+      # bat
       btop
       cacert
       # calibre # broken as of 2024-10-15 https://github.com/NixOS/nixpkgs/issues/348845
       cava # Terminal audio visualizer
-      clifm
       cliphist
       ddcutil # Adjust monitor brightness and other settings from cli
       diff-so-fancy
-      distrobox
-      emacs29-pgtk
-      emacsPackages.all-the-icons-nerd-fonts
+      # distrobox
+      # emacs29-pgtk
+      # emacsPackages.all-the-icons-nerd-fonts
       eza
       fd
-      feh
+      # feh
       file
       fishPlugins.tide
       fishPlugins.puffer
@@ -35,7 +34,7 @@
       fishPlugins.autopair
       foliate
       fzf
-      gcc
+      # gcc
       gdu # Disk space analyzer
       gitui #Another terminal git helper
       file-roller
@@ -44,15 +43,15 @@
       grimblast
       helix
       # inputs.helix.packages.${pkgs.system}.default
-      http-server # Simple http server. Using with surfingkeys config.
-      hyprpicker
-      hyprshade
+      # http-server # Simple http server. Using with surfingkeys config.
+      # hyprpicker
+      # hyprshade
       # inputs.hyprland-contrib.packages.${pkgs.system}.grimblast # Wrapper for grim/slurp. . Using flake as nixpkgs ver pulls in old hyprland
       jq
       kdePackages.polkit-kde-agent-1
       kdePackages.qtstyleplugin-kvantum
       kdePackages.qt6ct
-      kitty
+      # kitty
       lazygit
       libnotify
       libsForQt5.qtstyleplugin-kvantum
@@ -97,7 +96,7 @@
       # inputs.waybar.packages.${pkgs.system}.waybar
       waypaper
       websocat # For lgtv control
-      wttrbar
+      # wttrbar
       wev
       wget
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout

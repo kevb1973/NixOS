@@ -61,7 +61,6 @@
         sg = "nixos-rebuild list-generations";
         sgc = "sudo nix store gc -v";
         storebin = "nix-store -q --roots (which $argv)";
-        # sys = "sudo du -hs /nix/store/ /var/"; #replaced with a script that uses dust for speed.
         # udg = "nix-collect-garbage -d";
         udg = "nh clean user";
         ug = "nix-env --list-generations";

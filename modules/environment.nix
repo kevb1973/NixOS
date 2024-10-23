@@ -41,23 +41,20 @@
     systemPackages = with pkgs; [
       alsa-utils
       any-nix-shell
-      archiver
-      atool
-      cmake
+      # archiver
+      # atool
+      # cmake
       desktop-file-utils
-      glib
+      # glib
       gitFull
       adwaita-icon-theme
-      gnumake
-      # hyprlandPlugins.hycov
+      # gnumake
       jdk
-      killall
+      # killall
       libcxxStdenv # Needed to build binaries for tree-sitter
-      libinput
-      libtool
-      # libsForQt5.breeze-icons
-      # libsForQt5.qt5ct
-      lua
+      # libinput
+      # libtool
+      # lua
       # lua-language-server
       mfcl2700dnlpr
       mfcl2700dncupswrapper
@@ -65,20 +62,20 @@
       nil
       # niri
       nixfmt-rfc-style
-      nodejs
+      # nodejs
       nix-tree # Explore package dependencies
       nodePackages.bash-language-server
-      os-prober
+      # os-prober
       pulseaudioFull
-      python3
-      qt6.qtwayland
-      sddm-chili-theme
-      sddm-sugar-dark
+      # python3
+      # qt6.qtwayland
+      # sddm-chili-theme
+      # sddm-sugar-dark
       unar
       unzip
       usbutils
-      xdg-utils # for openning default programms when clicking links
-      xwayland-satellite
+      xdg-utils # for opening default programms when clicking links
+      # xwayland-satellite
     ];
   };
 }

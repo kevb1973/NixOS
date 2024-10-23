@@ -11,23 +11,24 @@
     alejandra #nix code formatter
     anydesk
     at
-    boxbuddy # Distrobox GUI
+    # boxbuddy # Distrobox GUI
     clifm
-    dust # Rust disk usage calculator
+    dust # quick dir size for 'sys' script
     hydra-check # check build status.. hydra-check --channel unstable <pkg>
-    lmstudio
+    # lmstudio
     nix-inspect
     (rofimoji.override { rofi = rofi-wayland; }) # Had to override otherwise ran under Xwayland
     shfmt # bash code formatter
-    typescript-language-server
+    # typescript-language-server
     manix # search nixos and home-manager options
     markdown-oxide # markdown LS
-    neovide
+    # neovide
     niri
     nixd
-    nodePackages.prettier
-    nodePackages.prettier-plugin-toml
-    see-cat
+    # nodePackages.prettier #BROKEN: Waiting on PR 349783
+    # nodePackages.prettier-plugin-toml #BROKEN: Waiting on PR 349783
+    see-cat #aliased to 'cat'
+    swww # set background colour/wallpaper
     taplo # TOML LS
     vscode-langservers-extracted # Various LS
     xidel # html scraper

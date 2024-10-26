@@ -15,6 +15,7 @@
     clifm
     dust # quick dir size for 'sys' script
     hydra-check # check build status.. hydra-check --channel unstable <pkg>
+    keepassxc
     # lmstudio
     nix-inspect
     (rofimoji.override { rofi = rofi-wayland; }) # Had to override otherwise ran under Xwayland

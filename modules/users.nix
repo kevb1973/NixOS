@@ -15,7 +15,7 @@
       # bat
       btop
       cacert
-      # calibre # broken as of 2024-10-15 https://github.com/NixOS/nixpkgs/issues/348845
+      calibre
       cava # Terminal audio visualizer
       cliphist
       ddcutil # Adjust monitor brightness and other settings from cli

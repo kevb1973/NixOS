@@ -17,7 +17,7 @@
     hydra-check # check build status.. hydra-check --channel unstable <pkg>
     keepassxc
     # lmstudio
-    nix-inspect
+    # nix-inspect
     (rofimoji.override { rofi = rofi-wayland; }) # Had to override otherwise ran under Xwayland
     shfmt # bash code formatter
     # typescript-language-server
@@ -33,6 +33,7 @@
     taplo # TOML LS
     vscode-langservers-extracted # Various LS
     xidel # html scraper
+    xwayland-satellite # for Niri
     yad
     yaml-language-server
   ];

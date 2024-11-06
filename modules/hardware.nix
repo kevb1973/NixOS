@@ -26,4 +26,5 @@
     enable = true;
     cpuFreqGovernor = lib.mkDefault "performance";
   };
+  zramSwap.enable = true;
 }

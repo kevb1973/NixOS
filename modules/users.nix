@@ -11,14 +11,14 @@
       # android-tools
       # appeditor
       archiver
-      authenticator
+      # authenticator
       # bat
       btop
       cacert
       calibre
       cava # Terminal audio visualizer
       cliphist
-      ddcutil # Adjust monitor brightness and other settings from cli
+      # ddcutil # Adjust monitor brightness and other settings from cli
       diff-so-fancy
       # distrobox
       # emacs29-pgtk
@@ -60,14 +60,13 @@
       mediainfo # Provides info on media files.
       (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.visualizer ]; })
       mpv-shim-default-shaders
-      nautilus
-      ncdu
+      # nautilus
       ncpamixer
       ncspot
       nh # nix helper
-      nix-prefetch-git
+      # nix-prefetch-git
       nvd # Nix derivation diff tool
-      okular
+      # okular
       pamixer
       pavucontrol
       peaclock #TUI Clock/Stopwatch/Timer
@@ -81,9 +80,9 @@
       # steam-run
       # stellarium
       stow
-      swaybg
-      swayidle
-      swaylock
+      # swaybg
+      # swayidle
+      # swaylock
       swaynotificationcenter
       syncthing
       tealdeer # Command line help 'tldr'
@@ -103,12 +102,11 @@
       wlogout
       wtype # For wofi-emoji
       xdg-user-dirs
-      yad
       yazi
       ydotool
       yt-dlp
       zathura
-      zim
+      # zim
       zoxide
     ];
   };

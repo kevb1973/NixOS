@@ -25,7 +25,7 @@
     desktopManager = {
       plasma6.enable = false;
       plasma6.enableQt5Integration = true;
-      # cosmic.enable = false;
+      # cosmic.enable = true;
     };
 
     displayManager = {
@@ -65,13 +65,13 @@
       jack.enable = false;
     };
 
-    silverbullet = {
-      enable = true;
-      user = "kev";
-      openFirewall = true;
-      listenAddress = "10.0.0.167";
-      listenPort = 3000;
-    };
+    # silverbullet = {
+    #   enable = true;
+    #   user = "kev";
+    #   openFirewall = true;
+    #   listenAddress = "10.0.0.167";
+    #   listenPort = 3000;
+    # };
 
     xserver = {
       enable = true;

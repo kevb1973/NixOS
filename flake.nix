@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-cli.url = "github:water-sucks/nixos";
@@ -30,15 +30,6 @@
           nixos-cli.nixosModules.nixos-cli
           # niri.nixosModules.niri
           # nixos-cosmic.nixosModules.default
-          # ({ pkgs, ... }: { # I believe this function is no longer needed.. remove if no issues.
-          #   nix.registry.sys = {
-          #     from = {
-          #       type = "indirect";
-          #       id = "sys";
-          #     };
-          #     flake = nixpkgs;
-          #   };
-          # })
           home-manager.nixosModules.home-manager
           {
             home-manager = {

@@ -27,6 +27,7 @@
       shellAbbrs = {
         "npi --set-cursor" = "nix profile install nixpkgs#%";
         "npis --set-cursor" = "nix profile install nixpkgs/release-24.05#%";
+        "npic --set-cursor" = "nix profile install nixpkgs/(nixos-version --hash)#%";
         "ns --set-cursor" = "nix shell nixpkgs#%";
         "nr --set-cursor" = "nix run nixpkgs#%";
         "np --set-cursor" = "np '%'";
@@ -107,9 +108,10 @@
       # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
 
-    # niri = {
-    #   enable = true;
-    # };
+    niri = {
+      enable = true;
+      package = pkgs.niri-unstable;
+    };
 
     nix-index = {
       enable = true;

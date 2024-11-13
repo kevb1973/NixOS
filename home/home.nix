@@ -24,7 +24,7 @@
     manix # search nixos and home-manager options
     markdown-oxide # markdown LS
     # neovide
-    niri
+    # niri
     nixd
     # nodePackages.prettier #BROKEN: Waiting on PR 349783
     # nodePackages.prettier-plugin-toml #BROKEN: Waiting on PR 349783

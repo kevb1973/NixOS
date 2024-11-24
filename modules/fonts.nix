@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   fonts = {
-    # fontDir.enable = true;
+    fontDir.enable = true;
     packages = with pkgs; [
       font-awesome
       noto-fonts-lgc-plus

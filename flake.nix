@@ -36,10 +36,8 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.kev = import ./home/home.nix;
+              extraSpecialArgs.flake-inputs = inputs;
             };
-
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
           }
         ];
       };

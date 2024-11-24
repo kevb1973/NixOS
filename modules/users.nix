@@ -15,8 +15,8 @@
       # bat
       btop
       cacert
-      calibre
-      cava # Terminal audio visualizer
+      calibre 
+      # cava # Terminal audio visualizer - currently broken!
       cliphist
       # ddcutil # Adjust monitor brightness and other settings from cli
       diff-so-fancy

@@ -153,6 +153,7 @@
           libglvnd
           libnotify
           libpulseaudio
+          libsoup_3
           libunwind
           libusb1
           libuuid
@@ -169,6 +170,7 @@
           stdenv.cc.cc
           systemd
           vulkan-loader
+          webkitgtk_4_1
           xorg.libX11
           xorg.libXScrnSaver
           xorg.libXcomposite

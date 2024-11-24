@@ -1,4 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, flake-inputs, ... }:
+# Add flake-inputs to args if you need to access a flake inputs from hm.
+# Then access with flake-inputs.<inputname>.module... etc
 
 {
   home = {
@@ -11,9 +13,12 @@
     alejandra #nix code formatter
     anydesk
     at
+    bemenu
+    bemoji
     # boxbuddy # Distrobox GUI
     clifm
     dust # quick dir size for 'sys' script
+    fuzzel
     hydra-check # check build status.. hydra-check --channel unstable <pkg>
     keepassxc
     # lmstudio
@@ -26,8 +31,10 @@
     # neovide
     # niri
     nixd
-    # nodePackages.prettier #BROKEN: Waiting on PR 349783
-    # nodePackages.prettier-plugin-toml #BROKEN: Waiting on PR 349783
+    nodePackages.prettier
+    nodePackages.prettier-plugin-toml
+    raffi # Define fuzzel launcher in yaml
+    rmpc # nice alternative to ncmpcpp
     see-cat #aliased to 'cat'
     swww # set background colour/wallpaper
     taplo # TOML LS
@@ -40,7 +47,7 @@
 
   programs = {
     home-manager.enable = true;
-    ncmpcpp.enable = true;
+    # ncmpcpp.enable = true;
   };
 
   services = {

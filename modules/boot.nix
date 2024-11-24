@@ -49,7 +49,7 @@
       "systemd.mask=dev-tpmrm0.device"
     ];
     plymouth = {
-      enable = true;
+      enable = false; # disable for now. Only see it for a second anyways.
     };
     consoleLogLevel = 0; #for silent boot (plymouth)
     

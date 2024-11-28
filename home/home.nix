@@ -18,6 +18,7 @@
     # boxbuddy # Distrobox GUI
     clifm
     dust # quick dir size for 'sys' script
+    emacs30-pgtk
     fuzzel
     hydra-check # check build status.. hydra-check --channel unstable <pkg>
     keepassxc

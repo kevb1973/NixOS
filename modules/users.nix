@@ -41,7 +41,7 @@
       grc # generic text colourizer. Using with fishPlugins.grc
       grim
       grimblast
-      helix
+      # helix # Following flake in user profile
       # inputs.helix.packages.${pkgs.system}.default
       # http-server # Simple http server. Using with surfingkeys config.
       # hyprpicker

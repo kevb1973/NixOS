@@ -26,7 +26,7 @@
       
       shellAbbrs = {
         "npi --set-cursor" = "nix profile install nixpkgs#%";
-        "npis --set-cursor" = "nix profile install nixpkgs/release-24.05#%";
+        "npis --set-cursor" = "nix profile install nixpkgs/release-24.11#%";
         "npic --set-cursor" = "nix profile install nixpkgs/(nixos-version --hash)#%";
         "ns --set-cursor" = "nix shell nixpkgs#%";
         "nr --set-cursor" = "nix run nixpkgs#%";

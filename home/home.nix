@@ -13,7 +13,7 @@
     alejandra #nix code formatter
     anydesk
     at
-    bemenu
+    bemenu # For bemoji
     bemoji
     # boxbuddy # Distrobox GUI
     clifm

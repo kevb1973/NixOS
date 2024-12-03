@@ -196,13 +196,6 @@
       wrapperFeatures.gtk = true;
     };
 
-    thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [
-        thunar-archive-plugin
-        thunar-volman
-      ];
-    };
     ydotool = {
       enable = true;
       group = "users";

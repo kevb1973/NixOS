@@ -18,6 +18,7 @@
         };
       };
     };
+    tpm2.enable = false; #see https://www.reddit.com/r/NixOS/comments/1hazcra/nixos_takes_forever_to_boot_suddenly/
     # tmpfiles.rules = [
     #   "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
     # ];

@@ -40,6 +40,7 @@
     swww # set background colour/wallpaper
     taplo # TOML LS
     vscode-langservers-extracted # Various LS
+    wezterm
     xidel # html scraper
     xwayland-satellite # for Niri
     yad

@@ -22,9 +22,10 @@
     fuzzel
     hydra-check # check build status.. hydra-check --channel unstable <pkg>
     keepassxc
+    lazyjournal
     # lmstudio
     # nix-inspect
-    (rofimoji.override { rofi = rofi-wayland; }) # Had to override otherwise ran under Xwayland
+    # (rofimoji.override { rofi = rofi-wayland; }) # Had to override otherwise ran under Xwayland
     shfmt # bash code formatter
     # typescript-language-server
     manix # search nixos and home-manager options

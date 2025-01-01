@@ -14,7 +14,7 @@
     nixos-cli.enable = true;
     openssh.enable = false;
     printing.drivers = [ pkgs.brlaser ];
-    printing.enable = false; # disabled due to CUPS Vulernability
+    printing.enable = true; 
     tumbler.enable = false; # Thumbnail support for images
 
     atd = {

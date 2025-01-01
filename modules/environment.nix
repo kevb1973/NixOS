@@ -55,7 +55,7 @@
       # libinput
       # libtool
       # lua
-      # lua-language-server
+      lua-language-server
       mfcl2700dnlpr
       mfcl2700dncupswrapper
       neovim

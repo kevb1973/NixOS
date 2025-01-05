@@ -22,6 +22,7 @@
       GTK_IM_MODULE = "ibus";
       GTK_THEME="Adwaita:dark";
       HSA_OVERRIDE_GFX_VERSION="10.3.0";
+      MANPAGER = "nvim +Man!";
       NIX_ALLOW_UNFREE = "1";
       NIXOS_CONFIG = "/home/kev/NixOS";
       # OLLAMA_HOST = "0.0.0.0:11434";

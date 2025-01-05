@@ -74,9 +74,9 @@
         y = "yazi";
       };
       
-      interactiveShellInit = '' # Set Neovim as default man viewer
-        set -x MANPAGER "nvim -c 'Man!'"
-      '';
+      # interactiveShellInit = '' # Set Neovim as default man viewer
+        # set -x MANPAGER "nvim -c 'Man!'"
+      # '';
     };
 
     foot = {

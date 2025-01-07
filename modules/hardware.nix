@@ -8,7 +8,6 @@
     cpu.amd.updateMicrocode = false; # Checking to see if it's actually updating..
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
-    pulseaudio.enable = false;
     graphics = {
       enable = true;
       enable32Bit = true;

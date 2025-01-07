@@ -16,23 +16,15 @@
     authenticator
     bemenu # For bemoji
     bemoji
-    # boxbuddy # Distrobox GUI
-    # clifm
     dust # quick dir size for 'sys' script
     emacs30-pgtk
     fuzzel
     hydra-check # check build status.. hydra-check --channel unstable <pkg>
     keepassxc
     lazyjournal
-    # lmstudio
-    # nix-inspect
-    # (rofimoji.override { rofi = rofi-wayland; }) # Had to override otherwise ran under Xwayland
     shfmt # bash code formatter
-    # typescript-language-server
     manix # search nixos and home-manager options
     markdown-oxide # markdown LS
-    # neovide
-    # niri
     nixd
     nodePackages.prettier
     nodePackages.prettier-plugin-toml

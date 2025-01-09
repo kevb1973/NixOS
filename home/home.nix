@@ -18,6 +18,7 @@
     bemoji
     dust # quick dir size for 'sys' script
     emacs30-pgtk
+    foot
     fuzzel
     hydra-check # check build status.. hydra-check --channel unstable <pkg>
     keepassxc

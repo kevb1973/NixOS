@@ -80,7 +80,7 @@
     };
 
     foot = {
-      enable = true;
+      enable = false;
       enableFishIntegration = true;
       theme = "tokyonight-storm";
       settings = {

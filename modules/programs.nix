@@ -57,7 +57,7 @@
         # rb = "nixos-rebuild switch --use-remote-sudo --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
         referrer = "nix-store --query --referrers";
         repair-store = "sudo nix-store --verify --check-contents --repair";
-        rev = "nixos-version --hash";
+        rev = "nixos-version --hash | cut -c 1-7";
         # sdg = "sudo nix-collect-garbage -d";
         # sg = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
         sg = "nixos-rebuild list-generations";

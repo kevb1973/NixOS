@@ -40,16 +40,17 @@
     };
 
     systemPackages = with pkgs; [
+      adwaita-icon-theme
       alsa-utils
       any-nix-shell
       # archiver
       # atool
-      # cmake
+      cmake
       desktop-file-utils
-      # glib
+      gcc
+      glib
       gitFull
-      adwaita-icon-theme
-      # gnumake
+      gnumake
       jdk
       # killall
       libcxxStdenv # Needed to build binaries for tree-sitter

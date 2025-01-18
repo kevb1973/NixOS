@@ -43,8 +43,6 @@
       adwaita-icon-theme
       alsa-utils
       any-nix-shell
-      # archiver
-      # atool
       cmake
       desktop-file-utils
       gcc
@@ -52,32 +50,20 @@
       gitFull
       gnumake
       jdk
-      # killall
       libcxxStdenv # Needed to build binaries for tree-sitter
-      # libinput
-      # libtool
-      # lua
       lua-language-server
       mfcl2700dnlpr
       mfcl2700dncupswrapper
       neovim
       nil
-      # niri
       nixfmt-rfc-style
-      # nodejs
       nix-tree # Explore package dependencies
       nodePackages.bash-language-server
-      # os-prober
       pulseaudioFull
-      # python3
-      # qt6.qtwayland
-      # sddm-chili-theme
-      # sddm-sugar-dark
       unar
       unzip
       usbutils
       xdg-utils # for opening default programms when clicking links
-      # xwayland-satellite
     ];
   };
 }

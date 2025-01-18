@@ -8,9 +8,6 @@
     # shell = pkgs.fish;
 
     packages = with pkgs; [
-      # android-tools
-      # appeditor
-      archiver
       # authenticator
       # bat
       btop

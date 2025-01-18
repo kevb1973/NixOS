@@ -1,4 +1,4 @@
-{ pkgs, flake-inputs, ... }:
+{ pkgs, ... }:
 # Add flake-inputs to args if you need to access a flake inputs from hm.
 # Then access with flake-inputs.<inputname>.module... etc
 
@@ -10,7 +10,7 @@
   };
 
   home.packages = with pkgs; [
-    alejandra #nix code formatter
+    alejandra # nix code formatter
     anydesk
     at
     authenticator
@@ -31,7 +31,7 @@
     nodePackages.prettier-plugin-toml
     raffi # Define fuzzel launcher in yaml
     rmpc # nice alternative to ncmpcpp
-    see-cat #aliased to 'cat'
+    see-cat # aliased to 'cat'
     swww # set background colour/wallpaper
     taplo # TOML LS
     tty-solitaire

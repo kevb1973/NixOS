@@ -53,6 +53,7 @@
         no = "nixos option -i";
         np = "nh search"; # search nix packages
         opt = "nix-store --optimize";
+        ports = "netstat -lntup";
         rb = "nh os switch ~/NixOS";
         # rb = "nixos-rebuild switch --use-remote-sudo --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
         referrer = "nix-store --query --referrers";

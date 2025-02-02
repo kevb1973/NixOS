@@ -34,6 +34,7 @@
     see-cat # aliased to 'cat'
     swww # set background colour/wallpaper
     taplo # TOML LS
+    television
     tty-solitaire
     vscode-langservers-extracted # Various LS
     wezterm

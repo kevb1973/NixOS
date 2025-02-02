@@ -11,7 +11,7 @@ _:
     #   };
     # };
     podman = {
-      enable = false;
+      enable = true;
       dockerCompat = true;
       dockerSocket.enable = true;
     };

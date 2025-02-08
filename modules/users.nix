@@ -37,7 +37,7 @@
       file-roller
       grc # generic text colourizer. Using with fishPlugins.grc
       grim
-      grimblast
+      # grimblast # commented as not using in Niri and it pulls full Hyprland in
       # helix # Following flake in user profile
       # inputs.helix.packages.${pkgs.system}.default
       # http-server # Simple http server. Using with surfingkeys config.

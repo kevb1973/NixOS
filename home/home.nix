@@ -26,6 +26,7 @@
     shfmt # bash code formatter
     manix # search nixos and home-manager options
     markdown-oxide # markdown LS
+    marksman
     nixd
     nodePackages.prettier
     nodePackages.prettier-plugin-toml
@@ -37,7 +38,7 @@
     television
     tty-solitaire
     vscode-langservers-extracted # Various LS
-    wezterm
+    # wezterm
     xidel # html scraper
     xwayland-satellite # for Niri
     yad

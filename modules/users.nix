@@ -48,22 +48,16 @@
       kdePackages.polkit-kde-agent-1
       kdePackages.qtstyleplugin-kvantum
       kdePackages.qt6ct
-      # kitty
       lazygit
       libnotify
       libsForQt5.qtstyleplugin-kvantum
-      # localsend
-      marksman # Language server for markdown.
       mediainfo # Provides info on media files.
       (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.visualizer ]; })
       mpv-shim-default-shaders
-      # nautilus
       ncpamixer
       ncspot
       nh # nix helper
-      # nix-prefetch-git
       nvd # Nix derivation diff tool
-      # okular
       pamixer
       pavucontrol
       peaclock #TUI Clock/Stopwatch/Timer
@@ -72,27 +66,18 @@
       qalculate-gtk
       ripgrep
       rofi-wayland
-      # scrcpy
       slurp
-      # steam-run
-      # stellarium
       stow
-      # swaybg
-      # swayidle
-      # swaylock
       swaynotificationcenter
       syncthing
       tealdeer # Command line help 'tldr'
-      # treesheets
       tree-sitter
       virt-manager
       vlc
       wakeonlan # For lgtv control
       waybar
-      # inputs.waybar.packages.${pkgs.system}.waybar
       waypaper
       websocat # For lgtv control
-      # wttrbar
       wev
       wget
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
@@ -103,7 +88,6 @@
       ydotool
       yt-dlp
       zathura
-      # zim
       zoxide
     ];
   };

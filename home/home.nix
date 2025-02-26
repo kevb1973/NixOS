@@ -22,7 +22,7 @@
     fuzzel
     hydra-check # check build status.. hydra-check --channel unstable <pkg>
     keepassxc
-    lazyjournal
+    lazyjournal # tui for logs
     shfmt # bash code formatter
     manix # search nixos and home-manager options
     markdown-oxide # markdown LS
@@ -33,6 +33,8 @@
     raffi # Define fuzzel launcher in yaml
     rmpc # nice alternative to ncmpcpp
     see-cat # aliased to 'cat'
+    spotify
+    swaynotificationcenter
     swww # set background colour/wallpaper
     taplo # TOML LS
     television
@@ -52,7 +54,7 @@
 
   services = {
     dunst = {
-      enable = true;
+      enable = false;
       settings = {
         global = {
           corner_radius = 10;

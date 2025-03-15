@@ -54,8 +54,8 @@
         np = "nh search"; # search nix packages
         opt = "nix-store --optimize";
         ports = "netstat -lntup";
-        rb = "nh os switch ~/NixOS";
-        # rb = "nixos-rebuild switch --use-remote-sudo --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
+        # rb = "nh os switch ~/NixOS";
+        rb = "nixos-rebuild switch --use-remote-sudo --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
         referrer = "nix-store --query --referrers";
         repair-store = "sudo nix-store --verify --check-contents --repair";
         rev = "nixos-version --hash | cut -c 1-7";
@@ -106,14 +106,14 @@
     };
 
     hyprland = {
-      enable = false;
+      enable = true;
       # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
 
-    niri = {
-      enable = true;
-      package = pkgs.niri-unstable;
-    };
+    # niri = {
+      # enable = false;
+      # package = pkgs.niri-unstable;
+    # };
 
     nix-index = {
       enable = true;

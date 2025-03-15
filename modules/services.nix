@@ -11,7 +11,7 @@
     geoclue2.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true; # Mount, trash, and other functionalities
-    nixos-cli.enable = true;
+    # nixos-cli.enable = true;
     openssh.enable = false;
     printing.drivers = [ pkgs.brlaser ];
     printing.enable = true; 
@@ -61,7 +61,7 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd 'dbus-run-session niri'";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd 'dbus-run-session hyprland'";
         };
       };
     };

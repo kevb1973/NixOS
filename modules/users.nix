@@ -8,13 +8,14 @@
     # shell = pkgs.fish;
 
     packages = with pkgs; [
+      adw-gtk3
       # authenticator
       # bat
       btop
       cacert
       calibre 
       cava # Terminal audio visualizer 
-      cliphist
+      clipse
       # ddcutil # Adjust monitor brightness and other settings from cli
       diff-so-fancy
       # distrobox

@@ -73,6 +73,7 @@
       syncthing
       tealdeer # Command line help 'tldr'
       tree-sitter
+      video-downloader
       virt-manager
       vlc
       wakeonlan # For lgtv control

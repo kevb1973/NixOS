@@ -16,6 +16,7 @@
       # NIXOS_OZONE_WL = "1"; # hint electron apps to use wayland (Logseq doesn't like it.. slow start, crashy)
       ALTERNATE_EDITOR = ""; #allow emacsclient to start daemon if not already running
       AMD_VULKAN_ICD = "RADV";
+      BEMENU_OPTS = "--hf '#5e81ac' --tf '#5e81ac' --fn 'mono 30'";
       CLUTTER_BACKEND = "wayland";
       EDITOR = "hx";
       # GDK_BACKEND = "wayland,x11";

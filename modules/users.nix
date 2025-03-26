@@ -53,7 +53,7 @@
       libnotify
       libsForQt5.qtstyleplugin-kvantum
       mediainfo # Provides info on media files.
-      (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.visualizer ]; })
+      (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.visualizer mpvScripts.modernz ]; })
       mpv-shim-default-shaders
       ncpamixer
       ncspot

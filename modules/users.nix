@@ -63,6 +63,7 @@
       pavucontrol
       peaclock #TUI Clock/Stopwatch/Timer
       pistol # File preview for clifm
+      play # TUI grep/sed/awk playground
       playerctl
       qalculate-gtk
       ripgrep

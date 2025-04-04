@@ -113,7 +113,6 @@
       marksman
       nixd
       nodePackages.prettier
-      nodePackages.prettier-plugin-toml
       raffi # Define fuzzel launcher in yaml
       rmpc # nice alternative to ncmpcpp
       see-cat # aliased to 'cat'

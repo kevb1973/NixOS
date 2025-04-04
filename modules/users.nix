@@ -124,7 +124,7 @@
       television
       tty-solitaire
       vscode-langservers-extracted # Various LS
-      # wezterm
+      wezterm
       xidel # html scraper
       xwayland-satellite # for Niri
       yad

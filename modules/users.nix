@@ -42,6 +42,7 @@
       # helix # Following flake in user profile
       # inputs.helix.packages.${pkgs.system}.default
       # http-server # Simple http server. Using with surfingkeys config.
+      hyprls
       # hyprpicker
       # hyprshade
       # inputs.hyprland-contrib.packages.${pkgs.system}.grimblast # Wrapper for grim/slurp. . Using flake as nixpkgs ver pulls in old hyprland
@@ -68,6 +69,7 @@
       qalculate-gtk
       ripgrep
       rofi-wayland
+      simple-completion-language-server
       slurp
       stow
       swaynotificationcenter

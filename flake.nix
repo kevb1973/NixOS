@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     # nixos-cli.url = "github:water-sucks/nixos";
     # nixos-cli.inputs.nixpkgs.follows = "nixpkgs";
     # niri.url = "github:sodiboo/niri-flake";

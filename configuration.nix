@@ -13,6 +13,7 @@
    ./modules/programs.nix
    ./modules/security.nix
    ./modules/services.nix
+   ./modules/spicetify.nix
    ./modules/systemd.nix
    ./modules/users.nix
    ./modules/virtualisation.nix

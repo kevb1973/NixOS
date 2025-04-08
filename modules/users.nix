@@ -67,6 +67,7 @@
       play # TUI grep/sed/awk playground
       playerctl
       qalculate-gtk
+      remind
       ripgrep
       rofi-wayland
       simple-completion-language-server
@@ -88,6 +89,7 @@
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
       wlogout
       wtype # For wofi-emoji
+      wyrd
       xdg-user-dirs
       yazi
       ydotool

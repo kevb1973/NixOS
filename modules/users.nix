@@ -120,7 +120,7 @@
       raffi # Define fuzzel launcher in yaml
       rmpc # nice alternative to ncmpcpp
       see-cat # aliased to 'cat'
-      spotify
+      # spotify # switch to flatpak to use spicetify
       swaynotificationcenter
       swww # set background colour/wallpaper
       taplo # TOML LS

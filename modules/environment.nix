@@ -56,7 +56,6 @@
       mfcl2700dnlpr
       mfcl2700dncupswrapper
       neovim
-      nil
       nixfmt-rfc-style
       nix-tree # Explore package dependencies
       nodePackages.bash-language-server

@@ -32,7 +32,7 @@
       autoLogin.enable = false;
       autoLogin.user = "kev";
       # cosmic-greeter.enable = false;
-      defaultSession = "niri";
+      defaultSession = "sway";
       sddm = {
         enable = false;
         autoNumlock = true;
@@ -61,7 +61,7 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd 'dbus-run-session hyprland'";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd 'dbus-run-session sway'";
         };
       };
     };

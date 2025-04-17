@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, inputs, ...}:
 {
   programs = {
     adb.enable = true;
@@ -25,6 +25,8 @@
       '';
       
       shellAbbrs = {
+        "no --set-cursor" = "nixos-option % --flake ~/NixOS";
+        "nor --set-cursor" = "nixos-option -r % --flake ~/NixOS";
         "npi --set-cursor" = "nix profile install nixpkgs#%";
         "npis --set-cursor" = "nix profile install nixpkgs/release-24.11#%";
         "npic --set-cursor" = "nix profile install nixpkgs/(nixos-version --hash)#%";
@@ -50,7 +52,7 @@
         logs = "sudo lazyjournal";
         lp = "nix profile list";
         lu = ''echo -e "\n\e[1mLast Flake Update:\e[0m $(ls -l ~/NixOS/flake.lock | awk '{print $6, $7, $8}')\n"'';
-        no = "nixos option -i";
+        # no = "nixos option -i";
         np = "nh search"; # search nix packages
         opt = "nix-store --optimize";
         ports = "netstat -lntup";
@@ -107,7 +109,7 @@
 
     hyprland = {
       enable = true;
-      # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
 
     # niri = {

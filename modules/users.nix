@@ -16,10 +16,10 @@
       calibre 
       cava # Terminal audio visualizer 
       clipse
-      # ddcutil # Adjust monitor brightness and other settings from cli
+      ddcutil # Adjust monitor brightness and other settings from cli
       diff-so-fancy
       # distrobox
-      # emacs29-pgtk
+      emacs-pgtk
       # emacsPackages.all-the-icons-nerd-fonts
       eza
       fd

@@ -66,6 +66,12 @@
       };
     };
 
+    open-webui = {
+      enable = true;
+      host = "0.0.0.0";
+      port = 8080;
+    };
+
     pipewire = {
       enable = true;
       alsa.enable = true;

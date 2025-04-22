@@ -5,7 +5,7 @@
       options kvm ignore_msrs=1
     '';
     tmp.useTmpfs = true;
-    # kernelModules = [ "amd-pstate" ];
+    kernelModules = [ "i2c-dev" ];
     kernelPackages = pkgs.linuxPackages_latest;
     swraid.enable = false; # Setting needed as system state ver < 23.11
     initrd = {

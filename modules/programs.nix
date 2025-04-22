@@ -204,5 +204,6 @@
       enable = true;
       group = "users";
     };
+    waybar.enable = true;
   }; #End of programs
 }

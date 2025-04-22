@@ -41,7 +41,7 @@
       grimblast 
       # helix # Following flake in user profile
       # inputs.helix.packages.${pkgs.system}.default
-      # http-server # Simple http server. Using with surfingkeys config.
+      http-server # Simple http server. Using with surfingkeys config.
       hyprls
       # hyprpicker
       # hyprshade
@@ -81,7 +81,6 @@
       virt-manager
       vlc
       wakeonlan # For lgtv control
-      waybar
       waypaper
       websocat # For lgtv control
       wev

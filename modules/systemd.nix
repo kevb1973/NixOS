@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   systemd = {
     extraConfig = ''
       DefaultTimeoutStopSec=10s
@@ -17,8 +20,18 @@
       #     '');
       #   };
       # };
+      greetd.serviceConfig = {
+        Type = "idle";
+        StandardInput = "tty";
+        StandardOutput = "tty";
+        StandardError = "journal";
+        TTYReset = true;
+        TTYHangup = true;
+        TTYVTDisallocate = true;
+      };
     };
     tpm2.enable = false; #see https://www.reddit.com/r/NixOS/comments/1hazcra/nixos_takes_forever_to_boot_suddenly/
+
     # tmpfiles.rules = [
     #   "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
     # ];

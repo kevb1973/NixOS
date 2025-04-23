@@ -32,7 +32,7 @@
       autoLogin.enable = false;
       autoLogin.user = "kev";
       # cosmic-greeter.enable = false;
-      defaultSession = "sway";
+      defaultSession = "hyprland";
       sddm = {
         enable = false;
         autoNumlock = true;
@@ -61,7 +61,7 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd 'dbus-run-session sway'";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --greeting 'Welcome to NixOS' --remember --remember-user-session --time --theme border=cyan;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red --cmd Hyprland";
         };
       };
     };

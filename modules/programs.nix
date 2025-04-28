@@ -54,6 +54,7 @@
         lu = ''echo -e "\n\e[1mLast Flake Update:\e[0m $(ls -l ~/NixOS/flake.lock | awk '{print $6, $7, $8}')\n"'';
         # no = "nixos option -i";
         np = "nh search"; # search nix packages
+        npu = "nix profile upgrade '.*' --impure";
         opt = "nix-store --optimize";
         ports = "netstat -lntup";
         # rb = "nh os switch ~/NixOS";
@@ -72,7 +73,6 @@
         ugc = "nix store gc -v";
         # up = "nix flake update /home/kev/NixOS";
         up = "nh os switch --update --ask ~/NixOS";
-        uup = "nix profile upgrade '.*'";
         verify-store = "sudo nix-store --verify --check-contents";
         y = "yazi";
       };
@@ -112,10 +112,10 @@
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
 
-    # niri = {
-      # enable = false;
-      # package = pkgs.niri-unstable;
-    # };
+    niri = {
+      enable = true;
+      package = pkgs.niri-unstable;
+    };
 
     nix-index = {
       enable = true;
@@ -149,6 +149,7 @@
           harfbuzz
           icu
           krb5
+          libgbm
           libgcc
           libGL
           libappindicator-gtk3

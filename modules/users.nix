@@ -31,6 +31,7 @@
       fishPlugins.fzf
       fishPlugins.autopair
       foliate
+      fuzzel
       fzf
       # gcc
       gdu # Disk space analyzer
@@ -53,6 +54,7 @@
       lazygit
       libnotify
       libsForQt5.qtstyleplugin-kvantum
+      lmstudio
       mediainfo # Provides info on media files.
       (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.visualizer mpvScripts.modernz ]; })
       mpv-shim-default-shaders
@@ -90,6 +92,7 @@
       wtype # For wofi-emoji
       wyrd
       xdg-user-dirs
+      xwayland-run
       yazi
       ydotool
       yt-dlp
@@ -119,7 +122,7 @@
       raffi # Define fuzzel launcher in yaml
       rmpc # nice alternative to ncmpcpp
       see-cat # aliased to 'cat'
-      # spotify # switch to flatpak to use spicetify
+      spotify
       swaynotificationcenter
       swww # set background colour/wallpaper
       taplo # TOML LS

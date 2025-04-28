@@ -9,7 +9,7 @@
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
     # nixos-cli.url = "github:water-sucks/nixos";
     # nixos-cli.inputs.nixpkgs.follows = "nixpkgs";
-    # niri.url = "github:sodiboo/niri-flake";
+    niri.url = "github:sodiboo/niri-flake";
     # rust-overlay.follows = ""; #disable unneeded dev stuff for niri flake
     # nixpkgs.follows = "nixos-cosmic/nixpkgs";
     # nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
@@ -22,7 +22,6 @@
   };
 
   outputs = inputs @ {
-    self,
     nixpkgs,
     home-manager,
     ...

@@ -13,7 +13,7 @@
    ./modules/programs.nix
    ./modules/security.nix
    ./modules/services.nix
-   ./modules/spicetify.nix
+   # ./modules/spicetify.nix broken Apr 28
    ./modules/systemd.nix
    ./modules/users.nix
    ./modules/virtualisation.nix

@@ -18,6 +18,7 @@
       AMD_VULKAN_ICD = "RADV";
       BEMENU_OPTS = "--hf '#5e81ac' --tf '#5e81ac' --fn 'mono 30'";
       CLUTTER_BACKEND = "wayland";
+      # DISPLAY = ":0";
       EDITOR = "hx";
       # GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
@@ -35,6 +36,7 @@
       SSL_CERT_FILE = "/etc/ssl/certs/ca-bundle.crt"; #Needed for X-Plane "AutoOrtho"
       VISUAL = "hx";
       VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json";
+      XDG_SCREENSHOTS_DIR = "/home/kev/screenshots";
       XMODIFIERS = "@im=ibus";
       YDOTOOL_SOCKET = "/run/ydotoold/socket";
       _JAVA_AWT_WM_NONREPARENTING = "1";

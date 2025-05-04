@@ -23,19 +23,8 @@
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";
       };
-      # grub = {
-      #   enable = false;
-      #   copyKernels = true;
-      #   efiSupport = true;
-      #   devices = [ "nodev" ];
-      #   useOSProber = true;
-      # };
     };
     kernelParams = [
-      #"initcall_blacklist=acpi_cpufreq_init"
-      #"amd_pstate=active"
-      # "nowatchdog"
-      # "nmi_watchdog=0"
       "quiet" #for silent boot (plymouth)
       "splash" #for silent boot (plymouth)
       "boot.shell_on_fail" #for silent boot (plymouth)

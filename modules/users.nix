@@ -10,7 +10,8 @@
     packages = with pkgs; [
       adw-gtk3
       # authenticator
-      # bat
+      bat
+      bat-extras.batman
       btop
       cacert
       calibre 

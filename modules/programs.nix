@@ -47,6 +47,7 @@
         e = "hx";
         edit-broken = "hx ~/bin/check_broken"; # Edit list of currently broken packages 
         gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
+        g = "gitui";
         lg = "lazygit";
         logout = "sudo systemctl restart display-manager.service";
         logs = "sudo lazyjournal";

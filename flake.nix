@@ -5,25 +5,16 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
     # nixos-cli.url = "github:water-sucks/nixos";
     # nixos-cli.inputs.nixpkgs.follows = "nixpkgs";
     niri.url = "github:sodiboo/niri-flake";
-    # rust-overlay.follows = ""; #disable unneeded dev stuff for niri flake
-    # nixpkgs.follows = "nixos-cosmic/nixpkgs";
-    # nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     hyprland.url = "github:hyprwm/Hyprland";
-    # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    # hyprland-contrib.url = "github:hyprwm/contrib";
-    # hyprland-contrib.inputs.nixpkgs.follows = "nixpkgs";
-    # hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
-    # hyprland-plugins.inputs.hyprland.follows = "hyprland";
   };
 
   outputs = inputs @ {
     nixpkgs,
     home-manager,
+    niri,
     ...
   }: {
     nixosConfigurations = {
@@ -33,8 +24,7 @@
         modules = [
           ./configuration.nix
           # nixos-cli.nixosModules.nixos-cli
-          # niri.nixosModules.niri
-          # nixos-cosmic.nixosModules.default
+          niri.nixosModules.niri
           home-manager.nixosModules.home-manager
           {
             home-manager = {

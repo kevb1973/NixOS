@@ -30,7 +30,7 @@
         "npi --set-cursor" = "nix profile install nixpkgs#%";
         "npis --set-cursor" = "nix profile install nixpkgs/release-24.11#%";
         "npic --set-cursor" = "nix profile install nixpkgs/(nixos-version --hash)#%";
-        "ns --set-cursor" = "nix shell nixpkgs#%";
+        "ns --set-cursor" = "nix shell nixpkgs#% -c fish";
         "nr --set-cursor" = "nix run nixpkgs#%";
         "np --set-cursor" = "np '%'";
         "ytm --set-cursor" = "yt-dlp -x --audio-format mp3 '%'";
@@ -40,7 +40,7 @@
       
       shellAliases = {
         cat = "see"; 
-        checkpkg = "hydra-check --channel unstable --arch x86_64";
+        checkpkg = "hydra-check --channel unstable --arch x86_64-linux";
         conf = "hx  ~/NixOS/";
         cpr = "nixos info | grep Nixpkgs | awk -F ' ' '{print $4}' | wl-copy";
         dg = "nh clean all";
@@ -83,6 +83,8 @@
       # '';
     };
 
+    starship.enable = true;
+
     foot = {
       enable = false;
       enableFishIntegration = true;
@@ -108,10 +110,10 @@
       fuzzyCompletion = true;
     };
 
-    hyprland = {
-      enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    };
+    # hyprland = {
+    #   enable = true;
+    #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    # };
 
     niri = {
       enable = true;

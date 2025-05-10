@@ -5,10 +5,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    # nixos-cli.url = "github:water-sucks/nixos";
-    # nixos-cli.inputs.nixpkgs.follows = "nixpkgs";
     niri.url = "github:sodiboo/niri-flake";
-    hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = inputs @ {
@@ -23,7 +21,6 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-          # nixos-cli.nixosModules.nixos-cli
           niri.nixosModules.niri
           home-manager.nixosModules.home-manager
           {

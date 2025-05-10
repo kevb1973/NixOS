@@ -83,8 +83,6 @@
       # '';
     };
 
-    starship.enable = true;
-
     foot = {
       enable = false;
       enableFishIntegration = true;

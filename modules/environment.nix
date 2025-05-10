@@ -62,7 +62,6 @@
       nix-tree # Explore package dependencies
       nodePackages.bash-language-server
       pulseaudioFull
-      starship
       unar
       unzip
       usbutils

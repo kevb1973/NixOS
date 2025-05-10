@@ -11,7 +11,6 @@
       adw-gtk3
       # authenticator
       bat
-      bat-extras.batman
       btop
       cacert
       calibre 
@@ -27,16 +26,17 @@
       # feh
       file
       fishPlugins.tide
-      fishPlugins.puffer
+      # fishPlugins.puffer
       fishPlugins.grc
       fishPlugins.fzf
-      fishPlugins.autopair
+      # fishPlugins.autopair
       foliate
       fuzzel
       fzf
       # gcc
       gdu # Disk space analyzer
       gitui #Another terminal git helper
+      grc # colourizer for fishPlugins.grc
       file-roller
       grc # generic text colourizer. Using with fishPlugins.grc
       grim
@@ -59,6 +59,7 @@
       mediainfo # Provides info on media files.
       (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.visualizer mpvScripts.modernz ]; })
       mpv-shim-default-shaders
+      nautilus
       ncpamixer
       ncspot
       nh # nix helper
@@ -71,7 +72,8 @@
       playerctl
       qalculate-gtk
       remind
-      ripgrep
+      # ripgrep
+      ripgrep-all
       rofi-wayland
       simple-completion-language-server
       slurp

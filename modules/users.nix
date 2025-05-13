@@ -86,6 +86,7 @@
       virt-manager
       vlc
       wakeonlan # For lgtv control
+      walker
       waypaper
       websocat # For lgtv control
       wev

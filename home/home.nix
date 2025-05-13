@@ -40,12 +40,13 @@
   gtk = {
     enable = true;
     iconTheme = {
-      package = pkgs.adwaita-icon-theme;
-      name = "Adwaita";
+      package = pkgs.papirus-icon-theme;
+      name = "Papirus-Dark";
     };
+      
     theme = {
-      name = "Adwaita-dark";
-      package = pkgs.gnome-themes-extra;
+      package = pkgs.flat-remix-gtk;
+      name = "Flat-Remix-GTK-Grey-Darkest";
     };
   };
 

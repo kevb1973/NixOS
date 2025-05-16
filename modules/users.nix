@@ -125,7 +125,6 @@
       nodePackages.prettier
       raffi # Define fuzzel launcher in yaml
       rmpc # nice alternative to ncmpcpp
-      see-cat # aliased to 'cat'
       spotify
       swaynotificationcenter
       swww # set background colour/wallpaper

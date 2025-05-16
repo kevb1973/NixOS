@@ -39,7 +39,7 @@
       };
       
       shellAliases = {
-        cat = "see"; 
+        cat = "bat"; 
         checkpkg = "hydra-check --channel unstable --arch x86_64-linux";
         conf = "hx  ~/NixOS/";
         cpr = "nixos info | grep Nixpkgs | awk -F ' ' '{print $4}' | wl-copy";
@@ -48,6 +48,7 @@
         edit-broken = "hx ~/bin/check_broken"; # Edit list of currently broken packages 
         gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
         g = "gitui";
+        less = "bat --paging=always";
         lg = "lazygit";
         logout = "sudo systemctl restart display-manager.service";
         logs = "sudo lazyjournal";

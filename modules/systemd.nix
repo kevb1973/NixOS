@@ -26,7 +26,7 @@
         StandardOutput = "tty";
         StandardError = "journal";
         TTYReset = true;
-        TTYHangup = true;
+        TTYVHangup = true;
         TTYVTDisallocate = true;
       };
     };

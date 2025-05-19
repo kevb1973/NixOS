@@ -61,6 +61,7 @@
       nixfmt-rfc-style
       nix-tree # Explore package dependencies
       nodePackages.bash-language-server
+      pciutils
       pulseaudioFull
       unar
       unzip

@@ -62,6 +62,7 @@
       nautilus
       ncpamixer
       ncspot
+      networkmanagerapplet
       nh # nix helper
       nvd # Nix derivation diff tool
       pamixer
@@ -72,8 +73,8 @@
       playerctl
       qalculate-gtk
       remind
-      # ripgrep
-      ripgrep-all
+      ripgrep
+      # ripgrep-all
       rofi-wayland
       simple-completion-language-server
       slurp

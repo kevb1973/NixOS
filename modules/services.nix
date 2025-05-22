@@ -3,7 +3,7 @@
   services = {
     accounts-daemon.enable = true;
     avahi.enable = true;
-    blueman.enable = true;
+    blueman.enable = false; # wifi/bluetooth card stopped working..TODO: need to investigate. 
     dbus.enable = true;
     envfs.enable = true; #fixes script shebangs looking in /usr/bin /bin etc.
     flatpak.enable = true;
@@ -80,12 +80,12 @@
       jack.enable = false;
     };
 
-    # silverbullet = {
+    # silverbullet = { # switched to docker version for faster updates 
     #   enable = true;
     #   user = "kev";
     #   openFirewall = true;
-    #   listenAddress = "10.0.0.167";
-    #   listenPort = 3000;
+    #   listenAddress = "localhost";
+    #   listenPort = 8082;
     # };
 
     xserver = {

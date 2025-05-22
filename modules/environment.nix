@@ -19,12 +19,14 @@
       BEMENU_OPTS = "--hf '#5e81ac' --tf '#5e81ac' --fn 'mono 30'";
       CLUTTER_BACKEND = "wayland";
       # DISPLAY = ":0";
+      DOCKER_SOCK = "unix:///var/run/user/1000/docker.sock";
       EDITOR = "hx";
       # GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
       GTK_THEME="Adwaita:dark";
       HSA_OVERRIDE_GFX_VERSION="10.3.0";
       MANPAGER = "nvim +Man!";
+      MANWIDTH = "100";
       NIX_ALLOW_UNFREE = "1";
       NIXOS_CONFIG = "/home/kev/NixOS";
       # OLLAMA_HOST = "0.0.0.0:11434";
@@ -45,7 +47,7 @@
     systemPackages = with pkgs; [
       adwaita-icon-theme
       alsa-utils
-      any-nix-shell
+      # any-nix-shell
       cmake
       desktop-file-utils
       gcc
@@ -59,7 +61,7 @@
       mfcl2700dncupswrapper
       neovim
       nixfmt-rfc-style
-      nix-tree # Explore package dependencies
+      # nix-tree # Explore package dependencies
       nodePackages.bash-language-server
       pciutils
       pulseaudioFull
@@ -67,6 +69,7 @@
       unzip
       usbutils
       xdg-utils # for opening default programms when clicking links
+      zip
     ];
   };
 }

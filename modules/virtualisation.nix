@@ -2,7 +2,13 @@ _:
 {
   virtualisation = {
     docker = {
-      enable = false;
+      daemon.settings = {
+        userland-proxy = false;
+      };
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
     };
     # oci-containers = {
     #   backend = "podman";
@@ -11,7 +17,7 @@ _:
     #   };
     # };
     podman = {
-      enable = true;
+      enable = false;
       dockerCompat = true;
       dockerSocket.enable = true;
     };

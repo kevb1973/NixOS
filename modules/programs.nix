@@ -55,6 +55,7 @@
         lp = "nix profile list";
         lu = ''echo -e "\n\e[1mLast Flake Update:\e[0m $(ls -l ~/NixOS/flake.lock | awk '{print $6, $7, $8}')\n"'';
         # no = "nixos option -i";
+        no = "manix";
         np = "nh search"; # search nix packages
         npu = "nix profile upgrade '.*' --impure";
         opt = "nix-store --optimize";

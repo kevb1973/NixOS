@@ -41,13 +41,13 @@
       };
     };
 
-    freshrss = {
-      enable = true;
-      baseUrl = "http://freshrss";
-      defaultUser = "kev";
-      passwordFile = "/run/secrets/freshrss";
-      authType = "none";
-    };
+    # freshrss = {
+    #   enable = true;
+    #   baseUrl = "http://freshrss";
+    #   defaultUser = "kev";
+    #   passwordFile = "/run/secrets/freshrss";
+    #   authType = "none";
+    # };
 
     fstrim = {
       enable = true;

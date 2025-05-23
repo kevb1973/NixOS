@@ -59,7 +59,7 @@
       mpv-shim-default-shaders
       nautilus
       ncpamixer
-      ncspot
+      # ncspot
       networkmanagerapplet
       nh # nix helper
       nvd # Nix derivation diff tool
@@ -121,6 +121,7 @@
       # raffi # Define fuzzel launcher in yaml
       rmpc # nice alternative to ncmpcpp
       spotify
+      spotify-player
       swaynotificationcenter
       # swww # set background colour/wallpaper
       taplo # TOML LS

@@ -62,6 +62,7 @@
       # ncspot
       networkmanagerapplet
       nh # nix helper
+      nodejs # Need for Neovim Mason
       nvd # Nix derivation diff tool
       pamixer
       pavucontrol

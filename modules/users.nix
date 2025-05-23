@@ -14,6 +14,7 @@
       btop
       cacert
       calibre 
+      cargo
       cava # Terminal audio visualizer 
       clipse
       ddcutil # Adjust monitor brightness and other settings from cli

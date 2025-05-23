@@ -25,7 +25,7 @@
       '';
       
       shellAbbrs = {
-        "no --set-cursor" = "nixos-option % --flake ~/NixOS";
+        # "no --set-cursor" = "nixos-option % --flake ~/NixOS";
         "nor --set-cursor" = "nixos-option -r % --flake ~/NixOS";
         "npi --set-cursor" = "nix profile install nixpkgs#%";
         "npis --set-cursor" = "nix profile install nixpkgs/release-24.11#%";

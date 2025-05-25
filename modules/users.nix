@@ -86,7 +86,7 @@
       # virt-manager
       vlc
       wakeonlan # For lgtv control
-      walker
+      # walker # Switched to flake due to bug and slow nixpkgs updates
       waypaper
       websocat # For lgtv control
       wev

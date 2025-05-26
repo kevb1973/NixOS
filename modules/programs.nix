@@ -28,6 +28,7 @@
         # "no --set-cursor" = "nixos-option % --flake ~/NixOS";
         "nor --set-cursor" = "nixos-option -r % --flake ~/NixOS";
         "npi --set-cursor" = "nix profile install nixpkgs#%";
+        "npg --set-cursor" = "nix profile install github:%/";
         "npis --set-cursor" = "nix profile install nixpkgs/release-24.11#%";
         "npic --set-cursor" = "nix profile install nixpkgs/(nixos-version --hash)#%";
         "ns --set-cursor" = "nix shell nixpkgs#% -c fish";
@@ -57,7 +58,7 @@
         # no = "nixos option -i";
         no = "manix";
         np = "nh search"; # search nix packages
-        npu = "nix profile upgrade '.*' --impure";
+        npu = "nix profile upgrade";
         opt = "nix-store --optimize";
         ports = "netstat -lntup";
         # rb = "nh os switch ~/NixOS";

@@ -51,7 +51,6 @@
       # any-nix-shell
       cmake
       desktop-file-utils
-      docker-compose
       gcc
       glib
       gitFull

@@ -29,7 +29,6 @@
       clipse
       ddcutil # Adjust monitor brightness and other settings from cli
       diff-so-fancy
-      dry # TUI docker management
       emacs-pgtk
       eza
       fd
@@ -81,6 +80,8 @@
       # pistol # File preview for clifm
       # play # TUI grep/sed/awk playground
       playerctl
+      podman-compose
+      podman-tui
       qalculate-gtk
       remind
       ripgrep

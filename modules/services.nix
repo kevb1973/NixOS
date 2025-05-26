@@ -88,6 +88,15 @@
     #   listenPort = 8082;
     # };
 
+    ollama = {
+      enable = true;
+      acceleration = "rocm";
+      # model = "none";
+      rocmOverrideGfx = "10.3.0";
+      environmentVariables = { HIP_VISIBLE_DEVICES = "1";  ROCR_VISIBLE_DEVICES = "0"; };
+      
+    };
+    
     xserver = {
       enable = true;
       xkb = {

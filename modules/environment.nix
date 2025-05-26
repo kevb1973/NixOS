@@ -24,12 +24,14 @@
       # GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
       GTK_THEME="Adwaita:dark";
-      HSA_OVERRIDE_GFX_VERSION="10.3.0";
       MANPAGER = "nvim +Man!";
       MANWIDTH = "100";
       NIX_ALLOW_UNFREE = "1";
       NIXOS_CONFIG = "/home/kev/NixOS";
-      # OLLAMA_HOST = "0.0.0.0:11434";
+      OLLAMA_HOST = "0.0.0.0:11434";
+      OLLAMA_FLASH_ATTENTION = "1";
+      ROCM_PATH = "/opt/rocm";
+      HSA_OVERRIDE_GFX_VERSION="10.3.0";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_IM_MODULE = "ibus";
       QT_QPA_PLATFORM = "wayland;xcb";
@@ -65,6 +67,7 @@
       nodePackages.bash-language-server
       pciutils
       pulseaudioFull
+      rocmPackages.clr
       unar
       unzip
       usbutils

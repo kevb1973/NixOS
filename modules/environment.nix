@@ -19,7 +19,6 @@
       BEMENU_OPTS = "--hf '#5e81ac' --tf '#5e81ac' --fn 'mono 30'";
       CLUTTER_BACKEND = "wayland";
       # DISPLAY = ":0";
-      DOCKER_SOCK = "unix:///var/run/user/1000/docker.sock";
       EDITOR = "hx";
       # GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
@@ -52,6 +51,7 @@
       # any-nix-shell
       cmake
       desktop-file-utils
+      docker-compose
       gcc
       glib
       gitFull

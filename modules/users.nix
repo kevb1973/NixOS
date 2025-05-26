@@ -1,10 +1,20 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   users.users.kev = {
     isNormalUser = true;
     description = "kev";
-    extraGroups =
-      [ "networkmanager" "adbusers" "wheel" "kvm" "libvirtd" "input" "audio" "podman" "docker" "jackaudio" "mpd" "ydotool" "video" "render" ];
+    extraGroups = [
+      "adbusers"
+      "audio"
+      "input"
+      "kvm"
+      "libvirtd"
+      "mpd"
+      "networkmanager"
+      "podman"
+      "wheel"
+      "ydotool"
+    ];
     # shell = pkgs.fish;
 
     packages = with pkgs; [
@@ -19,7 +29,7 @@
       clipse
       ddcutil # Adjust monitor brightness and other settings from cli
       diff-so-fancy
-      docker-compose
+      dry # TUI docker management
       emacs-pgtk
       eza
       fd

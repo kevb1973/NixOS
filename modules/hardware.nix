@@ -21,9 +21,18 @@
       ];
     };
   };
+
   powerManagement = {
     enable = true;
     cpuFreqGovernor = lib.mkDefault "performance";
   };
+
+  swapDevices = [
+    {
+      # 8 gig swapfile to compliment zram.
+      device = "/var/lib/swapfile";
+      size = 8*1024;
+    }
+  ];
   zramSwap.enable = true;
 }

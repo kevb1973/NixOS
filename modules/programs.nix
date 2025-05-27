@@ -40,43 +40,39 @@
       };
       
       shellAliases = {
+      
         cat = "bat"; 
+        more = "bat --paging=always"; 
+        less = "bat --paging=always";
         checkpkg = "hydra-check --channel unstable --arch x86_64-linux";
         conf = "hx  ~/NixOS/";
-        cpr = "nixos info | grep Nixpkgs | awk -F ' ' '{print $4}' | wl-copy";
-        dg = "nh clean all";
-        e = "hx";
+        dg = "nh clean user";
         edit-broken = "hx ~/bin/check_broken"; # Edit list of currently broken packages 
+        e = "hx";
         gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
+        gc = "sudo nix store gc -v";
         g = "gitui";
-        less = "bat --paging=always";
         lg = "lazygit";
         logout = "sudo systemctl restart display-manager.service";
         logs = "sudo lazyjournal";
         lp = "nix profile list";
         lu = ''echo -e "\n\e[1mLast Flake Update:\e[0m $(ls -l ~/NixOS/flake.lock | awk '{print $6, $7, $8}')\n"'';
-        # no = "nixos option -i";
         no = "manix";
+        # no = "nixos option -i";
         np = "nh search"; # search nix packages
         npu = "nix profile upgrade";
         opt = "nix-store --optimize";
         ports = "netstat -lntup";
-        # rb = "nh os switch ~/NixOS";
         rb = "nixos-rebuild switch --use-remote-sudo --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
         referrer = "nix-store --query --referrers";
         repair-store = "sudo nix-store --verify --check-contents --repair";
         rev = "nixos-version --hash | cut -c 1-7";
-        # sdg = "sudo nix-collect-garbage -d";
-        # sg = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
         sg = "nixos-rebuild list-generations";
-        sgc = "sudo nix store gc -v";
         storebin = "nix-store -q --roots (which $argv)";
-        # udg = "nix-collect-garbage -d";
-        udg = "nh clean user";
         ug = "nix-env --list-generations";
         ugc = "nix store gc -v";
-        # up = "nix flake update /home/kev/NixOS";
         up = "nh os switch --update --ask ~/NixOS";
+        # up = "nix flake update /home/kev/NixOS";
         verify-store = "sudo nix-store --verify --check-contents";
         y = "yazi";
       };
@@ -86,21 +82,21 @@
       # '';
     };
 
-    foot = {
-      enable = false;
-      enableFishIntegration = true;
-      theme = "tokyonight-storm";
-      settings = {
-        main = {
-          shell = "/run/current-system/sw/bin/fish";
-          font = "Victor Mono:size=13";
-        };
-        key-bindings = {
-          scrollback-up-half-page = "Mod1+Up";
-          scrollback-down-half-page = "Mod1+Down";
-        };
-      };
-    };
+    # foot = {
+    #   enable = true;
+    #   enableFishIntegration = true;
+    #   theme = "tokyonight-storm";
+    #   settings = {
+    #     main = {
+    #       shell = "/run/current-system/sw/bin/fish";
+    #       font = "Victor Mono:size=13";
+    #     };
+    #     key-bindings = {
+    #       scrollback-up-half-page = "Mod1+Up";
+    #       scrollback-down-half-page = "Mod1+Down";
+    #     };
+    #   };
+    # };
 
     fuse = {
       userAllowOther = true;

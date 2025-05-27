@@ -8,20 +8,17 @@
     registry.nixpkgs.flake = inputs.nixpkgs; # Pin nixpkgs to speed up nix commands
     gc = {
       # Auto discard system generations
-      automatic = false; # disabled.. adding 10s to boot.
+      automatic = true; # Slows boot, but need to stop myself from deleting all generations!
       dates = "daily";
-      options = "--delete-older-than 2d";
+      options = "--delete-older-than 1d";
     };
     nixPath = [
       "/etc/nix/inputs"
     ]; # Fix <nixpkgs> for flakes. See environment.etc."nix/inputs/nixpkgs"
     optimise.automatic = true; #Auto optimize once per day at 3:45am (default)
     settings = {
-      auto-optimise-store = false; # Auto optimize nix store (disabled due to slowing down rebuilds).
+      auto-optimise-store = false; # Auto optimize every build. (slow)
       builders-use-substitutes = true;
-      # 24 cpus
-      cores = 12;
-      max-jobs = 2;
       substituters = [
         # "https://hyprland.cachix.org"
         "https://niri.cachix.org"

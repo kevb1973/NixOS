@@ -81,6 +81,7 @@
       # play # TUI grep/sed/awk playground
       playerctl
       podman-compose
+      podman-desktop
       podman-tui
       qalculate-gtk
       remind

@@ -3,6 +3,7 @@
   users.users.kev = {
     isNormalUser = true;
     description = "kev";
+    linger = true; # Auto start user systemd units at boot. Keep running on logout.
     extraGroups = [
       "adbusers"
       "audio"

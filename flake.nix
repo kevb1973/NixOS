@@ -7,12 +7,14 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     niri.url = "github:sodiboo/niri-flake";
     # hyprland.url = "github:hyprwm/Hyprland";
+    quadlet-nix.url = "github:SEIAROTg/quadlet-nix";
   };
 
   outputs = inputs @ {
     nixpkgs,
     home-manager,
     niri,
+    quadlet-nix,
     ...
   }: {
     nixosConfigurations = {
@@ -21,7 +23,6 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-          niri.nixosModules.niri
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -31,6 +32,8 @@
               extraSpecialArgs.flake-inputs = inputs;
             };
           }
+          niri.nixosModules.niri
+          quadlet-nix.nixosModules.quadlet
         ];
       };
     };

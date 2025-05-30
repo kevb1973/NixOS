@@ -27,7 +27,7 @@
       MANWIDTH = "100";
       NIX_ALLOW_UNFREE = "1";
       NIXOS_CONFIG = "/home/kev/NixOS";
-      OLLAMA_HOST = "0.0.0.0:11434";
+      OLLAMA_HOST = "127.0.0.1:11434";
       OLLAMA_FLASH_ATTENTION = "1";
       ROCM_PATH = "/opt/rocm";
       HSA_OVERRIDE_GFX_VERSION="10.3.0";

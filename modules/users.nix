@@ -48,13 +48,6 @@
       grc # generic text colourizer. Using with fishPlugins.grc
       grim
       grimblast 
-      # helix # Following flake in user profile
-      # inputs.helix.packages.${pkgs.system}.default
-      # http-server # Simple http server. Using with surfingkeys config.
-      # hyprls
-      # hyprpicker
-      # hyprshade
-      # inputs.hyprland-contrib.packages.${pkgs.system}.grimblast # Wrapper for grim/slurp. . Using flake as nixpkgs ver pulls in old hyprland
       jq
       kdePackages.polkit-kde-agent-1
       kdePackages.qtstyleplugin-kvantum
@@ -73,6 +66,7 @@
       # ncspot
       networkmanagerapplet
       nh # nix helper
+      nix-tree
       nodejs # Need for Neovim Mason
       nvd # Nix derivation diff tool
       pamixer
@@ -123,7 +117,6 @@
       dust # quick dir size for 'sys' script
       # emacs30-pgtk
       # foot
-      # fuzzel
       hydra-check # check build status.. hydra-check --channel unstable <pkg>
       # keepassxc
       lazyjournal # tui for logs
@@ -133,16 +126,14 @@
       marksman
       nixd
       nodePackages.prettier
-      # raffi # Define fuzzel launcher in yaml
       rmpc # nice alternative to ncmpcpp
       spotify
       spotify-player
       swaynotificationcenter
-      # swww # set background colour/wallpaper
       taplo # TOML LS
       vscode-langservers-extracted # Various LS
       # wezterm
-      # xidel # html scraper
+      wlr-wlr-which-key
       xwayland-satellite # for Niri
       yad
       yaml-language-server

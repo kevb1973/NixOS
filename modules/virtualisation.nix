@@ -6,12 +6,8 @@ _:
       enable = true;
       dockerCompat = true;
       dockerSocket.enable = true;
-      autoPrune = {
-        enable = true;
-        dates = "weekly";
-      };
     };
-    oci-containers.backend = "podman";
+    # oci-containers.backend = "podman";
     
     # libvirtd = {
     #   enable = true;

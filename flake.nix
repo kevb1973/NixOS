@@ -6,15 +6,15 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     niri.url = "github:sodiboo/niri-flake";
+    nixos-cli.url = "github:nix-community/nixos-cli";
     # hyprland.url = "github:hyprwm/Hyprland";
-    quadlet-nix.url = "github:SEIAROTg/quadlet-nix";
   };
 
   outputs = inputs @ {
     nixpkgs,
     home-manager,
     niri,
-    quadlet-nix,
+    nixos-cli,
     ...
   }: {
     nixosConfigurations = {
@@ -33,7 +33,7 @@
             };
           }
           niri.nixosModules.niri
-          quadlet-nix.nixosModules.quadlet
+          nixos-cli.nixosModules.nixos-cli
         ];
       };
     };

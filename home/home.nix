@@ -1,8 +1,10 @@
-{ pkgs, ... }:
-# Add flake-inputs to args if you need to access a flake inputs from hm.
-# Then access with flake-inputs.<inputname>.module... etc
-
 {
+  pkgs,
+  inputs,
+  ...
+}:
+{
+
   home = {
     username = "kev";
     homeDirectory = "/home/kev";
@@ -43,7 +45,7 @@
       package = pkgs.papirus-icon-theme;
       name = "Papirus-Dark";
     };
-      
+
     theme = {
       package = pkgs.flat-remix-gtk;
       name = "Flat-Remix-GTK-Grey-Darkest";
@@ -55,4 +57,9 @@
     platformTheme.name = "adwaita";
     style.name = "adwaita-dark";
   };
-} # end home.nix
+
+  systemd.user.startServices = "sd-switch";
+
+}
+# end home.nix
+

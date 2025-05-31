@@ -66,6 +66,14 @@
       };
     };
 
+    nixos-cli = {
+      enable = true;
+      config = {
+        config_location = "/home/kev/NixOS";
+        use_nvd = true;
+      };
+    };
+
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -97,21 +105,8 @@
         variant = "";
       };
       deviceSection = ''Option "TearFree" "true"'';
-      desktopManager = {
-        xterm.enable = false;
-        gnome.enable = false;
-        xfce = {
-          enable = false;
-          enableXfwm = false;
-        };
-      };
       displayManager = {
-        gdm = {
-          enable = false;
-          wayland = true;
-          autoLogin.delay = 2;
-        };
-        startx.enable = true; # console login
+        # startx.enable = true; # console login
       };
       #updateDbusEnvironment = true;
     };

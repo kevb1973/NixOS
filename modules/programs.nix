@@ -33,7 +33,7 @@
         "npic --set-cursor" = "nix profile install nixpkgs/(nixos-version --hash)#%";
         "ns --set-cursor" = "nix shell nixpkgs#% -c fish";
         "nr --set-cursor" = "nix run nixpkgs#%";
-        "np --set-cursor" = "np '%'";
+        "np --set-cursor" = "nh search '%'";
         "ytm --set-cursor" = "yt-dlp -x --audio-format mp3 '%'";
         "ytv --set-cursor" = "ytd-video '%'"; #note: had to use script as <= breaks config due to string interpolation
         "rp --set-cursor" = "nix profile remove '%'";
@@ -57,9 +57,8 @@
         logs = "sudo lazyjournal";
         lp = "nix profile list";
         lu = ''echo -e "\n\e[1mLast Flake Update:\e[0m $(ls -l ~/NixOS/flake.lock | awk '{print $6, $7, $8}')\n"'';
-        no = "manix";
+        no = "nixos option -i";
         # no = "nixos option -i";
-        np = "nh search"; # search nix packages
         npu = "nix profile upgrade";
         opt = "nix-store --optimize";
         ports = "netstat -lntup";

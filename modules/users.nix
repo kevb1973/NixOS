@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   users.users.kev = {
+    initialPassword = "password"; # Change after a fresh install with passwd
     isNormalUser = true;
     description = "kev";
     linger = true; # Auto start user systemd units at boot. Keep running on logout.
@@ -79,7 +80,7 @@
       podman-desktop
       podman-tui
       qalculate-gtk
-      remind
+      regctl # Needed for 
       ripgrep
       # rofi-wayland
       simple-completion-language-server
@@ -133,7 +134,7 @@
       taplo # TOML LS
       vscode-langservers-extracted # Various LS
       # wezterm
-      wlr-wlr-which-key
+      wlr-which-key
       xwayland-satellite # for Niri
       yad
       yaml-language-server

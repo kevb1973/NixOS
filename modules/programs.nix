@@ -70,8 +70,8 @@
         storebin = "nix-store -q --roots (which $argv)";
         ug = "nix-env --list-generations";
         ugc = "nix store gc -v";
-        up = "nh os switch --update --ask ~/NixOS";
-        # up = "nix flake update /home/kev/NixOS";
+        # up = "nh os switch --update --ask ~/NixOS";
+        up = "nix flake update /home/kev/NixOS";
         verify-store = "sudo nix-store --verify --check-contents";
         y = "yazi";
       };

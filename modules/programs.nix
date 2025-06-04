@@ -33,7 +33,9 @@
         "npic --set-cursor" = "nix profile install nixpkgs/(nixos-version --hash)#%";
         "ns --set-cursor" = "nix shell nixpkgs#% -c fish";
         "nr --set-cursor" = "nix run nixpkgs#%";
-        "np --set-cursor" = "nh search '%'";
+        "nsn --set-cursor" = "nix-search --name % -d";
+        "nsp --set-cursor" = "nix-search --program % -d";
+        "nsd --set-cursor" = "nix-search --query-string='package_description:(%)' -d";
         "ytm --set-cursor" = "yt-dlp -x --audio-format mp3 '%'";
         "ytv --set-cursor" = "ytd-video '%'"; #note: had to use script as <= breaks config due to string interpolation
         "rp --set-cursor" = "nix profile remove '%'";
@@ -49,6 +51,7 @@
         dg = "nh clean user";
         edit-broken = "hx ~/bin/check_broken"; # Edit list of currently broken packages 
         e = "hx";
+        find-font = "fc-list --format='%{family}\n' | grep";
         gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
         gc = "sudo nix store gc -v";
         g = "gitui";
@@ -173,6 +176,7 @@
           speechd
           stdenv.cc.cc
           systemd
+          tree-sitter
           vulkan-loader
           webkitgtk_4_1
           xorg.libX11

@@ -11,6 +11,7 @@
     geoclue2.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true; # Mount, trash, and other functionalities
+    journald.extraConfig = "SystemMaxUse=500M";
     # nixos-cli.enable = true;
     openssh.enable = false;
     printing.drivers = [ pkgs.brlaser ];
@@ -39,6 +40,10 @@
         theme = "sugar-dark";
         wayland.enable = true;
       };
+    };
+
+    emacs = {
+       enable = false;
     };
 
     # freshrss = {
@@ -106,7 +111,7 @@
       };
       deviceSection = ''Option "TearFree" "true"'';
       displayManager = {
-        # startx.enable = true; # console login
+        startx.enable = true; # console login
       };
       #updateDbusEnvironment = true;
     };

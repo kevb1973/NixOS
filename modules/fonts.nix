@@ -1,14 +1,14 @@
 { pkgs, ... }:
 {
   fonts = {
+    enableDefaultPackages = true;
     fontDir.enable = true;
     packages = with pkgs; [
-      font-awesome
-      maple-mono.NF
-      nerd-fonts.hack
       noto-fonts-lgc-plus
+      nerd-fonts.victor-mono
+      maple-mono.NF
+      font-awesome
       noto-fonts-color-emoji
-      victor-mono
     ];
   };
 }

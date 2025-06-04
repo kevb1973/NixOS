@@ -3,6 +3,7 @@
   ...
 }: {
   systemd = {
+    coredump.enable = false;
     extraConfig = ''
       DefaultTimeoutStopSec=10s
     '';

@@ -67,6 +67,7 @@
       # ncspot
       networkmanagerapplet
       nh # nix helper
+      nix-search-cli
       nix-tree
       nodejs # Need for Neovim Mason
       nvd # Nix derivation diff tool
@@ -113,11 +114,7 @@
       # anydesk
       at
       authenticator
-      # bemenu # For bemoji
-      # bemoji
       dust # quick dir size for 'sys' script
-      # emacs30-pgtk
-      # foot
       hydra-check # check build status.. hydra-check --channel unstable <pkg>
       # keepassxc
       lazyjournal # tui for logs

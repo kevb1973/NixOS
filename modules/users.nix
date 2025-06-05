@@ -129,6 +129,8 @@
       spotify-player
       swaynotificationcenter
       taplo # TOML LS
+      vivaldi
+      vivaldi-ffmpeg-codecs
       vscode-langservers-extracted # Various LS
       # wezterm
       wlr-which-key

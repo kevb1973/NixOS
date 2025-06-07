@@ -36,7 +36,7 @@
         "nsn --set-cursor" = "nix-search --name % -d";
         "nsp --set-cursor" = "nix-search --program % -d";
         "nsd --set-cursor" = "nix-search --query-string='package_description:(%)' -d";
-        "ytm --set-cursor" = "yt-dlp -x --audio-format mp3 '%'";
+        "ytm --set-cursor" = "yt-dlp -x --audio-format mp3 %";
         "ytv --set-cursor" = "ytd-video '%'"; #note: had to use script as <= breaks config due to string interpolation
         "rp --set-cursor" = "nix profile remove '%'";
       };
@@ -74,9 +74,10 @@
         ug = "nix-env --list-generations";
         ugc = "nix store gc -v";
         # up = "nh os switch --update --ask ~/NixOS";
-        up = "nix flake update /home/kev/NixOS";
+        up = "nix flake update --flake /home/kev/NixOS";
         verify-store = "sudo nix-store --verify --check-contents";
         y = "yazi";
+        v = "vifm";
       };
       
       # interactiveShellInit = '' # Set Neovim as default man viewer

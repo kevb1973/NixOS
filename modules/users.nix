@@ -21,6 +21,7 @@
 
     packages = with pkgs; [
       adw-gtk3
+      aria2
       # authenticator
       bat
       btop
@@ -60,6 +61,7 @@
       libsForQt5.qtstyleplugin-kvantum
       lmstudio
       mediainfo # Provides info on media files.
+      mpc # For emacs simple-mpc
       (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.visualizer mpvScripts.modernz ]; })
       mpv-shim-default-shaders
       nautilus
@@ -71,6 +73,7 @@
       nix-tree
       nodejs # Need for Neovim Mason
       nvd # Nix derivation diff tool
+      p7zip
       pamixer
       pavucontrol
       peaclock #TUI Clock/Stopwatch/Timer
@@ -92,6 +95,7 @@
       tealdeer # Command line help 'tldr'
       tree-sitter
       video-downloader
+      vifm
       # virt-manager
       vlc
       wakeonlan # For lgtv control
@@ -129,8 +133,7 @@
       spotify-player
       swaynotificationcenter
       taplo # TOML LS
-      vivaldi
-      vivaldi-ffmpeg-codecs
+      vifm
       vscode-langservers-extracted # Various LS
       # wezterm
       wlr-which-key

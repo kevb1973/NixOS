@@ -18,7 +18,7 @@
     };
     loader = {
       systemd-boot.enable = true;
-      timeout = 0; # Mash space for boot menu
+      timeout = 1; 
       efi = {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot";

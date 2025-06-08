@@ -66,6 +66,8 @@
         opt = "nix-store --optimize";
         ports = "netstat -lntup";
         rb = "nixos-rebuild switch --use-remote-sudo --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
+        rd = "cd (fd --type dir --hidden --follow | fzf)"; # search for dirs, change dir
+        rf = "cd (fd ---type file --hidden --follow | fzf | cut -d/ -f 1-3)"; # search dir for file and change dir
         referrer = "nix-store --query --referrers";
         repair-store = "sudo nix-store --verify --check-contents --repair";
         rev = "nixos-version --hash | cut -c 1-7";

@@ -50,6 +50,7 @@
       grc # generic text colourizer. Using with fishPlugins.grc
       grim
       grimblast 
+      highlight # Used with vifm to add color to file previews with code
       jq
       kdePackages.polkit-kde-agent-1
       kdePackages.qtstyleplugin-kvantum
@@ -60,6 +61,7 @@
       libnotify
       libsForQt5.qtstyleplugin-kvantum
       lmstudio
+      lsd # colorful ls
       mediainfo # Provides info on media files.
       mpc # For emacs simple-mpc
       (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.visualizer mpvScripts.modernz ]; })

@@ -90,6 +90,7 @@
       simple-completion-language-server
       slurp
       stow
+      swayimg
       swaynotificationcenter
       # syncthing
       tealdeer # Command line help 'tldr'

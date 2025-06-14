@@ -12,22 +12,22 @@
       inputs.nixpkgs.follows = "nixpkgs";
       };
 
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+      ignis = {
+        url = "github:ignis-sh/ignis";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
   };
 
-  outputs = inputs @ {
+  outputs = {
     nixpkgs,
     home-manager,
     niri,
     nixos-cli,
     ...
-  }: {
+  }@inputs: {
     nixosConfigurations = {
-      halcyon = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+      halcyon = nixpkgs.lib.nixosSystem rec {
+        specialArgs = {inherit system inputs;};
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
@@ -37,7 +37,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.kev = import ./home/home.nix;
-              extraSpecialArgs.flake-inputs = inputs;
+              extraSpecialArgs = { inherit inputs; };
             };
           }
           niri.nixosModules.niri

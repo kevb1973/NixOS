@@ -17,7 +17,6 @@
    ./modules/users.nix
    ./modules/virtualisation.nix
    ./modules/xdg.nix  
-   ./pkgs/quickshell/default.nix
   ];
   time.timeZone = "America/Toronto";
   i18n.defaultLocale = "en_CA.UTF-8";

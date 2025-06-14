@@ -9,13 +9,13 @@ _:
     };
     # oci-containers.backend = "podman";
     
-    # libvirtd = {
-    #   enable = true;
-    #   onBoot = "ignore";
-    #   onShutdown = "shutdown";
-    #   qemu = {
-    #     runAsRoot = true;
-    #   };
-    # };
+    libvirtd = {
+      enable = true;
+      onBoot = "ignore";
+      onShutdown = "shutdown";
+      qemu = {
+        runAsRoot = true;
+      };
+    };
   };
 }

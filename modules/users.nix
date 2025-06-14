@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   users.users.kev = {
     initialPassword = "password"; # Change after a fresh install with passwd
@@ -51,6 +51,7 @@
       grim
       grimblast 
       highlight # Used with vifm to add color to file previews with code
+      jamesdsp
       jq
       kdePackages.polkit-kde-agent-1
       kdePackages.qtstyleplugin-kvantum
@@ -72,7 +73,7 @@
       networkmanagerapplet
       nh # nix helper
       nix-search-cli
-      nix-tree
+      # nix-tree # broken and will take awhile to fix. Jun 11 25
       nodejs # Need for Neovim Mason
       nvd # Nix derivation diff tool
       p7zip

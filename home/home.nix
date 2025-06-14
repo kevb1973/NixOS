@@ -1,18 +1,24 @@
 {
+  config,
   pkgs,
   inputs,
   ...
-}:
-{
-
+}: {
   home = {
     username = "kev";
     homeDirectory = "/home/kev";
     stateVersion = "24.05";
   };
 
-  # home.packages = with pkgs; [
-  # ];
+  home.packages = with pkgs; [
+    (python3.withPackages (ps: with ps; [
+        (inputs.ignis.packages.${pkgs.stdenv.hostPlatform.system}.ignis.override {
+          extraPackages = [
+            # Add extra packages if needed
+          ];
+        })
+      ]))
+  ];
 
   programs = {
     home-manager.enable = true;
@@ -40,7 +46,7 @@
   };
 
   gtk = {
-    enable = true;
+    enable = false;
     iconTheme = {
       package = pkgs.papirus-icon-theme;
       name = "Papirus-Dark";
@@ -52,14 +58,9 @@
     };
   };
 
-  qt = {
-    enable = true;
-    platformTheme.name = "adwaita";
-    style.name = "adwaita-dark";
-  };
+  qt.enable = true;
 
   systemd.user.startServices = "sd-switch";
-
 }
 # end home.nix
 

@@ -4,7 +4,7 @@
     adb.enable = true;
     command-not-found.enable = false;
     dconf.enable = true;
-    ssh.startAgent = true;
+    ssh.startAgent = false; # Using gnome-keyring due to niri-flake
     neovim = { vimAlias = true; };
 
     appimage = {
@@ -66,7 +66,7 @@
         npu = "nix profile upgrade";
         opt = "nix-store --optimize";
         ports = "netstat -lntup";
-        rb = "nixos-rebuild switch --use-remote-sudo --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
+        rb = "nixos-rebuild switch --sudo --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
         rd = "cd (fd --type dir --hidden --follow | fzf)"; # search for dirs, change dir
         rf = "cd (fd --type file --hidden --follow | fzf | cut -d/ -f 1-3)"; # search dir for file and change dir
         referrer = "nix-store --query --referrers";

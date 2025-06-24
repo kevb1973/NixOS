@@ -10,15 +10,15 @@
     stateVersion = "24.05";
   };
 
-  home.packages = with pkgs; [
-    (python3.withPackages (ps: with ps; [
-        (inputs.ignis.packages.${pkgs.stdenv.hostPlatform.system}.ignis.override {
-          extraPackages = [
-            # Add extra packages if needed
-          ];
-        })
-      ]))
-  ];
+  # home.packages = with pkgs; [
+  #   (python3.withPackages (ps: with ps; [
+  #       (inputs.ignis.packages.${pkgs.stdenv.hostPlatform.system}.ignis.override {
+  #         extraPackages = [
+  #           # Add extra packages if needed
+  #         ];
+  #       })
+  #     ]))
+  # ];
 
   programs = {
     home-manager.enable = true;

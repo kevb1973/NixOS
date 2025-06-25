@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    niri.url = "github:sodiboo/niri-flake";
+    # niri.url = "github:sodiboo/niri-flake";
     nixos-cli.url = "github:nix-community/nixos-cli";
     # hyprland.url = "github:hyprwm/Hyprland";
 
@@ -21,7 +21,7 @@
   outputs = {
     nixpkgs,
     home-manager,
-    niri,
+    # niri,
     nixos-cli,
     ...
   }@inputs: {
@@ -40,7 +40,7 @@
               extraSpecialArgs = { inherit inputs; };
             };
           }
-          niri.nixosModules.niri
+          # niri.nixosModules.niri
           nixos-cli.nixosModules.nixos-cli
         ];
       };

@@ -46,6 +46,7 @@
     systemPackages = with pkgs; [
       adwaita-icon-theme
       alsa-utils
+      bibata-cursors
       cmake
       desktop-file-utils
       gcc

@@ -1,13 +1,16 @@
 {
-  config,
+  # config,
   pkgs,
-  inputs,
+  # inputs,
   ...
 }: {
   home = {
     username = "kev";
     homeDirectory = "/home/kev";
     stateVersion = "24.05";
+    # packages = with pkgs; [
+    # ];
+    
   };
 
   # home.packages = with pkgs; [
@@ -47,14 +50,33 @@
 
   gtk = {
     enable = false;
-    iconTheme = {
-      package = pkgs.papirus-icon-theme;
-      name = "Papirus-Dark";
+    font = {
+      package = pkgs.cantarell-fonts;
+      name = "Cantarell";
+      size = 12;
     };
 
+    # Theme settings
     theme = {
-      package = pkgs.flat-remix-gtk;
-      name = "Flat-Remix-GTK-Grey-Darkest";
+      package = pkgs.adw-gtk3;
+      name = "adw-gtk3-dark";
+    };
+
+    # Icon theme
+    iconTheme = {
+      package = pkgs.adwaita-icon-theme;
+      name = "Adwaita";
+    };
+
+    # Cursor theme
+    cursorTheme = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Original-Amber";
+    };
+
+    # gtk3
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
     };
   };
 

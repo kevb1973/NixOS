@@ -66,7 +66,8 @@
         npu = "nix profile upgrade";
         opt = "nix-store --optimize";
         ports = "netstat -lntup";
-        rb = "nixos-rebuild switch --sudo --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
+        # rb = "nixos-rebuild switch --sudo --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
+        rb = "nh os switch ~/NixOS/";
         rd = "cd (fd --type dir --hidden --follow | fzf)"; # search for dirs, change dir
         rf = "cd (fd --type file --hidden --follow | fzf | cut -d/ -f 1-3)"; # search dir for file and change dir
         referrer = "nix-store --query --referrers";

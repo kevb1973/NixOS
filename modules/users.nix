@@ -133,6 +133,7 @@
       nixd
       nodePackages.prettier
       rmpc # nice alternative to ncmpcpp
+      shellcheck # Needed for doom emacs
       spotify
       spotify-player
       swaynotificationcenter

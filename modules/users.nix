@@ -130,6 +130,7 @@
       manix # search nixos and home-manager options
       markdown-oxide # markdown LS
       marksman
+      multimarkdown # Markdown preview in emacs
       nixd
       nodePackages.prettier
       rmpc # nice alternative to ncmpcpp

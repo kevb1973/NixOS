@@ -11,7 +11,7 @@
     mime = {
       enable = true;
       defaultApplications = {
-        "application/pdf" = "org.pwmt.zathura.desktop";
+        "application/pdf" = "sioyek.desktop";
         "application/vnd.apple.mpegurl" = "vlc.desktop";
         "application/x-extension-htm" = "firefox.desktop";
         "application/x-extension-html" = "firefox.desktop";

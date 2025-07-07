@@ -73,7 +73,7 @@
       networkmanagerapplet
       nh # nix helper
       nix-search-cli
-      # nix-tree # broken and will take awhile to fix. Jun 11 25
+      nix-tree
       nodejs # Need for Neovim Mason
       nvd # Nix derivation diff tool
       p7zip
@@ -91,6 +91,7 @@
       ripgrep
       # rofi-wayland
       simple-completion-language-server
+      sioyek # nice pdf viewer
       slurp
       stow
       swayimg
@@ -116,7 +117,6 @@
       yazi
       ydotool
       yt-dlp
-      zathura
       zoxide
       alejandra # nix code formatter
       # anydesk

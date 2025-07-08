@@ -146,6 +146,7 @@
       xwayland-satellite # for Niri
       yad
       yaml-language-server
+      zed-editor-fhs
     ];
   };
 }

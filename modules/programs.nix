@@ -1,11 +1,13 @@
-{ pkgs, inputs, ...}:
+{ pkgs, ... }:
 {
   programs = {
     adb.enable = true;
     command-not-found.enable = false;
     dconf.enable = true;
     ssh.startAgent = false; # Using gnome-keyring due to niri-flake
-    neovim = { vimAlias = true; };
+    neovim = {
+      vimAlias = true;
+    };
 
     appimage = {
       enable = false;
@@ -19,11 +21,11 @@
 
     fish = {
       enable = true;
-      
+
       promptInit = ''
         ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
       '';
-      
+
       shellAbbrs = {
         # "no --set-cursor" = "nixos-option % --flake ~/NixOS";
         "nor --set-cursor" = "nixos-option -r % --flake ~/NixOS";
@@ -37,19 +39,19 @@
         "nsp --set-cursor" = "nix-search --program % -d";
         "nsd --set-cursor" = "nix-search --query-string='package_description:(%)' -d";
         "ytm --set-cursor" = "yt-dlp -x --audio-format mp3 %";
-        "ytv --set-cursor" = "ytd-video '%'"; #note: had to use script as <= breaks config due to string interpolation
+        "ytv --set-cursor" = "ytd-video '%'"; # note: had to use script as <= breaks config due to string interpolation
         "rp --set-cursor" = "nix profile remove '%'";
       };
-      
+
       shellAliases = {
-      
-        cat = "bat"; 
-        more = "bat --paging=always"; 
+
+        cat = "bat";
+        more = "bat --paging=always";
         less = "bat --paging=always";
         checkpkg = "hydra-check --channel unstable --arch x86_64-linux";
         conf = "hx  ~/NixOS/";
         dg = "nh clean user";
-        edit-broken = "hx ~/bin/check_broken"; # Edit list of currently broken packages 
+        edit-broken = "hx ~/bin/check_broken"; # Edit list of currently broken packages
         e = "hx";
         find-font = "fc-list --format='%{family}\n' | grep";
         gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
@@ -83,9 +85,9 @@
         y = "yazi";
         v = "vifm";
       };
-      
+
       # interactiveShellInit = '' # Set Neovim as default man viewer
-        # set -x MANPAGER "nvim -c 'Man!'"
+      # set -x MANPAGER "nvim -c 'Man!'"
       # '';
     };
 
@@ -131,77 +133,77 @@
 
     nix-ld = {
       enable = true;
-        libraries = with pkgs; [
-          # Add missing dynamic libraries for unpackged programs here.. not systemPackages or user packages.
-          alsa-lib
-          at-spi2-atk
-          at-spi2-core
-          atk
-          cairo
-          cups
-          curl
-          dbus
-          expat
-          fontconfig
-          freetype
-          fuse
-          gdk-pixbuf
-          glib
-          glibc_memusage
-          gtk2
-          gtk2-x11
-          gtk3
-          gtk3-x11
-          gtk4
-          harfbuzz
-          icu
-          krb5
-          libgbm
-          libgcc
-          libGL
-          libappindicator-gtk3
-          libdrm
-          libedit
-          libglvnd
-          libnotify
-          libpulseaudio
-          libsoup_3
-          libunwind
-          libusb1
-          libuuid
-          libxkbcommon
-          libxml2
-          mesa
-          ncurses
-          nspr
-          nss
-          openssl
-          pango
-          pipewire
-          speechd
-          stdenv.cc.cc
-          systemd
-          tree-sitter
-          vulkan-loader
-          webkitgtk_4_1
-          xorg.libX11
-          xorg.libXScrnSaver
-          xorg.libXcomposite
-          xorg.libXcursor
-          xorg.libXdamage
-          xorg.libXext
-          xorg.libXfixes
-          xorg.libXi
-          xorg.libXrandr
-          xorg.libXrender
-          xorg.libXtst
-          xorg.libxcb
-          xorg.libxkbfile
-          xorg.libxshmfence
-          xorg.libXinerama
-          xorg_sys_opengl
-          zlib
-        ];
+      libraries = with pkgs; [
+        # Add missing dynamic libraries for unpackged programs here.. not systemPackages or user packages.
+        alsa-lib
+        at-spi2-atk
+        at-spi2-core
+        atk
+        cairo
+        cups
+        curl
+        dbus
+        expat
+        fontconfig
+        freetype
+        fuse
+        gdk-pixbuf
+        glib
+        glibc_memusage
+        gtk2
+        gtk2-x11
+        gtk3
+        gtk3-x11
+        gtk4
+        harfbuzz
+        icu
+        krb5
+        libgbm
+        libgcc
+        libGL
+        libappindicator-gtk3
+        libdrm
+        libedit
+        libglvnd
+        libnotify
+        libpulseaudio
+        libsoup_3
+        libunwind
+        libusb1
+        libuuid
+        libxkbcommon
+        libxml2
+        mesa
+        ncurses
+        nspr
+        nss
+        openssl
+        pango
+        pipewire
+        speechd
+        stdenv.cc.cc
+        systemd
+        tree-sitter
+        vulkan-loader
+        webkitgtk_4_1
+        xorg.libX11
+        xorg.libXScrnSaver
+        xorg.libXcomposite
+        xorg.libXcursor
+        xorg.libXdamage
+        xorg.libXext
+        xorg.libXfixes
+        xorg.libXi
+        xorg.libXrandr
+        xorg.libXrender
+        xorg.libXtst
+        xorg.libxcb
+        xorg.libxkbfile
+        xorg.libxshmfence
+        xorg.libXinerama
+        xorg_sys_opengl
+        zlib
+      ];
     };
 
     sway = {
@@ -214,5 +216,5 @@
       group = "users";
     };
     waybar.enable = true;
-  }; #End of programs
+  }; # End of programs
 }

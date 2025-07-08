@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   users.users.kev = {
     initialPassword = "password"; # Change after a fresh install with passwd
@@ -26,9 +26,9 @@
       bat
       btop
       cacert
-      calibre 
+      calibre
       cargo
-      cava # Terminal audio visualizer 
+      cava # Terminal audio visualizer
       clipse
       ddcutil # Adjust monitor brightness and other settings from cli
       diff-so-fancy
@@ -44,12 +44,12 @@
       fzf
       # gcc
       gdu # Disk space analyzer
-      gitui #Another terminal git helper
+      gitui # Another terminal git helper
       grc # colourizer for fishPlugins.grc
       file-roller
       grc # generic text colourizer. Using with fishPlugins.grc
       grim
-      grimblast 
+      grimblast
       highlight # Used with vifm to add color to file previews with code
       jamesdsp
       jq
@@ -65,7 +65,13 @@
       lsd # colorful ls
       mediainfo # Provides info on media files.
       mpc # For emacs simple-mpc
-      (mpv.override { scripts = [ mpvScripts.mpris mpvScripts.visualizer mpvScripts.modernz ]; })
+      (mpv.override {
+        scripts = [
+          mpvScripts.mpris
+          mpvScripts.visualizer
+          mpvScripts.modernz
+        ];
+      })
       mpv-shim-default-shaders
       nautilus
       ncpamixer
@@ -79,7 +85,7 @@
       p7zip
       pamixer
       pavucontrol
-      peaclock #TUI Clock/Stopwatch/Timer
+      peaclock # TUI Clock/Stopwatch/Timer
       # pistol # File preview for clifm
       # play # TUI grep/sed/awk playground
       playerctl
@@ -87,7 +93,7 @@
       podman-desktop
       podman-tui
       qalculate-gtk
-      regctl # Needed for 
+      regctl # Needed for
       ripgrep
       # rofi-wayland
       simple-completion-language-server

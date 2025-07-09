@@ -137,13 +137,16 @@
       markdown-oxide # markdown LS
       marksman
       multimarkdown # Markdown preview in emacs
+      nil # for zed-editor
       nixd
       nodePackages.prettier
       rmpc # nice alternative to ncmpcpp
       shellcheck # Needed for doom emacs
+      sioyek # pdf viewer
       spotify
       spotify-player
       swaynotificationcenter
+      sysz # fzf systemd interface
       taplo # TOML LS
       vifm
       vscode-langservers-extracted # Various LS

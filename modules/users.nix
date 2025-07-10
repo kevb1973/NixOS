@@ -146,6 +146,7 @@
       spotify
       spotify-player
       swaynotificationcenter
+      systemctl-tui
       sysz # fzf systemd interface
       taplo # TOML LS
       vifm

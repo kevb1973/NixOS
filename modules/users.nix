@@ -150,6 +150,8 @@
       sysz # fzf systemd interface
       taplo # TOML LS
       vifm
+      vivaldi
+      vivaldi-ffmpeg-codecs
       vscode-langservers-extracted # Various LS
       # wezterm
       wlr-which-key

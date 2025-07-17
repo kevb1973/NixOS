@@ -22,6 +22,8 @@
       enable = true; # 'at' daemon for reminders
       allowEveryone = true;
     };
+
+    bpftune.enable = true; # Auto tune kernel/network
     
     desktopManager = {
       plasma6.enable = false;

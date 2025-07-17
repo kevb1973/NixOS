@@ -39,7 +39,7 @@
         }
       '';
     };
-    mpdris2.enable = true;
+    mpdris2.enable = false; # broken as of 16/07/25
   };
 
   dconf.settings = {

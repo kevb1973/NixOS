@@ -12,12 +12,12 @@
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
-        amdvlk
+        # amdvlk # apparently not recommended anymore.. remove if everything fine without it.
         # rocmPackages.clr.icd
         # rocmPackages.rocm-smi
       ];
       extraPackages32 = with pkgs; [
-        driversi686Linux.amdvlk
+        # driversi686Linux.amdvlk
       ];
     };
   };

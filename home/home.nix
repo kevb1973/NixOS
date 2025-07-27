@@ -24,6 +24,7 @@
   # ];
 
   programs = {
+    atuin.enable = true; # Shell history database
     home-manager.enable = true;
   };
 

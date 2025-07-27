@@ -24,6 +24,7 @@
       aria2
       # authenticator
       bat
+      bemoji
       btop
       cacert
       calibre
@@ -107,7 +108,7 @@
       tree-sitter
       video-downloader
       vifm
-      # virt-manager
+      virt-manager
       vlc
       wakeonlan # For lgtv control
       # walker # Switched to flake due to bug and slow nixpkgs updates
@@ -124,7 +125,7 @@
       ydotool
       yt-dlp
       zoxide
-      alejandra # nix code formatter
+      # alejandra # alternate nix code formatter
       # anydesk
       at
       authenticator
@@ -139,6 +140,7 @@
       multimarkdown # Markdown preview in emacs
       nil # for zed-editor
       nixd
+      nixfmt-rfc-style # official nix code formatter
       nodePackages.prettier
       rmpc # nice alternative to ncmpcpp
       shellcheck # Needed for doom emacs

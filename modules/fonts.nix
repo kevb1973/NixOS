@@ -5,10 +5,10 @@
     fontDir.enable = true;
     packages = with pkgs; [
       corefonts
-      noto-fonts-lgc-plus
-      nerd-fonts.victor-mono
-      maple-mono.NF
       font-awesome
+      maple-mono.NF
+      nerd-fonts.victor-mono
+      noto-fonts-lgc-plus
       noto-fonts-color-emoji
     ];
     fontconfig.defaultFonts = {

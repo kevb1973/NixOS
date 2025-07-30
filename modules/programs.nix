@@ -63,7 +63,7 @@
         lp = "nix profile list";
         ls = "lsd";
         lu = ''echo -e "\n\e[1mLast Flake Update:\e[0m $(ls -l ~/NixOS/flake.lock | awk '{print $6, $7, $8}')\n"'';
-        no = "nixos option -i";
+        no = "nixos option";
         npu = "nix profile upgrade";
         opt = "nix-store --optimize";
         ports = "netstat -lntup";

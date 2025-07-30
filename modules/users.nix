@@ -21,10 +21,12 @@
 
     packages = with pkgs; [
       adw-gtk3
+      aichat
       aria2
       # authenticator
       bat
       bemoji
+      boxbuddy
       btop
       cacert
       calibre
@@ -33,6 +35,8 @@
       clipse
       ddcutil # Adjust monitor brightness and other settings from cli
       diff-so-fancy
+      distrobox
+      distrobox-tui
       emacs-pgtk
       eza
       fd
@@ -77,6 +81,7 @@
       nautilus
       ncpamixer
       # ncspot
+      nettools
       networkmanagerapplet
       nh # nix helper
       nix-search-cli

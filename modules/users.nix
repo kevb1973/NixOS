@@ -20,10 +20,14 @@
     # shell = pkgs.fish;
 
     packages = with pkgs; [
+      # anydesk
+      # authenticator
+      # syncthing
       adw-gtk3
       aichat
       aria2
-      # authenticator
+      at
+      authenticator
       bat
       bemoji
       boxbuddy
@@ -37,63 +41,61 @@
       diff-so-fancy
       distrobox
       distrobox-tui
+      dust # quick dir size for 'sys' script
       emacs-pgtk
       eza
       fd
       file
-      fishPlugins.tide
-      fishPlugins.grc
+      file-roller
       fishPlugins.fzf
+      fishPlugins.grc
+      fishPlugins.tide
       foliate
       fuzzel
       fzf
-      # gcc
       gdu # Disk space analyzer
       gitui # Another terminal git helper
       grc # colourizer for fishPlugins.grc
-      file-roller
       grc # generic text colourizer. Using with fishPlugins.grc
       grim
       grimblast
       highlight # Used with vifm to add color to file previews with code
+      hydra-check # check build status.. hydra-check --channel unstable <pkg>
       jamesdsp
       jq
       kdePackages.polkit-kde-agent-1
-      kdePackages.qtstyleplugin-kvantum
       kdePackages.qt6ct
+      kdePackages.qtstyleplugin-kvantum
       kitty
       kitty-themes
       lazygit
+      lazyjournal # tui for logs
       libnotify
       libsForQt5.qtstyleplugin-kvantum
-      # lmstudio
       lsd # colorful ls
+      manix # search nixos and home-manager options
+      markdown-oxide # markdown LS
+      marksman
       mediainfo # Provides info on media files.
-      # mpc # For emacs simple-mpc
-      (mpv.override {
-        scripts = [
-          mpvScripts.mpris
-          mpvScripts.visualizer
-          mpvScripts.modernz
-        ];
-      })
       mpv-shim-default-shaders
+      multimarkdown # Markdown preview in emacs
       nautilus
       ncpamixer
-      # ncspot
       nettools
       networkmanagerapplet
       nh # nix helper
+      nil # for zed-editor
       nix-search-cli
       nix-tree
+      nixd
+      nixfmt-rfc-style # official nix code formatter
+      nodePackages.prettier
       nodejs # Need for Neovim Mason
       nvd # Nix derivation diff tool
       p7zip
       pamixer
       pavucontrol
       peaclock # TUI Clock/Stopwatch/Timer
-      # pistol # File preview for clifm
-      # play # TUI grep/sed/awk playground
       playerctl
       podman-compose
       podman-desktop
@@ -101,71 +103,55 @@
       qalculate-gtk
       regctl # Needed for
       ripgrep
-      # rofi-wayland
+      rmpc # nice alternative to ncmpcpp
+      shellcheck # Needed for doom emacs
+      shfmt # bash code formatter
       simple-completion-language-server
       sioyek # nice pdf viewer
       slurp
+      spotify
+      spotify-player
       stow
       swayimg
       swaynotificationcenter
-      # syncthing
+      swaynotificationcenter
+      systemctl-tui
+      sysz # fzf systemd interface
+      taplo # TOML LS
       tealdeer # Command line help 'tldr'
       tree-sitter
       video-downloader
       vifm
       virt-manager
+      vivaldi
+      vivaldi-ffmpeg-codecs
       vlc
+      vscode-langservers-extracted # Various LS
       wakeonlan # For lgtv control
-      # walker # Switched to flake due to bug and slow nixpkgs updates
       waypaper
       websocat # For lgtv control
       wev
       wget
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
       wlogout
+      wlr-which-key
       wtype # For wofi-emoji or walker
       xdg-user-dirs
       xwayland-run
+      xwayland-satellite # for Niri
+      yad
+      yaml-language-server
       yazi
       ydotool
       yt-dlp
       zoxide
-      # alejandra # alternate nix code formatter
-      # anydesk
-      at
-      authenticator
-      dust # quick dir size for 'sys' script
-      hydra-check # check build status.. hydra-check --channel unstable <pkg>
-      # keepassxc
-      lazyjournal # tui for logs
-      shfmt # bash code formatter
-      manix # search nixos and home-manager options
-      markdown-oxide # markdown LS
-      marksman
-      multimarkdown # Markdown preview in emacs
-      nil # for zed-editor
-      nixd
-      nixfmt-rfc-style # official nix code formatter
-      nodePackages.prettier
-      rmpc # nice alternative to ncmpcpp
-      shellcheck # Needed for doom emacs
-      sioyek # pdf viewer
-      spotify
-      spotify-player
-      swaynotificationcenter
-      systemctl-tui
-      sysz # fzf systemd interface
-      taplo # TOML LS
-      vifm
-      vivaldi
-      vivaldi-ffmpeg-codecs
-      vscode-langservers-extracted # Various LS
-      # wezterm
-      wlr-which-key
-      xwayland-satellite # for Niri
-      yad
-      yaml-language-server
-      zed-editor-fhs
+      (mpv.override {
+        scripts = [
+          mpvScripts.mpris
+          mpvScripts.visualizer
+          mpvScripts.modernz
+        ];
+      })
     ];
   };
 }

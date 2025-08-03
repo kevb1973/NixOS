@@ -66,10 +66,10 @@
       lazygit
       libnotify
       libsForQt5.qtstyleplugin-kvantum
-      lmstudio
+      # lmstudio
       lsd # colorful ls
       mediainfo # Provides info on media files.
-      mpc # For emacs simple-mpc
+      # mpc # For emacs simple-mpc
       (mpv.override {
         scripts = [
           mpvScripts.mpris

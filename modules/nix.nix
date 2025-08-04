@@ -13,7 +13,7 @@
       options = "--delete-older-than 1d";
     };
     nixPath = [
-      "/etc/nix/inputs"
+      "nixpkgs=${inputs.nixpkgs}"
     ]; # Fix <nixpkgs> for flakes. See environment.etc."nix/inputs/nixpkgs"
     optimise.automatic = true; #Auto optimize once per day at 3:45am (default)
     settings = {

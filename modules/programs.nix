@@ -179,7 +179,7 @@
         openssl
         pango
         pipewire
-        speechd
+        # speechd
         stdenv.cc.cc
         systemd
         tree-sitter

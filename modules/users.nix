@@ -76,6 +76,7 @@
       manix # search nixos and home-manager options
       markdown-oxide # markdown LS
       marksman
+      matugen # For quickshell - DankMaterialShell
       mediainfo # Provides info on media files.
       mpv-shim-default-shaders
       multimarkdown # Markdown preview in emacs
@@ -101,6 +102,7 @@
       podman-desktop
       podman-tui
       qalculate-gtk
+      quickshell # For quickshell - DankMaterialShell
       regctl # Needed for
       ripgrep
       rmpc # nice alternative to ncmpcpp

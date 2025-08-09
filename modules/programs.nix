@@ -215,6 +215,6 @@
       enable = true;
       group = "users";
     };
-    waybar.enable = true;
+    waybar.enable = false;
   }; # End of programs
 }

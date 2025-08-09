@@ -6,15 +6,15 @@
     '';
     tmp.useTmpfs = true;
     kernelModules = [ "i2c-dev" ];
-    # kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_latest;
     swraid.enable = false; # Setting needed as system state ver < 23.11
     initrd = {
       kernelModules = [ "amdgpu" ];
       systemd = {
-        enable = true;
+        enable = true; # Supposedly results in faster boot?
         network.wait-online.enable = false;
       };
-      verbose = false; #for silent boot (plymouth)
+      verbose = false; #for silent boot
     };
     loader = {
       systemd-boot.enable = true;
@@ -25,22 +25,19 @@
       };
     };
     kernelParams = [
-      "quiet" #for silent boot (plymouth)
-      "splash" #for silent boot (plymouth)
-      "boot.shell_on_fail" #for silent boot (plymouth)
-      "loglevel=3" #for silent boot (plymouth)
-      "rd.systemd.show_status=false" #for silent boot (plymouth)
-      "rd.udev.log_level=3" #for silent boot (plymouth)
-      "udev.log_priority=3" #for silent boot (plymouth)
+      "quiet" #for silent boot 
+      "splash" #for silent boot 
+      "boot.shell_on_fail" #for silent boot 
+      "loglevel=3" #for silent boot 
+      "rd.systemd.show_status=auto" #for silent boot 
+      "rd.udev.log_level=3" #for silent boot 
+      "udev.log_priority=3" #for silent boot 
       "amd_iommu=on"
       "iommu=pt"
       "systemd.mask=systemd-vconsole-setup.service" # Added due to VConsole error on boot. See https://github.com/NixOS/nixpkgs/issues/312452#issuecomment-2320993345
       "systemd.mask=dev-tpmrm0.device"
     ];
-    plymouth = {
-      enable = false; # disable for now. Only see it for a second anyways.
-    };
-    consoleLogLevel = 0; #for silent boot (plymouth)
+    consoleLogLevel = 3; 
     
   };
 }

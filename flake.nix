@@ -36,7 +36,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.kev = import ./home/home.nix;
+              users.kev = ./home/home.nix;
               extraSpecialArgs = { inherit inputs; };
             };
           }

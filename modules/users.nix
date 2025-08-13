@@ -37,6 +37,9 @@
       cargo
       cava # Terminal audio visualizer
       clipse
+      colloid-gtk-theme
+      colloid-icon-theme
+      colloid-kde
       ddcutil # Adjust monitor brightness and other settings from cli
       diff-so-fancy
       distrobox
@@ -53,19 +56,24 @@
       foliate
       fuzzel
       fzf
+      gammastep
       gdu # Disk space analyzer
       gitui # Another terminal git helper
+      gnome-boxes
       grc # colourizer for fishPlugins.grc
       grc # generic text colourizer. Using with fishPlugins.grc
       grim
       grimblast
       highlight # Used with vifm to add color to file previews with code
       hydra-check # check build status.. hydra-check --channel unstable <pkg>
+      inxi # Hardware info app
+      isd # Systemd tui
       jamesdsp
       jq
       kdePackages.polkit-kde-agent-1
       kdePackages.qt6ct
       kdePackages.qtstyleplugin-kvantum
+      khal # Local Calendar used by DankMaterialShell
       kitty
       kitty-themes
       lazygit
@@ -117,16 +125,15 @@
       swayimg
       swaynotificationcenter
       swaynotificationcenter
-      systemctl-tui
-      sysz # fzf systemd interface
       taplo # TOML LS
       tealdeer # Command line help 'tldr'
       tree-sitter
+      vdirsyncer # Sync web calendar to khal for DankMaterialShell
       video-downloader
       vifm
       virt-manager
-      vivaldi
-      vivaldi-ffmpeg-codecs
+      # vivaldi
+      # vivaldi-ffmpeg-codecs
       vlc
       vscode-langservers-extracted # Various LS
       wakeonlan # For lgtv control
@@ -137,6 +144,7 @@
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
       wlogout
       wlr-which-key
+      wlsunset # Screen temp change for DankMaterialShell
       wtype # For wofi-emoji or walker
       xdg-user-dirs
       xwayland-run

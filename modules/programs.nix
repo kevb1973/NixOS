@@ -38,6 +38,7 @@
         "nsn --set-cursor" = "nix-search --name % -d";
         "nsp --set-cursor" = "nix-search --program % -d";
         "nsd --set-cursor" = "nix-search --query-string='package_description:(%)' -d";
+        "scu" = "systemctl --user";
         "ytm --set-cursor" = "yt-dlp -x --audio-format mp3 %";
         "ytv --set-cursor" = "ytd-video '%'"; # note: had to use script as <= breaks config due to string interpolation
         "rp --set-cursor" = "nix profile remove '%'";

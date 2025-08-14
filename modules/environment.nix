@@ -25,8 +25,10 @@
       MANWIDTH = "100";
       NIX_ALLOW_UNFREE = "1";
       NIXOS_CONFIG = "/home/kev/NixOS";
+      NIX_PAGER = "bat"; 
       OLLAMA_HOST = "127.0.0.1:11434";
       OLLAMA_FLASH_ATTENTION = "1";
+      PAGER = "bat";
       ROCM_PATH = "/opt/rocm";
       HSA_OVERRIDE_GFX_VERSION="10.3.0";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
@@ -53,6 +55,7 @@
       glib
       gitFull
       gnumake
+      gsettings-desktop-schemas
       jdk
       libcxxStdenv # Needed to build binaries for tree-sitter
       lua-language-server

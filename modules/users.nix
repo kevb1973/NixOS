@@ -60,6 +60,7 @@
       gdu # Disk space analyzer
       gitui # Another terminal git helper
       gnome-boxes
+      gnome-software # Install and manage flatpaks
       grc # colourizer for fishPlugins.grc
       grc # generic text colourizer. Using with fishPlugins.grc
       grim
@@ -103,7 +104,8 @@
       nvd # Nix derivation diff tool
       p7zip
       pamixer
-      pavucontrol
+      # pavucontrol
+      pwvucontrol # Pipewire GUI mixer
       peaclock # TUI Clock/Stopwatch/Timer
       playerctl
       podman-compose
@@ -123,7 +125,6 @@
       spotify-player
       stow
       swayimg
-      swaynotificationcenter
       swaynotificationcenter
       taplo # TOML LS
       tealdeer # Command line help 'tldr'

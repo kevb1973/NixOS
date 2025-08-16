@@ -62,7 +62,7 @@
         logout = "sudo systemctl restart display-manager.service";
         logs = "sudo lazyjournal";
         lp = "nix profile list";
-        ls = "lsd";
+        ls = "eza";
         lu = ''echo -e "\n\e[1mLast Flake Update:\e[0m $(ls -l ~/NixOS/flake.lock | awk '{print $6, $7, $8}')\n"'';
         no = "nixos option";
         npu = "nix profile upgrade";

@@ -36,7 +36,8 @@
       calibre
       cargo
       cava # Terminal audio visualizer
-      clipse
+      # clipse
+      cliphist # Clipboard manager (for DankMaterialShell)
       colloid-gtk-theme
       colloid-icon-theme
       colloid-kde
@@ -46,7 +47,7 @@
       distrobox-tui
       dust # quick dir size for 'sys' script
       emacs-pgtk
-      eza
+      eza #colourful ls
       fd
       file
       file-roller
@@ -81,7 +82,7 @@
       lazyjournal # tui for logs
       libnotify
       libsForQt5.qtstyleplugin-kvantum
-      lsd # colorful ls
+      # lsd # colorful ls
       manix # search nixos and home-manager options
       markdown-oxide # markdown LS
       marksman

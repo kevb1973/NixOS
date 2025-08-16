@@ -3,9 +3,9 @@
   services = {
     accounts-daemon.enable = true;
     avahi.enable = true;
-    blueman.enable = false; # wifi/bluetooth card stopped working..TODO: need to investigate. 
+    blueman.enable = false; # wifi/bluetooth card stopped working..TODO: need to investigate.
     dbus.enable = true;
-    envfs.enable = true; #fixes script shebangs looking in /usr/bin /bin etc.
+    envfs.enable = true; # fixes script shebangs looking in /usr/bin /bin etc.
     flatpak.enable = true;
     fwupd.enable = false; # disabled.. slowing boot.. no updates available anyways. (fwdupdmgr get-updates)
     geoclue2.enable = true;
@@ -15,7 +15,7 @@
     # nixos-cli.enable = true;
     openssh.enable = false;
     printing.drivers = [ pkgs.brlaser ];
-    printing.enable = true; 
+    printing.enable = true;
     tumbler.enable = false; # Thumbnail support for images
 
     atd = {
@@ -24,7 +24,7 @@
     };
 
     bpftune.enable = true; # Auto tune kernel/network
-    
+
     desktopManager = {
       plasma6.enable = false;
       plasma6.enableQt5Integration = true;
@@ -45,7 +45,7 @@
     };
 
     emacs = {
-       enable = false;
+      enable = false;
     };
 
     # freshrss = {
@@ -89,7 +89,7 @@
       jack.enable = false;
     };
 
-    # silverbullet = { # switched to docker version for faster updates 
+    # silverbullet = { # switched to docker version for faster updates
     #   enable = true;
     #   user = "kev";
     #   openFirewall = true;
@@ -101,10 +101,17 @@
       enable = true;
       acceleration = "rocm";
       rocmOverrideGfx = "10.3.0";
-      environmentVariables = { HIP_VISIBLE_DEVICES = "1";  ROCR_VISIBLE_DEVICES = "0"; };
-      
+      environmentVariables = {
+        HIP_VISIBLE_DEVICES = "1";
+        ROCR_VISIBLE_DEVICES = "0";
+      };
+
     };
-    
+
+    udev.extraRules = ''
+      KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
+    ''; # add user perms to uinput for ydotool
+
     xserver = {
       enable = false;
       xkb = {
@@ -128,5 +135,5 @@
         # scrollButton = 3;
       };
     };
-  }; 
+  };
 }

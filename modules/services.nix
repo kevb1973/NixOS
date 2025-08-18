@@ -23,7 +23,7 @@
       allowEveryone = true;
     };
 
-    bpftune.enable = true; # Auto tune kernel/network
+    bpftune.enable = false; # Auto tune kernel/network (disable due to net issues)
 
     desktopManager = {
       plasma6.enable = false;

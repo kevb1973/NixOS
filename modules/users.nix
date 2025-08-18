@@ -130,7 +130,6 @@
       taplo # TOML LS
       tealdeer # Command line help 'tldr'
       tree-sitter
-      ttyd # terminal in browser
       vdirsyncer # Sync web calendar to khal for DankMaterialShell
       video-downloader
       vifm

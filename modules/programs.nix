@@ -63,7 +63,7 @@
         logs = "sudo lazyjournal";
         lp = "nix profile list";
         ls = "eza";
-        lu = ''echo -e "\n\e[1mLast Flake Update:\e[0m $(ls -l ~/NixOS/flake.lock | awk '{print $6, $7, $8}')\n"'';
+        lu = ''echo -e "\n\e[1mLast Flake Update:\e[0m $(ls -l ~/NixOS/flake.lock | awk '{print $4, $5, $6}')\n"'';
         no = "nixos option";
         npu = "nix profile upgrade";
         opt = "nix-store --optimize";

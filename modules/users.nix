@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   users.users.kev = {
     initialPassword = "password"; # Change after a fresh install with passwd
@@ -149,8 +149,8 @@
       wlsunset # Screen temp change for DankMaterialShell
       wtype # For wofi-emoji or walker
       xdg-user-dirs
-      xwayland-run
-      xwayland-satellite # for Niri
+      # xwayland-satellite # for Niri
+      inputs.xwayland-satellite.packages.${pkgs.system}.default
       yad
       yaml-language-server
       yazi

@@ -21,7 +21,7 @@
       builders-use-substitutes = true;
       substituters = [
         # "https://hyprland.cachix.org"
-        # "https://niri.cachix.org"
+        "https://niri.cachix.org"
         # "https://cosmic.cachix.org/"
         "https://watersucks.cachix.org"
       ];

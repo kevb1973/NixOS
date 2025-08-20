@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   programs = {
     adb.enable = true;
@@ -116,14 +116,15 @@
       fuzzyCompletion = true;
     };
 
-    # hyprland = {
-    #   enable = true;
+    hyprland = {
+      enable = true;
     #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    # };
+    };
 
     niri = {
       enable = true;
       # package = pkgs.niri-unstable;
+      package = inputs.niri.packages.${pkgs.system}.default;
     };
 
     nix-index = {
@@ -207,7 +208,7 @@
     };
 
     sway = {
-      enable = true;
+      enable = false;
       wrapperFeatures.gtk = true;
       extraPackages = [ ];
     };

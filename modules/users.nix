@@ -15,7 +15,7 @@
       "networkmanager"
       "podman"
       "wheel"
-      "ydotool"
+      # "ydotool"
     ];
     # shell = pkgs.fish;
 
@@ -45,6 +45,7 @@
       diff-so-fancy
       distrobox
       distrobox-tui
+      dotool # daemonless replacement for ydotool
       dust # quick dir size for 'sys' script
       emacs-pgtk
       eza #colourful ls
@@ -59,6 +60,7 @@
       fzf
       gammastep
       gdu # Disk space analyzer
+      geoclue2 # Needed for gammastep auto localation
       gitui # Another terminal git helper
       gnome-boxes
       gnome-software # Install and manage flatpaks
@@ -127,8 +129,9 @@
       stow
       swayimg
       swaynotificationcenter
-      taplo # TOML LS
+      # taplo # TOML LS
       tealdeer # Command line help 'tldr'
+      tombi # Newer TOML LS
       tree-sitter
       vdirsyncer # Sync web calendar to khal for DankMaterialShell
       video-downloader
@@ -154,7 +157,7 @@
       yad
       yaml-language-server
       yazi
-      ydotool
+      # ydotool
       yt-dlp
       zoxide
       (mpv.override {

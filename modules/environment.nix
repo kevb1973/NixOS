@@ -41,7 +41,7 @@
       VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json";
       XDG_SCREENSHOTS_DIR = "/home/kev/screenshots";
       XMODIFIERS = "@im=ibus";
-      YDOTOOL_SOCKET = "/run/ydotoold/socket";
+      # YDOTOOL_SOCKET = "/run/ydotoold/socket";
       _JAVA_AWT_WM_NONREPARENTING = "1";
     };
 

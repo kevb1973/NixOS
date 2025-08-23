@@ -84,6 +84,7 @@
         verify-store = "sudo nix-store --verify --check-contents";
         y = "yazi";
         v = "vifm";
+        zz = "zi";
       };
 
       # interactiveShellInit = '' # Set Neovim as default man viewer
@@ -207,16 +208,16 @@
       ];
     };
 
-    sway = {
-      enable = false;
-      wrapperFeatures.gtk = true;
-      extraPackages = [ ];
-    };
+    # sway = {
+    #   enable = true;
+    #   wrapperFeatures.gtk = true;
+    #   extraPackages = [ ];
+    # };
 
-    ydotool = {
-      enable = true;
-      group = "users";
-    };
+    # ydotool = {
+    #   enable = true;
+    #   group = "users";
+    # };
     waybar.enable = false;
   }; # End of programs
 }

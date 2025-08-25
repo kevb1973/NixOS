@@ -64,6 +64,7 @@
       gitui # Another terminal git helper
       gnome-boxes
       gnome-software # Install and manage flatpaks
+      gnome-themes-extra
       grc # colourizer for fishPlugins.grc
       grc # generic text colourizer. Using with fishPlugins.grc
       grim

@@ -20,7 +20,8 @@
       EDITOR = "hx";
       # GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
-      GTK_THEME="Adwaita:light";
+      # GTK_THEME="Adwaita:light";
+      GTK_THEME="Colloid-Light";
       MANPAGER = "nvim +Man!";
       MANWIDTH = "100";
       NIX_ALLOW_UNFREE = "1";

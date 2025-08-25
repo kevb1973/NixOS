@@ -95,7 +95,7 @@
       nautilus
       ncpamixer
       nettools
-      networkmanagerapplet
+      # networkmanagerapplet
       nh # nix helper
       nil # for zed-editor
       nix-search-cli
@@ -105,6 +105,7 @@
       nodePackages.prettier
       nodejs # Need for Neovim Mason
       nvd # Nix derivation diff tool
+      nwg-look # Wayland replacement for lxappearance. Set gtk themes, icons, cursors etc.
       p7zip
       pamixer
       # pavucontrol

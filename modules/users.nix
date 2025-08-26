@@ -116,6 +116,7 @@
       podman-compose
       podman-desktop
       podman-tui
+      pywalfox-native # Native component for pywalfox extension
       qalculate-gtk
       quickshell # For quickshell - DankMaterialShell
       regctl # Needed for
@@ -131,6 +132,7 @@
       stow
       swayimg
       swaynotificationcenter
+      swww # wallpaper setter for matugen
       # taplo # TOML LS
       tealdeer # Command line help 'tldr'
       tombi # Newer TOML LS

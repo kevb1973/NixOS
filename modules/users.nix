@@ -58,9 +58,9 @@
       foliate
       fuzzel
       fzf
-      gammastep
+      # gammastep # Switch to sunsetr. No geoclue2 needed. Not killed by DankMaterialShell.
       gdu # Disk space analyzer
-      geoclue2 # Needed for gammastep auto localation
+      # geoclue2 # Needed for gammastep auto localation
       gitui # Another terminal git helper
       gnome-boxes
       gnome-software # Install and manage flatpaks
@@ -130,6 +130,7 @@
       spotify
       spotify-player
       stow
+      sunsetr
       swayimg
       swaynotificationcenter
       swww # wallpaper setter for matugen

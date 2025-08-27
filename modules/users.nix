@@ -40,7 +40,6 @@
       cliphist # Clipboard manager (for DankMaterialShell)
       colloid-gtk-theme
       colloid-icon-theme
-      colloid-kde
       ddcutil # Adjust monitor brightness and other settings from cli
       diff-so-fancy
       distrobox
@@ -78,7 +77,7 @@
       kdePackages.polkit-kde-agent-1
       kdePackages.qt6ct
       kdePackages.qtstyleplugin-kvantum
-      khal # Local Calendar used by DankMaterialShell
+      # khal # Local Calendar used by DankMaterialShell (broken)
       kitty
       kitty-themes
       lazygit
@@ -114,12 +113,11 @@
       peaclock # TUI Clock/Stopwatch/Timer
       playerctl
       podman-compose
-      podman-desktop
       podman-tui
       pywalfox-native # Native component for pywalfox extension
       qalculate-gtk
       quickshell # For quickshell - DankMaterialShell
-      regctl # Needed for
+      regctl # Needed for?
       ripgrep
       rmpc # nice alternative to ncmpcpp
       shellcheck # Needed for doom emacs
@@ -138,9 +136,8 @@
       tealdeer # Command line help 'tldr'
       tombi # Newer TOML LS
       tree-sitter
-      vdirsyncer # Sync web calendar to khal for DankMaterialShell
+      # vdirsyncer # Sync web calendar to khal for DankMaterialShell (broken 2025-08-27)
       video-downloader
-      vifm
       virt-manager
       # vivaldi
       # vivaldi-ffmpeg-codecs
@@ -158,7 +155,7 @@
       wtype # For wofi-emoji or walker
       xdg-user-dirs
       # xwayland-satellite # for Niri
-      inputs.xwayland-satellite.packages.${pkgs.system}.default
+      xwayland-satellite
       yad
       yaml-language-server
       yazi

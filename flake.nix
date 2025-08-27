@@ -3,12 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # niri.url = "github:sodiboo/niri-flake";
     niri.url = "github:YaLTeR/niri";
     niri.inputs.nixpkgs.follows = "nixpkgs";
     nixos-cli.url = "github:nix-community/nixos-cli";
-    xwayland-satellite.url = "github:Supreeeme/xwayland-satellite";
-    xwayland-satellite.inputs.nixpkgs.follows = "nixpkgs";
     # hyprland.url = "github:hyprwm/Hyprland";
 
     home-manager = {
@@ -16,10 +13,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       };
 
-      # ignis = {
-      #   url = "github:ignis-sh/ignis";
-      #   inputs.nixpkgs.follows = "nixpkgs";
-      # };
   };
 
   outputs = {

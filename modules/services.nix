@@ -35,7 +35,7 @@
       autoLogin.enable = false;
       autoLogin.user = "kev";
       # cosmic-greeter.enable = false;
-      defaultSession = "hyprland";
+      defaultSession = "niri";
       sddm = {
         enable = false;
         autoNumlock = true;
@@ -47,14 +47,6 @@
     emacs = {
       enable = false;
     };
-
-    # freshrss = {
-    #   enable = true;
-    #   baseUrl = "http://freshrss";
-    #   defaultUser = "kev";
-    #   passwordFile = "/run/secrets/freshrss";
-    #   authType = "none";
-    # };
 
     fstrim = {
       enable = true;

@@ -8,6 +8,7 @@
       fira-code
       font-awesome
       inter
+      input-fonts
       maple-mono.NF
       material-symbols
       nerd-fonts.victor-mono
@@ -18,4 +19,5 @@
       monospace = [ "VictorMono Nerd Font" ];
     };
   };
+  nixpkgs.config.input-fonts.acceptLicense = true; # Needed for unfree font
 }

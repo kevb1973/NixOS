@@ -12,7 +12,6 @@
     # gnome.gnome-keyring.enable = lib.mkDefault false; # using programs.ssh.startAgent, override due to niri-flake
     gvfs.enable = true; # Mount, trash, and other functionalities
     journald.extraConfig = "SystemMaxUse=500M";
-    # nixos-cli.enable = true;
     openssh.enable = false;
     printing.drivers = [ pkgs.brlaser ];
     printing.enable = true;
@@ -65,13 +64,13 @@
       };
     };
 
-    nixos-cli = {
-      enable = true;
-      config = {
-        config_location = "/home/kev/NixOS";
-        use_nvd = true;
-      };
-    };
+    # nixos-cli = { # was only using for options search.. switched to optnix with no flake input needed.
+    #   enable = true;
+    #   config = {
+    #     config_location = "/home/kev/NixOS";
+    #     use_nvd = true;
+    #   };
+    # };
 
     pipewire = {
       enable = true;
@@ -100,6 +99,20 @@
 
     };
 
+    rss-bridge = {
+      enable = true;
+      virtualHost = "localhost";
+      config = {
+        system.enabled_bridges = ["*"];
+        authentication = { token = "rss-bridge"; };
+      };
+    };
+    nginx.virtualHosts."localhost".listen = [
+            {
+              addr = "0.0.0.0";
+              port = 3001;
+            }
+    ];
     udev.extraRules = ''
       KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
     ''; # add user perms to uinput for ydotool

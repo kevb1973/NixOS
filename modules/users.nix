@@ -106,6 +106,7 @@
       nodejs # Need for Neovim Mason
       nvd # Nix derivation diff tool
       nwg-look # Wayland replacement for lxappearance. Set gtk themes, icons, cursors etc.
+      optnix
       p7zip
       pamixer
       # pavucontrol
@@ -128,7 +129,6 @@
       spotify
       spotify-player
       stow
-      sunsetr
       swayimg
       swaynotificationcenter
       swww # wallpaper setter for matugen

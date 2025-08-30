@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     niri.url = "github:YaLTeR/niri";
     niri.inputs.nixpkgs.follows = "nixpkgs";
-    nixos-cli.url = "github:nix-community/nixos-cli";
+    # nixos-cli.url = "github:nix-community/nixos-cli";
     # hyprland.url = "github:hyprwm/Hyprland";
 
     home-manager = {
@@ -19,7 +19,7 @@
     nixpkgs,
     home-manager,
     # niri,
-    nixos-cli,
+    # nixos-cli,
     ...
   }@inputs: {
     nixosConfigurations = {
@@ -38,7 +38,7 @@
             };
           }
           # niri.nixosModules.niri
-          nixos-cli.nixosModules.nixos-cli
+          # nixos-cli.nixosModules.nixos-cli
         ];
       };
     };

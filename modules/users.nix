@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   users.users.kev = {
     initialPassword = "password"; # Change after a fresh install with passwd
@@ -20,11 +20,9 @@
     # shell = pkgs.fish;
 
     packages = with pkgs; [
-      # anydesk
-      # authenticator
-      # syncthing
       adw-gtk3
       aichat
+      # anydesk
       aria2
       at
       authenticator
@@ -57,9 +55,9 @@
       foliate
       fuzzel
       fzf
-      # gammastep # Switch to sunsetr. No geoclue2 needed. Not killed by DankMaterialShell.
+      gammastep # Prfer sunsetr as No geoclue2 needed, but this is supported by DankMaterialShell.
       gdu # Disk space analyzer
-      # geoclue2 # Needed for gammastep auto localation
+      geoclue2 # Needed for gammastep auto localation
       gitui # Another terminal git helper
       gnome-boxes
       gnome-software # Install and manage flatpaks
@@ -77,14 +75,13 @@
       kdePackages.polkit-kde-agent-1
       kdePackages.qt6ct
       kdePackages.qtstyleplugin-kvantum
-      # khal # Local Calendar used by DankMaterialShell (broken)
+      khal # Local Calendar used by DankMaterialShell 
       kitty
       kitty-themes
       lazygit
       lazyjournal # tui for logs
       libnotify
       libsForQt5.qtstyleplugin-kvantum
-      # lsd # colorful ls
       manix # search nixos and home-manager options
       markdown-oxide # markdown LS
       marksman
@@ -132,11 +129,11 @@
       swayimg
       swaynotificationcenter
       swww # wallpaper setter for matugen
-      # taplo # TOML LS
+      # syncthing
       tealdeer # Command line help 'tldr'
       tombi # Newer TOML LS
       tree-sitter
-      # vdirsyncer # Sync web calendar to khal for DankMaterialShell (broken 2025-08-27)
+      vdirsyncer # Sync web calendar to khal for DankMaterialShell 
       video-downloader
       virt-manager
       # vivaldi
@@ -151,15 +148,12 @@
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
       wlogout
       wlr-which-key
-      wlsunset # Screen temp change for DankMaterialShell
       wtype # For wofi-emoji or walker
       xdg-user-dirs
-      # xwayland-satellite # for Niri
-      xwayland-satellite
+      xwayland-satellite # for Niri
       yad
       yaml-language-server
       yazi
-      # ydotool
       yt-dlp
       zoxide
       (mpv.override {

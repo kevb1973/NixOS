@@ -51,7 +51,7 @@
       file-roller
       fishPlugins.fzf
       fishPlugins.grc
-      fishPlugins.tide
+      # fishPlugins.tide
       foliate
       fuzzel
       fzf

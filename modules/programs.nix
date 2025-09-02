@@ -22,9 +22,9 @@
     fish = {
       enable = true;
 
-      promptInit = ''
-        ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
-      '';
+      # promptInit = ''
+      #   ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+      # '';
 
       shellAbbrs = {
         # "no --set-cursor" = "nixos-option % --flake ~/NixOS";

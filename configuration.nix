@@ -25,5 +25,6 @@
   documentation.man = {
     man-db.enable = false;
     mandoc.enable = true;
+    generateCaches = false; # override fish enabling this and slowing build
   };
 }

@@ -71,7 +71,9 @@
       inxi # Hardware info app
       isd # Systemd tui
       jamesdsp
+      jjui
       jq
+      jujutsu
       kdePackages.polkit-kde-agent-1
       kdePackages.qt6ct
       kdePackages.qtstyleplugin-kvantum

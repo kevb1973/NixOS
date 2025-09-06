@@ -71,7 +71,7 @@
       inxi # Hardware info app
       isd # Systemd tui
       jamesdsp
-      jjui
+      # jjui # Moved to nix profile install to track github
       jq
       jujutsu
       kdePackages.polkit-kde-agent-1

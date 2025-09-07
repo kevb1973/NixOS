@@ -127,6 +127,7 @@
       slurp
       spotify
       spotify-player
+      starship # Nice prompt
       stow
       swayimg
       swaynotificationcenter

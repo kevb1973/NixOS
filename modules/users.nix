@@ -98,6 +98,7 @@
       nh # nix helper
       nil # for zed-editor
       nix-search-cli
+      nix-search-tv # Search nixos/home-manager options + nixpkgs/nur with 'television'
       nix-tree
       nixd
       nixfmt-rfc-style # official nix code formatter
@@ -109,6 +110,7 @@
       p7zip
       pamixer
       # pavucontrol
+      pinta # Simple image editor
       pwvucontrol # Pipewire GUI mixer
       peaclock # TUI Clock/Stopwatch/Timer
       playerctl
@@ -134,6 +136,7 @@
       swww # wallpaper setter for matugen
       # syncthing
       tealdeer # Command line help 'tldr'
+      television # Similar to fzf. Using with nix-search-tv
       tombi # Newer TOML LS
       tree-sitter
       vdirsyncer # Sync web calendar to khal for DankMaterialShell 

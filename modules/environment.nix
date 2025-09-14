@@ -40,10 +40,11 @@
       SSL_CERT_FILE = "/etc/ssl/certs/ca-bundle.crt"; #Needed for X-Plane "AutoOrtho"
       VISUAL = "hx";
       VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json";
-      XDG_SCREENSHOTS_DIR = "/home/kev/screenshots";
+      XDG_CONFIG_HOME = "$HOME/.config";
+      XDG_SCREENSHOTS_DIR = "$HOME/screenshots";
       XMODIFIERS = "@im=ibus";
       # YDOTOOL_SOCKET = "/run/ydotoold/socket";
-      _JAVA_AWT_WM_NONREPARENTING = "1";
+      # _JAVA_AWT_WM_NONREPARENTING = "1";
     };
 
     systemPackages = with pkgs; [

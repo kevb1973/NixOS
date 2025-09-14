@@ -40,6 +40,13 @@
         }
       '';
     };
+    darkman = {
+      enable = true;
+      settings = {
+        lat = 43.9;
+        lng = -78.8;
+      };
+    };
     mpdris2.enable = true;
   };
 

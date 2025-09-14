@@ -29,11 +29,11 @@
       shellAbbrs = {
         # "no --set-cursor" = "nixos-option % --flake ~/NixOS";
         "nor --set-cursor" = "nixos-option -r % --flake ~/NixOS";
-        "npi --set-cursor" = "nix profile install nixpkgs#%";
+        # "npi --set-cursor" = "nix profile install nixpkgs#%";
         "npg --set-cursor" = "nix profile install github:%/";
         "npis --set-cursor" = "nix profile install nixpkgs/release-24.11#%";
         "npic --set-cursor" = "nix profile install nixpkgs/(nixos-version --hash)#%";
-        "ns --set-cursor" = "nix shell nixpkgs#% -c fish";
+        # "ns --set-cursor" = "nix shell nixpkgs#% -c fish";
         "nr --set-cursor" = "nix run nixpkgs#%";
         "nsn --set-cursor" = "nix-search --name % -d";
         "nsp --set-cursor" = "nix-search --program % -d";
@@ -70,8 +70,6 @@
         ports = "netstat -lntup";
         # rb = "nixos-rebuild switch --sudo --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
         rb = "nh os switch ~/NixOS/";
-        rd = "cd (fd --type dir --hidden --follow | fzf)"; # search for dirs, change dir
-        rf = "cd (fd --type file --hidden --follow | fzf | cut -d/ -f 1-3)"; # search dir for file and change dir
         referrer = "nix-store --query --referrers";
         repair-store = "sudo nix-store --verify --check-contents --repair";
         rev = "nixos-version --hash | cut -c 1-7";
@@ -85,6 +83,7 @@
         y = "yazi";
         v = "vifm";
         zz = "zi";
+        zzz = "cd (fd . -td -tl -H -d2 -c always | fzf --height 50% --color=dark --ansi)"; # search for dirs, change dir
       };
 
     };

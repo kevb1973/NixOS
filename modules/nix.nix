@@ -4,7 +4,8 @@
     extraOptions = ''
       experimental-features = nix-command flakes 
     '';
-    package = pkgs.lix; #pkgs.nixVersions.latest;
+    # package = pkgs.lix; #pkgs.nixVersions.latest;
+    package = pkgs.nixVersions.latest;
     registry.nixpkgs.flake = inputs.nixpkgs; # Pin nixpkgs to speed up nix commands
     gc = {
       # Auto discard system generations

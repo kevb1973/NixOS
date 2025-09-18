@@ -45,6 +45,7 @@
       dotool # daemonless replacement for ydotool
       dust # quick dir size for 'sys' script
       emacs-pgtk
+      espanso-wayland # System-wide text expansion
       eza #colourful ls
       fd
       file

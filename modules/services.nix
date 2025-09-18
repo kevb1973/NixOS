@@ -47,6 +47,11 @@
       enable = false;
     };
 
+    espanso = {
+      enable = true;
+      package = pkgs.espanso-wayland;
+    };
+
     fstrim = {
       enable = true;
       interval = "weekly"; # the default

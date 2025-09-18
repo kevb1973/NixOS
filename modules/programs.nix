@@ -49,7 +49,7 @@
         cat = "bat";
         more = "bat --paging=always";
         less = "bat --paging=always";
-        checkpkg = "hydra-check --channel nixos-unstable --arch x86_64-linux";
+        hydra = "hydra-check --channel nixos-unstable --arch x86_64-linux";
         conf = "hx  ~/NixOS/";
         dg = "nh clean user";
         edit-broken = "hx ~/bin/check_broken"; # Edit list of currently broken packages

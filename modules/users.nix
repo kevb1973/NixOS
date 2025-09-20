@@ -127,6 +127,7 @@
       simple-completion-language-server
       sioyek # nice pdf viewer
       slurp
+      snore # sleep, with feedback
       spotify
       spotify-player
       starship # Nice prompt

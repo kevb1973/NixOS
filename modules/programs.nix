@@ -34,14 +34,14 @@
         "npis --set-cursor" = "nix profile install nixpkgs/release-24.11#%";
         "npic --set-cursor" = "nix profile install nixpkgs/(nixos-version --hash)#%";
         # "ns --set-cursor" = "nix shell nixpkgs#% -c fish";
-        "nr --set-cursor" = "nix run nixpkgs#%";
+        # "nr --set-cursor" = "nix run nixpkgs#%";
         "nsn --set-cursor" = "nix-search --name % -d";
         "nsp --set-cursor" = "nix-search --program % -d";
         "nsd --set-cursor" = "nix-search --query-string='package_description:(%)' -d";
         "scu" = "systemctl --user";
         "ytm --set-cursor" = "yt-dlp -x --audio-format mp3 %";
         "ytv --set-cursor" = "ytd-video '%'"; # note: had to use script as <= breaks config due to string interpolation
-        "rp --set-cursor" = "nix profile remove '%'";
+        # "rp --set-cursor" = "nix profile remove '%'";
       };
 
       shellAliases = {
@@ -65,7 +65,7 @@
         ls = "eza";
         lu = ''echo -e "\n\e[1mLast Flake Update:\e[0m $(ls -l ~/NixOS/flake.lock | awk '{print $4, $5, $6}')\n"'';
         no = "optnix -s nixos";
-        npu = "nix profile upgrade";
+        # npu = "nix profile upgrade";
         opt = "nix-store --optimize";
         ports = "netstat -lntup";
         # rb = "nixos-rebuild switch --sudo --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";

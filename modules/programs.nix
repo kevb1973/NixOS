@@ -58,10 +58,10 @@
         gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
         gc = "sudo nix store gc -v";
         g = "gitui";
-        jn = "cd ~/NixOS; jjui; cd -";
-        jd = "cd ~/dotfiles; jjui; cd -";
-        jD = "cd ~/.config/DMS; jjui; cd -";
-        js = "cd ~/Documents/silverbullet; jjui; cd -";
+        jn = "cd ~/NixOS; jjui";
+        jd = "cd ~/dotfiles; jjui";
+        jD = "cd ~/.config/DMS; jjui";
+        js = "cd ~/Documents/silverbullet; jjui";
         lg = "lazygit";
         logout = "sudo systemctl restart display-manager.service";
         logs = "sudo lazyjournal";
@@ -108,7 +108,6 @@
 
     niri = {
       enable = true;
-      package = pkgs.niri-unstable;
       # package = inputs.niri.packages.${pkgs.system}.default;
     };
 

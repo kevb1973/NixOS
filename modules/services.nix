@@ -47,10 +47,10 @@
       enable = false;
     };
 
-    espanso = {
-      enable = true;
-      package = pkgs.espanso-wayland;
-    };
+    # espanso = { # having issues running as service.. starting manually with compositor
+    #   enable = true;
+    #   package = pkgs.espanso-wayland;
+    # };
 
     fstrim = {
       enable = true;

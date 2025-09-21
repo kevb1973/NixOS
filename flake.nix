@@ -3,8 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    niri.url = "github:YaLTeR/niri";
-    niri.inputs.nixpkgs.follows = "nixpkgs";
+    # niri.url = "github:YaLTeR/niri";
+    # niri.inputs.nixpkgs.follows = "nixpkgs";
     # nixos-cli.url = "github:nix-community/nixos-cli";
     # hyprland.url = "github:hyprwm/Hyprland";
 

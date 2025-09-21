@@ -108,8 +108,8 @@
 
     niri = {
       enable = true;
-      # package = pkgs.niri-unstable;
-      package = inputs.niri.packages.${pkgs.system}.default;
+      package = pkgs.niri-unstable;
+      # package = inputs.niri.packages.${pkgs.system}.default;
     };
 
     nix-index = {

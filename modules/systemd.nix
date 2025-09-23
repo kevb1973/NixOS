@@ -8,15 +8,15 @@
     network.wait-online.enable = false; # Disable systemd "wait online" as it gets stuck waiting for connection on 2nd NIC
     services = {
       NetworkManager-wait-online.enable = false;
-      greetd.serviceConfig = {
-        Type = "idle";
-        StandardInput = "tty";
-        StandardOutput = "tty";
-        StandardError = "journal";
-        TTYReset = true;
-        TTYVHangup = true;
-        TTYVTDisallocate = true;
-      };
+      # greetd.serviceConfig = {
+      #   Type = "idle";
+      #   StandardInput = "tty";
+      #   StandardOutput = "tty";
+      #   StandardError = "journal";
+      #   TTYReset = true;
+      #   TTYVHangup = true;
+      #   TTYVTDisallocate = true;
+      # };
     };
     settings.Manager = {
       DefaultTimeoutStopSec = "10s";

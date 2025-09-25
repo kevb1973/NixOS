@@ -89,6 +89,7 @@
       markdown-oxide # markdown LS
       marksman
       matugen # For quickshell - DankMaterialShell
+      mdcat # cat/less for markdown
       mediainfo # Provides info on media files.
       mpv-shim-default-shaders
       multimarkdown # Markdown preview in emacs

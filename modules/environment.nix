@@ -15,6 +15,7 @@
     variables = {
       ALTERNATE_EDITOR = ""; #allow emacsclient to start daemon if not already running
       AMD_VULKAN_ICD = "RADV";
+      BAT_STYLE = "header, grid";
       BEMENU_OPTS = "--hf '#5e81ac' --tf '#5e81ac' --fn 'mono 30'";
       CLUTTER_BACKEND = "wayland";
       EDITOR = "hx";

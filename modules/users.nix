@@ -96,7 +96,7 @@
       nautilus
       ncpamixer
       nettools
-      # networkmanagerapplet
+      networkmanagerapplet
       nh # nix helper
       nil # for zed-editor
       # nix-search-cli

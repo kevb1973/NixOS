@@ -69,7 +69,7 @@
         ls = "eza";
         lu = ''echo -e "\n\e[1mLast Flake Update:\e[0m $(ls -l ~/NixOS/flake.lock | awk '{print $4, $5, $6}')\n"'';
         no = "optnix -s nixos";
-        # npu = "nix profile upgrade";
+        np = "tv nix -i nixpkgs ";
         opt = "nix-store --optimize";
         ports = "netstat -lntup";
         # rb = "nixos-rebuild switch --sudo --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";

@@ -9,6 +9,7 @@
       "adbusers"
       "audio"
       "input"
+      "keyd"
       "kvm"
       "libvirtd"
       "mpd"
@@ -78,6 +79,7 @@
       kdePackages.polkit-kde-agent-1
       kdePackages.qt6ct
       kdePackages.qtstyleplugin-kvantum
+      keyd # For some reason binaries not in path for service
       khal # Local Calendar used by DankMaterialShell 
       kitty
       kitty-themes

@@ -12,7 +12,6 @@
     # gnome.gnome-keyring.enable = lib.mkDefault false; # using programs.ssh.startAgent, override due to niri-flake
     gvfs.enable = true; # Mount, trash, and other functionalities
     journald.extraConfig = "SystemMaxUse=500M";
-    keyd.enable = true;
     openssh.enable = false;
     printing.drivers = [ pkgs.brlaser ];
     printing.enable = true;

@@ -38,7 +38,8 @@
       sddm = {
         enable = true;
         autoNumlock = true;
-        theme = "sugar-dark";
+        theme = "where_is_my_sddm_theme";
+        extraPackages = [ pkgs.qt6.qt5compat ];
         wayland.enable = true;
       };
     };

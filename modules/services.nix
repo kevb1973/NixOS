@@ -25,9 +25,9 @@
     bpftune.enable = false; # Auto tune kernel/network (disable due to net issues)
 
     desktopManager = {
+      cosmic.enable = false;
       plasma6.enable = false;
       plasma6.enableQt5Integration = true;
-      # cosmic.enable = true;
     };
 
     displayManager = {
@@ -35,8 +35,9 @@
       autoLogin.user = "kev";
       # cosmic-greeter.enable = false;
       defaultSession = "niri";
+      gdm.enable = true;
       sddm = {
-        enable = true;
+        enable = false;
         autoNumlock = true;
         theme = "where_is_my_sddm_theme";
         extraPackages = [ pkgs.qt6.qt5compat ];

@@ -31,11 +31,12 @@
     };
 
     displayManager = {
+      enable = false; # disable ALL display managers
       autoLogin.enable = false;
-      autoLogin.user = "kev";
+      # autoLogin.user = "kev";
       # cosmic-greeter.enable = false;
-      defaultSession = "niri";
-      gdm.enable = true;
+      # defaultSession = "niri";
+      gdm.enable = false;
       sddm = {
         enable = false;
         autoNumlock = true;
@@ -59,7 +60,7 @@
       interval = "weekly"; # the default
     };
     getty = {
-      # autologinUser = "kev";
+      autologinUser = "kev";
     };
 
     greetd = {

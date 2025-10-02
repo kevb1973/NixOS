@@ -1,5 +1,8 @@
-{ pkgs, inputs, ... }:
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   programs = {
     adb.enable = true;
     command-not-found.enable = false;
@@ -46,7 +49,6 @@
       };
 
       shellAliases = {
-
         cat = "bat";
         more = "bat --paging=always";
         less = "bat --paging=always";
@@ -90,7 +92,6 @@
         zz = "zi";
         zzz = "cd (fd . -td -tl -H -d2 -c always | fzf --height 50% --color=dark --ansi)"; # search for dirs, change dir
       };
-
     };
 
     fuse = {
@@ -104,11 +105,11 @@
 
     hyprland = {
       enable = true;
-    #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
 
     niri = {
-      enable = true;
+      enable = false;
       # package = inputs.niri.packages.${pkgs.system}.default;
     };
 

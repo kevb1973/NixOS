@@ -33,8 +33,9 @@
         "npg --set-cursor" = "nix profile install github:%/";
         "npis --set-cursor" = "nix profile install nixpkgs/release-24.11#%";
         "npic --set-cursor" = "nix profile install nixpkgs/(nixos-version --hash)#%";
-        "ns --set-cursor" = "nix shell nixpkgs#% -c fish";
+        "npu --set-cursor" = "nix profile upgrade %";
         "nr --set-cursor" = "nix run nixpkgs#%";
+        "ns --set-cursor" = "nix shell nixpkgs#% -c fish";
         "nsn --set-cursor" = "nix-search --name % -d";
         "nsp --set-cursor" = "nix-search --program % -d";
         "nsd --set-cursor" = "nix-search --query-string='package_description:(%)' -d";

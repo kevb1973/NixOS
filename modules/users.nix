@@ -39,6 +39,7 @@
       cliphist # Clipboard manager (for DankMaterialShell)
       colloid-gtk-theme
       colloid-icon-theme
+      copyq # clipboard manager++
       ddcutil # Adjust monitor brightness and other settings from cli
       diff-so-fancy
       distrobox

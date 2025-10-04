@@ -31,6 +31,7 @@
 
       shellAbbrs = {
         # "no --set-cursor" = "nixos-option % --flake ~/NixOS";
+        "jgc --set-cursor" = "jj git clone --colocate %";
         "nor --set-cursor" = "nixos-option -r % --flake ~/NixOS";
         "npi --set-cursor" = "nix profile install nixpkgs#%";
         "npg --set-cursor" = "nix profile install github:%/";

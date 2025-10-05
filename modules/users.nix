@@ -72,7 +72,7 @@
       highlight # Used with vifm to add color to file previews with code
       hydra-check # check build status.. hydra-check --channel unstable <pkg>
       inxi # Hardware info app
-      isd # Systemd tui
+      # isd # Systemd tui (moved to user profile using flake for newer version)
       jamesdsp
       # jjui # Moved to nix profile install to track github
       jq

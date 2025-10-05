@@ -100,7 +100,7 @@
     };
 
     fzf = {
-      keybindings = true;
+      keybindings = false;
       fuzzyCompletion = true;
     };
 

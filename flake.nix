@@ -3,11 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # niri.url = "github:YaLTeR/niri";
-    # niri.inputs.nixpkgs.follows = "nixpkgs";
-    # nixos-cli.url = "github:nix-community/nixos-cli";
-    # hyprland.url = "github:hyprwm/Hyprland";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,8 +13,6 @@
   outputs = {
     nixpkgs,
     home-manager,
-    # niri,
-    # nixos-cli,
     ...
   }@inputs: {
     nixosConfigurations = {
@@ -37,8 +30,6 @@
               extraSpecialArgs = { inherit inputs; };
             };
           }
-          # niri.nixosModules.niri
-          # nixos-cli.nixosModules.nixos-cli
         ];
       };
     };

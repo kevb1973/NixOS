@@ -6,6 +6,7 @@
     packages = with pkgs; [
       corefonts
       fira-code
+      fira-sans
       font-awesome
       inter
       input-fonts

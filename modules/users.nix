@@ -88,6 +88,7 @@
       lazyjournal # tui for logs
       libnotify
       libsForQt5.qtstyleplugin-kvantum
+      lmstudio # LLM server
       manix # search nixos and home-manager options
       markdown-oxide # markdown LS
       marksman

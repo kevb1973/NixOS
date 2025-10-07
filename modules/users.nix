@@ -32,7 +32,7 @@
       boxbuddy
       btop
       cacert
-      calibre
+      # calibre # BROKEN: 2025-10-7
       cargo
       cava # Terminal audio visualizer
       # clipse
@@ -113,7 +113,7 @@
       nwg-look # Wayland replacement for lxappearance. Set gtk themes, icons, cursors etc.
       optnix
       p7zip
-      pamixer
+      # pamixer # BROKEN: 2025-10-7
       # pavucontrol
       pinta # Simple image editor
       pwvucontrol # Pipewire GUI mixer

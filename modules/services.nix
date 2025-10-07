@@ -13,7 +13,7 @@
     gvfs.enable = true; # Mount, trash, and other functionalities
     journald.extraConfig = "SystemMaxUse=500M";
     openssh.enable = false;
-    printing.drivers = [ pkgs.brlaser ];
+    # printing.drivers = [ pkgs.brlaser ]; # BROKEN: 2025-10-07
     printing.enable = true;
     tumbler.enable = false; # Thumbnail support for images
 
@@ -97,7 +97,7 @@
     # };
 
     ollama = {
-      enable = true;
+      enable = false;
       acceleration = "rocm";
       rocmOverrideGfx = "10.3.0";
       environmentVariables = {

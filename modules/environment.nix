@@ -10,7 +10,7 @@
         "${inputs.nixpkgs}"; # needed to fix <nixpkgs> on flake. See also nix.nixPath
     };
     sessionVariables = {
-      HSA_OVERRIDE_GFX_VERSION="10.3.0";
+      # HSA_OVERRIDE_GFX_VERSION="10.3.0";
     };
     variables = {
       ALTERNATE_EDITOR = ""; #allow emacsclient to start daemon if not already running
@@ -28,11 +28,11 @@
       NIX_ALLOW_UNFREE = "1";
       NIXOS_CONFIG = "/home/kev/NixOS";
       NIX_PAGER = "bat"; 
-      OLLAMA_HOST = "127.0.0.1:11434";
-      OLLAMA_FLASH_ATTENTION = "1";
+      # OLLAMA_HOST = "127.0.0.1:11434";
+      # OLLAMA_FLASH_ATTENTION = "1";
       PAGER = "bat";
-      ROCM_PATH = "/opt/rocm";
-      HSA_OVERRIDE_GFX_VERSION="10.3.0";
+      # ROCM_PATH = "/opt/rocm";
+      # HSA_OVERRIDE_GFX_VERSION="10.3.0";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_IM_MODULE = "ibus";
       QT_QPA_PLATFORM = "wayland;xcb";

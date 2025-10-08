@@ -124,7 +124,7 @@
       podman-tui
       pywalfox-native # Native component for pywalfox extension
       qalculate-gtk
-      quickshell # For quickshell - DankMaterialShell
+      # quickshell # For quickshell - DankMaterialShell
       regctl # Needed for?
       ripgrep
       rmpc # nice alternative to ncmpcpp

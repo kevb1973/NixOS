@@ -32,7 +32,7 @@
       boxbuddy
       btop
       cacert
-      # calibre # BROKEN: 2025-10-7
+      calibre  
       cargo
       cava # Terminal audio visualizer
       # clipse

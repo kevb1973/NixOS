@@ -52,6 +52,7 @@
       fd
       file
       file-roller
+      fish-lsp
       fishPlugins.fzf
       fishPlugins.grc
       # fishPlugins.tide
@@ -95,6 +96,7 @@
       matugen # For quickshell - DankMaterialShell
       mdcat # cat/less for markdown
       mediainfo # Provides info on media files.
+      micro-with-wl-clipboard # simple editor for jujutsu
       mpv-shim-default-shaders
       multimarkdown # Markdown preview in emacs
       nautilus
@@ -110,6 +112,7 @@
       nixfmt-rfc-style # official nix code formatter
       nodePackages.prettier
       nodejs # Need for Neovim Mason
+      nushell # cuz its cool (and easier than jq)
       nvd # Nix derivation diff tool
       nwg-look # Wayland replacement for lxappearance. Set gtk themes, icons, cursors etc.
       optnix
@@ -124,7 +127,7 @@
       podman-tui
       pywalfox-native # Native component for pywalfox extension
       qalculate-gtk
-      # quickshell # For quickshell - DankMaterialShell
+      quickshell # For quickshell - DankMaterialShell
       regctl # Needed for?
       ripgrep
       rmpc # nice alternative to ncmpcpp

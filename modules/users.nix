@@ -40,6 +40,7 @@
       colloid-gtk-theme
       colloid-icon-theme
       copyq # clipboard manager++
+      darkman
       ddcutil # Adjust monitor brightness and other settings from cli
       diff-so-fancy
       distrobox

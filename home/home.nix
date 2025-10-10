@@ -41,7 +41,7 @@
       '';
     };
     darkman = {
-      enable = true;
+      enable = false;
       settings = {
         lat = 43.9;
         lng = -78.8;

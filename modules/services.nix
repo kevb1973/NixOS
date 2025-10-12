@@ -15,6 +15,7 @@
     openssh.enable = false;
     # printing.drivers = [ pkgs.brlaser ]; # BROKEN: 2025-10-07
     printing.enable = true;
+    seatd.enable = true; # For lemur display manager
     tumbler.enable = false; # Thumbnail support for images
 
     atd = {
@@ -31,36 +32,60 @@
     };
 
     displayManager = {
-      enable = false; # disable ALL display managers
-      autoLogin.enable = false;
+      # enable = false; # disable ALL display managers
+      # autoLogin.enable = false;
       # autoLogin.user = "kev";
-      # cosmic-greeter.enable = false;
-      # defaultSession = "niri";
-      gdm.enable = false;
-      sddm = {
-        enable = false;
-        autoNumlock = true;
-        theme = "where_is_my_sddm_theme";
-        extraPackages = [ pkgs.qt6.qt5compat ];
-        wayland.enable = true;
+      # gdm.enable = true;
+      lemurs = {
+        enable = true;
+        settings = {
+          username_field = {
+            remember = true;
+            style = {
+              show_title = true;
+              title = "NixOS Halcyon";
+              title_color_focused = "light blue";
+              content_color_focused = "light blue";
+            };
+          };
+          focus_behaviour = "password";
+          background = {
+            show_background = true;
+            style = {
+              color = "dark gray";
+              hint_color = "light gray";
+              
+              show_border = true;
+              border_color = "white";
+            };
+          };
+          environment_switcher = {
+            toggle_hint_color = "light gray";
+            mover_color = "light gray";
+            mover_color_focused = "light blue";
+            neighbour_color = "light gray";
+          };
+        };
       };
+      # sddm = {
+      #   enable = true;
+      #   autoNumlock = true;
+      #   theme = "where_is_my_sddm_theme";
+      #   extraPackages = [ pkgs.qt6.qt5compat ];
+      #   wayland.enable = true;
+      # };
     };
 
     emacs = {
       enable = false;
     };
 
-    # espanso = { # having issues running as service.. starting manually with compositor
-    #   enable = true;
-    #   package = pkgs.espanso-wayland;
-    # };
-
     fstrim = {
       enable = true;
       interval = "weekly"; # the default
     };
     getty = {
-      autologinUser = "kev";
+      # autologinUser = "kev";
     };
 
     greetd = {

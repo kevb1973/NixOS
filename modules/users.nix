@@ -15,6 +15,7 @@
       "mpd"
       "networkmanager"
       "podman"
+      "seat"
       "wheel"
       # "ydotool"
     ];

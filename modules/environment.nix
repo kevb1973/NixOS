@@ -7,7 +7,7 @@
         mode = "755";
         text = ''
           #!/usr/bin/env sh
-          exec niri --session
+          exec niri-session
         '';
       };
       "nix/inputs/nixpkgs".source = "${inputs.nixpkgs}"; # needed to fix <nixpkgs> on flake. See also nix.nixPath

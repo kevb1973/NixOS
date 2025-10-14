@@ -13,16 +13,6 @@
     
   };
 
-  # home.packages = with pkgs; [
-  #   (python3.withPackages (ps: with ps; [
-  #       (inputs.ignis.packages.${pkgs.stdenv.hostPlatform.system}.ignis.override {
-  #         extraPackages = [
-  #           # Add extra packages if needed
-  #         ];
-  #       })
-  #     ]))
-  # ];
-
   programs = {
     atuin.enable = true; # Shell history database
     home-manager.enable = true;

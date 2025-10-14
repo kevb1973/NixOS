@@ -73,7 +73,7 @@
       nodePackages.bash-language-server
       pciutils
       pulseaudioFull
-      rocmPackages.clr
+      # rocmPackages.clr
       unar
       unzip
       usbutils

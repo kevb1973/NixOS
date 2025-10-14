@@ -42,6 +42,7 @@
       # QT_QPA_PLATFORMTHEME = "qt5ct";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       SSL_CERT_FILE = "/etc/ssl/certs/ca-bundle.crt"; #Needed for X-Plane "AutoOrtho"
+      UV_PYTHON_DOWNLOADS = "never"; # Stop uv from downloading binaries
       VISUAL = "hx";
       VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json";
       XDG_CONFIG_HOME = "$HOME/.config";

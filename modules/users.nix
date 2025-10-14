@@ -52,6 +52,7 @@
       espanso-wayland # Service not working with Niri. Starting manually.
       eza #colourful ls
       fd
+      ffmpeg
       file
       file-roller
       fish-lsp
@@ -151,6 +152,7 @@
       television # Similar to fzf. Using with nix-search-tv
       tombi # Newer TOML LS
       tree-sitter
+      uv # Wiki says this is an easy way to manage python versions and packages (non-declarative)
       vdirsyncer # Sync web calendar to khal for DankMaterialShell 
       video-downloader
       virt-manager

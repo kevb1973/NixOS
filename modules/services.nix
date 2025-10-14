@@ -14,7 +14,7 @@
     gvfs.enable = true; # Mount, trash, and other functionalities
     journald.extraConfig = "SystemMaxUse=500M";
     openssh.enable = false;
-    # printing.drivers = [ pkgs.brlaser ]; # BROKEN: 2025-10-07
+    printing.drivers = [ pkgs.brlaser ]; 
     printing.enable = true;
     seatd.enable = true; # For lemur display manager
     tumbler.enable = false; # Thumbnail support for images

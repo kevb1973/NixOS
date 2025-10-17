@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+waypaper --restore
+waybar & 
+hyprctl dispatch workspace 1

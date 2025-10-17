@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Set default option to --at-pointer
+OPTS="--at-pointer"
+
+if [ ! -z "$1" ]; then
+	if [[ $1 == "-c" ]]; then
+		OPTS="--center"
+		echo "Placement set to center."
+	fi
+fi
+
+(
+	printf "rc.fish,exec alacritty -e micro ~/.config/fish/conf.d/rc.fish\n"
+	printf "i3,exec alacritty -e micro ~/.config/i3/config\n"
+	printf "Xinitrc,exec alacritty -e micro ~/.xinitrc\n"
+	printf "Polybar,exec alacritty -e micro ~/.config/polybar/config\n"
+	printf "Pacman,exec alacritty -e sudo micro /etc/pacman.conf\n"
+) | jgmenu --simple $OPTS

@@ -1,0 +1,17 @@
+#!/usr/bin/env fish
+
+# 1. Search for text in files using Ripgrep
+# 2. Interactively narrow down the list using fzf
+# 3. Open the file in Vim
+# rg --color=always --line-number --no-heading --smart-case "${*:-}"  "${PWD}" |
+# fd --type d --hidden --follow --exclude ".git" --exclude ".local" --exclude ".cache" --no-ignore-vcs "${*:-}" "${PWD}" |
+#   fzf --ansi \
+#       --print0 \
+#       --color "hl:-1:underline,hl+:-1:underline:reverse" | xargs --null cd
+
+# dir=$(fd -0 -t d "$@" . | fzf --preview 'ls -la {}')
+# if [[ -n "$dir" ]]; then
+#     cd "$dir" || echo "Failed to change directory"
+# fi
+set fdresult (fd -L -td --absolute-path $argv $PWD | sk -m)
+cd "$fdresult"

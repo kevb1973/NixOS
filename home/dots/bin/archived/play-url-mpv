@@ -1,0 +1,3 @@
+#!/usr/bin/env fish
+# Open copied url in MPV
+umpv (wl-paste) 

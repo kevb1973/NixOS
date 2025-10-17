@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Finds current directory in nix store of kde polkit authentication agent and runs it.
+# note: using KDE agent as Gnome agent wasn't working.
+
+/nix/store/$(ls -la /nix/store | grep polkit-kde | grep dr-xr | awk '{print $9}')/libexec/polkit-kde-authentication-agent-1

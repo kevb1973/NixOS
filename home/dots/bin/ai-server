@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Start lm-studio server and load a model
+lms server start && lms load openai/gpt-oss-20b
+# ollama run gemma3:4b-it-qat

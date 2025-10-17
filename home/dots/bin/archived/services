@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Start services with Gnome (called from ~/.config/autostart/services.desktop)
+
+tiddlywiki /home/kev/Code/tiddiwiki --listen host=10.0.0.167 port=8081 &
+http-server -p 8085 -c-1 ~/dotfiles/firefox_ext_confs/surfingkeys &
+wl-paste --watch cliphist store &
+sudo -b ydotoold --socket-path="$HOME/.ydotool_socket" --socket-own="$(id -u):$(id -g)" &

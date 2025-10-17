@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+swww clear 000000
+pkill waybar
+hyprctl dispatch workspace 10

@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#nix profile diff-closures --profile /nix/var/nix/profiles/system
+GENS=$(sudo nix-env --list-generations --profile /nix/var/nix/profiles/system | wc -l)
+
+if [[ $1 == "--help" ]]; then
+    echo "specify gens: sysdiff 1526 1528"
+    echo "sysdiff alone will compare last 2 generations"
+    exit
+fi
+if [[ $1 ]]; then
+ nvd diff /nix/var/nix/profiles/system-{$1,$2}-link
+else
+    if  (( GENS > 1 )); then
+        nvd diff $(ls -d1v /nix/var/nix/profiles/system-*-link|tail -n 2)
+    else
+        echo "Only 1 generation. No diff available."
+    fi
+fi

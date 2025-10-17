@@ -1,0 +1,5 @@
+These are only here for backup.
+Copy them to another directory before running docker compose
+as some will store their data in the same directory as the compose file.
+
+Data directories will clutter up your git repo!

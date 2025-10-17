@@ -1,0 +1,98 @@
+#!/bin/bash
+
+# Updated by Kev Nov 17 2022 for newer bspc syntax
+# Sample sxhkd usage:
+#
+# alt + {a,f}
+#    /home/sunn/scripts/bspwm_resize {-p,-n} -x -s 20
+#
+# alt + {s,d}
+#    /home/sunn/scripts/bspwm_resize {-p,-n} -y -s 20
+
+
+# Requires 'jq' to be installed
+if  ! [ "$(command -v jq)" ]; then
+    echo "Please install 'jq' to use this script"
+    exit
+fi
+
+POSITIVE=false
+HORIZONTAL=false
+SIZE='20'
+
+err() {
+        echo "$1"
+        exit 1
+}
+
+
+usage() {
+        echo "usage: bspwm_resize [direction]"
+        echo
+        echo "Options:"
+        echo "   -p, --positive       - resize in positively"
+        echo "   -n, --negative       - resize in negatively"
+        echo "   -x, --xdir           - resize in x direction"
+        echo "   -y, --ydir           - resize in y dir"
+        echo "   -s,                  - number of pixels to resize or move"
+        echo "   -h, --help           - display this"
+        exit
+}
+
+if [[ $# -eq 0 ]] ; then
+        usage
+        exit
+fi
+
+for i in "$@"; do
+        case $i in
+                '-p'|'--positive')
+                        POSITIVE=true
+                        ;;
+                '-n'|'--negative')
+                        POSITIVE=false
+                        ;;
+                '-x'|'--xdir')
+                        HORIZONTAL=true
+                        ;;
+                '-y'|'--ydir')
+                        HORIZONTAL=false
+                        ;;
+                '-s')
+                        SIZE=$(echo $@ | sed 's/.*-s \([0-9]*\).*/\1/')
+                        [[ "$SIZE" == "$@" ]] && err "Must specify number of pixels"
+                        ;;
+                ''|'-h'|'--help')
+                        usage
+                        exit
+                        ;;
+                *)
+                        ;;
+        esac
+done
+
+# Find current window mode (requires 'jq' to parse json)
+STATE=$(bspc query -N -n | xargs -I{} bspc query --node {} -T | jq .client.state | sed -e 's/"//g')
+set -x
+# If the window is floating, move it
+if [[ "$STATE" =~ "floating" ]]; then
+        $HORIZONTAL && switch="-w" || switch="-h"
+        $POSITIVE && sign="+" || sign="-"
+        xdo resize ${switch} ${sign}${SIZE}
+set +x
+# If the window is pseudotiled, resize it
+# Signs are flipped to be more consistent with how resizing tiles/floats works.
+elif [[ "$STATE" =~ "pseudo_tiled" ]]; then
+        $HORIZONTAL && switch="-w" || switch="-h"
+        $POSITIVE && sign="-" || sign="+"
+        xdo resize ${switch} ${sign}${SIZE}
+# Otherwise, window is tiled change split ratio
+else
+        $HORIZONTAL && switch=('left' 'right') || switch=('bottom' 'top')
+        $POSITIVE && sign="+" || sign="-"
+        if [[ "$HORIZONTAL" =~ "false" ]]; then
+            bspc node -z ${switch[0]} 0 ${sign}${SIZE} || bspc node -z ${switch[1]} 0 ${sign}${SIZE} 
+        else
+            bspc node -z ${switch[0]} ${sign}${SIZE} 0 || bspc node -z ${switch[1]} ${sign}${SIZE} 0
+        fi
+fi

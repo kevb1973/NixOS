@@ -1,0 +1,6 @@
+#!/bin/sh
+sudo mount UUID=15a19aca-1d72-4423-844c-112c39c9a93a -o subvol=/,subvolid=5 /mnt/subvol5/
+echo "Mounting /mnt/subvol5"
+sudo btdu /mnt/subvol5
+echo "Unmount /mnt/subvol5"
+sudo umount /mnt/subvol5

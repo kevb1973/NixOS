@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ "$(hyprctl clients | grep 'class: zellij')" ]; then
+  hyprctl dispatch togglespecialworkspace zellij
+else
+  foot --app-id=zellij zellij a Halcyon options --no-pane-frames --theme nord --default-shell fish
+fi

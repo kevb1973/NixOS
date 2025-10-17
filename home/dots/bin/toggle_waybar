@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+##toggle waybar for niri 
+#set -x
+
+pkill waybar || waybar

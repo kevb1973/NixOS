@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Simple script to report jobs remaining in current hydra build. (nixos-unstable)
+
+JOBS_REMAIN=$(xidel -s https://hydra.nixos.org/jobset/nixos/trunk-combined/ --css .badge-secondary.badge | head -n1)
+
+echo "$JOBS_REMAIN"

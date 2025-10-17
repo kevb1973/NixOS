@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Run bemoji using fuzzel with specified theme/font
+
+# BEMOJI_PICKER_CMD="fuzzel -d --background-color=004789ff --text-color=ffffffff --input-color=ffffffff \
+#     --placeholder-color=888888ff --selection-color=FFFFFF66 --selection-text=000000FF --selection-match-color=ffffffff \
+#     --font='Noto Emoji:size=20'" bemoji -c -n
+
+BEMOJI_PICKER_CMD="fuzzel -d --config ~/.config/fuzzel/fuzzel.ini --font='Noto Emoji:size=20'" bemoji -c -n
+# Paste the copied emoji using ctrl-v. Having bemoji type emoji directly results in empty square box, like a missing glyph.
+
+wtype -M ctrl -P v -p v -m ctrl

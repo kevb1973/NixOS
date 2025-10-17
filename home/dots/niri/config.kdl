@@ -1,0 +1,40 @@
+// Niri Configuration
+
+include "spawns.kdl"
+include "window-rules.kdl"
+include "layer-rules.kdl"
+include "binds.kdl"
+include "input.kdl"
+include "environment.kdl"
+include "output.kdl"
+include "layout.kdl"
+include "dms/colors.kdl"
+
+// misc top-level options
+
+config-notification {
+    disable-failed
+}
+
+cursor {
+    // hide-after-inactive-ms 2000
+    hide-when-typing
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 24
+}
+
+overview {
+    zoom 0.30
+    backdrop-color "#0f1417"
+}
+
+prefer-no-csd
+screenshot-path null
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+workspace "1"
+workspace "2"
+workspace "repos"

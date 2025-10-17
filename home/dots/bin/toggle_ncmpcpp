@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ "$(hyprctl clients | grep ncmpcpp)" ]; then
+  hyprctl dispatch togglespecialworkspace ncmpcpp
+else
+  foot --app-id=ncmpcpp ncmpcpp
+fi

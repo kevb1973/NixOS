@@ -1,0 +1,12 @@
+[metadata]
+name = "nix-profile"
+description = "List packages installed in user profile"
+requirements = ["nix"]
+
+[source]
+command = "nix profile list | grep Name: | cut -c 20-"
+output = "{trim}"
+# ansi = true
+
+[preview]
+command = "nix profile list | grep {}"

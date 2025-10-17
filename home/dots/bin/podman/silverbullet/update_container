@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Stop, Update and Restart Docker Compose containers
+
+echo "Stopping Container"
+podman compose down --rmi all
+echo "Updating and restarting Container"
+podman compose up -d

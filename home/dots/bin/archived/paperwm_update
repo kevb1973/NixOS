@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+machine=$(uname -n)
+
+if [[ $machine == *"arch"* ]]
+then
+  cp -r /usr/share/gnome-shell/extensions/paperwm@hedning:matrix.org/ ~/.local/share/gnome-shell/extensions/
+else
+  echo "Must enter Arch first!"
+fi

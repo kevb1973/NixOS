@@ -1,0 +1,62 @@
+
+[config]
+version_check = false
+
+[config.wallpaper]
+command = "swww"
+arguments = ["img", "--transition-type", "any"]
+set = false
+
+[templates.hyprland]
+input_path = 'templates/colors-hyprland'
+output_path = "~/.cache/colors/hyprland/colors.conf"
+
+[templates.fuzzel]
+input_path = 'templates/fuzzel.ini'
+output_path = '~/.config/fuzzel/colors.ini'
+
+# [templates.rofi]
+# input_path = 'templates/rofi'
+# output_path = "~/.cache/colors/rofi/theme.rasi"
+
+[templates.btop]
+input_path = 'templates/btop'
+output_path = "~/.config/btop/themes/matugen.theme"
+
+[templates.pywalfox]
+input_path = 'templates/pywalfox-colors.json'
+output_path = '~/.cache/wal/colors.json'
+
+# [templates.shell]
+# input_path = 'templates/colors-shell'
+# output_path = '~/.cache/colors/shell/colors'
+
+# [templates.foot]
+# input_path = 'templates/foot'
+# output_path = '~/.cache/colors/foot/colors.ini'
+
+[templates.helix]
+input_path = 'templates/helix'
+output_path = '~/.config/helix/themes/matugen.toml'
+
+# [templates.gtk]
+# input_path = 'templates/gtk'
+# output_path = '~/.cache/colors/gtk/colors.css'
+
+# [templates.gtk4]
+# input_path = 'templates/gtk4'
+# output_path = '~/.config/gtk-4.0/gtk.css'
+
+# [templates.colors]
+# input_path = 'templates/colors'
+# output_path = '~/.cache/colors/colors.css'
+
+# [templates.greetd]
+# input_path = 'templates/colors'
+# output_path = '/etc/greetd/colors.css'
+# ...
+
+[templates.cava]
+input_path = '~/.config/matugen/templates/cava-colors.ini'
+output_path = '~/.config/cava/themes/your-theme'
+post_hook = "pkill -USR1 cava"

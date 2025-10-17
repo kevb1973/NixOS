@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+pkill fuzzel || fuzzel --background-color=004789ff --text-color=ffffffff --input-color=ffffffff --placeholder-color=888888ff --selection-color=FFFFFF66 --selection-text=000000FF --selection-match-color=ffffffff --font="Maple Mono NF"

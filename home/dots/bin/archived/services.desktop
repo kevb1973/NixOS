@@ -1,0 +1,9 @@
+
+[Desktop Entry]
+Type=Application
+Icon=emblem-system-symbolic
+Name=Services
+Exec=/home/kev/dotfiles/bin/bin/services
+Terminal=false
+Hidden=false
+Categories=System

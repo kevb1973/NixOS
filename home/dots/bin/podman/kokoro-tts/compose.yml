@@ -1,0 +1,11 @@
+services:
+  kokoro-web:
+    image: ghcr.io/eduardolat/kokoro-web:latest
+    ports:
+      - "3001:3000"
+    environment:
+      # Change this to any secret key to use as your OpenAI compatible API key
+      - KW_SECRET_API_KEY=buttcheeks
+    volumes:
+      - ./kokoro-cache:/kokoro/cache
+    restart: unless-stopped

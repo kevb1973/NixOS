@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# remove all existing jobs: atrm $(atq | cut -f1)
+# Run scheduled commands and reset for next day.
+
+echo "vdirsyncer sync waste" | at 8:00pm
+# echo "notify-send --urgency=critical 'Tea Time!'" | at 9:00pm
+echo "notify-send --urgency=critical 'Time for Melatonin'" | at 10:30pm
+echo "notify-send --urgency=critical 'Time for Snack'" | at 11:00pm
+echo "notify-send --urgency=critical 'Time for Bed!'" | at 11:45pm
+echo "/home/kev/bin/scheduled_cmds" | at 11:46pm
+notify-send "Scheduled commands set"
+
+# NOTE: Keeping this for reference only. Switched to systemd user timers.
+# Systemd allows easy access to logs, enable/disable etc.

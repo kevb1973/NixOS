@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+lgtv system.notifications createToast "$(zenity --entry --text="Enter Message")"
+

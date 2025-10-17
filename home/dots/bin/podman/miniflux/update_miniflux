@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Stop, Update and Restart Miniflux RSS
+
+echo "Stopping Miniflux RSS"
+podman compose down --rmi all
+echo "Updating and restarting Miniflux"
+podman compose up -d

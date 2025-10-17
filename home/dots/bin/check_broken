@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# Add any broken packages below:
+BROKEN=("")
+while true; do
+  clear
+  echo "BROKEN PACKAGE MONITOR"
+  echo "----------------------"
+  echo
+  for pkg in "${BROKEN[@]}"; do
+    if [[ -z "$pkg" ]]; then
+      echo -e "\e[32mNO BROKEN PACKAGES\e[m\n"
+     break 2
+    fi
+    result=$(hydra-check --channel unstable "$pkg")
+    url=$(echo "$result" | grep -Eo 'https://[^ >]+')
+    if [[ "${result,,}" != *failed* ]]; then
+      # notify-send --urgency=critical "$pkg is now fixed."
+      echo -e "$pkg is \e[32mFIXED\e[m ($url)"
+    else
+      echo -e "$pkg is still \e[31mBROKEN\e[m ($url)"
+    fi
+  done
+  sleep 3600
+done
+
+# Tip: Check hourly with: watch -n 3600 -x check_broken

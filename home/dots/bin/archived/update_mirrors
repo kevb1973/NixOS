@@ -1,0 +1,4 @@
+#!/bin/bash
+sudo reflector -c US --protocol https --age 3 --number 10 --sort rate --save /etc/pacman.d/mirrorlist
+#sudo reflector-simple
+sudo pacman -Syy

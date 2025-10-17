@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if [ "$(hyprctl clients | grep popterm)" ]; then
+  hyprctl dispatch togglespecialworkspace popterm
+else
+  # kitty --class=popterm
+  foot --app-id=popterm
+fi

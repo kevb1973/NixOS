@@ -1,0 +1,97 @@
+// Window Rules
+window-rule {
+    match app-id="qalculate-gtk"
+    match app-id="yad"
+    match app-id="clipse"
+    open-floating true
+    default-column-width { proportion 0.25; }
+    default-window-height { proportion 0.50; }
+}
+window-rule {
+    match app-id="com.github.hluk.copyq"
+    open-floating true
+    default-column-width { proportion 0.25; }
+    default-window-height { proportion 0.50; }
+}
+window-rule {
+    match app-id="timer"
+    default-column-width { fixed 400; }
+    open-focused true
+}
+window-rule {
+    match app-id="nmtui"
+    default-floating-position x=780 y=180 relative-to="top-left"
+    default-column-width { fixed 1000; }
+    default-window-height { fixed 1030; }
+    open-floating true
+    open-focused false
+    shadow { on; }
+}
+window-rule {
+    match app-id="firefox|vivaldi|Vivaldi-flatpak"
+    default-column-width { proportion 1.00; }
+    open-on-workspace "1"
+}
+window-rule {
+    // Firefox PIP
+    match title="Picture-in-Picture"
+    default-floating-position x=15 y=90 relative-to="bottom-left"
+    default-column-width { fixed 310; }
+    default-window-height { fixed 190; }
+    open-floating true
+    open-focused false
+    // shadow { on; }
+}
+window-rule {
+    // Vivaldi PIP
+    match title="Picture in picture"
+    default-floating-position x=1905 y=55 relative-to="bottom-left"
+    default-column-width { fixed 620; }
+    default-window-height { fixed 340; }
+    open-floating true
+    open-focused false
+    shadow { on; }
+}
+window-rule {
+    // for Spotify mini-player                                //
+    match app-id="chromium-browser"
+    default-floating-position x=12 y=290 relative-to="bottom-left"
+    default-column-width { fixed 350; }
+    default-window-height { fixed 250; }
+    open-floating true
+    open-focused false
+    shadow { on; }
+}
+window-rule {
+    // for reminders
+    match app-id="yad"
+    default-column-width { fixed 700; }
+    default-window-height { fixed 150; }
+    open-floating true
+}
+window-rule {
+    match app-id="sudoku-Main"
+    default-column-width { fixed 700; }
+    // default-window-height { fixed 150; }
+    open-floating true
+    open-focused true
+}
+window-rule {
+    match app-id=".*"
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+window-rule {
+    // match title="dotfiles-repo|nixos-repo|dms-repo|niri-repo|helix-repo|jjui-repo|nix-search-cli-repo|dgop-repo"
+    match app-id="repo"
+    open-on-workspace "repos"
+    default-column-width { proportion 0.5; }
+    open-focused false
+}
+window-rule {
+    match app-id="term"
+    open-on-workspace "2"
+    default-column-width { proportion 0.5; }
+    open-focused false
+}

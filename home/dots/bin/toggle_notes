@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+##toggle Zim notes workspace for Hyprland
+
+
+if [ "$(hyprctl clients | grep 'zim')" ]; then
+  hyprctl dispatch togglespecialworkspace notes
+else
+  zim
+fi

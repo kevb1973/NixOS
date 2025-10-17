@@ -1,0 +1,11 @@
+name: silverbullet
+services:
+  silverbullet:
+    image: ghcr.io/silverbulletmd/silverbullet:v2
+    restart: unless-stopped
+    environment:
+    - SB_USER=kev:rewop
+    volumes:
+      - /home/kev/Documents/silverbullet:/space
+    ports:
+      - 3000:3000

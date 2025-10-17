@@ -1,0 +1,36 @@
+#!/bin/bash
+# Dmenu script to edit configs with micro
+
+# declare an array of options
+
+declare -a options=("
+  rc.fish
+  i3.conf
+  xinitrc
+  polybar
+  pacman.conf
+")
+
+choice=$(echo -e "${options[@]}" | dmenu -l -i -p 'Command: ')
+
+  if [ "$choice" == '  rc.fish' ]; then
+    exec alacritty -e micro ~/.config/fish/conf.d/rc.fish &
+  fi
+
+  if [ "$choice" == '  i3.conf' ]; then
+    exec alacritty -e micro ~/.config/i3/config &
+  fi
+
+  if [ "$choice" == '  xinitrc' ]; then
+    exec alacritty -e micro ~/.xinitrc &
+  fi
+
+  if [ "$choice" == '  polybar' ]; then
+    exec alacritty -e micro ~/.config/polybar/config &
+  fi
+
+  if [ "$choice" == '  pacman.conf' ]; then
+    exec alacritty -e sudo micro /etc/pacman.conf &
+  fi
+  
+    

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# This script uses hyprctl to get a list of open apps and passes to fuzzel (or another dmenu compatible launcher) 
+# and switches to that window on <enter>. Snagged from reddit.
+
+
+hyprctl clients | awk '/title: ./ { gsub( w"\t*title: *", ""); print}' | fuzzel -d | xargs -I{} hyprctl dispatch focuswindow "title:{}"

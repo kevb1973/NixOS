@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Pick color and save rgb & hex formats separately to clipboard
+
+response=$(niri msg pick-color)
+rgb=$(echo $response | grep -Eo 'rgb\(.*\)')
+hex=$(echo $response | grep -Eo '#.*')
+echo -n $rgb | wl-copy
+echo -n $hex | wl-copy

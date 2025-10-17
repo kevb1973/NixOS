@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+##toggle git workspace for Hyprland
+# set -x
+
+if hyprctl clients | grep -E 'class: lazygit'; then
+  hyprctl dispatch togglespecialworkspace lazygit
+else
+  cd ~/NixOS  && foot --app-id=lazygit lazygit
+fi

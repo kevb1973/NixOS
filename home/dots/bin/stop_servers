@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+echo "----------------"
+echo "Stopping Servers"
+echo "----------------"
+podman compose -f ~/Code/podman/silverbullet/compose.yml down
+podman compose -f ~/Code/podman/miniflux/compose.yml down

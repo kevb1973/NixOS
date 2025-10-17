@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Script to flash the border of the active window red to get my attention for alarm notifications
+
+for i in {1..8}
+do
+    hyprctl keyword general:col.active_border 'rgb(ff0000)'
+    sleep 1e-2
+    hyprctl keyword general:col.active_border 'rgb(007080)'
+    sleep 2e-1
+done

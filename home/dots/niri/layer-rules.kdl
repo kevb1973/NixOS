@@ -1,0 +1,11 @@
+layer-rule {
+    match namespace="quickshell:bar"
+    shadow {
+        off
+        softness 20
+        spread 2
+        offset x=0 y=5
+        draw-behind-window false
+    }
+    geometry-corner-radius 10
+}

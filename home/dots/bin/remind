@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Shortcut to add a one off notification
+
+if [[ $1 && $2 ]]; then
+	MESSAGE=$1
+	TIME=$2
+	echo "notify-send -i /run/current-system/sw/share/icons/Adwaita/symbolic/emotes/face-smile-symbolic.svg -u critical '$MESSAGE'" | at "$TIME"
+	# notify-send "Added Reminder: $MESSAGE at $TIME"
+else
+	echo 'Usage: remind "message" "time"'
+	echo 'Time Format Examples'
+	echo '--------------------'
+	echo '10:30pm'
+	echo '5pm tomorrow'
+	echo '3pm + 3 days'
+	echo '4pm Oct 19'
+	echo 'now + 15 minutes'
+fi

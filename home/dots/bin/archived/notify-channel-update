@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+# Script to check for NixOS channel update.
+
+# TODO
+# - Add config options: Channel, Delay
+# - Add flags to set config along with defaults
+# - Add help if run with no arguments
+# - Create a package?
+
+# Add any broken packages below to be notified when fixed:
+BROKEN=("amdvlk" "calibre")
+
+function cleanup(){
+  tput cnorm
+}
+trap cleanup EXIT
+
+while true; do
+  tput civis
+  clear
+  echo -e "\e[34m********************************\e[0m"
+  echo -e "\e[34m*\e[0m NixOS Channel Update Monitor \e[34m*\e[0m"
+  echo -e "\e[34m********************************\e[0m"
+  
+  if [[ -z "$LAST_UPDATE" ]]; then
+    LAST_UPDATE=$(xidel -s https://github.com/NixOS/nixpkgs/commits/nixos-unstable/ --css h3[data-testid] | head -n1 | awk -F ' ' '{print $3, $4, $5}')
+    CURRENT_UPDATE=$LAST_UPDATE
+  else
+    CURRENT_UPDATE=$(xidel -s https://github.com/NixOS/nixpkgs/commits/nixos-unstable/ --css h3[data-testid] | head -n1 | awk -F ' ' '{print $3, $4, $5}')
+  fi
+
+  JOBS_REMAIN=$(xidel -s https://hydra.nixos.org/jobset/nixos/trunk-combined/ --css .badge-secondary.badge)
+  LAST_CHECK=$(date)
+  echo -e "\e[36mLast Channel Update:\e[0m $LAST_UPDATE"
+  echo -e "\e[36mLast Check:\e[0m $LAST_CHECK"
+  echo -e "\e[36mJobs Remaining in Current Build:\e[0m $JOBS_REMAIN" 
+
+  if [[ $LAST_UPDATE != "$CURRENT_UPDATE" ]]; then
+    notify-send "Updates Available"
+    LAST_UPDATE=$CURRENT_UPDATE
+  fi
+  # Check status of broken packages
+  for pkg in "${BROKEN[@]}"; do
+    result=$(hydra-check --channel unstable --arch x86_64-linux --short "$pkg")
+    url=$(echo "$result" | grep -Eo 'https://[^ >]+')
+    if [[ "${result,,}" != *failed* ]]; then
+      notify-send --urgency=critical "$pkg is now fixed."
+      echo -e "$pkg is \e[32mFIXED\e[m details: $url"
+    else
+      echo -e "$pkg is still \e[31mBROKEN\e[m"
+    fi
+  done
+  sleep 30m
+done
+
+

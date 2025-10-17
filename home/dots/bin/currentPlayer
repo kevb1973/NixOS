@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+player=$(playerctl metadata -f "{{playerName}}")
+
+case "$player" in
+  brave)
+    icon=/etc/profiles/per-user/kev/share/icons/hicolor/32x32/apps/brave-browser.png
+    ;;
+  spotify)
+    icon=/etc/profiles/per-user/kev/share/icons/hicolor/32x32/apps/spotify-client.png
+    ;;
+  firefox*)
+    icon=/etc/profiles/per-user/kev/share/icons/hicolor/32x32/apps/firefox.png
+    ;;
+  mpv)
+    icon=/etc/profiles/per-user/kev/share/icons/hicolor/32x32/apps/mpv.png
+    ;;
+esac
+
+notify-send --icon="$icon" 'Selected Player' "$player"
+

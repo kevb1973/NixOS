@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if [ "$(hyprctl clients | grep qalculate-gtk)" ]; then
+  hyprctl dispatch togglespecialworkspace calculator
+else
+  # alacritty -o 'font.size=20' --class=calculator -e rink
+  qalculate-gtk
+fi

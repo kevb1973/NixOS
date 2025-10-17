@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ "$(hyprctl clients | grep 'class: editor')" ]; then
+  hyprctl dispatch togglespecialworkspace editor
+else
+  foot --app-id=editor hx -w ~/NixOS
+fi

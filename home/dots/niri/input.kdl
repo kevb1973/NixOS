@@ -1,0 +1,26 @@
+// User Mod3 for Hyper
+input {
+    keyboard {
+        xkb {
+            options "caps:hyper"
+        }
+        numlock
+    }
+
+    mouse {
+    }
+    touchpad {
+        tap
+        natural-scroll
+        scroll-method "two-finger"
+        // scroll-method "edge"
+        accel-speed 0.5
+        accel-profile "adaptive"
+        scroll-factor 0.50
+        // scroll-button-lock 
+    }
+
+    workspace-auto-back-and-forth
+    warp-mouse-to-focus
+    focus-follows-mouse max-scroll-amount="0%"
+}

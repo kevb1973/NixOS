@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#toggle file management workspace for Hyprland
+
+if [ "$(hyprctl clients | grep 'org.gnome.Nautilus')" ]; then
+  hyprctl dispatch togglespecialworkspace nautilus
+else
+  nautilus
+fi

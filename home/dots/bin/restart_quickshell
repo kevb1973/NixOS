@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Restart quickshell. Kill gammastep or it will end up being a zombie process.
+
+pkill quickshell
+qs -c /home/kev/.config/DMS

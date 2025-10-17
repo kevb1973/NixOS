@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# YAD based LGTV Gui Remote
+
+cmd=(
+  yad --center --borders=20
+  --no-buttons
+  --title="LGTV"
+  --form
+  --field="Mute ON":BTN "lgtv audio setMute true"
+  --field="Mute OFF":BTN "lgtv audio setMute false"
+  --field="Power ON":BTN "lgtv wakelonlan"
+  --field="Power OFF":BTN "lgtv system turnOff"
+  --field="VOL+":BTN "lgtv audio volumeUp"
+  --field="VOL-":BTN "lgtv audio volumeDown"
+  --field="QUIT":BTN "pkill yad"
+)
+
+
+
+if pgrep yad > /dev/null; then
+  pkill yad
+else
+  "${cmd[@]}"
+fi

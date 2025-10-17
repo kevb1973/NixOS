@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+## Script to spin up a temporary anon FTP server.
+
+# Get current local IP address
+ip=$(ip -f inet -o addr show enp42s0 | cut -d\  -f 7 | cut -d/ -f 1)
+
+echo
+echo "Connect to FTP Server @ $ip:2121"
+echo "Username: Anonymous"
+echo "No Password"
+echo
+echo
+read -p "Press any key to start server..."
+python -m pyftpdlib --directory=/home/kev/Downloads/ftp --port 2121 --write

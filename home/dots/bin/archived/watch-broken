@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+
+# Defaults to 15 minutes delay
+watch -c -n 1800 -x check_broken

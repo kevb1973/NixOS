@@ -1,0 +1,7 @@
+environment {
+    // DISPLAY ":1"
+    NIXOS_OZONE_WL "1"
+    MANPAGER "nvim +Man!"
+    NH_NO_CHECKS "1" //needed for nh (np, up)
+    PODMAN_COMPOSE_WARNING_LOGS "false"
+}

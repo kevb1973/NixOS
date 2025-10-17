@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+choice=$(echo -e "clipboard\nfile\nboth" | rofi -dmenu -p "Where to save screenshot?")
+
+case "$choice" in
+ clipboard) grimblast copy area & ;;
+ file) grimblast save area & ;;
+ both) grimblast copysave area & ;;
+esac

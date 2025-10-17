@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ "$(hyprctl clients | grep ncspot)" ]; then
+  hyprctl dispatch togglespecialworkspace ncspot
+else
+  foot --app-id=ncspot ncspot
+fi

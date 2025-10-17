@@ -11,8 +11,29 @@
     # packages = with pkgs; [
     # ];
     file = {
+      ".bashrc".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/bash/.bashrc"; 
+      "bin".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/bin"; 
+      ".config/aichat".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/aichat"; 
+      ".config/atuin".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/atuin"; 
+      ".config/cava".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/cava"; 
+      ".config/fish".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/fish";
+      ".config/fuzzel".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/fuzzel"; 
+      ".config/gammastep".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/gammastep";
       ".config/helix".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/helix"; 
+      ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/hypr"; 
+      ".config/isd_tui".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/isd"; 
+      ".config/jjui".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/jjui"; 
+      ".config/khal".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/khal"; 
+      ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/kitty"; 
+      ".config/lgtv".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/lgtv"; 
+      ".config/matugen".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/matugen"; 
+      ".config/mpd".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/mpd"; 
+      ".config/mpv".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/mpv"; 
+      ".config/niri".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/niri"; 
+      ".config/television".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/television"; 
       ".config/wlr-which-key".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/wlr-which-key"; 
+      ".config/yazi".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/yazi"; 
+      ".local/share/darkman".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/darkman"; 
     };
     
   };

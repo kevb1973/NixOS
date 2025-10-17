@@ -1,0 +1,20 @@
+[calendars]
+
+[[private]]
+path = /home/kev/.local/share/khal/calendars/private
+type = calendar
+
+[[waste]]
+path = /home/kev/.config/vdirsyncer/calendars/waste_local
+type = calendar
+readonly = True
+
+[locale]
+timeformat = %I:%M %p
+dateformat = %m/%d/%Y
+longdateformat = %m/%d/%Y
+datetimeformat = %m/%d/%Y %I:%M %p
+longdatetimeformat = %m/%d/%Y %I:%M %p
+
+[default]
+default_calendar = private

@@ -1,0 +1,26 @@
+#!/bin/bash
+# Example dmenu script
+
+# declare an array of options
+
+declare -a options=("
+  htop
+  ncmpcpp
+  nvim
+")
+
+choice=$(echo -e "${options[@]}" | dmenu -l -i -p 'Command: ')
+
+  if [ "$choice" == '  htop' ]; then
+    exec alacritty -e htop
+  fi
+
+  if [ "$choice" == '  ncmpcpp' ]; then
+    exec alacritty -e ncmpcpp
+  fi
+
+  if [ "$choice" == '  nvim' ]; then
+    exec alacritty -e nvim
+  fi
+
+    

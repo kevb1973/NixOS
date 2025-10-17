@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Set default option to --at-pointer
+OPTS="--at-pointer"
+
+if [ ! -z "$1" ]; then
+	if [[ $1 == "-c" ]]; then
+		OPTS="--center"
+		echo "Placement set to center."
+	fi
+fi
+
+(
+	printf "Toggle Pause, playerctl play-pause\n"
+	printf "Next Track, playerctl next\n"
+	printf "Prev Track, playerctl previous\n"
+) | jgmenu --simple $OPTS

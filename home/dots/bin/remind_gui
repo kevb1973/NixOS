@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Shortcut to add a one off notification
+
+ICON_PATH="/run/current-system/sw/share/icons/Adwaita/symbolic/emotes"
+yad --title="Create Reminder" --form --separator="|" \
+	--field="Reminder Text:" \
+	--field="When:" | while read -r line; do
+
+		MESSAGE=$(echo "$line" | awk -F '|' '{print $1}')
+		TIME=$(echo "$line" | awk -F '|' '{print $2}')
+		echo "Time value: $TIME"
+		if [ -z "$MESSAGE" ] || [ -z "$TIME" ]; then
+			notify-send --urgency=normal  -i $ICON_PATH/face-raspberry-symbolic.svg "Need both Message and Time!"
+			exit
+		fi
+		echo "notify-send -i $ICON_PATH/face-smile-symbolic.svg --urgency=critical '$MESSAGE'" | at "$TIME"
+		retVal=$?
+		echo "At cmd Return Value: $retVal"
+		if [ $retVal -ne 0 ]; then
+			notify-send --urgency=normal -i $ICON_PATH/face-surprise-symbolic.svg "Incorrect Time Format!"
+		else
+			notify-send --urgency=normal "Added Reminder: $MESSAGE at $TIME"
+		fi
+	done

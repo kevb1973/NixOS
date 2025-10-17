@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Script to toggle scroll lock on Marble Mouse.
+# Kev - 23/12/2021
+
+ID=$(xinput list | grep Trackball | awk '{print $6}'|cut -d "=" -f 2)
+PROPID=$(xinput list-props $ID | grep 'Lock Enabled (' | awk '{print $7}' | sed 's/(//g' | sed 's/)://g')
+STATUS=$(xinput list-props $ID | grep $PROPID | awk '{print $8}')
+
+if [ $STATUS -eq 0 ]; then
+	xinput set-prop $ID $PROPID 1
+	echo "Scroll Lock Enabled"
+else
+	xinput set-prop $ID $PROPID 0
+	echo "Scroll Lock Disabled"
+fi

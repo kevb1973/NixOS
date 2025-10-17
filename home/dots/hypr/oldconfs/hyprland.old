@@ -1,0 +1,305 @@
+exec-once = /home/kev/bin/nixos-polkit-agent
+# exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=$XDG_CURRENT_DESKTOP PATH
+exec-once = . /etc/profiles/per-user/kev/etc/profile.d/hm-session-vars.sh
+exec-once = configure-gtk &
+exec-once = ssh-add
+exec-once = waypaper --restore
+exec-once = playerctld daemon
+# exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec-once = waybar
+# exec-once = gammastep-indicator -c ~/.config/gammastep/gammastep.conf
+# exec-once = wl-paste --watch cliphist store
+exec-once = clipse -listen
+# exec-once = mako -c ~/.config/mako/config
+exec-once = swaync
+# exec-once = [workspace 8 silent] foot http-server -p 8085 -c-1 ~/dotfiles/firefox_ext_confs/surfingkeys
+# exec-once = syncthing serve
+# exec-once = localsend autostart
+exec-once = sudo -b ydotoold --socket-path="$HOME/.ydotool_socket" --socket-own="$(id -u):$(id -g)"
+exec-once = [workspace special:popterm silent] foot hx
+exec-once = [workspace special:popterm silent] foot lazygit -p ~/NixOS
+exec-once = [workspace special:popterm silent] foot
+exec-once = [workspace 1] firefox
+
+
+input {
+    kb_layout = us
+    kb_variant =
+    kb_model =
+    kb_options = ctrl:nocaps
+    kb_rules =
+    follow_mouse = 1
+    # focus_on_close = 1
+
+    touchpad {
+        natural_scroll = false
+    }
+
+    sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+    numlock_by_default = true
+}
+
+general {
+
+    gaps_in = 5
+    gaps_out = 5
+    border_size = 2
+    col.active_border = rgb(007080)
+    col.inactive_border = rgb(202020)
+    layout = master
+}
+
+decoration {
+    blur {
+        enabled = false
+        size = 10
+        passes =1
+        new_optimizations = true
+        ignore_opacity = true
+        noise = 0
+        brightness = 0.60
+    }
+    active_opacity = 1.00
+    inactive_opacity = 0.95
+    rounding = 1
+    # drop_shadow = true
+    # shadow_range = 4
+    # shadow_render_power = 3
+    # col.shadow = rgba(1a1a1aee)
+}
+
+animations {
+    enabled = yes
+    bezier = wind, 0.05, 0.9, 0.1, 1.05
+    bezier = winIn, 0.1, 1.1, 0.1, 1.1
+    bezier = winOut, 0.3, -0.3, 0, 1
+    bezier = liner, 1, 1, 1, 1
+    animation = windows, 1, 5, default, popin 80%
+    animation = windowsIn, 1, 5, winIn, slide top
+    animation = windowsOut, 1, 5, winOut, slide bottom
+    animation = windowsMove, 1, 5, wind, slide
+    animation = border, 1, 1, liner
+    animation = borderangle, 1, 30, liner, loop
+    animation = fade, 1, 10, default
+    animation = workspaces, 1, 5, default, slide
+}
+
+dwindle {
+    pseudotile = true # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+    preserve_split = true # you probably want this
+}
+
+master {
+    # new_status = master
+    orientation = right
+    special_scale_factor = 0.98
+    # no_gaps_when_only = 1
+    drop_at_cursor = true
+}
+
+# cursor:zoom_rigid = false
+monitor=DP-3,2560x1440@165,0x0,1
+misc {
+    disable_hyprland_logo = true
+    enable_swallow = false
+    focus_on_activate = false
+    swallow_regex = ^(Alacritty)$
+    mouse_move_enables_dpms = true
+    key_press_enables_dpms = true
+    vrr = 1
+}
+cursor {
+       persistent_warps = true
+       no_hardware_cursors = false
+       inactive_timeout = 2
+}
+debug {
+    disable_logs = false
+}
+env = XCURSOR_SIZE,24
+# Blur Waybar background
+blurls = waybar
+
+# --- Gestures{{{1
+gestures {
+    workspace_swipe = false
+}
+
+binds {
+      workspace_back_and_forth = true
+}
+
+# WINDOWRULES
+windowrulev2 = float,title:(rofi - 😀)
+windowrulev2 = float,class:firefox,title:Picture-in-Picture
+windowrulev2 = move 9 1207,class:firefox,title:Picture-in-Picture
+windowrulev2 = size 292 172,class:firefox,title:Picture-in-Picture
+windowrulev2 = noinitialfocus,class:firefox,title:Picture-in-Picture
+windowrulev2 = float,class:waypaper
+windowrulev2 = move 1779 0,class:waypaper
+windowrulev2 = float,class:qalculate-gtk
+windowrulev2 = move 1915 35,class:qalculate-gtk
+windowrulev2 = size 25% 25%,class:qalculate-gtk
+windowrulev2 = workspace special:calculator,class:qalculate-gtk
+windowrulev2 = size 780 1445,class:waypaper
+windowrulev2 = workspace special:audacious,class:audacious
+windowrulev2 = workspace special:notes,class:zim
+windowrulev2 = workspace special:lazygit,class:lazygit
+windowrulev2 = workspace special:ncspot,class:ncspot
+windowrulev2 = workspace special:ncmpcpp,class:ncmpcpp
+windowrulev2 = workspace special:nautilus,class:(org.gnome.Nautilus)
+windowrulev2 = workspace special,class:ytdlp
+windowrulev2 = workspace special:editor,class:editor
+windowrulev2 = float,class:popterm
+# windowrulev2 = group set always, workspace:special:popterm
+windowrulev2 = workspace special:popterm,class:popterm
+windowrulev2 = move 250 50,class:popterm
+windowrulev2 = size 75% 90%,class:popterm
+windowrulev2 = float,class:neovide
+windowrulev2 = move 250 50,class:neovide
+windowrulev2 = size 75% 90%,class:neovide
+#windowrulev2 = workspace special:editor,class:Emacs
+windowrulev2 = float,title:LGTV
+windowrulev2 = center,title:LGTV
+windowrulev2 = center,class:wofi
+windowrulev2 = move 1600 35,title:LGTV
+# windowrulev2 = stayfocused,class:sudoku-Main, floating:1, fullscreen:0
+# windowrulev2 = stayfocused,class:sudoku-Main, floating:1, fullscreen:0
+windowrulev2 = dimaround,class:sudoku-Main, title:(.*hint)$
+windowrulev2 = noinitialfocus,class:sudoku-Main, title:(.*hint)$
+windowrulev2 = float,class:(clipse)
+windowrulev2 = size 622 652,class:(clipse)
+# KEYBINDS
+bind = SUPER CONTROL, grave, movetoworkspace,e+0
+bind = SUPER SHIFT, grave, movetoworkspace,special
+bind = SUPER, grave, togglespecialworkspace
+bind = SUPER SHIFT, Q, exec, wlogout
+bind = SUPER SHIFT, X, killactive,
+bind = SUPER SHIFT, space, togglefloating
+# bind = SUPER, S, pseudo
+bind = SUPER, KP_DIVIDE, exec, systemctl suspend
+bind = SUPER, up, movefocus, u
+bind = SUPER, down, movefocus, d
+bind = SUPER, left, movefocus, l
+bind = SUPER, right, movefocus, r
+bind = SUPER, Backspace, fullscreen, 1
+bind = SUPER SHIFT, Backspace, fullscreenstate, 0 2
+bind = SUPER, KP_Add, exec, /home/kev/bin/hyprzoom in
+bind = SUPER, KP_Subtract,exec, /home/kev/bin/hyprzoom reset
+# bind = SUPER, e, exec, umpv --ytdl-format=bestvideo+bestaudio/best --fs "$(wl-paste)" # Play clipboard link with mpv
+# bind = SUPER, space, exec, rofimoji -s neutral
+# bind = SUPER SHIFT, s, exec, hyprshade toggle bluefilter
+# bind = SUPER SHIFT, v, exec, hyprshade toggle vibrance
+bind = SUPER, mouse_down, exec, hyprzoom in
+bind = SUPER, mouse_up, exec, hyprzoom out
+
+bind = SUPER SHIFT, W, exec, waypaper
+bind = ,F10, exec, ydotool mousemove -a -x 2560 -y 0
+bind = SUPER SHIFT, Z, exec, pkill rofi || rofi -show run -a -i -n -p "Scripts:" -terminal "foot"
+bind = SUPER SHIFT, c, exec, clipse -clear-all
+# bind = SUPER, f, exec, toggle_nautilus
+# bind = SUPER, n, exec, toggle_notes
+# bind = SUPER, g, exec, toggle_git
+bind = SUPER, KP_ENTER, togglespecialworkspace, popterm
+bind = SUPER, KP_Multiply, exec, /home/kev/bin/toggle_calc
+bind = SUPER, Z, exec, pkill rofi || rofi -show drun -a -i -n -I -p "Apps:" -terminal "foot"
+bind = SUPER, b, exec, pkill waybar || waybar
+bind = SUPER, c, exec,  foot -a clipse clipse
+bind = SUPER, code:91, exec, toggle_ncspot
+bind = SUPER SHIFT, code:91, exec, toggle_ncmpcpp
+# bind = SUPER SHIFT, code:91, exec, toggle_audacious
+bind = SUPER, return, exec, foot
+# bind = SUPER, p, exec, hyprpicker -a
+bind = SUPER, M, layoutmsg, addmaster
+bind = SUPER SHIFT, M, layoutmsg, removemaster
+bind = SUPER SHIFT, left, layoutmsg, swapprev
+bind = SUPER SHIFT, return, layoutmsg, swapwithmaster auto
+bind = SUPER SHIFT, right, layoutmsg, swapnext
+bind = SUPER, bracketleft, layoutmsg, orientationprev
+bind = SUPER, bracketright, layoutmsg, orientationnext
+bind = ,XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +1%
+bind = ,XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -1%
+bind = ,XF86AudioMute, exec, ~/bin/toggle_mute
+# KP_7, KP_8, KP_9 not working, so used keycodes
+bind = SUPER, code:79, exec, playerctl play-pause
+bind = SUPER, code:80, exec, playerctl previous
+bind = SUPER, code:81, exec, playerctl next
+bind = SUPER, code:84, exec, playerctld shift && ~/bin/currentPlayer
+bind = SUPER, code:85, exec, playerctld unshift && ~/bin/currentPlayer
+
+bind = SUPER, Delete, exec, ~/bin/lgtv system turnOff
+bind = SUPER SHIFT, Delete, exec, ~/bin/lgtv wakeonlan
+bind = SUPER, Prior, exec, ~/bin/lgtv audio setMute true
+bind = SUPER SHIFT, Prior, exec, ~/bin/lgtv audio setMute false
+bind = SUPER, Next, exec, ~/bin/lgtv audio volumeDown
+bind = SUPER SHIFT, Next, exec, ~/bin/lgtv audio volumeUp
+bind = SUPER, t, exec, ~/bin/lgtvgui
+
+bind = SUPER, TAB, exec, rofi -show window
+bind = SUPER ALT, left, workspace, e-1
+bind = SUPER ALT, right, workspace, e+1
+# bind = SUPER, mouse_down, workspace, e+1
+# bind = SUPER, mouse_up, workspace, e-1
+bind = SUPER, 1, workspace, 1
+bind = SUPER, 2, workspace, 2
+bind = SUPER, 3, workspace, 3
+bind = SUPER, 4, workspace, 4
+bind = SUPER, 5, workspace, 5
+bind = SUPER, 6, workspace, 6
+bind = SUPER, 7, workspace, 7
+bind = SUPER, 8, workspace, 8
+bind = SUPER, 9, workspace, 9
+bind = SUPER, 0, workspace, 10
+
+bind = SUPER SHIFT, 1, movetoworkspace, 1
+bind = SUPER SHIFT, 2, movetoworkspace, 2
+bind = SUPER SHIFT, 3, movetoworkspace, 3
+bind = SUPER SHIFT, 4, movetoworkspace, 4
+bind = SUPER SHIFT, 5, movetoworkspace, 5
+bind = SUPER SHIFT, 6, movetoworkspace, 6
+bind = SUPER SHIFT, 7, movetoworkspace, 7
+bind = SUPER SHIFT, 8, movetoworkspace, 8
+bind = SUPER SHIFT, 9, movetoworkspace, 9
+bind = SUPER SHIFT, 0, movetoworkspace, 10
+bindm = SUPER, mouse:272, movewindow
+bindm = SUPER, mouse:273, resizewindow
+
+bind = SUPER, S, exec, ~/bin/rofi_screenshot
+bind = SUPER, E, exec, bemoji -t -n
+
+# bind = SUPER, A, exec, makoctl menu wofi -W 15% -H 10% -x 800 -y 5 -d -p 'Choose Action: '
+# bind = SUPER SHIFT, D, exec, makoctl restore
+# bind = SUPER, D, exec, makoctl dismiss
+bind = SUPER, A, exec, swaync-client -t 
+
+# Submaps
+bind = SUPER, R, submap, resize
+bind = SUPER, L, submap, launcher
+bind = SUPER, G, submap, group
+
+submap=resize
+binde=,right,resizeactive,20 0
+binde=,left,resizeactive,-20 0
+binde=,up,resizeactive,0 -20
+binde=,down,resizeactive,0 20
+bind = ,escape, submap, reset
+
+submap=launcher
+bind =, f, exec, firefox
+bind =, f, submap, reset
+bind =, e, exec, emacsclient -c
+bind =, e, submap, reset
+bind =, s, exec, ~/Games/Hodoku/hodoku
+bind =, s, submap, reset
+bind =, escape, submap, reset
+submap=reset
+
+submap=group
+bind = ,t,togglegroup
+bind = ,t,submap, reset
+bind = ,a,moveintogroup
+bind = ,a,submap, reset
+bind = ,r,moveoutofgroup
+bind = ,r,submap, reset
+bind =, escape, submap, reset
+

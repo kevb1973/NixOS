@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Show current size of /nix/store and /var
+# set -x
+HOST=$(env hostname)
+HOST=${HOST^}
+echo "$HOST System Size"
+echo "-------------------"
+echo "/nix/store: $(sudo dust -D /nix/store | tail -n 1 | awk '{print $1}')"
+echo "/var: $(sudo dust -X /var/tmp -D /var | tail -n 1 | awk '{print $1}')"
+

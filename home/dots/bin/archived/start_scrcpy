@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+password=$(zenity --password)
+adb connect 10.0.0.215:5555
+adb shell input keyevent 82 #Pressing the lock button
+sleep 1
+adb shell input touchscreen swipe 930 1880 930 180 #Swipe UP
+sleep 1
+adb shell input text ${password} 
+adb shell input keyevent 66 #Pressing Enter
+scrcpy -S

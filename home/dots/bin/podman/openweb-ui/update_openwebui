@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Stop, Update and Restart Open-webui
+
+echo "Stopping open-webui..."
+# podman rm -f open-webui
+echo "Downloading new image..."
+# pull ghcr.io/open-webui/open-webui:main
+echo "Starting updated container"
+podman run --network=host -d -e WEBUI_AUTH=False -v open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main

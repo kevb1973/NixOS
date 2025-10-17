@@ -53,18 +53,18 @@
           background = {
             show_background = true;
             style = {
-              color = "dark gray";
-              hint_color = "light gray";
+              color = "gray";
+              hint_color = "white";
               
               show_border = true;
-              border_color = "white";
+              border_color = "dark gray";
             };
           };
           environment_switcher = {
-            toggle_hint_color = "light gray";
-            mover_color = "light gray";
+            toggle_hint_color = "white";
+            mover_color = "white";
             mover_color_focused = "light blue";
-            neighbour_color = "light gray";
+            neighbour_color = "white";
           };
         };
       };

@@ -12,6 +12,7 @@
     # ];
     file = {
       ".config/helix".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/helix"; 
+      ".config/wlr-which-key".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/wlr-which-key"; 
     };
     
   };

@@ -82,13 +82,13 @@ window-rule {
     clip-to-geometry true
 }
 
-window-rule {
-    // match title="dotfiles-repo|nixos-repo|dms-repo|niri-repo|helix-repo|jjui-repo|nix-search-cli-repo|dgop-repo"
-    match app-id="repo"
-    open-on-workspace "repos"
-    default-column-width { proportion 0.5; }
-    open-focused false
-}
+// window-rule {
+//     // match title="dotfiles-repo|nixos-repo|dms-repo|niri-repo|helix-repo|jjui-repo|nix-search-cli-repo|dgop-repo"
+//     match app-id="repo"
+//     open-on-workspace "repos"
+//     default-column-width { proportion 0.5; }
+//     open-focused false
+// }
 window-rule {
     match app-id="term"
     open-on-workspace "2"

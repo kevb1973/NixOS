@@ -1,0 +1,9 @@
+[[snippets]]
+prefix = "bang"
+scope = [ "python" ]
+description = "Python script shebang"
+body = """
+#!/usr/bin/env -S uv run --script
+
+$0
+"""

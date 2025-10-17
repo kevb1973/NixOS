@@ -1,0 +1,103 @@
+# Syntax highlighting
+"type" = "blue"
+"type.builtin" = "blue"
+"constructor" = "green"
+"constant" = "magenta"
+"string" = "green"
+"string.regexp" = "orange"
+"string.special" = "yellow"
+"comment" = { fg = "gray", modifiers = ["italic"] }
+"variable" = "foreground"
+"label" = "orange"
+"punctuation" = "foreground"
+"keyword" = "orange"
+"keyword.control" = "yellow"
+"keyword.directive" = "yellow"
+"operator" = "orange"
+"function" = "yellow"
+"tag" = "blue"
+"namespace" = "cyan"
+"markup.heading" = "orange"
+"markup.list" = "yellow"
+"markup.bold" = { fg = "orange", modifiers = ["bold"] }
+"markup.italic" = { fg = "orange", modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.raw.block" = "orange"
+"markup.link.url" = "blue"
+"markup.link.text" = "yellow"
+"markup.link.label" = "green"
+"markup.quote" = "yellow"
+"diff.plus" =  "green"
+"diff.minus" = "red"
+"diff.delta" = "yellow"
+
+# Interface
+"ui.background"= { bg = "background" }
+"ui.cursor" = { fg = "foreground", bg = "yellow" }
+"ui.cursor.primary" = { fg = "foreground", bg = "orange" }
+"ui.cursor.match" = "orange"
+"ui.linenr" = "dark_gray"
+"ui.linenr.selected" = "gray"
+"ui.statusline" = { fg = "foreground", bg = "surface_container" }
+"ui.statusline.normal" = { fg = "black", bg = "blue" }
+"ui.statusline.insert" = { fg = "black", bg = "orange" }
+"ui.statusline.select" = { fg = "black", bg = "magenta" }
+"ui.cursorline" = { bg = "foreground" }
+"ui.popup" = { fg = "on_surface", bg = "surface_container" }
+"ui.window" = "dark_gray"
+"ui.help" = { fg = "on_surface", bg = "surface_container" }
+"ui.text" = "foreground"
+"ui.text.focus" = { bg = "dark_gray", fg = "foreground" }
+"ui.text.info" = "foreground"
+"ui.virtual.whitespace" = "dark_gray"
+"ui.virtual.ruler" = { bg = "black" }
+"ui.virtual.inlay-hint" = { fg = "#e6b450", bg = "#302a20" }  # original bg #e6b45033
+"ui.menu" = { fg = "on_surface", bg = "surface_container" }
+"ui.menu.selected" = { bg = "gray", fg = "background" }
+"ui.selection" = { bg = "dark_gray" }
+"warning" = "yellow"
+"error" = { fg = "red", modifiers = ["bold"] }
+"info" = { fg = "blue", modifiers = ["bold"] }
+"hint" = { fg = "blue", modifiers = ["bold"] }
+"diagnostic.hint" = { underline = { color = "blue", style="curl"} }
+"diagnostic.info"= { underline = { color = "blue", style="curl"} }
+"diagnostic.warning"= { underline = { color = "yellow", style="curl"} }
+"diagnostic.error"= { underline = { color = "red", style="curl"} }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+"ui.bufferline" = { fg = "gray", bg = "background" }
+"ui.bufferline.active" = { fg = "foreground", bg = "dark_gray" }
+"ui.debug" = { fg = "orange", bg = "background" }
+"ui.highlight.frameline" = { bg = "#0067a3" }
+"ui.virtual.jump-label" = { fg = "red", modifiers = ["italic", "bold"] }
+
+"special" = "orange"
+
+[palette]
+background = "#0f1416"
+foreground = "#dee3e6"
+
+black = "#0f1416"
+gray = "#547783"
+dark_gray = "#344a51"
+
+surface_container = "#1b2022"
+on_surface_container = "#dee3e6"
+red     = "#e8112b"
+green   = "#39ce7e"
+yellow  = "#f0b40b"
+blue    = "#00ace7"
+magenta = "#d200f7"
+cyan    = "#24cfdb"
+orange  = "#fb5914"
+
+
+
+
+# red     = "#d3233c"
+# green   = "#2a9689"
+# yellow  = "#f5c31e"
+# blue    = "#1871d7"
+# magenta = "#9c2099"
+# cyan    = "#33b4df"
+# orange  = "#fb5914"

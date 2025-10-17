@@ -1,0 +1,133 @@
+theme = "solarized_dark"
+
+[editor]
+auto-pairs = false
+bufferline = "always"
+color-modes = true
+completion-replace = true
+completion-trigger-len = 2
+cursorline = false
+end-of-line-diagnostics = "disable"
+idle-timeout = 50
+jump-label-alphabet = "1234567890asdf"
+line-number = "relative"
+rainbow-brackets = true
+# rulers = [120]
+scroll-lines = 1
+scrolloff = 10
+true-color = true
+word-completion.trigger-length = 3
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+other-lines = "disable"
+
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+follow-symlinks = true
+max-depth = 4
+
+[editor.gutters]
+layout = ["diff", "diagnostics", "line-numbers", "spacer", "spacer"]
+
+[editor.indent-guides]
+character = "·"
+render = true
+
+[editor.lsp]
+auto-signature-help = true
+display-messages = true
+display-inlay-hints = false
+
+[editor.soft-wrap]
+enable = true
+
+[editor.statusline]
+left = ["mode", "spacer", "diagnostics", "workspace-diagnostics", "spinner", "file-modification-indicator", "read-only-indicator", "file-name", "file-type", "total-line-numbers", "file-encoding"]
+center = []
+right = ["selections", "primary-selection-length", "position", "register", "position-percentage", "spacer", "diagnostics", "workspace-diagnostics", "version-control"]
+
+[editor.whitespace.render]
+newline = "all"
+
+[keys.normal.space]
+c = ":buffer-close"
+C = ":buffer-close!"
+q = ":quit"
+Q = ":quit!"
+n = ":new"
+u = ":update"
+"." = ":show-directory"
+"=" = ":format"
+"\\" = "@ /%p '<C-r>% %n "
+1 = ":reload"
+
+[keys.normal]
+V = ["goto_first_nonwhitespace", "extend_to_line_end"]
+X = ["select_line_above"]
+Y = ":yank-join"
+"A-x" = "extend_to_line_bounds"
+"C-x" = ":reset-diff-change"
+C-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+C-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-left = "goto_previous_buffer"
+C-right = "goto_next_buffer"
+C-space = "completion"
+S-up = "page_cursor_half_up"
+S-down = "page_cursor_half_down"
+esc = ["collapse_selection", "keep_primary_selection"]
+G = "goto_file_end"
+D = ["collapse_selection", "extend_to_line_end", "delete_selection", "insert_mode"]
+"=" = [":format"]
+"ret" = ["repeat_last_motion"]
+"`" = ["goto_word"]
+tab = ["indent"]
+S-tab = ["unindent"]
+
+[keys.normal."["]
+"[" = "goto_line_start"
+
+[keys.normal."]"]
+"]" = "goto_line_end"
+
+[keys.normal."'"]
+b = [":cd ~/bin", "file_picker_in_current_directory"]
+c = [":cd ~/.config", "file_explorer_in_current_directory"]
+d = [":cd ~/dotfiles", "file_explorer_in_current_directory"]
+# h = ":open ~/dotfiles/hyprland/.config/hypr/hyprland.conf"
+h = ":open ~/dotfiles/helix/.config/helix/config.toml"
+l = ":open ~/dotfiles/helix/.config/helix/languages.toml"
+n = [":cd ~/NixOS", "file_picker_in_current_directory"]
+N = [":cd ~/dotfiles/niri/.config/niri", "file_picker_in_current_directory"]
+p = ":open ~/NixOS/modules/programs.nix"
+s = ":open ~/NixOS/modules/services.nix"
+u = ":open ~/NixOS/modules/users.nix"
+
+[keys.insert]
+S-up = "half_page_up"
+S-down = "half_page_down"
+A-s = "signature_help"
+S-tab = "delete_char_backward"
+
+[keys.select]
+"A-x"= "extend_to_line_bounds"
+";" = ["collapse_selection", "normal_mode"]
+X = ["extend_line_up", "extend_to_line_bounds"]
+V = ["goto_first_nonwhitespace", "extend_to_line_end"]
+Y = ":yank-join"
+"ret" = "repeat_last_motion"
+
+
+[keys.normal.m]
+"\"" = "@f\";vmmdi\""
+"'"  = "@f';vmmdi'"
+"[" = "@f];vmmdi["
+"(" = "@f);vmmdi("
+"<"  = "@f<gt>;vmmdi<lt><gt><left>"
+"{" = "@f};vmmdi{"

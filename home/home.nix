@@ -1,5 +1,5 @@
 {
-  # config,
+  config,
   pkgs,
   # inputs,
   ...
@@ -10,6 +10,9 @@
     stateVersion = "24.05";
     # packages = with pkgs; [
     # ];
+    file = {
+      ".config/helix".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/helix"; 
+    };
     
   };
 

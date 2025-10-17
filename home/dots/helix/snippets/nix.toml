@@ -1,0 +1,36 @@
+[[snippets]]
+prefix = "set"
+scope = [ "nix" ]
+description = "Nix set"
+body = """
+$1 = {
+  $2
+};
+"""
+[[snippets]]
+prefix = "set-with"
+scope = [ "nix" ]
+description = "Nix set-with"
+body = """
+$1 = with $2; {
+  $3
+};
+"""
+[[snippets]]
+prefix = "list"
+scope = [ "nix" ]
+description = "Nix list"
+body = """
+$1 = [
+  $2
+];
+"""
+[[snippets]]
+prefix = "list-with"
+scope = [ "nix" ]
+description = "Nix list-with"
+body = """
+$1 = with $2; [
+  $3
+];
+"""

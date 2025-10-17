@@ -1,0 +1,4 @@
+function npu
+    set pkg (tv nix-profile)
+    nix profile upgrade $pkg
+end

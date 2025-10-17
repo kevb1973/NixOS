@@ -1,0 +1,3 @@
+function hm
+    tv -i home-manager/ | sed 's:home-manager/ ::g'
+end

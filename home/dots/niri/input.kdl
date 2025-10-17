@@ -21,6 +21,6 @@ input {
     }
 
     workspace-auto-back-and-forth
-    warp-mouse-to-focus
+    // warp-mouse-to-focus
     focus-follows-mouse max-scroll-amount="0%"
 }

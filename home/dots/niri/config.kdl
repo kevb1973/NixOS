@@ -18,7 +18,7 @@ config-notification {
 
 cursor {
     // hide-after-inactive-ms 2000
-    hide-when-typing
+    // hide-when-typing
     xcursor-theme "Bibata-Modern-Classic"
     xcursor-size 24
 }

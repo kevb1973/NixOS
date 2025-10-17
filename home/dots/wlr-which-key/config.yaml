@@ -52,7 +52,7 @@ menu:
             cmd: kitty hx ~/.config/helix/languages.toml
           - key: "e"
             desc: expansions
-            cmd: kitty yazi ~/dotfiles/helix/.config/helix/snippets
+            cmd: kitty yazi ~/.config/helix/snippets
       - key: "n"
         desc: nixos
         submenu:
@@ -82,31 +82,31 @@ menu:
         submenu:
           - key: "b"
             desc: binds
-            cmd: kitty hx ~/dotfiles/niri/.config/niri/binds.kdl
+            cmd: kitty hx ~/.config/niri/binds.kdl
           - key: "e"
             desc: environment
-            cmd: kitty hx ~/dotfiles/niri/.config/niri/environment.kdl
+            cmd: kitty hx ~/.config/niri/environment.kdl
           - key: "i"
             desc: input
-            cmd: kitty hx ~/dotfiles/niri/.config/niri/input.kdl
+            cmd: kitty hx ~/.config/niri/input.kdl
           - key: "l"
             desc: layer-rules
-            cmd: kitty hx ~/dotfiles/niri/.config/niri/layer-rules.kdl
+            cmd: kitty hx ~/.config/niri/layer-rules.kdl
           - key: "L"
             desc: layout
-            cmd: kitty hx ~/dotfiles/niri/.config/niri/layout.kdl
+            cmd: kitty hx ~/.config/niri/layout.kdl
           - key: "o"
             desc: output
-            cmd: kitty hx ~/dotfiles/niri/.config/niri/output.kdl
+            cmd: kitty hx ~/.config/niri/output.kdl
           - key: "s"
             desc: spawns
-            cmd: kitty hx ~/dotfiles/niri/.config/niri/spawns.kdl
+            cmd: kitty hx ~/.config/niri/spawns.kdl
           - key: "t"
             desc: top-level (config.kdl)
-            cmd: kitty hx ~/dotfiles/niri/.config/niri/config.kdl
+            cmd: kitty hx ~/.config/niri/config.kdl
           - key: "w"
             desc: window-rules
-            cmd: kitty hx ~/dotfiles/niri/.config/niri/window-rules.kdl
+            cmd: kitty hx ~/.config/niri/window-rules.kdl
       - key: "p"
         desc: color picker
         cmd: niri-pick-color
@@ -144,11 +144,11 @@ menu:
     desc: jj repos
     submenu:
       - key: "1"
-        desc: dotfiles
-        cmd: kitty --app-id=repo --title=dotfiles -e jjui ~/dotfiles
-      - key: "2"
         desc: nixos
         cmd: kitty  --app-id repo --title=nixos -e jjui ~/NixOS
+      - key: "2"
+        desc: dotfiles
+        cmd: kitty --app-id=repo --title=dotfiles -e jjui ~/dotfiles
       - key: "3"
         desc: dms
         cmd: kitty  --app-id repo --title=dms -e jjui ~/.config/quickshell/dms

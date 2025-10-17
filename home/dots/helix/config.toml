@@ -99,12 +99,12 @@ S-tab = ["unindent"]
 [keys.normal."'"]
 b = [":cd ~/bin", "file_picker_in_current_directory"]
 c = [":cd ~/.config", "file_explorer_in_current_directory"]
-d = [":cd ~/dotfiles", "file_explorer_in_current_directory"]
+d = [":cd ~/NixOS/home/dots", "file_explorer_in_current_directory"]
 # h = ":open ~/dotfiles/hyprland/.config/hypr/hyprland.conf"
-h = ":open ~/dotfiles/helix/.config/helix/config.toml"
-l = ":open ~/dotfiles/helix/.config/helix/languages.toml"
+h = ":open ~/.config/helix/config.toml"
+l = ":open ~/.config/helix/languages.toml"
 n = [":cd ~/NixOS", "file_picker_in_current_directory"]
-N = [":cd ~/dotfiles/niri/.config/niri", "file_picker_in_current_directory"]
+N = [":cd ~/.config/niri", "file_picker_in_current_directory"]
 p = ":open ~/NixOS/modules/programs.nix"
 s = ":open ~/NixOS/modules/services.nix"
 u = ":open ~/NixOS/modules/users.nix"

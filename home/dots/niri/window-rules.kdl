@@ -36,7 +36,7 @@ window-rule {
     // Firefox PIP
     match title="Picture-in-Picture"
     default-floating-position x=15 y=90 relative-to="bottom-left"
-    default-column-width { fixed 310; }
+    default-column-width { fixed 355; }
     default-window-height { fixed 190; }
     open-floating true
     open-focused false
@@ -56,7 +56,7 @@ window-rule {
     // for Spotify mini-player                                //
     match app-id="chromium-browser"
     default-floating-position x=12 y=290 relative-to="bottom-left"
-    default-column-width { fixed 350; }
+    default-column-width { fixed 358; }
     default-window-height { fixed 250; }
     open-floating true
     open-focused false

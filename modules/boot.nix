@@ -34,7 +34,8 @@
       "udev.log_priority=3" #for silent boot 
       "amd_iommu=on"
       "iommu=pt"
-      "systemd.mask=systemd-vconsole-setup.service" # Added due to VConsole error on boot. See https://github.com/NixOS/nixpkgs/issues/312452#issuecomment-2320993345
+      "preempt=full" # suggested to avoid audio cracks/noises
+      # "systemd.mask=systemd-vconsole-setup.service" # Added due to VConsole error on boot. See https://github.com/NixOS/nixpkgs/issues/312452#issuecomment-2320993345
       "systemd.mask=dev-tpmrm0.device"
     ];
     consoleLogLevel = 3; 

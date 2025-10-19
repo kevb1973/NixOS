@@ -77,13 +77,6 @@
       unar
       unzip
       usbutils
-      (where-is-my-sddm-theme.override {
-        themeConfig.General = {
-          backgroundFill = "#fbf5ed";
-          basicTextColor = "#56949f";
-          showSessionsByDefault = "true";
-        };
-      })
       xdg-utils # for opening default programms when clicking links
       zip
     ];

@@ -40,10 +40,11 @@
         "npu --set-cursor" = "nix profile upgrade %";
         "nr --set-cursor" = "nix run nixpkgs#%";
         "ns --set-cursor" = "nix shell nixpkgs#% -c fish";
-        "nsn --set-cursor" = "nix-search --name % -d";
-        "nsp --set-cursor" = "nix-search --program % -d";
-        "nsd --set-cursor" = "nix-search --query-string='package_description:(%)' -d";
+        # "nsn --set-cursor" = "nix-search --name % -d";
+        # "nsp --set-cursor" = "nix-search --program % -d";
+        # "nsd --set-cursor" = "nix-search --query-string='package_description:(%)' -d";
         "scu" = "systemctl --user";
+        "sn" = "nh search";
         "ytm --set-cursor" = "yt-dlp -x --audio-format mp3 %";
         "ytv --set-cursor" = "ytd-video '%'"; # note: had to use script as <= breaks config due to string interpolation
         # "rp --set-cursor" = "nix profile remove '%'";
@@ -104,10 +105,10 @@
       fuzzyCompletion = true;
     };
 
-    hyprland = {
-      enable = true;
-      #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    };
+    # hyprland = {
+    #   enable = true;
+    #   #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    # };
 
     niri = {
       enable = false;

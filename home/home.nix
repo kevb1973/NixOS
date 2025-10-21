@@ -72,7 +72,7 @@
   };
 
   gtk = {
-    enable = false;
+    enable = true;
     font = {
       package = pkgs.cantarell-fonts;
       name = "Cantarell";

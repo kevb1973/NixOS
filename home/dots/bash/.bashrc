@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ~/.bashrc
 #
-export PATH=/home/kev/bin:$PATH
+export PATH=/home/kev/NixOS/home/dots/bin:/home/kev/Code/dms-bin:$PATH
 # Darkman looks under XDG_DATA_DIRS for dark/light mode scripts
 export XDG_DATA_DIRS=/home/kev/.local/share/darkman:$XDG_DATA_DIRS
 

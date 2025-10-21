@@ -39,7 +39,7 @@
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_IM_MODULE = "ibus";
       QT_QPA_PLATFORM = "wayland;xcb";
-      # QT_QPA_PLATFORMTHEME = "qt5ct";
+      QT_QPA_PLATFORMTHEME = "qt6ct";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       SSL_CERT_FILE = "/etc/ssl/certs/ca-bundle.crt"; #Needed for X-Plane "AutoOrtho"
       UV_PYTHON_DOWNLOADS = "never"; # Stop uv from downloading binaries

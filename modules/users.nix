@@ -30,6 +30,7 @@
       authenticator
       bat
       bemoji
+      bluetuith
       boxbuddy
       btop
       cacert
@@ -50,7 +51,6 @@
       dust # quick dir size for 'sys' script
       emacs-pgtk
       espanso-wayland # Service not working with Niri. Starting manually.
-      eza #colourful ls
       fd
       ffmpeg
       file
@@ -95,6 +95,7 @@
       libsForQt5.qtstyleplugin-kvantum
       libtool # Needed for DMS
       llama-cpp-vulkan
+      lsd
       # lmstudio # LLM server
       manix # search nixos and home-manager options
       markdown-oxide # markdown LS

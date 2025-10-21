@@ -1,43 +1,33 @@
 // Binds
 binds {
-    // --- Launchers{{{2
+    // Launchers,
     Mod+Return            { spawn "kitty"; }
     Mod+Shift+Return      { spawn "nautilus"; }
-    // Mod+Z                 { spawn "~/bin/toggle_fuzzel"; }
-    // Mod+Z                 { spawn "qs" "-c" "/home/kev/.config/DMS/" "ipc" "call" "spotlight" "toggle"; }
-    Mod+Z                 { spawn-sh "dms ipc spotlight toggle"; }
+    Mod+Z                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc spotlight toggle"; }
     Mod+Tab               { toggle-overview; }
     Mod+KP_Multiply       { spawn "qalculate-gtk"; }
     Mod+N                 { spawn "~/bin/remind_gui"; }
-    Mod+Shift+N           { spawn-sh "dms ipc notepad toggle"; }
+    Mod+Shift+N           { spawn-sh "/home/kev/Code/dms-bin/dms ipc notepad toggle"; }
     Mod3+A                { spawn "bash" "-c" "pkill wlr-which-key || wlr-which-key"; }
     Mod3+E                { spawn "emacsclient" "-c"; }
     Mod3+Tab              { spawn "niri-window-switcher"; }
 
-    // --- Utilities{{{2
-    // Mod+c                 { spawn "kitty" "--class=clipse" "clipse"; }
-    // Mod+Shift+c           { spawn "clipse" "-clear-all"; }
-    // Mod+a                 { spawn "swaync-client" "--close-latest"; }
-    // Mod+Shift+a           { spawn "swaync-client" "-t"; }
-    // Mod+Control+a         { spawn "swaync-client" "-C"; }
-    // F10                   { spawn "ydotool" "mousemove" "-x" "2560" "-y" "1440"; }
+    // Utilities
     F10                   { spawn "/home/kev/bin/dotool-move-mouse.sh"; }
-    // Mod+c                 { spawn "qs" "-c" "/home/kev/.config/DMS/" "ipc" "call" "clipboard" "toggle"; }
     Mod+c                 { spawn "copyq" "show"; }
-    Mod+a                 { spawn-sh "dms ipc notifications toggle"; }
-    Mod+b                 { spawn-sh "dms ipc bar toggle"; }
+    Mod+a                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc notifications toggle"; }
+    Mod+b                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc bar toggle"; }
     Mod+e                 { spawn "/home/kev/bin/emoji-picker"; }
     Mod+M                 { spawn "~/bin/play_yt.sh"; }
-    // --- Media{{{2
-    // --- PC Volume{{{3
-    // XF86AudioRaiseVolume  { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "+1%"; }
-    // XF86AudioLowerVolume  { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "-1%"; }
-    // XF86AudioMute         { spawn "~/bin/toggle_mute"; }
-    XF86AudioRaiseVolume  { spawn-sh "dms ipc audio increment 2"; }
-    XF86AudioLowerVolume  { spawn-sh "dms ipc audio decrement 2"; }
-    XF86AudioMute         { spawn-sh "dms ipc audio mute"; }
 
-    // --- LGTV{{{3
+    // Media
+
+    // PC Volume
+    XF86AudioRaiseVolume  { spawn-sh "/home/kev/Code/dms-bin/dms ipc audio increment 2"; }
+    XF86AudioLowerVolume  { spawn-sh "/home/kev/Code/dms-bin/dms ipc audio decrement 2"; }
+    XF86AudioMute         { spawn-sh "/home/kev/Code/dms-bin/dms ipc audio mute"; }
+
+    // LGTV
     Mod+Delete            { spawn "/home/kev/bin/lgtv" "system" "turnOff";}
     Mod+Shift+Delete      { spawn "/home/kev/bin/lgtv" "wakeonlan"; }
     Mod+Prior             { spawn "/home/kev/bin/lgtv" "audio" "setMute" "true"; }
@@ -45,14 +35,15 @@ binds {
     Mod+Next              { spawn "/home/kev/bin/lgtv" "audio" "volumeDown"; }
     Mod+Shift+Next        { spawn "/home/kev/bin/lgtv" "audio" "volumeUp"; }
     Mod+t                 { spawn "/home/kev/bin/lgtvgui"; }
-    // --- MPRIS{{{3
+
+    // MPRIS
     Mod+KP_Home           { spawn "playerctl" "play-pause"; }
     Mod+KP_Up             { spawn "playerctl" "previous"; }
     Mod+KP_Prior          { spawn "playerctl" "next"; }
     Mod+KP_Begin          { spawn "playerctld" "shift" "&&" "~/bin/currentPlayer"; }
     Mod+KP_Right          { spawn "playerctld" "unshift" "&&" "~/bin/currentPlayer"; }
 
-    // --- Window Management{{{2
+    // Window Management
     Mod+Shift+1           { move-window-to-workspace 1; }
     Mod+Shift+2           { move-window-to-workspace 2; }
     Mod+Shift+3           { move-window-to-workspace 3; }
@@ -69,7 +60,7 @@ binds {
     Mod+Shift+Space       { toggle-window-floating; }
     Mod+Shift+X           { close-window; }
 
-    // --- Columns{{{4
+    // Columns,
     Mod+Shift+Left        { move-column-left; }
     Mod+Shift+Right       { move-column-right; }
     // Mod+Shift+Down        { move-window-down; }
@@ -86,8 +77,14 @@ binds {
     Mod+Ctrl+Left         { consume-or-expel-window-left; }
     Mod+Ctrl+Right        { consume-or-expel-window-right; }
 
+    // Floats
+    // Not working yet..
+    // Mod3+right            {move-floating-window -x 10; }
+    // Mod3+Left             {move-floating-window -x -10; }
+    // Mod3+up               {move-floating-window -y 10; }
+    // Mod3+down             {move-floating-window -y -10; }
 
-    // --- Focus{{{3
+    // Focus
     Mod+Left              { focus-column-left-or-last; }
     Mod+Right             { focus-column-right-or-first; }
     // Mod+Up                { focus-window-up; }
@@ -105,7 +102,7 @@ binds {
     Mod+9                 { focus-workspace 9; }
     Mod+slash             { center-column; }
 
-    // --- Resize{{{3
+    // Resize
     Mod+R                 { switch-preset-column-width; }
     Mod+W                 { toggle-column-tabbed-display; }
     Mod+Backspace         { maximize-column; }
@@ -117,15 +114,13 @@ binds {
     Mod+Shift+Minus       { set-window-height "-5%"; }
     Mod+Shift+Equal       { set-window-height "+5%"; }
 
-    // --- Miscellaneous Binds{{{2
+    // Miscellaneous Binds
     Mod+s                 { screenshot; }
     // Mod+Shift+Slash       { show-hotkey-overlay; }
-    // Mod+q                 { spawn "wlr-which-key" "quit"; }
-    Mod+q                 { spawn-sh "dms ipc powermenu toggle"; }
+    Mod+q                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc powermenu toggle"; }
     Mod+KP_Divide         { power-off-monitors; }
-    // Mod+Shift+KP_Divide   { spawn "systemctl" "suspend"; }
 
-    // --- Mouse Binds
+    // Mouse Binds
     Mod+WheelScrollUp     { focus-workspace-up; }
     Mod+WheelScrollDown   { focus-workspace-down; }
 

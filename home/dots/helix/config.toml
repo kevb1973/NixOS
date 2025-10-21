@@ -6,6 +6,7 @@ bufferline = "always"
 color-modes = true
 completion-replace = true
 completion-trigger-len = 2
+continue-comments = false
 cursorline = false
 end-of-line-diagnostics = "disable"
 idle-timeout = 50

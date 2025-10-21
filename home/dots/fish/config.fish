@@ -26,6 +26,6 @@ if status is-login
 end
 
 # Created by `pipx` on 2023-05-25 21:07:51
-set PATH $PATH /home/kev/.local/bin /home/kev/.config/emacs/bin /home/kev/.cargo/bin
+set PATH $PATH /home/kev/.local/bin /home/kev/.config/emacs/bin /home/kev/.cargo/bin /home/kev/Code/dms-bin /home/kev/NixOS/home/dots/bin
 # set -gx DISPLAY :1
 # set fish_function_path $fish_function_path $__fish_config_dir/functions/*/

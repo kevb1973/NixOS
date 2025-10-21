@@ -6,5 +6,5 @@ echo "Switching to dark mode"
 # sed -i -e 's/"textual-light"/"textual-dark"/g' ~/dotfiles/isd/.config/isd_tui/config.yaml
 
 # Set DankMaterialShell to dark mode
-dms ipc theme dark
+~/Code/dms-bin/dms ipc theme dark
 # qs -c ~/.config/DMS/ ipc call wallpaper set ~/Pictures/wallpaper/1440p/leafy-moon.png

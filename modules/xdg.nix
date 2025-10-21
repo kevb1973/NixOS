@@ -2,6 +2,7 @@
 {
   xdg = {
     portal = {
+      config.common.default = "*"; # Needed for xdg-desktop-portal
       enable = true;
        extraPortals = with pkgs; [
          # xdg-desktop-portal-wlr

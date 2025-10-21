@@ -53,7 +53,7 @@
           background = {
             show_background = true;
             style = {
-              color = "gray";
+              color = "black";
               hint_color = "white";
               
               show_border = true;

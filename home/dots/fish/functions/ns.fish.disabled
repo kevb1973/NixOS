@@ -1,4 +1,0 @@
-function ns
-    set pkg (tv -i 'nixpkgs/' | sed 's:nixpkgs/ ::g')
-    nix shell nixpkgs#$pkg
-end

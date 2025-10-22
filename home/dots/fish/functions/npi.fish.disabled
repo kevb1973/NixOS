@@ -1,9 +1,0 @@
-function npi
-    set pkg (tv -i 'nixpkgs/' | sed 's:nixpkgs/ ::g')
-
-    if test -z "$pkg"
-        echo "* No Package Selected *"
-    else
-        nix profile install nixpkgs#"$pkg"
-    end
-end

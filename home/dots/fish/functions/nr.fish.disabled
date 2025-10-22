@@ -1,4 +1,0 @@
-function nr
-    set pkg (tv -i 'nixpkgs/' | sed 's:nixpkgs/ ::g')
-    nix run nixpkgs#$pkg
-end

@@ -1,12 +1,13 @@
 # Theming
 font: VictorMono Nerd Font 16
-background: "#192330"
+background: "#001e26"
 color: "#fbf1c7"
 border: "#96883e"
 separator: " ➜ "
 border_width: 1
-corner_r: 0
-padding: 15 # Defaults to corner_r
+corner_r: 5
+padding: 5 # Defaults to corner_r
+# rows_per_column: 5
 
 # Anchor and margin
 anchor: center # One of center, left, rght, top, bottom, bottom-left, top-left, etc.
@@ -112,7 +113,7 @@ menu:
             cmd: kitty hx ~/.config/niri/window-rules.kdl
       - key: "p"
         desc: color picker
-        cmd: niri-pick-color
+        cmd: ~/NixOS/home/dots/bin/niri-pick-color
   - key: "d"
     desc: dms
     submenu:

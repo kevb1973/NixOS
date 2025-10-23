@@ -13,11 +13,11 @@ binds {
     Mod3+Tab              { spawn "niri-window-switcher"; }
 
     // Utilities
-    F10                   { spawn "/home/kev/bin/dotool-move-mouse.sh"; }
+    F10                   { spawn "/home/kev/NixOS/home/dots/bin/dotool-move-mouse.sh"; }
     Mod+c                 { spawn "copyq" "show"; }
     Mod+a                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc notifications toggle"; }
     Mod+b                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc bar toggle"; }
-    Mod+e                 { spawn "/home/kev/bin/emoji-picker"; }
+    Mod+e                 { spawn "/home/kev/NixOS/home/dots/bin/emoji-picker"; }
     Mod+M                 { spawn "~/bin/play_yt.sh"; }
 
     // Media
@@ -28,13 +28,13 @@ binds {
     XF86AudioMute         { spawn-sh "/home/kev/Code/dms-bin/dms ipc audio mute"; }
 
     // LGTV
-    Mod+Delete            { spawn "/home/kev/bin/lgtv" "system" "turnOff";}
-    Mod+Shift+Delete      { spawn "/home/kev/bin/lgtv" "wakeonlan"; }
-    Mod+Prior             { spawn "/home/kev/bin/lgtv" "audio" "setMute" "true"; }
-    Mod+Shift+Prior       { spawn "/home/kev/bin/lgtv" "audio" "setMute" "false"; }
-    Mod+Next              { spawn "/home/kev/bin/lgtv" "audio" "volumeDown"; }
-    Mod+Shift+Next        { spawn "/home/kev/bin/lgtv" "audio" "volumeUp"; }
-    Mod+t                 { spawn "/home/kev/bin/lgtvgui"; }
+    Mod+Delete            { spawn "/home/kev/NixOS/home/dots/bin/lgtv" "system" "turnOff";}
+    Mod+Shift+Delete      { spawn "/home/kev/NixOS/home/dots/bin/lgtv" "wakeonlan"; }
+    Mod+Prior             { spawn "/home/kev/NixOS/home/dots/bin/lgtv" "audio" "setMute" "true"; }
+    Mod+Shift+Prior       { spawn "/home/kev/NixOS/home/dots/bin/lgtv" "audio" "setMute" "false"; }
+    Mod+Next              { spawn "/home/kev/NixOS/home/dots/bin/lgtv" "audio" "volumeDown"; }
+    Mod+Shift+Next        { spawn "/home/kev/NixOS/home/dots/bin/lgtv" "audio" "volumeUp"; }
+    Mod+t                 { spawn "/home/kev/NixOS/home/dots/bin/lgtvgui"; }
 
     // MPRIS
     Mod+KP_Home           { spawn "playerctl" "play-pause"; }

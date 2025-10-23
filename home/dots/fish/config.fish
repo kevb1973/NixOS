@@ -13,7 +13,6 @@ if status is-interactive
             set -gx pure_enable_nixdevshell true
             set -gx pure_show_prefix_root_prompt true
             set fish_greeting Halcyon NixOS
-            alias ai 'aichat -m lm-studio:llama-3.2-3b-instruct -r %shell%'
         case arch.halcyon
             set fish_greeting Halcyon Arch
     end

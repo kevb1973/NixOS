@@ -12,7 +12,7 @@
     # ];
     file = {
       ".bashrc".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/bash/.bashrc"; 
-      "bin".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/bin"; 
+      # "bin".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/bin"; 
       ".config/aichat".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/aichat"; 
       ".config/atuin".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/atuin"; 
       ".config/cava".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/cava"; 
@@ -33,7 +33,6 @@
       ".config/television".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/television"; 
       ".config/wlr-which-key".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/wlr-which-key"; 
       ".config/yazi".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/yazi"; 
-      ".local/share/darkman".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/darkman"; 
     };
     
   };
@@ -57,6 +56,16 @@
     };
     darkman = {
       enable = true;
+      darkModeScripts = {
+        dank-theme = ''
+          ~/Code/dms-bin/dms ipc theme dark
+        '';
+      };
+      lightModeScripts = {
+        dank-theme = ''
+          ~/Code/dms-bin/dms ipc theme light
+        '';
+      };
       settings = {
         lat = 43.9;
         lng = -78.8;

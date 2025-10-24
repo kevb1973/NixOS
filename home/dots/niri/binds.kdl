@@ -4,6 +4,7 @@ binds {
     Mod+Return            { spawn "kitty"; }
     Mod+Shift+Return      { spawn "nautilus"; }
     Mod+Z                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc spotlight toggle"; }
+    Mod+P                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc call dankdash wallpaper"; }
     Mod+Tab               { toggle-overview; }
     Mod+KP_Multiply       { spawn "qalculate-gtk"; }
     Mod+N                 { spawn-sh "kitty --app-id='remind-tui' ~/NixOS/home/dots/bin/remind_tui"; }

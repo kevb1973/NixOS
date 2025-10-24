@@ -25,7 +25,7 @@
       # GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
       # GTK_THEME="Adwaita:light";
-      GTK_THEME="Colloid-Dark";
+      GTK_THEME="adw-gtk3";
       MANPAGER = "nvim +Man!";
       MANWIDTH = "100";
       NIX_ALLOW_UNFREE = "1";
@@ -66,8 +66,8 @@
       jdk
       libcxxStdenv # Needed to build binaries for tree-sitter
       lua-language-server
-      mfcl2700dnlpr
-      mfcl2700dncupswrapper
+      # mfcl2700dnlpr # Remove for now.. too many issues.
+      # mfcl2700dncupswrapper # See above
       neovim
       nixfmt-rfc-style
       nodePackages.bash-language-server

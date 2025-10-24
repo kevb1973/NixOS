@@ -34,14 +34,14 @@
       boxbuddy
       btop
       cacert
-      calibre  
+      # calibre  # BROKEN: Oct 23, 2025
       cargo
       cava # Terminal audio visualizer
       # clipse
       cliphist # Clipboard manager (for DankMaterialShell)
-      colloid-gtk-theme
-      colloid-icon-theme
-      copyq # clipboard manager++
+      # colloid-gtk-theme
+      # colloid-icon-theme
+      # copyq # clipboard manager++ # BROKEN: Oct 23, 2025
       darkman
       ddcutil # Adjust monitor brightness and other settings from cli
       diff-so-fancy
@@ -73,6 +73,7 @@
       grc # generic text colourizer. Using with fishPlugins.grc
       grim
       grimblast
+      gum # Script enhancer - use for remind_tui
       highlight # Used with vifm to add color to file previews with code
       hydra-check # check build status.. hydra-check --channel unstable <pkg>
       inxi # Hardware info app

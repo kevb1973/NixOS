@@ -8,6 +8,12 @@ window-rule {
     default-window-height { proportion 0.50; }
 }
 window-rule {
+    match app-id="remind-tui"
+    open-floating true
+    default-column-width { fixed 565; }
+    default-window-height { fixed 300; }
+}
+window-rule {
     match app-id="com.github.hluk.copyq"
     open-floating true
     default-column-width { proportion 0.25; }

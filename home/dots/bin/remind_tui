@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Shortcut to add a one off notification using atd
+# Calls notify-snooze script which wraps notify-send with snooze options
+
+set -e # exit on any non-zero exit code (catch ctrl-c in gum which returns 130)
+clear
+gum style --border double --align center --width 50 --margin "1 2" 'Create a Reminder' 'ctrl-c to quit'
+MESSAGE=$(gum input --prompt "Reminder: " --width 80 --value "$1")
+TIME=$(gum input --prompt "Date/Time: " --width 20) 
+
+# Check if either MESSAGE or TIME are missing.. if so, warn and restart keeping existing message (if exists)
+if [ -z "$MESSAGE" ] || [ -z "$TIME" ]; then
+	gum log "Missing Message or Time"
+	sleep 2
+	clear
+	remind_tui "$MESSAGE"
+fi
+
+echo "/home/kev/NixOS/home/dots/bin/notify-snooze '$MESSAGE'" | at "$TIME" > /dev/null 2>&1
+
+if [ $? -ne 0 ]; then
+	gum log "Incorrect Time Format!"
+	sleep 2
+	clear
+	remind_tui "$MESSAGE"
+else
+	gum log "Added Reminder: $MESSAGE at $TIME"
+	sleep 1
+fi

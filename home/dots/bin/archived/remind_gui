@@ -2,6 +2,9 @@
 
 # Shortcut to add a one off notification
 
+# Need to rewrite this so that it doesn't exit the gui until
+# a reminder has been created. Look into 'gum' as a more modern alternative to yad.
+
 ICON_PATH="/run/current-system/sw/share/icons/Adwaita/symbolic/emotes"
 yad --title="Create Reminder" --form --separator="|" \
 	--field="Reminder Text:" \
@@ -12,9 +15,9 @@ yad --title="Create Reminder" --form --separator="|" \
 		echo "Time value: $TIME"
 		if [ -z "$MESSAGE" ] || [ -z "$TIME" ]; then
 			notify-send --urgency=normal  -i $ICON_PATH/face-raspberry-symbolic.svg "Need both Message and Time!"
-			exit
+			continue
 		fi
-		echo "notify-send -i $ICON_PATH/face-smile-symbolic.svg --urgency=critical '$MESSAGE'" | at "$TIME"
+		echo "notify-snooze.sh '$MESSAGE'" | at "$TIME"
 		retVal=$?
 		echo "At cmd Return Value: $retVal"
 		if [ $retVal -ne 0 ]; then

@@ -6,7 +6,7 @@ binds {
     Mod+Z                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc spotlight toggle"; }
     Mod+Tab               { toggle-overview; }
     Mod+KP_Multiply       { spawn "qalculate-gtk"; }
-    Mod+N                 { spawn "~/bin/remind_gui"; }
+    Mod+N                 { spawn-sh "kitty --app-id='remind-tui' ~/NixOS/home/dots/bin/remind_tui"; }
     Mod+Shift+N           { spawn-sh "/home/kev/Code/dms-bin/dms ipc notepad toggle"; }
     Mod3+A                { spawn "bash" "-c" "pkill wlr-which-key || wlr-which-key"; }
     Mod3+E                { spawn "emacsclient" "-c"; }

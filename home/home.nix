@@ -60,10 +60,16 @@
         dank-theme = ''
           ~/Code/dms-bin/dms ipc theme dark
         '';
+        firefox-theme = ''
+          dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
+        '';
       };
       lightModeScripts = {
         dank-theme = ''
           ~/Code/dms-bin/dms ipc theme light
+        '';
+        firefox-theme = ''
+          dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
         '';
       };
       settings = {
@@ -74,11 +80,11 @@
     mpdris2.enable = true;
   };
 
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-    };
-  };
+  # dconf.settings = {
+  #   "org/gnome/desktop/interface" = {
+  #     color-scheme = "prefer-dark";
+  #   };
+  # };
 
   gtk = {
     enable = true;
@@ -91,7 +97,7 @@
     # Theme settings
     theme = {
       package = pkgs.adw-gtk3;
-      name = "adw-gtk3-dark";
+      name = "adw-gtk3";
     };
 
     # Icon theme

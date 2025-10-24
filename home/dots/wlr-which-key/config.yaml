@@ -254,12 +254,9 @@ menu:
         desc: jjui
         cmd: kitty  --app-id repo --title=jjui -e jjui ~/Code/jjui
       - key: "6"
-        desc: nix-search-cli
-        cmd: kitty  --app-id repo --title=nix-search-cli -e jjui ~/Code/nix-search-cli
-      - key: "7"
         desc: dgop
         cmd: kitty  --app-id repo --title=dgop -e jjui ~/Code/dgop
-      - key: "8"
+      - key: "7"
         desc: dms-plugins
         cmd: kitty  --app-id repo --title=dms-plugins -e jjui ~/Code/dms-plugins
   - key: "t"

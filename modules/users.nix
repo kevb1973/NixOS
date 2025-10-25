@@ -158,6 +158,7 @@
       tombi # Newer TOML LS
       tree-sitter
       uv # Wiki says this is an easy way to manage python versions and packages (non-declarative)
+      uwu-colors
       vdirsyncer # Sync web calendar to khal for DankMaterialShell 
       video-downloader
       virt-manager

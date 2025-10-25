@@ -64,6 +64,7 @@ q = ":quit"
 Q = ":quit!"
 n = ":new"
 u = ":update"
+r = ":config-reload"
 "." = ":show-directory"
 "=" = ":format"
 "\\" = "@ /%p '<C-r>% %n "
@@ -98,7 +99,7 @@ S-tab = ["unindent"]
 "]" = "goto_line_end"
 
 [keys.normal."'"]
-b = [":cd ~/bin", "file_picker_in_current_directory"]
+b = [":cd ~/NixOS/home/dots/bin", "file_picker_in_current_directory"]
 c = [":cd ~/.config", "file_explorer_in_current_directory"]
 d = [":cd ~/NixOS/home/dots", "file_explorer_in_current_directory"]
 # h = ":open ~/dotfiles/hyprland/.config/hypr/hyprland.conf"

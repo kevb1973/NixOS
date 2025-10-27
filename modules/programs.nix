@@ -52,9 +52,6 @@
 
       shellAliases = {
         cat = "bat";
-        more = "bat --paging=always";
-        less = "bat --paging=always";
-        hydra = "hydra-check --channel nixos-unstable --arch x86_64-linux";
         conf = "hx  ~/NixOS/";
         dg = "nh clean user";
         edit-broken = "hx ~/bin/check_broken"; # Edit list of currently broken packages
@@ -63,36 +60,35 @@
         gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
         gc = "sudo nix store gc -v";
         g = "gitui";
-        jn = "cd ~/NixOS; jjui";
-        jd = "cd ~/dotfiles; jjui";
-        jD = "cd ~/.config/DMS; jjui";
-        js = "cd ~/Documents/silverbullet; jjui";
+        hydra = "hydra-check --channel nixos-unstable --arch x86_64-linux";
+        jl = "jj log";
+        less = "bat --paging=always";
         lg = "lazygit";
-        logout = "sudo systemctl restart display-manager.service";
         logs = "sudo lazyjournal";
         lp = "nix profile list";
         ls = "lsd";
         lu = ''echo -e "\n\e[1mLast Flake Update:\e[0m $(ls -l ~/NixOS/flake.lock | awk '{print $4, $5, $6}')\n"'';
+        more = "bat --paging=always";
         no = "optnix -s nixos";
         np = "tv nix -i nixpkgs ";
         opt = "nix-store --optimize";
         ports = "netstat -lntup";
-        # rb = "nixos-rebuild switch --sudo --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
         rb = "nh os switch ~/NixOS/";
+        # rb = "nixos-rebuild switch --sudo --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
         referrer = "nix-store --query --referrers";
         repair-store = "sudo nix-store --verify --check-contents --repair";
         rev = "nixos-version --hash | cut -c 1-7";
         sg = "nixos-rebuild list-generations";
         storebin = "nix-store -q --roots (which $argv)";
-        ug = "nix-env --list-generations";
         ugc = "nix store gc -v";
+        ug = "nix-env --list-generations";
         # up = "nh os switch --update --ask ~/NixOS";
         up = "nix flake update --flake /home/kev/NixOS";
         verify-store = "sudo nix-store --verify --check-contents";
-        y = "yazi";
         v = "vifm";
-        zz = "zi";
+        y = "yazi";
         zzz = "cd (fd . -td -tl -H -d2 -c always | fzf --height 50% --color=dark --ansi)"; # search for dirs, change dir
+        zz = "zi";
       };
     };
 

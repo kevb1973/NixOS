@@ -17,6 +17,7 @@ rainbow-brackets = true
 # rulers = [120]
 scroll-lines = 1
 scrolloff = 10
+smart-tab.enable = false
 true-color = true
 word-completion.trigger-length = 3
 

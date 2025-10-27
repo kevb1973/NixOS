@@ -68,7 +68,6 @@ u = ":update"
 r = ":config-reload"
 "." = ":show-directory"
 "=" = ":format"
-"\\" = "@ /%p '<C-r>% %n "
 1 = ":reload"
 
 [keys.normal]

@@ -34,7 +34,7 @@
       boxbuddy
       btop
       cacert
-      # calibre  # BROKEN: Oct 23, 2025
+      # calibre  # BROKEN again. Switched to flatpak
       cargo
       cava # Terminal audio visualizer
       # clipse
@@ -42,6 +42,7 @@
       # colloid-gtk-theme
       # colloid-icon-theme
       copyq # clipboard manager++ 
+      cotp # CLI OTP/2FA code provider
       darkman
       ddcutil # Adjust monitor brightness and other settings from cli
       diff-so-fancy

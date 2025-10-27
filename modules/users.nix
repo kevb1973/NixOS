@@ -76,6 +76,7 @@
       gum # Script enhancer - use for remind_tui
       highlight # Used with vifm to add color to file previews with code
       hydra-check # check build status.. hydra-check --channel unstable <pkg>
+      igrep # interactive grep->edit@line. cmd:ig 
       inxi # Hardware info app
       # isd # Systemd tui (moved to user profile using flake for newer version)
       jamesdsp

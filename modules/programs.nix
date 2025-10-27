@@ -63,6 +63,7 @@
         hydra = "hydra-check --channel nixos-unstable --arch x86_64-linux";
         jgp = "jj git push";
         jl = "jj log";
+        js = "jj split"; 
         less = "bat --paging=always";
         lg = "lazygit";
         logs = "sudo lazyjournal";

@@ -61,6 +61,7 @@
         gc = "sudo nix store gc -v";
         g = "gitui";
         hydra = "hydra-check --channel nixos-unstable --arch x86_64-linux";
+        jgp = "jj git push";
         jl = "jj log";
         less = "bat --paging=always";
         lg = "lazygit";

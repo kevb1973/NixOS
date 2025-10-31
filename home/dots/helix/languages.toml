@@ -24,13 +24,22 @@ language-servers = ["scls", "uwu-colors"]
 auto-format = true
 
 [[language]]
+name = "markdown"
+language-servers = ["marksman", "markdown-oxide", "harper-ls", "scls"]
+auto-format = true
+
+[[language]]
 name = "stub"
 scope = "text.stub"
 file-types = []
 shebangs = []
 roots = []
 auto-format = false
-language-servers = [ "scls", "uwu-colors" ]
+language-servers = [ "scls", "uwu-colors", "harper-ls" ]
+
+[language-server.harper-ls]
+command = "harper-ls"
+args = [ "--stdio" ]
 
 [language-server.nixd]
 command = "nixd"

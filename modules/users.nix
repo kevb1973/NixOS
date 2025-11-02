@@ -42,7 +42,7 @@
       # colloid-gtk-theme
       # colloid-icon-theme
       copyq # clipboard manager++ 
-      cotp # CLI OTP/2FA code provider
+      cotp # CLI OTP/2FA code provider - only use for bitwarden which manages all the rest
       darkman
       ddcutil # Adjust monitor brightness and other settings from cli
       diff-so-fancy
@@ -75,6 +75,7 @@
       grim
       # grimblast # BROKEN Nov. 2 2025
       gum # Script enhancer - use for remind_tui
+      harper # Spelling/Grammer cheching LSP
       highlight # Used with vifm to add color to file previews with code
       hydra-check # check build status.. hydra-check --channel unstable <pkg>
       igrep # interactive grep->edit@line. cmd:ig 

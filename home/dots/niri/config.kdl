@@ -35,6 +35,5 @@ hotkey-overlay {
     skip-at-startup
 }
 
-// workspace "1"
-// workspace "2"
-// workspace "repos"
+workspace "web"
+workspace "term"

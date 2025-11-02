@@ -82,14 +82,15 @@ window-rule {
     open-floating true
     open-focused true
 }
+// This rule is not working.. kitty --app-id="term"
+window-rule {
+    match app-id="term"
+    open-on-workspace "term"
+    default-column-width { proportion 0.50; }
+    open-focused false
+}
 window-rule {
     match app-id=".*"
     geometry-corner-radius 12
     clip-to-geometry true
-}
-window-rule {
-    match app-id="term"
-    open-on-workspace "2"
-    default-column-width { proportion 0.5; }
-    open-focused false
 }

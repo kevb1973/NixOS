@@ -1,7 +1,5 @@
 if status is-interactive
     # Commands to run in interactive sessionif status is-interactive
-    # Commands to run in interactive sessions can go here
-
     switch (hostname)
         case halcyon
             zoxide init fish | source
@@ -13,6 +11,7 @@ if status is-interactive
             set -gx pure_enable_nixdevshell true
             set -gx pure_show_prefix_root_prompt true
             set fish_greeting Halcyon NixOS
+            alias cat="bat"
         case arch.halcyon
             set fish_greeting Halcyon Arch
     end

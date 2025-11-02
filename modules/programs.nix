@@ -28,70 +28,70 @@
       #   ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
       # '';
 
-      shellAbbrs = {
-        # "no --set-cursor" = "nixos-option % --flake ~/NixOS";
-        "jgc --set-cursor" = "jj git clone --colocate %";
-        "jbm --set-cursor" = "jj bookmark move main -t @-";
-        "nor --set-cursor" = "nixos-option -r % --flake ~/NixOS";
-        "npi --set-cursor" = "nix profile install nixpkgs#%";
-        "npg --set-cursor" = "nix profile install github:%/";
-        "npis --set-cursor" = "nix profile install nixpkgs/release-24.11#%";
-        "park --set-cursor" = "nix profile install nixpkgs/(nixos-version --hash)#%";
-        # "npu --set-cursor" = "nix profile upgrade %";
-        "nr --set-cursor" = "nix run nixpkgs#%";
-        "ns --set-cursor" = "nix shell nixpkgs#% -c fish";
-        # "nsn --set-cursor" = "nix-search --name % -d";
-        # "nsp --set-cursor" = "nix-search --program % -d";
-        # "nsd --set-cursor" = "nix-search --query-string='package_description:(%)' -d";
-        "scu" = "systemctl --user";
-        "sn" = "nh search";
-        "ytm --set-cursor" = "yt-dlp -x --audio-format mp3 %";
-        "ytv --set-cursor" = "ytd-video '%'"; # note: had to use script as <= breaks config due to string interpolation
-        # "rp --set-cursor" = "nix profile remove '%'";
-      };
+      # shellAbbrs = {
+      #   # "no --set-cursor" = "nixos-option % --flake ~/NixOS";
+      #   "jgc --set-cursor" = "jj git clone --colocate %";
+      #   "jbm --set-cursor" = "jj bookmark move main -t @-";
+      #   "nor --set-cursor" = "nixos-option -r % --flake ~/NixOS";
+      #   "npi --set-cursor" = "nix profile install nixpkgs#%";
+      #   "npg --set-cursor" = "nix profile install github:%/";
+      #   "npis --set-cursor" = "nix profile install nixpkgs/release-24.11#%";
+      #   "park --set-cursor" = "nix profile install nixpkgs/(nixos-version --hash)#%";
+      #   # "npu --set-cursor" = "nix profile upgrade %";
+      #   "nr --set-cursor" = "nix run nixpkgs#%";
+      #   "ns --set-cursor" = "nix shell nixpkgs#% -c fish";
+      #   # "nsn --set-cursor" = "nix-search --name % -d";
+      #   # "nsp --set-cursor" = "nix-search --program % -d";
+      #   # "nsd --set-cursor" = "nix-search --query-string='package_description:(%)' -d";
+      #   "scu" = "systemctl --user";
+      #   "sn" = "nh search";
+      #   "ytm --set-cursor" = "yt-dlp -x --audio-format mp3 %";
+      #   "ytv --set-cursor" = "ytd-video '%'"; # note: had to use script as <= breaks config due to string interpolation
+      #   # "rp --set-cursor" = "nix profile remove '%'";
+      # };
 
-      shellAliases = {
-        cat = "bat";
-        conf = "hx  ~/NixOS/";
-        dg = "nh clean user";
-        edit-broken = "hx ~/bin/check_broken"; # Edit list of currently broken packages
-        e = "hx";
-        find-font = "fc-list --format='%{family}\n' | grep";
-        gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
-        gc = "sudo nix store gc -v";
-        g = "gitui";
-        hydra = "hydra-check --channel nixos-unstable --arch x86_64-linux";
-        jgp = "jj git push";
-        jl = "jj log";
-        js = "jj split"; 
-        less = "bat --paging=always";
-        lg = "lazygit";
-        logs = "sudo lazyjournal";
-        lp = "nix profile list";
-        ls = "lsd";
-        lu = ''echo -e "\n\e[1mLast Flake Update:\e[0m $(ls -l ~/NixOS/flake.lock | awk '{print $4, $5, $6}')\n"'';
-        more = "bat --paging=always";
-        no = "optnix -s nixos";
-        np = "tv nix -i nixpkgs ";
-        opt = "nix-store --optimize";
-        ports = "netstat -lntup";
-        rb = "nh os switch ~/NixOS/";
-        # rb = "nixos-rebuild switch --sudo --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
-        referrer = "nix-store --query --referrers";
-        repair-store = "sudo nix-store --verify --check-contents --repair";
-        rev = "nixos-version --hash | cut -c 1-7";
-        sg = "nixos-rebuild list-generations";
-        storebin = "nix-store -q --roots (which $argv)";
-        ugc = "nix store gc -v";
-        ug = "nix-env --list-generations";
-        # up = "nh os switch --update --ask ~/NixOS";
-        up = "nix flake update --flake /home/kev/NixOS";
-        verify-store = "sudo nix-store --verify --check-contents";
-        v = "vifm";
-        y = "yazi";
-        zzz = "cd (fd . -td -tl -H -d2 -c always | fzf --height 50% --color=dark --ansi)"; # search for dirs, change dir
-        zz = "zi";
-      };
+      # shellAliases = {
+      #   cat = "bat";
+      #   conf = "hx  ~/NixOS/";
+      #   dg = "nh clean user";
+      #   edit-broken = "hx ~/bin/check_broken"; # Edit list of currently broken packages
+      #   e = "hx";
+      #   find-font = "fc-list --format='%{family}\n' | grep";
+      #   gcroots = "sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'";
+      #   gc = "sudo nix store gc -v";
+      #   g = "gitui";
+      #   hydra = "hydra-check --channel nixos-unstable --arch x86_64-linux";
+      #   jgp = "jj git push";
+      #   jl = "jj log";
+      #   js = "jj split"; 
+      #   less = "bat --paging=always";
+      #   lg = "lazygit";
+      #   logs = "sudo lazyjournal";
+      #   lp = "nix profile list";
+      #   ls = "lsd";
+      #   lu = ''echo -e "\n\e[1mLast Flake Update:\e[0m $(ls -l ~/NixOS/flake.lock | awk '{print $4, $5, $6}')\n"'';
+      #   more = "bat --paging=always";
+      #   no = "optnix -s nixos";
+      #   np = "tv nix -i nixpkgs ";
+      #   opt = "nix-store --optimize";
+      #   ports = "netstat -lntup";
+      #   rb = "nh os switch ~/NixOS/";
+      #   # rb = "nixos-rebuild switch --sudo --flake '/home/kev/NixOS#halcyon' && nix flake archive /home/kev/NixOS && /home/kev/bin/sysdiff";
+      #   referrer = "nix-store --query --referrers";
+      #   repair-store = "sudo nix-store --verify --check-contents --repair";
+      #   rev = "nixos-version --hash | cut -c 1-7";
+      #   sg = "nixos-rebuild list-generations";
+      #   storebin = "nix-store -q --roots (which $argv)";
+      #   ugc = "nix store gc -v";
+      #   ug = "nix-env --list-generations";
+      #   # up = "nh os switch --update --ask ~/NixOS";
+      #   up = "nix flake update --flake /home/kev/NixOS";
+      #   verify-store = "sudo nix-store --verify --check-contents";
+      #   v = "vifm";
+      #   y = "yazi";
+      #   zzz = "cd (fd . -td -tl -H -d2 -c always | fzf --height 50% --color=dark --ansi)"; # search for dirs, change dir
+      #   zz = "zi";
+      # };
     };
 
     fuse = {

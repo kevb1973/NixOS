@@ -125,13 +125,13 @@ menu:
     submenu:
     - key: "k"
       desc: kill shell
-      cmd: ~/Code/dms-bin/dms kill
+      cmd: systemctl --user stop dms
     - key: "l"
       desc: launch shell
-      cmd: ~/Code/dms-bin/dms run
+      cmd: systemctl --user start dms
     - key: "r"
       desc: restart shell
-      cmd: ~/Code/dms-bin/dms restart
+      cmd: systemctl --user restart dms
     - key: "s"
       desc: open settings
       cmd: ~/Code/dms-bin/dms ipc settings toggle

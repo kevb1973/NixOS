@@ -73,7 +73,7 @@
       grc # colourizer for fishPlugins.grc
       grc # generic text colourizer. Using with fishPlugins.grc
       grim
-      grimblast
+      # grimblast # BROKEN Nov. 2 2025
       gum # Script enhancer - use for remind_tui
       highlight # Used with vifm to add color to file previews with code
       hydra-check # check build status.. hydra-check --channel unstable <pkg>
@@ -127,7 +127,7 @@
       nwg-look # Wayland replacement for lxappearance. Set gtk themes, icons, cursors etc.
       optnix
       p7zip
-      # pamixer # BROKEN: 2025-10-7
+      pamixer 
       # pavucontrol
       pinta # Simple image editor
       pwvucontrol # Pipewire GUI mixer

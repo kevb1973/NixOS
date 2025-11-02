@@ -18,6 +18,10 @@ function store # Visit app location in /nix/store
     cd (realpath (which $argv) | cut -d/ -f1-4)
 end
 
+function lu # Date of last flake update
+    echo -e "\n\e[1mLast Flake Update:\e[0m $(ls -l ~/NixOS/flake.lock | awk '{print $6, $7, $8}')\n"
+end
+
 # enable emacs command mode
 # function fish_user_key_bindings
 # fish_default_key_bindings -M insert

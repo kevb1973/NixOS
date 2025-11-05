@@ -1,6 +1,6 @@
 // --- Autostarts{{{1
 // spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=$XDG_CURRENT_DESKTOP"
-spawn-at-startup "copyq"
+spawn-at-startup "wl-paste --watch cliphist store"
 spawn-at-startup "~/NixOS/home/dots/bin/start_servers"
 spawn-at-startup "playerctld" "daemon"
 spawn-sh-at-startup "llama-server -m ~/Code/models/Enoch-CWC-Mistral-Nemo-12B-v2-GGUF-q4_k_m.gguf -a 'Enoch-12b' --port 8081 --host 127.0.0.1"

@@ -15,7 +15,7 @@ binds {
 
     // Utilities
     F10                   { spawn "/home/kev/NixOS/home/dots/bin/dotool-move-mouse.sh"; }
-    Mod+c                 { spawn "copyq" "show"; }
+    Mod+c                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc call clipboard toggle"; }
     Mod+a                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc notifications toggle"; }
     Mod+b                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc bar toggle"; }
     Mod+e                 { spawn "/home/kev/NixOS/home/dots/bin/emoji-picker"; }
@@ -116,9 +116,10 @@ binds {
     Mod+Shift+Equal       { set-window-height "+5%"; }
 
     // Miscellaneous Binds
-    Mod+s                 { screenshot; }
+    Mod+s                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc call niri screenshot"; }
+    Mod+Shift+a           { spawn-sh "wl-paste | satty -f - --actions-on-enter save-to-clipboard,exit --copy-command wl-copy"; }
     // Mod+Shift+Slash       { show-hotkey-overlay; }
-    Mod+q                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc powermenu toggle"; }
+    Mod+q                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc call powermenu toggle"; }
     Mod+KP_Divide         { power-off-monitors; }
 
     // Mouse Binds

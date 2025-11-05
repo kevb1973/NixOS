@@ -142,6 +142,7 @@
       regctl # Needed for?
       ripgrep
       rmpc # nice alternative to ncmpcpp
+      satty # Screenshot Editor
       shellcheck # Needed for doom emacs
       shfmt # bash code formatter
       simple-completion-language-server

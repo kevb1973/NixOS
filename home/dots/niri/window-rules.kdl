@@ -1,7 +1,7 @@
 // Window Rules
 window-rule {
     match app-id="qalculate-gtk"
-    match app-id="yad"
+    match app-id="satty"
     match app-id="clipse"
     open-floating true
     default-column-width { proportion 0.25; }

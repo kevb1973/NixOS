@@ -22,6 +22,7 @@
       BEMENU_OPTS = "--hf '#5e81ac' --tf '#5e81ac' --fn 'mono 30'";
       CLUTTER_BACKEND = "wayland";
       EDITOR = "hx";
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
       # GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
       # GTK_THEME="Adwaita:light";
@@ -38,7 +39,7 @@
       # HSA_OVERRIDE_GFX_VERSION="10.3.0";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_IM_MODULE = "ibus";
-      QT_QPA_PLATFORM = "wayland;xcb";
+      QT_QPA_PLATFORM = "wayland";
       QT_QPA_PLATFORMTHEME = "qt6ct";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       SSL_CERT_FILE = "/etc/ssl/certs/ca-bundle.crt"; #Needed for X-Plane "AutoOrtho"

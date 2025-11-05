@@ -1,9 +1,9 @@
-theme = "catppuccin_latte"
+theme = "base16_transparent"
 
 [editor]
 auto-pairs = false
 bufferline = "always"
-color-modes = true
+color-modes = false
 completion-replace = true
 completion-trigger-len = 2
 completion-timeout = 5

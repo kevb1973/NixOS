@@ -64,7 +64,7 @@
           dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
         '';
         helix-theme = ''
-          sed -i -e 's/"catppuccin_latte"/"catppuccin_macchiato"/g' ~/NixOS/home/dots/helix/config.toml
+          pkill --signal USR1 hx
         '';
         micro-theme = ''
           sed -i -e 's/"geany"/"default"/g' ~/.config/micro/settings.json
@@ -78,7 +78,7 @@
           dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
         '';
         helix-theme = ''
-          sed -i -e 's/"catppuccin_macchiato"/"catppuccin_latte"/g' ~/NixOS/home/dots/helix/config.toml
+          pkill --signal USR1 hx
         '';
         micro-theme = ''
           sed -i -e 's/"default"/"geany"/g' ~/.config/micro/settings.json

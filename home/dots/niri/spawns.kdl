@@ -1,5 +1,6 @@
 // --- Autostarts{{{1
 // spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=$XDG_CURRENT_DESKTOP"
+spawn-at-startup "darkman run"
 spawn-at-startup "wl-paste --watch cliphist store"
 spawn-at-startup "~/NixOS/home/dots/bin/start_servers"
 spawn-at-startup "playerctld" "daemon"

@@ -58,7 +58,7 @@
       enable = true;
       darkModeScripts = {
         dank-theme = ''
-          ~/Code/dms-bin/dms ipc theme dark
+          /home/kev/Code/dms-bin/dms ipc theme dark
         '';
         firefox-theme = ''
           dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
@@ -72,7 +72,7 @@
       };
       lightModeScripts = {
         dank-theme = ''
-          ~/Code/dms-bin/dms ipc theme light
+          /home/kev/Code/dms-bin/dms ipc theme light
         '';
         firefox-theme = ''
           dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"

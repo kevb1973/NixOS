@@ -3,10 +3,11 @@
 # =======
 
 # alias cat="bat" # this alias causes error. Fine if I put it in config.fish. ??
-alias conf="hx  ~/NixOS/"
+alias edit-aliases="hx ~/NixOS/home/dots/fish/conf.d/aliases-abbrs.fish && source ~/NixOS/home/dots/fish/conf.d/aliases-abbrs.fish"
+alias conf="hx ~/NixOS/"
 alias dg="nh clean user"
 alias edit-broken="hx ~/bin/check_broken" # Edit list of currently broken packages
-alias e ="x"
+alias e="hx"
 alias find-font="fc-list --format='%{family}\n' | grep"
 alias gcroots="sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'"
 alias gc="sudo nix store gc -v"

@@ -26,6 +26,7 @@
       ".config/khal".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/khal"; 
       ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/kitty"; 
       ".config/lgtv".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/lgtv"; 
+      ".config/mango".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/mango"; 
       ".config/matugen".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/matugen"; 
       ".config/mpd".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/mpd"; 
       ".config/mpv".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/mpv"; 

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+pkill wlr-which-key || wlr-which-key

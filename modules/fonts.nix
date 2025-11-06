@@ -13,6 +13,7 @@
       maple-mono.NF
       material-symbols
       nerd-fonts.victor-mono
+      noto-fonts
       noto-fonts-lgc-plus
       noto-fonts-color-emoji
     ];

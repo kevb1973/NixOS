@@ -125,6 +125,7 @@
       nodejs # Need for Neovim Mason
       nushell # cuz its cool (and easier than jq)
       nvd # Nix derivation diff tool
+      nvtopPackages.amd # htop for video cards
       nwg-look # Wayland replacement for lxappearance. Set gtk themes, icons, cursors etc.
       optnix
       p7zip

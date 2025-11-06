@@ -59,14 +59,16 @@ window-rule {
     shadow { on; }
 }
 window-rule {
-    // for Spotify mini-player                                //
-    match app-id="chromium-browser"
-    default-floating-position x=12 y=290 relative-to="bottom-left"
-    default-column-width { fixed 358; }
-    default-window-height { fixed 250; }
-    open-floating true
+    // for Spotify mini-player
+    match app-id="Chromium-browser"
+    // default-floating-position x=12 y=290 relative-to="bottom-left"
+    // default-column-width { fixed 358; }
+    // default-window-height { fixed 250; }
+    default-column-width { fixed 398; }
+    // default-window-height { fixed 250; }
+    open-floating false
     open-focused false
-    shadow { on; }
+    shadow { off; }
 }
 window-rule {
     // for reminders

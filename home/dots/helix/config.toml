@@ -106,6 +106,7 @@ d = [":cd ~/NixOS/home/dots", "file_explorer_in_current_directory"]
 # h = ":open ~/dotfiles/hyprland/.config/hypr/hyprland.conf"
 h = ":open ~/.config/helix/config.toml"
 l = ":open ~/.config/helix/languages.toml"
+m = [":cd ~/NixOS/home/dots/mango", "file_picker_in_current_directory"]
 n = [":cd ~/NixOS", "file_picker_in_current_directory"]
 N = [":cd ~/.config/niri", "file_picker_in_current_directory"]
 p = ":open ~/NixOS/modules/programs.nix"

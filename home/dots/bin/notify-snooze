@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-
-MESSAGE=$1
+set -e
+MESSAGE="$*"
 ICON_PATH="/run/current-system/sw/share/icons/Adwaita/symbolic/emotes"
 
 result=$(notify-send \
@@ -14,16 +14,16 @@ result=$(notify-send \
 
 case "$result" in
    add5)
-     echo "notify-snooze.sh '$MESSAGE'" | at "now + 5 min"
+     echo "notify-snooze '$MESSAGE'" | at "now + 5 min"
      exit ;;
    add15)
-     echo "notify-snooze.sh '$MESSAGE'" | at "now + 15 min"
+     echo "notify-snooze '$MESSAGE'" | at "now + 15 min"
      exit ;;
    add30)
-     echo "notify-snooze.sh '$MESSAGE'" | at "now + 30 min"
+     echo "notify-snooze '$MESSAGE'" | at "now + 30 min"
      exit ;;
    add1hr)
-     echo "notify-snooze.sh '$MESSAGE'" | at "now + 1 hour"
+     echo "notify-snooze '$MESSAGE'" | at "now + 1 hour"
      exit ;;
    *)
      exit ;; 

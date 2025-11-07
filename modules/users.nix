@@ -48,7 +48,6 @@
       diff-so-fancy
       distrobox
       distrobox-tui
-      dotool # daemonless replacement for ydotool
       dust # quick dir size for 'sys' script
       emacs-pgtk
       espanso-wayland # Service not working with Niri. Starting manually.
@@ -78,10 +77,13 @@
       harper # Spelling/Grammer cheching LSP
       highlight # Used with vifm to add color to file previews with code
       hydra-check # check build status.. hydra-check --channel unstable <pkg>
+      hyprmagnifier # magnifier for wayland
+      hyprpicker # Simple color picker with zoom and hex preview
+      hyprshot # Wayland screenshots
       igrep # interactive grep->edit@line. cmd:ig 
       inxi # Hardware info app
       # isd # Systemd tui (moved to user profile using flake for newer version)
-      jamesdsp
+      # jamesdsp
       # jjui # Moved to nix profile install to track github
       jq
       jujutsu
@@ -100,6 +102,7 @@
       libtool # Needed for DMS
       llama-cpp-vulkan
       lsd
+      lswt # Find app-id and title for mangowm
       # lmstudio # LLM server
       manix # search nixos and home-manager options
       markdown-oxide # markdown LS
@@ -178,7 +181,9 @@
       wget
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
       wl-color-picker
+      wl-kbptr # click via keyboard (like vimium for niri)
       wlogout
+      wlrctl # alternate to dotool (move mouse off screen)
       wlr-which-key
       wtype # For wofi-emoji or walker
       xdg-user-dirs

@@ -17,7 +17,7 @@ if [ -z "$MESSAGE" ] || [ -z "$TIME" ]; then
 	remind_tui "$MESSAGE"
 fi
 
-echo "/home/kev/NixOS/home/dots/bin/notify-snooze '$MESSAGE'" | at "$TIME" > /dev/null 2>&1
+echo "notify-snooze '$MESSAGE'" | at "$TIME" > /dev/null 2>&1
 
 if [ $? -ne 0 ]; then
 	gum log "Incorrect Time Format!"

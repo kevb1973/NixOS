@@ -42,40 +42,33 @@ window-rule {
     // Firefox PIP
     match title="Picture-in-Picture"
     default-floating-position x=15 y=90 relative-to="bottom-left"
-    default-column-width { fixed 355; }
-    default-window-height { fixed 190; }
+    default-column-width { fixed 320; }
+    default-window-height { fixed 223; }
     open-floating true
     open-focused false
     // shadow { on; }
 }
-window-rule {
-    // Vivaldi PIP
-    match title="Picture in picture"
-    default-floating-position x=1905 y=55 relative-to="bottom-left"
-    default-column-width { fixed 620; }
-    default-window-height { fixed 340; }
-    open-floating true
-    open-focused false
-    shadow { on; }
-}
+// window-rule {
+//     // Vivaldi PIP
+//     match title="Picture in picture"
+//     default-floating-position x=1905 y=55 relative-to="bottom-left"
+//     default-column-width { fixed 620; }
+//     default-window-height { fixed 340; }
+//     open-floating true
+//     open-focused false
+//     shadow { on; }
+// }
 window-rule {
     // for Spotify mini-player
-    match app-id="Chromium-browser"
-    // default-floating-position x=12 y=290 relative-to="bottom-left"
-    // default-column-width { fixed 358; }
+    match app-id="chromium-browser"
+    default-floating-position x=12 y=290 relative-to="bottom-left"
+    default-column-width { fixed 358; }
+    default-window-height { fixed 250; }
+    // default-column-width { fixed 398; }
     // default-window-height { fixed 250; }
-    default-column-width { fixed 398; }
-    // default-window-height { fixed 250; }
-    open-floating false
+    open-floating true
     open-focused false
     shadow { off; }
-}
-window-rule {
-    // for reminders
-    match app-id="yad"
-    default-column-width { fixed 700; }
-    default-window-height { fixed 150; }
-    open-floating true
 }
 window-rule {
     match app-id="sudoku-Main"
@@ -84,15 +77,14 @@ window-rule {
     open-floating true
     open-focused true
 }
-// This rule is not working.. kitty --app-id="term"
 window-rule {
     match app-id="term"
     open-on-workspace "term"
     default-column-width { proportion 0.50; }
     open-focused false
 }
-window-rule {
-    match app-id=".*"
-    geometry-corner-radius 12
-    clip-to-geometry true
-}
+// window-rule {
+//     match app-id=".*"
+//     geometry-corner-radius 12
+//     clip-to-geometry true
+// }

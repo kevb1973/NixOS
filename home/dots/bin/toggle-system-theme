@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -x
+
+scheme=$(dconf read /org/gnome/desktop/interface/color-scheme)
+# 
+current=${scheme//\'/}
+
+case "$current" in
+  prefer-light)
+    dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
+    dms ipc theme dark
+    ;;
+  prefer-dark)
+    dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
+    dms ipc theme light
+    ;;
+  *)
+    # if not set, set it to dark.
+    # echo "color-scheme not set! Setting it to dark."
+    # dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
+    # dms ipc theme dark
+    ;;
+esac

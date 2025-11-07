@@ -1,7 +1,7 @@
 [[Language]]
 name = "bash"
 formatter = { command = "shfmt" }
-language-servers = ["bash-language-server", "scls"]
+language-servers = ["bash-language-server"]
 
 [[Language]]
 name = "hyprlang"
@@ -10,7 +10,7 @@ language-servers = ["hyprls"]
 [[language]]
 name = "nix"
 # formatter = { command = "alejandra" }
-language-servers = ["nixd", "nil", "scls"]
+language-servers = ["nixd", "nil"]
 
 [[Language]]
 name = "toml"
@@ -35,7 +35,7 @@ file-types = []
 shebangs = []
 roots = []
 auto-format = false
-language-servers = [ "scls", "uwu-colors", "harper-ls" ]
+language-servers = ["uwu-colors" ]
 
 [language-server.harper-ls]
 command = "harper-ls"
@@ -52,7 +52,7 @@ command = "uwu_colors"
 
 [language-server.scls.config]
 max_completion_items = 20
-min_chars_prefix_len = 1
+min_chars_prefix_len = 3
 feature_words = true
 feature_snippets = true
 snippets_first = true

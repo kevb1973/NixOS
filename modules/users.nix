@@ -177,6 +177,7 @@
       wev
       wget
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+      wl-color-picker
       wlogout
       wlr-which-key
       wtype # For wofi-emoji or walker

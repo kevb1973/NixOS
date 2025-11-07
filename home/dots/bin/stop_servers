@@ -5,3 +5,4 @@ echo "Stopping Servers"
 echo "----------------"
 podman compose -f ~/Code/podman/silverbullet/compose.yml down
 podman compose -f ~/Code/podman/miniflux/compose.yml down
+podman compose -f ~/Code/podman/openweb-ui/compose.yml down

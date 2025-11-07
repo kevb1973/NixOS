@@ -1,8 +1,8 @@
 # Theming
 font: VictorMono Nerd Font 16
-background: "#001e26"
-color: "#fbf1c7"
-border: "#96883e"
+background: "#24273A"
+color: "#8AADF4"
+border: "#8AADF4"
 separator: " ➜ "
 border_width: 1
 corner_r: 5
@@ -48,9 +48,18 @@ menu:
   - key: "c"
     desc: configs
     submenu:
-      - key: "d"
-        desc: toggle dark mode
-        cmd: darkman toggle
+      - key: "f"
+        desc: fish
+        submenu:
+          - key: "a"
+            desc: aliases/abbrs
+            cmd: kitty hx ~/NixOS/home/dots/fish/conf.d/aliases-abbrs.fish
+          - key: "c"
+            desc: config
+            cmd: kitty hx ~/NixOS/home/dots/fish/config.fish
+          - key: "f"
+            desc: functions
+            cmd: kitty yazi ~/NixOS/home/dots/fish/functions
       - key: "h"
         desc: helix
         submenu:
@@ -137,25 +146,28 @@ menu:
             cmd: kitty hx ~/.config/niri/window-rules.kdl
       - key: "p"
         desc: color picker
-        cmd: wl-color-picker
+        submenu:
+          - key: "p"
+            desc: picker with color mixer
+            cmd: wl-color-picker
+          - key: "z"
+            desc: picker with zoom
+            cmd: hyprpicker -f hex -a
   - key: "d"
     desc: dms
     submenu:
     - key: "k"
       desc: kill shell
-      cmd: systemctl --user stop dms
+      cmd: dms kill
     - key: "l"
       desc: launch shell
-      cmd: systemctl --user start dms
+      cmd: dms run
     - key: "r"
       desc: restart shell
-      cmd: systemctl --user restart dms
+      cmd: dms restart
     - key: "s"
       desc: open settings
-      cmd: ~/Code/dms-bin/dms ipc settings toggle
-    - key: "t"
-      desc: toggle dark/light theme
-      cmd: ~/Code/dms-bin/dms ipc theme toggle
+      cmd: dms ipc settings toggle
     - key: "w"
       desc: wallpaper
       submenu:
@@ -195,6 +207,9 @@ menu:
         - key: "l"
           desc: lm-studio
           cmd: lm-studio 
+        - key: "m"
+          desc: magnifier
+          cmd: hyprmagnifier -t --size 800x800
         - key: "s"
           desc: spotify
           cmd: spotify --no-zygote
@@ -283,12 +298,7 @@ menu:
       - key: "7"
         desc: dms-plugins
         cmd: kitty  --app-id repo --title=dms-plugins -e jjui ~/Code/dms-plugins
-  - key: "t"
-    desc: "theme"
-    submenu:
-      - key: "d"
-        desc: "dark"
-        cmd: darkmode.sh
-      - key: "l"
-        desc: "light"
-        cmd: lightmode.sh
+  - key: "s"
+    desc: toggle system theme
+    cmd: toggle-system-theme
+

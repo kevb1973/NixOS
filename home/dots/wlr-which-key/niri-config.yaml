@@ -1,8 +1,8 @@
 # Theming
 font: VictorMono Nerd Font 16
-background: "#001e26"
-color: "#fbf1c7"
-border: "#96883e"
+background: "#24273A"
+color: "#8AADF4"
+border: "#8AADF4"
 separator: " ➜ "
 border_width: 1
 corner_r: 5
@@ -48,9 +48,6 @@ menu:
   - key: "c"
     desc: configs
     submenu:
-      - key: "d"
-        desc: toggle dark mode
-        cmd: darkman toggle
       - key: "h"
         desc: helix
         submenu:
@@ -135,9 +132,6 @@ menu:
     - key: "s"
       desc: open settings
       cmd: ~/Code/dms-bin/dms ipc settings toggle
-    - key: "t"
-      desc: toggle dark/light theme
-      cmd: ~/Code/dms-bin/dms ipc theme toggle
     - key: "w"
       desc: wallpaper
       submenu:
@@ -265,6 +259,9 @@ menu:
       - key: "7"
         desc: dms-plugins
         cmd: kitty  --app-id repo --title=dms-plugins -e jjui ~/Code/dms-plugins
+  - key: "s"
+    desc: toggle system theme
+    cmd: toggle-system-theme
   - key: "t"
     desc: "timer"
     cmd: kitty --app-id=timer peaclock

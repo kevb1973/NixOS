@@ -86,7 +86,25 @@ menu:
             cmd: kitty hx ~/NixOS/home/home.nix
       - key: "c"
         desc: which-key menus
-        cmd: kitty hx ~/.config/wlr-which-key/config.yaml
+        cmd: kitty hx ~/.config/wlr-which-key/mango-config.yaml
+      - key: "m"
+        desc: mango
+        submenu:
+          - key: "b"
+            desc: binds
+            cmd: kitty hx ~/.config/mango/bind.conf
+          - key: "c"
+            desc: config
+            cmd: kitty hx ~/.config/mango/config.conf
+          - key: "r"
+            desc: rules
+            cmd: kitty hx ~/.config/mango/rule.conf
+          - key: "d"
+            desc: dms
+            cmd: kitty hx ~/.config/mango/dms.conf
+          - key: "l"
+            desc: layouts
+            cmd: kitty hx ~/.config/mango/layouts/scroll.conf
       - key: "N"
         desc: niri
         submenu:
@@ -119,7 +137,7 @@ menu:
             cmd: kitty hx ~/.config/niri/window-rules.kdl
       - key: "p"
         desc: color picker
-        cmd: ~/NixOS/home/dots/bin/niri-pick-color
+        cmd: wl-color-picker
   - key: "d"
     desc: dms
     submenu:
@@ -266,5 +284,11 @@ menu:
         desc: dms-plugins
         cmd: kitty  --app-id repo --title=dms-plugins -e jjui ~/Code/dms-plugins
   - key: "t"
-    desc: "timer"
-    cmd: kitty --app-id=timer peaclock
+    desc: "theme"
+    submenu:
+      - key: "d"
+        desc: "dark"
+        cmd: darkmode.sh
+      - key: "l"
+        desc: "light"
+        cmd: lightmode.sh

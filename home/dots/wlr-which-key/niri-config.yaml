@@ -48,6 +48,18 @@ menu:
   - key: "c"
     desc: configs
     submenu:
+      - key: "f"
+        desc: fish
+        submenu:
+          - key: "a"
+            desc: aliases/abbrs
+            cmd: kitty hx ~/NixOS/home/dots/fish/conf.d/aliases-abbrs.fish
+          - key: "c"
+            desc: config
+            cmd: kitty hx ~/NixOS/home/dots/fish/config.fish
+          - key: "f"
+            desc: functions
+            cmd: kitty yazi ~/NixOS/home/dots/fish/functions
       - key: "h"
         desc: helix
         submenu:

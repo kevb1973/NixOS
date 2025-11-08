@@ -119,7 +119,8 @@ binds {
     Mod+Shift+Equal       { set-window-height "+1%"; }
 
     // Miscellaneous Binds
-    Mod+s                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc call niri screenshot"; }
+    Mod+s                 { spawn-sh "hyprshot -m region -s --clipboard-only"; }
+    Mod+Shift+s           { spawn-sh "hyprshot -m region -s -r --clipboard-only | satty -f -"; }
     Mod+Shift+a           { spawn-sh "wl-paste | satty -f - --actions-on-enter save-to-clipboard,exit --copy-command wl-copy"; }
     // Mod+Shift+Slash       { show-hotkey-overlay; }
     Mod+q                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc call powermenu toggle"; }

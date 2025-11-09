@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# toggle aichat for mangowc
+#set -x
+
+kitty --app-id=aichat aichat -m llama-cpp:lfm2-8b -r concise -s session --empty-session

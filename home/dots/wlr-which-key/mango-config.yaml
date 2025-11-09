@@ -23,7 +23,8 @@ menu:
     submenu:
     - key: "a"
       desc: aichat
-      cmd: kitty aichat -m llama-cpp:lfm2-8b -r concise -s session --empty-session
+      # cmd: kitty aichat -m llama-cpp:lfm2-8b -r concise -s session --empty-session
+      cmd: mmsg -d toggle_named_scratchpad,aichat,none,open_aichat
     - key: "k"
       desc: kill llama-server
       cmd: pkill llama-server
@@ -215,7 +216,28 @@ menu:
           cmd: spotify --no-zygote
         - key: "y"
           desc: yazi
-          cmd: kitty yazi ~/Downloads
+          submenu:
+            - key: b
+              desc: bin
+              cmd: kitty yazi ~/.local/bin
+            - key: c
+              desc: config
+              cmd: kitty yazi ~/.config
+            - key: C
+              desc: code
+              cmd: kitty yazi ~/Code
+            - key: d
+              desc: downloads
+              cmd: kitty yazi ~/Downloads
+            - key: h
+              desc: home
+              cmd: kitty yazi 
+            - key: m
+              desc: meditation tracks
+              cmd: kitty yazi ~/Music/meditational/best
+            - key: n
+              desc: nixos
+              cmd: kitty yazi ~/NixOS
   - key: "m"
     desc: music
     submenu:

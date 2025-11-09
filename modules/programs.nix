@@ -108,7 +108,7 @@
     #   #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     # };
 
-    mango.enable = true;
+    # mango.enable = true;
 
     niri = {
       enable = false;

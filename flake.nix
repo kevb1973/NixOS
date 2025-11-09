@@ -7,10 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
       };
-    mango = {
-      url = "github:DreamMaoMao/mango/df46194b5f720eaa9650e16d316a2bb340d424f8";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # mango = {
+    #   url = "github:DreamMaoMao/mango/df46194b5f720eaa9650e16d316a2bb340d424f8";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
 
   };
@@ -18,7 +18,7 @@
   outputs = {
     nixpkgs,
     home-manager,
-    mango,
+    # mango,
     ...
   }@inputs: {
     nixosConfigurations = {
@@ -27,7 +27,7 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-          mango.nixosModules.mango
+          # mango.nixosModules.mango
           home-manager.nixosModules.home-manager
           {
             home-manager = {

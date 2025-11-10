@@ -102,18 +102,15 @@ menu:
         submenu:
           - key: "b"
             desc: binds
-            cmd: kitty hx ~/.config/mango/bind.conf
+            cmd: kitty hx ~/.config/mango/binds.conf
           - key: "c"
             desc: config
             cmd: kitty hx ~/.config/mango/config.conf
           - key: "r"
             desc: rules
-            cmd: kitty hx ~/.config/mango/rule.conf
-          - key: "d"
-            desc: dms
-            cmd: kitty hx ~/.config/mango/dms.conf
+            cmd: kitty hx ~/.config/mango/rules.conf
           - key: "l"
-            desc: layouts
+            desc: layout config (scroll)
             cmd: kitty hx ~/.config/mango/layouts/scroll.conf
       - key: "N"
         desc: niri
@@ -306,18 +303,21 @@ menu:
         desc: dms
         cmd: kitty  --app-id repo --title=dms -e jjui ~/.config/quickshell/dms
       - key: "3"
+        desc: mangowc
+        cmd: kitty  --app-id repo --title=dms -e jjui ~/Code/mangowc
+      - key: "4"
         desc: niri
         cmd: kitty  --app-id repo --title=niri -e jjui ~/Code/niri
-      - key: "4"
+      - key: "5"
         desc: helix
         cmd: kitty  --app-id repo --title=helix -e jjui ~/Code/helix
-      - key: "5"
+      - key: "6"
         desc: jjui
         cmd: kitty  --app-id repo --title=jjui -e jjui ~/Code/jjui
-      - key: "6"
+      - key: "7"
         desc: dgop
         cmd: kitty  --app-id repo --title=dgop -e jjui ~/Code/dgop
-      - key: "7"
+      - key: "8"
         desc: dms-plugins
         cmd: kitty  --app-id repo --title=dms-plugins -e jjui ~/Code/dms-plugins
   - key: "s"

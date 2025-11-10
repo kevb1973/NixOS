@@ -4,10 +4,10 @@
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
 [mgr]
-
 prepend_keymap = [
-	{ on = ["g", "i"], run = "plugin lazygit", desc = "open lazygit"},
-  { on = ["T"],      run  = "plugin toggle-pane min-preview", desc = "Show or hide the preview pane"},
+	{ on = ["g", "i"],   run = "plugin lazygit",                 desc = "open lazygit"},
+  { on = ["T"],        run = "plugin toggle-pane min-preview", desc = "Show or hide the preview pane"},
+	{ on = [ "g", "c" ], run = "plugin vcs-files",               desc = "Show Git file changes"},
 ]
 
 keymap = [
@@ -44,7 +44,7 @@ keymap = [
 
 	{ on = "<Left>",  run = "leave", desc = "Back to the parent directory" },
 	# { on = "<Right>", run = "enter", desc = "Enter the child directory" },
-	{ on = "<Right>", run = "plugin smart-enter", desc = "Enter the directory or open if file" },
+	{ on = "<Right>", run = "plugin smart-enter", desc = "Enter the directory or open the file" },
 	{ on = "<C-Right>", run = "open --interactive", desc = "Interactive open" },
 
 	{ on = "H", run = "back",    desc = "Back to previous directory" },

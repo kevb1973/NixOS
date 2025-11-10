@@ -1,13 +1,13 @@
-# smart-filter.yazi
+# jump-to-char.yazi
 
-A Yazi plugin that makes filters smarter: continuous filtering, automatically enter unique directory, open file on submitting.
+Vim-like `f<char>`, jump to the next file whose name starts with `<char>`.
 
-https://github.com/yazi-rs/plugins/assets/17523360/72aaf117-1378-4f7e-93ba-d425a79deac5
+https://github.com/yazi-rs/plugins/assets/17523360/aac9341c-b416-4e0c-aaba-889d48389869
 
 ## Installation
 
 ```sh
-ya pkg add yazi-rs/plugins:smart-filter
+ya pkg add yazi-rs/plugins:jump-to-char
 ```
 
 ## Usage
@@ -16,9 +16,9 @@ Add this to your `~/.config/yazi/keymap.toml`:
 
 ```toml
 [[mgr.prepend_keymap]]
-on   = "F"
-run  = "plugin smart-filter"
-desc = "Smart filter"
+on   = "f"
+run  = "plugin jump-to-char"
+desc = "Jump to char"
 ```
 
 Note that, the keybindings above are just examples, please tune them up as needed to ensure they don't conflict with your other commands/plugins.

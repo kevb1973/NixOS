@@ -4,7 +4,9 @@ function js -d "Run jj split until ctrl-c"
             echo "Nothing to split!"
             break
         end
-        jj split
-        snore 2
+        jj split 2>/dev/null
+        if test $status -ne 0
+            break
+        end
     end
 end

@@ -9,20 +9,21 @@ binds {
     Mod+KP_Multiply       { spawn "qalculate-gtk"; }
     Mod+N                 { spawn-sh "kitty --app-id='remind-tui' ~/NixOS/home/dots/bin/remind_tui"; }
     Mod+Shift+N           { spawn-sh "/home/kev/Code/dms-bin/dms ipc notepad toggle"; }
-    Mod3+A                { spawn-sh "bash -c pkill wlr-which-key || wlr-which-key ~/.config/wlr-which-key/niri-config.yaml"; }
-    Mod3+E                { spawn "emacsclient" "-c"; }
-    Mod3+Tab              { spawn "niri-window-switcher"; }
+    Mod3+A                { spawn-sh "bash -c pkill wlr-which-key || wlr-which-key ~/.config/wlr-which-key/config.yaml"; }
+    // TODO: Change this when niri MRU is ready
+    Alt+Tab              { spawn "niri-window-switcher"; }
 
     // Utilities
     // F10                   { spawn "/home/kev/NixOS/home/dots/bin/dotool-move-mouse.sh"; }
     F10                   { spawn-sh "wlrctl pointer move 2560 -1440"; }
-    Mod+c                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc call clipboard toggle"; }
+    Mod+c                 { spawn-sh "copyq toggle"; }
     Mod+a                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc notifications toggle"; }
     Mod+b                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc bar toggle"; }
     Mod+e                 { spawn "/home/kev/NixOS/home/dots/bin/emoji-picker"; }
     Mod+M                 { spawn "~/bin/play_yt.sh"; }
     Mod+KP_Add            { spawn-sh "hyprmagnifier -t --size 800x800"; }
     Mod+KP_Enter          { spawn-sh "wl-kbptr -o modes=floating,click -o mode_floating.source=detect && wlrctl pointer move 2560 -1440"; }
+    Mod+Shift+KP_Enter    { spawn-sh "wl-kbptr -o modes=floating -o mode_floating.source=detect"; }
 
     // Media
 

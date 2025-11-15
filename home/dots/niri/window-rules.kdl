@@ -10,7 +10,7 @@ window-rule {
 window-rule {
     match app-id="remind-tui"
     open-floating true
-    default-column-width { fixed 565; }
+    default-column-width { fixed 620; }
     default-window-height { fixed 300; }
 }
 window-rule {

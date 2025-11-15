@@ -71,7 +71,6 @@
       gitFull
       gnumake
       gsettings-desktop-schemas
-      jdk
       libcxxStdenv # Needed to build binaries for tree-sitter
       lua-language-server
       # mfcl2700dnlpr # Remove for now.. too many issues.

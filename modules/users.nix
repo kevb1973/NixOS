@@ -1,10 +1,10 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   users.users.kev = {
     initialPassword = "password"; # Change after a fresh install with passwd
     isNormalUser = true;
     description = "kev";
-    linger = true; # Auto start user systemd units at boot. Keep running on logout.
+    linger =
+      true; # Auto start user systemd units at boot. Keep running on logout.
     extraGroups = [
       "adbusers"
       "audio"
@@ -41,7 +41,7 @@
       cliphist # Clipboard manager (for DankMaterialShell)
       # colloid-gtk-theme
       # colloid-icon-theme
-      copyq # clipboard manager++ 
+      copyq # clipboard manager++
       cotp # CLI OTP/2FA code provider - only use for bitwarden which manages all the rest
       darkman
       ddcutil # Adjust monitor brightness and other settings from cli
@@ -80,7 +80,7 @@
       hyprmagnifier # magnifier for wayland
       hyprpicker # Simple color picker with zoom and hex preview
       hyprshot # Wayland screenshots
-      igrep # interactive grep->edit@line. cmd:ig 
+      igrep # interactive grep->edit@line. cmd:ig
       inxi # Hardware info app
       # isd # Systemd tui (moved to user profile using flake for newer version)
       # jamesdsp
@@ -92,7 +92,7 @@
       kdePackages.qtmultimedia
       kdePackages.qtstyleplugin-kvantum
       keyd # For some reason binaries not in path for service
-      khal # Local Calendar used by DankMaterialShell 
+      khal # Local Calendar used by DankMaterialShell
       kitty
       kitty-themes
       lazygit
@@ -132,7 +132,7 @@
       nwg-look # Wayland replacement for lxappearance. Set gtk themes, icons, cursors etc.
       optnix
       p7zip
-      pamixer 
+      pamixer
       # pavucontrol
       pinta # Simple image editor
       pwvucontrol # Pipewire GUI mixer
@@ -156,6 +156,7 @@
       spotify
       spotify-player
       starship # Nice prompt
+      statix # Lints and suggestions for nix. Need for lazyvim.
       stow
       swayimg
       swaynotificationcenter
@@ -167,7 +168,7 @@
       tree-sitter
       uv # Wiki says this is an easy way to manage python versions and packages (non-declarative)
       uwu-colors
-      vdirsyncer # Sync web calendar to khal for DankMaterialShell 
+      vdirsyncer # Sync web calendar to khal for DankMaterialShell
       video-downloader
       virt-manager
       # vivaldi
@@ -194,11 +195,7 @@
       yt-dlp
       zoxide
       (mpv.override {
-        scripts = [
-          mpvScripts.mpris
-          mpvScripts.visualizer
-          mpvScripts.modernz
-        ];
+        scripts = [ mpvScripts.mpris mpvScripts.visualizer mpvScripts.modernz ];
       })
     ];
   };

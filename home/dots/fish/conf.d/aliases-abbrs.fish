@@ -7,7 +7,7 @@ alias edit-aliases="hx ~/NixOS/home/dots/fish/conf.d/aliases-abbrs.fish && sourc
 alias conf="hx ~/NixOS/"
 alias dg="nh clean user"
 alias edit-broken="hx ~/bin/check_broken" # Edit list of currently broken packages
-alias e="hx"
+alias e="nvim"
 alias find-font="fc-list --format='%{family}\n' | grep"
 alias gcroots="sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'"
 alias gc="sudo nix store gc -v"

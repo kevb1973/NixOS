@@ -23,8 +23,8 @@ menu:
     submenu:
       - key: "a"
         desc: aichat
-        # cmd: kitty aichat -m llama-cpp:lfm2-8b -r concise -s session --empty-session
-        cmd: mmsg -d toggle_named_scratchpad,aichat,none,open_aichat
+        cmd: kitty aichat -m llama-cpp:lfm2-8b -r concise -s session --empty-session
+        # cmd: mmsg -d toggle_named_scratchpad,aichat,none,open_aichat
       - key: "k"
         desc: kill llama-server
         cmd: pkill llama-server
@@ -145,6 +145,9 @@ menu:
       - key: "p"
         desc: color picker
         submenu:
+          - key: "n"
+            desc: niri color picker
+            cmd: niri-pick-color
           - key: "p"
             desc: picker with color mixer
             cmd: wl-color-picker
@@ -156,13 +159,13 @@ menu:
     submenu:
       - key: "k"
         desc: kill shell
-        cmd: dms kill
+        cmd: systemctl --user stop dms
       - key: "l"
         desc: launch shell
-        cmd: dms run
+        cmd: systemctl --user start dms
       - key: "r"
         desc: restart shell
-        cmd: dms restart
+        cmd: systemctl --user restart dms
       - key: "s"
         desc: open settings
         cmd: dms ipc settings toggle
@@ -311,3 +314,6 @@ menu:
   - key: "s"
     desc: toggle system theme
     cmd: toggle-system-theme
+  - key: "t"
+    desc: "timer"
+    cmd: kitty --app-id=timer peaclock

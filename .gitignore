@@ -5,3 +5,6 @@ home/dots/kitty/dank-theme.conf
 home/dots/niri/dms/colors.kdl   
 home/dots/isd/schema.json
 home/dots/kitty/dank-tabs.conf
+home/dots/nvim/lazy-lock.json
+home/dots/nvim/.neoconf.json
+home/dots/nvim/lazyvim.json

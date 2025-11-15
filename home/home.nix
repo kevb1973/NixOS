@@ -37,6 +37,7 @@
       ".config/niri".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/niri";
       ".config/television".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/television";
       ".config/wlr-which-key".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/wlr-which-key";
+      ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/nvim";
       ".config/yazi".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/yazi";
     };
 
@@ -46,7 +47,7 @@
     atuin.enable = true; # Shell history database
     home-manager.enable = true;
   };
-
+ 
   services = {
     mpd = {
       enable = true;

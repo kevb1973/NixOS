@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+wl-kbptr -o modes=floating mode_floating.source=detect

@@ -7,25 +7,25 @@ save_session: false
 # Compress session when token count reaches or exceeds this threshold
 compress_threshold: 4000
 # Text prompt used for creating a concise summary of session message
-summarize_prompt: '...'
+summarize_prompt: "..."
 # Text prompt used for including the summary of the entire session
-summary_prompt: '...'
+summary_prompt: "..."
 
 role: concise
 clients:
-- type: openai-compatible
-  name: llama-cpp
-  # api_base: http://127.0.0.1:11434/v1
-  api_base: http://127.0.0.1:8081/v1
-  models:
-  - name: gemma3-4b
-  - name: lfm2-8b
-  - name: qwen-4b-instruct
-  - name: openai/gpt-oss-20b
-  - name: qwen-30b-a3b-instruct
-  # - name: gemma3n
-  - name: nomic-embed-text:latest
-    type: embedding
-    max-tokens-per-chunk: 8192
-    default_chunk_size: 1000
-    max_batch_size: 50
+  - type: openai-compatible
+    name: llama-cpp
+    # api_base: http://127.0.0.1:11434/v1
+    api_base: http://127.0.0.1:8081/v1
+    models:
+      - name: gemma3-4b
+      - name: lfm2-8b
+      - name: qwen3-4b-instruct
+      - name: openai/gpt-oss-20b
+      - name: qwen-30b-a3b-instruct
+      # - name: gemma3n
+      - name: nomic-embed-text:latest
+        type: embedding
+        max-tokens-per-chunk: 8192
+        default_chunk_size: 1000
+        max_batch_size: 50

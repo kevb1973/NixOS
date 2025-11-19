@@ -5,6 +5,7 @@
     avahi.enable = true;
     blueman.enable = false; # wifi/bluetooth card stopped working..TODO: need to investigate.
     dbus.enable = true;
+    devmon.enable = true;
     envfs.enable = true; # fixes script shebangs looking in /usr/bin /bin etc.
     flatpak.enable = true;
     fwupd.enable = false; # disabled.. slowing boot.. no updates available anyways. (fwdupdmgr get-updates)
@@ -18,6 +19,7 @@
     printing.enable = true;
     seatd.enable = true; # For lemur display manager
     tumbler.enable = false; # Thumbnail support for images
+    udisks2.enable = true;
 
     atd = {
       enable = true; # 'at' daemon for reminders
@@ -150,6 +152,7 @@
     udev.extraRules = ''
       KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
     ''; # add user perms to uinput for ydotool
+
 
     xserver = {
       enable = false;

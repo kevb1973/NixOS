@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+pkill hyprmagnifier || hyprmagnifier -t --size 800x800

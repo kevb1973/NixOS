@@ -124,6 +124,15 @@ menu:
           - key: "e"
             desc: environment
             cmd: kitty nvim ~/.config/niri/environment.kdl
+          - key: "f"
+            desc: firefox floats
+            submenu:
+              - key: "e"
+                desc: Edit float script to add rules
+                cmd: kitty nvim ~/NixOS/home/dots/bin/niri-open-float.py
+              - key: "r"
+                desc: restart script
+                cmd: niri-open-float
           - key: "i"
             desc: input
             cmd: kitty nvim ~/.config/niri/input.kdl

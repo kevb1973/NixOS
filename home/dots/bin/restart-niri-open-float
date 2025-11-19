@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Restart quickshell. Kill gammastep or it will end up being a zombie process.
+
+pkill -f niri-open-float.py
+
+notify-send "Restarting niri-open-float"
+niri-open-float.py

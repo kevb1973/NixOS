@@ -60,50 +60,54 @@
         }
       '';
     };
-    darkman = {
-      enable = false;
-      darkModeScripts = {
-        dank-theme = ''
-          export PATH="$PATH:/home/kev/NixOS/home/dots/bin"
-          /home/kev/Code/dms-bin/dms ipc theme dark
-        '';
-        firefox-theme = ''
-          export PATH="$PATH:/home/kev/NixOS/home/dots/bin"
-          dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
-        '';
-        helix-theme = ''
-          export PATH="$PATH:/home/kev/NixOS/home/dots/bin"
-          pkill --signal USR1 hx
-        '';
-        micro-theme = ''
-          export PATH="$PATH:/home/kev/NixOS/home/dots/bin"
-          sed -i -e 's/"geany"/"default"/g' ~/.config/micro/settings.json
-        '';
-      };
-      lightModeScripts = {
-        dank-theme = ''
-          export PATH="$PATH:/home/kev/NixOS/home/dots/bin"
-          /home/kev/Code/dms-bin/dms ipc theme light
-        '';
-        firefox-theme = ''
-          export PATH="$PATH:/home/kev/NixOS/home/dots/bin"
-          dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
-        '';
-        helix-theme = ''
-          export PATH="$PATH:/home/kev/NixOS/home/dots/bin"
-          pkill --signal USR1 hx
-        '';
-        micro-theme = ''
-          export PATH="$PATH:/home/kev/NixOS/home/dots/bin"
-          sed -i -e 's/"default"/"geany"/g' ~/.config/micro/settings.json
-        '';
-      };
-      settings = {
-        lat = 43.9;
-        lng = -78.8;
-      };
-    };
+    # darkman = {
+    #   enable = false;
+    #   darkModeScripts = {
+    #     dank-theme = ''
+    #       export PATH="$PATH:/home/kev/NixOS/home/dots/bin"
+    #       /home/kev/Code/dms-bin/dms ipc theme dark
+    #     '';
+    #     firefox-theme = ''
+    #       export PATH="$PATH:/home/kev/NixOS/home/dots/bin"
+    #       dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
+    #     '';
+    #     helix-theme = ''
+    #       export PATH="$PATH:/home/kev/NixOS/home/dots/bin"
+    #       pkill --signal USR1 hx
+    #     '';
+    #     micro-theme = ''
+    #       export PATH="$PATH:/home/kev/NixOS/home/dots/bin"
+    #       sed -i -e 's/"geany"/"default"/g' ~/.config/micro/settings.json
+    #     '';
+    #   };
+    #   lightModeScripts = {
+    #     dank-theme = ''
+    #       export PATH="$PATH:/home/kev/NixOS/home/dots/bin"
+    #       /home/kev/Code/dms-bin/dms ipc theme light
+    #     '';
+    #     firefox-theme = ''
+    #       export PATH="$PATH:/home/kev/NixOS/home/dots/bin"
+    #       dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
+    #     '';
+    #     helix-theme = ''
+    #       export PATH="$PATH:/home/kev/NixOS/home/dots/bin"
+    #       pkill --signal USR1 hx
+    #     '';
+    #     micro-theme = ''
+    #       export PATH="$PATH:/home/kev/NixOS/home/dots/bin"
+    #       sed -i -e 's/"default"/"geany"/g' ~/.config/micro/settings.json
+    #     '';
+    #   };
+    #   settings = {
+    #     lat = 43.9;
+    #     lng = -78.8;
+    #   };
+    # };
     mpdris2.enable = true;
+    udiskie = {
+      enable = true;
+      tray = "auto";
+    };
   };
 
   # dconf.settings = {
@@ -128,8 +132,8 @@
 
     # Icon theme
     iconTheme = {
-      package = pkgs.adwaita-icon-theme;
-      name = "Adwaita";
+      package = pkgs.tela-circle-icon-theme;
+      name = "Tela-circle";
     };
 
     # Cursor theme

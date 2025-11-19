@@ -81,6 +81,7 @@
       pciutils
       pulseaudioFull
       # rocmPackages.clr
+      tela-circle-icon-theme
       unar
       unzip
       usbutils

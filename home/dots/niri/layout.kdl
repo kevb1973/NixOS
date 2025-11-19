@@ -14,8 +14,9 @@ layout {
     }
 
     preset-column-widths {
-        proportion 0.33
+        proportion 0.317
         proportion 0.5
+        proportion 0.683
         proportion 1.00
         // proportion 0.66667
     }

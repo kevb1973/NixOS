@@ -144,6 +144,7 @@
         playerctl
         podman-compose
         podman-tui
+        python3
         pywalfox-native # Native component for pywalfox extension
         qalculate-gtk
         # quickshell # For quickshell - DankMaterialShell (using flake for newer version)
@@ -180,6 +181,7 @@
         vlc
         vscode-langservers-extracted # Various LS
         wakeonlan # For lgtv control
+        warpd # vimium for the whole system
         waypaper
         websocat # For lgtv control
         wev

@@ -7,5 +7,5 @@ podman compose -f ~/Code/podman/silverbullet/compose.yml down --rmi all
 podman compose -f ~/Code/podman/silverbullet/compose.yml up -d
 podman compose -f ~/Code/podman/miniflux/compose.yml down --rmi all
 podman compose -f ~/Code/podman/miniflux/compose.yml up -d
-podman compose -f ~/Code/podman/openweb-ui/compose.yml down --rmi all
-podman compose -f ~/Code/podman/openweb-ui/compose.yml up -d
+# podman compose -f ~/Code/podman/openweb-ui/compose.yml down --rmi all
+# podman compose -f ~/Code/podman/openweb-ui/compose.yml up -d

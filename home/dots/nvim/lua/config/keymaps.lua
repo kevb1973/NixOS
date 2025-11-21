@@ -33,3 +33,6 @@ map(
   "<cmd>vert new | set buftype=nofile | read ++edit # | 0d_ | diffthis | wincmd p | diffthis<cr>",
   { desc = "Diff buffer with file", remap = true }
 )
+
+-- Alternate quit shortcut (easy save/quit with C-s, C-q)
+map("n", "<C-q>", "<cmd>qa<cr>", { desc = "Quit All", remap = true })

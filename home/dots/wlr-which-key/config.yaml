@@ -320,6 +320,9 @@ menu:
       - key: "8"
         desc: dms-plugins
         cmd: kitty  --app-id repo --title=dms-plugins -e jjui ~/Code/dms-plugins
+      - key: "9"
+        desc: isd
+        cmd: kitty  --app-id repo --title=isd -e jjui ~/Code/isd/
   - key: "s"
     desc: toggle system theme
     cmd: toggle-system-theme

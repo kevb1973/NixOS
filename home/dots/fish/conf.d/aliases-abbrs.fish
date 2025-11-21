@@ -55,5 +55,5 @@ abbr -a --set-cursor='%' -- nr 'nix run nixpkgs#%'
 abbr -a --set-cursor='%' -- ns 'nix shell nixpkgs#% -c fish'
 abbr -a --set-cursor='%' -- park 'nix profile install nixpkgs/(nixos-version --hash)#%'
 abbr -a -- scu 'systemctl --user'
-abbr -a --set-cursor='%' -- ytm 'yt-dlp -x --audio-format mp3 --audio-quality 320k \'%\''
-abbr -a --set-cursor='%' -- ytv "ytd-video '%'"
+abbr -a --set-cursor='%' -- ytm 'yt-dlp -x --audio-format mp3 --audio-quality 320k %'
+abbr -a --set-cursor='%' -- ytv "ytd-video %"

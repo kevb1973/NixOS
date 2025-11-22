@@ -9,10 +9,12 @@ case "$current" in
   prefer-light)
     dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
     dms ipc theme dark
+    cp ~/.config/yazi/mocha-theme.toml ~/.config/yazi/theme.toml
     ;;
   prefer-dark)
     dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
     dms ipc theme light
+    cp ~/.config/yazi/latte-theme.toml ~/.config/yazi/theme.toml
     ;;
   *)
     # if not set, set it to dark.

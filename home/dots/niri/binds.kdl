@@ -30,8 +30,8 @@ binds {
     // Media
 
     // PC Volume
-    XF86AudioRaiseVolume  { spawn-sh "/home/kev/Code/dms-bin/dms ipc audio increment 2"; }
-    XF86AudioLowerVolume  { spawn-sh "/home/kev/Code/dms-bin/dms ipc audio decrement 2"; }
+    XF86AudioRaiseVolume  { spawn-sh "/home/kev/Code/dms-bin/dms ipc audio increment 1"; }
+    XF86AudioLowerVolume  { spawn-sh "/home/kev/Code/dms-bin/dms ipc audio decrement 1"; }
     XF86AudioMute         { spawn-sh "/home/kev/Code/dms-bin/dms ipc audio mute"; }
 
     // LGTV

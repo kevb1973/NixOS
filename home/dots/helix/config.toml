@@ -1,5 +1,10 @@
 theme = "base16_transparent"
 
+# dark = "catppuccin_mocha"
+# light = "catppuccin_latte"
+# no_preference = "base16_transparent"
+
+
 [editor]
 auto-pairs = false
 bufferline = "always"

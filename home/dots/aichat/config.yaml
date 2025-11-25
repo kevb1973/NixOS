@@ -23,7 +23,6 @@ clients:
       - name: qwen3-4b-instruct
       - name: openai/gpt-oss-20b
       - name: qwen-30b-a3b-instruct
-      # - name: gemma3n
       - name: nomic-embed-text:latest
         type: embedding
         max-tokens-per-chunk: 8192

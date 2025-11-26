@@ -136,7 +136,7 @@
     };
 
     rss-bridge = {
-      enable = true;
+      enable = false;
       virtualHost = "localhost";
       config = {
         system.enabled_bridges = ["*"];

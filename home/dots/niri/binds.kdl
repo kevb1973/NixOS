@@ -111,9 +111,9 @@ binds {
     Mod+R                 { switch-preset-column-width; }
     Mod+W                 { toggle-column-tabbed-display; }
     Mod+Backspace         { maximize-column; }
-    Mod+Shift+Backspace   { center-visible-columns; }
-    Mod+Backslash         { toggle-windowed-fullscreen; }
-    Mod+Shift+Backslash   { maximize-window-to-edges; }
+    Mod+Shift+Backspace   { maximize-window-to-edges; }
+    Mod+Backslash         { center-visible-columns; }
+    Mod+Shift+Backslash   { toggle-windowed-fullscreen; }
     Mod+Minus             { set-column-width "-1%"; }
     Mod+Equal             { set-column-width "+1%"; }
     Mod+Shift+Minus       { set-window-height "-1%"; }

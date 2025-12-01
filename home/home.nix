@@ -106,7 +106,7 @@
     mpdris2.enable = true;
     udiskie = {
       enable = true;
-      tray = "never";
+      tray = "auto";
     };
   };
 

@@ -5,7 +5,6 @@
     avahi.enable = true;
     blueman.enable = false; # wifi/bluetooth card stopped working..TODO: need to investigate.
     dbus.enable = true;
-    devmon.enable = true;
     envfs.enable = true; # fixes script shebangs looking in /usr/bin /bin etc.
     flatpak.enable = true;
     fwupd.enable = false; # disabled.. slowing boot.. no updates available anyways. (fwdupdmgr get-updates)
@@ -19,7 +18,7 @@
     printing.enable = true;
     seatd.enable = true; # For lemur display manager
     tumbler.enable = false; # Thumbnail support for images
-    udisks2.enable = true;
+    udisks2.enable = true; 
 
     atd = {
       enable = true; # 'at' daemon for reminders
@@ -98,6 +97,11 @@
           command = "${pkgs.tuigreet}/bin/tuigreet --greeting 'Welcome to NixOS' --remember --remember-user-session --time --theme border=cyan;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red --cmd niri-session";
         };
       };
+    };
+
+    mympd = {
+      enable = true;
+      settings.http_port = 8777;
     };
 
     # nixos-cli = { # was only using for options search.. switched to optnix with no flake input needed.

@@ -29,8 +29,8 @@
         "text/html" = "firefox.desktop";
         "text/markdown" = "calibre-ebook-viewer.desktop";
         "text/plain" = "Helix.desktop";
+        "text/xml" = "Helix.desktop";
         "video/*" = "umpv.desktop";
-        "x-scheme-handler/chrome" = "firefox.desktop";
         "x-scheme-handler/http" = "firefox.desktop";
         "x-scheme-handler/https" = "firefox.desktop";
         "x-scheme-handler/mpv" = "open-in-mpv.desktop";

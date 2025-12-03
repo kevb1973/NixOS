@@ -80,7 +80,7 @@
         harper # Spelling/Grammer cheching LSP
         highlight # Used with vifm to add color to file previews with code
         hydra-check # check build status.. hydra-check --channel unstable <pkg>
-        hyprmagnifier # magnifier for wayland
+        # hyprmagnifier # magnifier for wayland - BROKEN: Dec 1 2025
         hyprpicker # Simple color picker with zoom and hex preview
         hyprshot # Wayland screenshots
         igrep # interactive grep->edit@line. cmd:ig
@@ -147,7 +147,7 @@
         python3
         pywalfox-native # Native component for pywalfox extension
         qalculate-gtk
-        # quickshell # For quickshell - DankMaterialShell (using flake for newer version)
+        quickshell
         regctl # Needed for?
         ripgrep
         rmpc # nice alternative to ncmpcpp
@@ -171,6 +171,7 @@
         television # Similar to fzf. Using with nix-search-tv
         tombi # Newer TOML LS
         tree-sitter
+        udiskie # For access to cli only. Service enabled in home-manager
         uv # Wiki says this is an easy way to manage python versions and packages (non-declarative)
         uwu-colors
         vdirsyncer # Sync web calendar to khal for DankMaterialShell

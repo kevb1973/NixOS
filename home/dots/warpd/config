@@ -1,0 +1,23 @@
+left:Left
+right:Right
+up:Up
+down:Down
+scroll_up:A-Up
+scroll_down:A-Down
+buttons:z s x
+drag:c
+copy_and_exit:p
+repeat_interval:20
+speed:200
+max_speed:1500
+decelerator_speed:50
+acceleration:1500
+accelerator_acceleration:2900
+scroll_speed: 500
+scroll_max_speed:9000
+scroll_acceleration:1600
+scroll_deceleration:-3400
+hint_chars:qweasdzxc
+indicator:bottomright
+indicator_size:24
+indicator_color:#6f6ffe

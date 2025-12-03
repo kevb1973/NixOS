@@ -79,6 +79,9 @@ RULES = [
     # Matches "Checker+" extension for Google Calendar
     Rule([Match(title=r"^Extension:\s\(Checker.*$", app_id="firefox")],
           width=600, height=400, centered=True),
+    # Matches "Picture-in-Picture" for Firefox
+    Rule([Match(title=r"^Picture-in-Picture$", app_id="firefox")],
+          width=386, height=219, centered=False),
 ]
 
 

@@ -1,7 +1,7 @@
 // Binds
 binds {
     // Launchers,
-    Mod+Return            { spawn "kitty"; }
+    Mod+Return            { spawn-sh "kitty -1"; }
     Mod+Shift+Return      { spawn "nautilus"; }
     Mod+KP_Enter          { spawn-sh "/home/kev/Code/dms-bin/dms ipc spotlight toggle"; }
     Mod+P                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc call dankdash wallpaper"; }
@@ -22,7 +22,7 @@ binds {
     Mod+KP_Add            { spawn-sh "toggle_magnifier"; }
     Mod3+Tab              { spawn-sh "warpd --oneshot --hint"; }
     // Mod+z                 { spawn-sh "wl-kbptr -o modes=floating,click -o mode_floating.source=detect && wlrctl pointer move 2560 -1440"; }
-    Mod+z                 { spawn-sh "warpd --normal"; }
+    Mod+z                 { spawn "mouse_move"; }
     Mod+Shift+z           { spawn-sh "wl-kbptr -o modes=floating -o mode_floating.source=detect"; }
 
     // Media

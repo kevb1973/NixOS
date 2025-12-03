@@ -22,7 +22,8 @@
       ".config/cava".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/cava";
       ".config/fish".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/fish";
       ".config/fuzzel".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/fuzzel";
-      ".config/gammastep".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/gammastep";
+      ".config/gammastep".source =
+        config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/gammastep";
       ".config/helix".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/helix";
       ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/hypr";
       ".config/isd_tui".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/isd";
@@ -35,9 +36,12 @@
       ".config/mpd".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/mpd";
       ".config/mpv".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/mpv";
       ".config/niri".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/niri";
-      ".config/television".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/television";
-      ".config/wlr-which-key".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/wlr-which-key";
+      ".config/television".source =
+        config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/television";
+      ".config/wlr-which-key".source =
+        config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/wlr-which-key";
       ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/nvim";
+      ".config/warpd".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/warpd";
       ".config/yazi".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/yazi";
     };
 
@@ -47,7 +51,7 @@
     atuin.enable = true; # Shell history database
     home-manager.enable = true;
   };
- 
+
   services = {
     mpd = {
       enable = true;
@@ -107,6 +111,15 @@
     udiskie = {
       enable = true;
       tray = "auto";
+    };
+    wlsunset = {
+      enable = true;
+      latitude = 43.7;
+      longitude = -79.4;
+      temperature = {
+        day = 6500;
+        night = 3000;
+      };
     };
   };
 

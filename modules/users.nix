@@ -85,7 +85,7 @@
         hyprshot # Wayland screenshots
         igrep # interactive grep->edit@line. cmd:ig
         inxi # Hardware info app
-        # isd # Systemd tui (moved to user profile using flake for newer version)
+        isd # Manage systemd units
         # jamesdsp
         # jjui # Moved to nix profile install to track github
         jq
@@ -120,7 +120,7 @@
         ncpamixer
         nettools
         networkmanagerapplet
-        nh # nix helper
+        # nh # nix helper # nh search broken in nixpkgs ver. Switch to flake (nix profile)
         nil # for zed-editor
         # nix-search-cli
         nix-search-tv # Search nixos/home-manager options + nixpkgs/nur with 'television'

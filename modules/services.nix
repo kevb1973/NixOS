@@ -130,7 +130,7 @@
 
     ollama = {
       enable = false;
-      acceleration = "rocm";
+      package = pkgs.ollama-rocm;
       rocmOverrideGfx = "10.3.0";
       environmentVariables = {
         HIP_VISIBLE_DEVICES = "1";

@@ -6,4 +6,5 @@ environment {
     NH_NO_CHECKS "1" //needed for nh (np, up)
     PODMAN_COMPOSE_WARNING_LOGS "false"
     XDG_CURRENT_DESKTOP "niri"
+    QT_QPA_PLATFORM_THEME "gtk3"
 }

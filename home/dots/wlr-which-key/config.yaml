@@ -23,7 +23,7 @@ menu:
     submenu:
       - key: "a"
         desc: aichat
-        cmd: kitty aichat -m llama-cpp:lfm2-8b -r concise -s session --empty-session
+        cmd: kitty aichat -m llama-cpp:gemma3-4b -r concise -s session --empty-session
         # cmd: mmsg -d toggle_named_scratchpad,aichat,none,open_aichat
       - key: "k"
         desc: kill llama-server

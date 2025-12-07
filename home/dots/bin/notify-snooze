@@ -1,29 +1,50 @@
 #!/usr/bin/env bash
 set -e
-MESSAGE="$*"
+TITLE="$1"
+MESSAGE="$2"
+URL="$3"
 ICON_PATH="/run/current-system/sw/share/icons/Adwaita/symbolic/emotes"
 
-result=$(notify-send \
-  --action=add5=+5m \
-  --action=add15=+15m \
-  --action=add30=+30m \
-  --action=add1hr=+1hr \
-  -i "$ICON_PATH/face-smile-symbolic.svg" \
-  --urgency=critical \
-  "$MESSAGE")
+if [ -z $URL ];
+  then
+      result=$(notify-send \
+      --action=add5=+5m \
+      --action=add15=+15m \
+      --action=add30=+30m \
+      --action=add1hr=+1hr \
+      -i "$ICON_PATH/face-smile-symbolic.svg" \
+      --urgency=critical \
+      "$TITLE" \
+      "$MESSAGE")
+  else
+    result=$(notify-send \
+      --action=url=URL \
+      --action=add5=+5m \
+      --action=add15=+15m \
+      --action=add30=+30m \
+      --action=add1hr=+1hr \
+      -i "$ICON_PATH/face-smile-symbolic.svg" \
+      --urgency=critical \
+      "$TITLE" \
+      "$MESSAGE")
+fi
 
+# Check which button the user clicked
 case "$result" in
    add5)
-     echo "notify-snooze '$MESSAGE'" | at "now + 5 min"
+     echo "notify-snooze '$TITLE' '$MESSAGE' '$URL'" | at "now + 5 min"
      exit ;;
    add15)
-     echo "notify-snooze '$MESSAGE'" | at "now + 15 min"
+     echo "notify-snooze '$TITLE' '$MESSAGE' '$URL'" | at "now + 15 min"
      exit ;;
    add30)
-     echo "notify-snooze '$MESSAGE'" | at "now + 30 min"
+     echo "notify-snooze '$TITLE' '$MESSAGE' '$URL'" | at "now + 30 min"
      exit ;;
    add1hr)
-     echo "notify-snooze '$MESSAGE'" | at "now + 1 hour"
+     echo "notify-snooze '$TITLE' '$MESSAGE' '$URL'" | at "now + 1 hour"
+     exit ;;
+   url)
+     xdg-open "$URL" 
      exit ;;
    *)
      exit ;; 

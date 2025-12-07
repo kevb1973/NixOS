@@ -3,28 +3,43 @@
 # Shortcut to add a one off notification using atd
 # Calls notify-snooze script which wraps notify-send with snooze options
 
+# If called with parameter, we are restarting due to time/date format fail and want to reuse the message
+TITLE="$1"
+MESSAGE="$2"
+URL="$3"
 set -e # exit on any non-zero exit code (catch ctrl-c in gum which returns 130)
 clear
 gum style --border double --align center --width 50 --margin "1 2" 'Create a Reminder' 'ctrl-c to quit'
-MESSAGE=$(gum input --prompt "Reminder: " --width 80 --placeholder="" )
-TIME=$(gum input --prompt "Date/Time: " --width 20 --placeholder="hh:mm(am/pm) mm/dd/yy or dayname") 
+
+# Prompt for message, pre-set if $MESSAGE exists
+TITLE=$(gum input --prompt "Title: " --char-limit 40 --width 40 --placeholder="" --value="$TITLE")
+MESSAGE=$(gum write --header "$TITLE:" --width 40 --height 2 --placeholder="" --value="$MESSAGE")
+TIME=$(gum input --prompt "Date/Time: " --width 0 --placeholder="hh:mm(am/pm) mm/dd/yy or dayname") 
+URL=$(gum input --prompt "URL: " --width 0 --placeholder="https://www.bumblefuck.com" --value="$URL") 
 
 # Check if either MESSAGE or TIME are missing.. if so, warn and restart keeping existing message (if exists)
-if [ -z "$MESSAGE" ] || [ -z "$TIME" ]; then
-	gum log "Missing Message or Time"
+if [ -z "$TITLE" ] || [ -z "$MESSAGE" ] || [ -z "$TIME" ]; then
+	gum log "Missing Title, Message or Time"
 	sleep 2
 	clear
-	remind_tui "$MESSAGE"
+	remind_tui "$TITLE" "$MESSAGE" "$URL" 
 fi
 
-echo "notify-snooze '$MESSAGE'" | at "$TIME" > /dev/null 2>&1
+if [ -z $URL ]; then
+		echo "notify-snooze '$TITLE' '$MESSAGE'" | at "$TIME" > /dev/null 2>&1
+else
+		echo "notify-snooze '$TITLE' '$MESSAGE' '$URL'" | at "$TIME" > /dev/null 2>&1
+fi
+
 
 if [ $? -ne 0 ]; then
 	gum log "Incorrect Time Format!"
 	sleep 2
 	clear
-	remind_tui "$MESSAGE"
+	remind_tui "$TITLE" "$MESSAGE" "$URL"
 else
-	gum log "Added Reminder: $MESSAGE at $TIME"
-	sleep 1
+	gum log "Added: $TITLE $MESSAGE at $TIME"
+	sleep 2
 fi
+
+echo "URL value is: '$URL'"

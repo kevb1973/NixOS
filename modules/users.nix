@@ -30,7 +30,6 @@
       packages = with pkgs; [
         adw-gtk3
         aichat
-        # anydesk
         aria2
         at
         authenticator
@@ -38,12 +37,10 @@
         bemoji
         bluetuith
         boxbuddy
-        btop
         cacert
         calibre # BROKEN again. Switched to flatpak
         cargo
         cava # Terminal audio visualizer
-        # clipse
         cliphist # Clipboard manager (for DankMaterialShell)
         copyq # clipboard manager++
         cotp # CLI OTP/2FA code provider - only use for bitwarden which manages all the rest
@@ -65,7 +62,6 @@
         foliate
         fuzzel
         fzf
-        gammastep # Prfer sunsetr as No geoclue2 needed, but this is supported by DankMaterialShell.
         gdu # Disk space analyzer
         geoclue2 # Needed for gammastep auto localation
         gitui # Another terminal git helper
@@ -75,7 +71,6 @@
         grc # colourizer for fishPlugins.grc
         grc # generic text colourizer. Using with fishPlugins.grc
         grim
-        # grimblast # BROKEN Nov. 2 2025
         gum # Script enhancer - use for remind_tui
         harper # Spelling/Grammer cheching LSP
         highlight # Used with vifm to add color to file previews with code
@@ -120,7 +115,7 @@
         ncpamixer
         nettools
         networkmanagerapplet
-        # nh # nix helper # nh search broken in nixpkgs ver. Switch to flake (nix profile)
+        nh # nix helper
         nil # for zed-editor
         # nix-search-cli
         nix-search-tv # Search nixos/home-manager options + nixpkgs/nur with 'television'
@@ -137,7 +132,6 @@
         optnix
         p7zip
         pamixer
-        # pavucontrol
         pinta # Simple image editor
         pwvucontrol # Pipewire GUI mixer
         peaclock # TUI Clock/Stopwatch/Timer

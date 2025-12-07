@@ -3,20 +3,20 @@
   environment = {
     pathsToLink = [ "/libexec" ]; # enable polkit
     etc = {
-      "lemurs/wayland/Niri" = {
-        mode = "755";
-        text = ''
-          #!/usr/bin/env sh
-          exec niri-session
-        '';
-      };
-      "lemurs/wayland/Mango" = {
-        mode = "755";
-        text = ''
-          #!/usr/bin/env sh
-          exec mango
-        '';
-      };
+      # "lemurs/wayland/Niri" = {
+      #   mode = "755";
+      #   text = ''
+      #     #!/usr/bin/env sh
+      #     exec niri-session
+      #   '';
+      # };
+      # "lemurs/wayland/Mango" = {
+      #   mode = "755";
+      #   text = ''
+      #     #!/usr/bin/env sh
+      #     exec mango
+      #   '';
+      # };
       "nix/inputs/nixpkgs".source = "${inputs.nixpkgs}"; # needed to fix <nixpkgs> on flake. See also nix.nixPath
     };
     sessionVariables = {
@@ -64,6 +64,12 @@
       adwaita-icon-theme
       alsa-utils
       bibata-cursors
+      # catppuccin-sddm
+      (catppuccin-sddm.override {
+        fontSize = "12";
+        clockEnabled = false;
+        accent = "lavender";
+      })
       cmake
       desktop-file-utils
       gcc

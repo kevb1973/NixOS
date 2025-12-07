@@ -70,10 +70,15 @@
         };
       };
       sddm = {
-        enable = true;
+        enable= true;
         autoNumlock = true;
-        # theme = "where_is_my_sddm_theme";
-        # extraPackages = [ pkgs.qt6.qt5compat ];
+        theme = "catppuccin-mocha-lavender";
+        extraPackages = with pkgs; [
+          qt6.qt5compat
+     			kdePackages.qtsvg
+      		kdePackages.qtmultimedia
+      		kdePackages.qtvirtualkeyboard
+        ];
         wayland.enable = true;
       };
     };

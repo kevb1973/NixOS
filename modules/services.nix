@@ -39,7 +39,7 @@
       # autoLogin.user = "kev";
       # gdm.enable = true;
       lemurs = {
-        enable = true;
+        enable = false;
         settings = {
           username_field = {
             remember = true;
@@ -69,13 +69,13 @@
           };
         };
       };
-      # sddm = {
-      #   enable = true;
-      #   autoNumlock = true;
-      #   theme = "where_is_my_sddm_theme";
-      #   extraPackages = [ pkgs.qt6.qt5compat ];
-      #   wayland.enable = true;
-      # };
+      sddm = {
+        enable = true;
+        autoNumlock = true;
+        # theme = "where_is_my_sddm_theme";
+        # extraPackages = [ pkgs.qt6.qt5compat ];
+        wayland.enable = true;
+      };
     };
 
     emacs = {

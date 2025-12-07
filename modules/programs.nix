@@ -111,7 +111,7 @@
     # mango.enable = true;
 
     niri = {
-      enable = false;
+      enable = true;
       # package = inputs.niri.packages.${pkgs.system}.default;
     };
 

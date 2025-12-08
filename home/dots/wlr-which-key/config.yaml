@@ -235,6 +235,9 @@ menu:
           - key: n
             desc: nixos
             cmd: kitty yazi ~/NixOS
+      - key: "z"
+        desc: zen
+        cmd: zen
   - key: "m"
     desc: music
     submenu:

@@ -34,7 +34,7 @@ window-rule {
     shadow { on; }
 }
 window-rule {
-    match app-id="firefox|vivaldi|Vivaldi-flatpak"
+    match app-id="firefox|vivaldi|Vivaldi-flatpak|zen"
     default-column-width { proportion 1.00; }
     open-on-workspace "1"
 }

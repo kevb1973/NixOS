@@ -65,6 +65,7 @@
       alsa-utils
       bibata-cursors
       # catppuccin-sddm
+      btop
       (catppuccin-sddm.override {
         fontSize = "12";
         clockEnabled = false;

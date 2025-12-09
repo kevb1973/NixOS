@@ -104,11 +104,6 @@
       };
     };
 
-    mympd = {
-      enable = true;
-      settings.http_port = 8777;
-    };
-
     # nixos-cli = { # was only using for options search.. switched to optnix with no flake input needed.
     #   enable = true;
     #   config = {

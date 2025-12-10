@@ -10,8 +10,8 @@ window-rule {
 window-rule {
     match app-id="remind-tui"
     open-floating true
-    default-column-width { fixed 620; }
-    default-window-height { fixed 300; }
+    default-column-width { fixed 680; }
+    default-window-height { fixed 360; }
 }
 window-rule {
     match app-id="com.github.hluk.copyq"

@@ -3,20 +3,6 @@
   environment = {
     pathsToLink = [ "/libexec" ]; # enable polkit
     etc = {
-      # "lemurs/wayland/Niri" = {
-      #   mode = "755";
-      #   text = ''
-      #     #!/usr/bin/env sh
-      #     exec niri-session
-      #   '';
-      # };
-      # "lemurs/wayland/Mango" = {
-      #   mode = "755";
-      #   text = ''
-      #     #!/usr/bin/env sh
-      #     exec mango
-      #   '';
-      # };
       "nix/inputs/nixpkgs".source = "${inputs.nixpkgs}"; # needed to fix <nixpkgs> on flake. See also nix.nixPath
     };
     sessionVariables = {
@@ -56,7 +42,6 @@
       XDG_CONFIG_HOME = "$HOME/.config";
       XDG_SCREENSHOTS_DIR = "$HOME/screenshots";
       XMODIFIERS = "@im=ibus";
-      # YDOTOOL_SOCKET = "/run/ydotoold/socket";
       # _JAVA_AWT_WM_NONREPARENTING = "1";
     };
 
@@ -64,7 +49,6 @@
       adwaita-icon-theme
       alsa-utils
       bibata-cursors
-      # catppuccin-sddm
       btop
       (catppuccin-sddm.override {
         fontSize = "12";

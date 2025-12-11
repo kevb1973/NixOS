@@ -283,12 +283,12 @@ menu:
       - key: "u"
         desc: update container
         submenu:
+          - key: "a"
+            desc: all servers
+            cmd: kitty update-servers
           - key: "m"
             desc: miniflux
             cmd: kitty /home/kev/Code/podman/miniflux/miniflux-update-restart
-          - key: "o"
-            desc: openweb-ui
-            cmd: kitty /home/kev/Code/podman/openweb-ui/openwebui-update-restart
           - key: "s"
             desc: silverbullet
             cmd: kitty /home/kev/Code/podman/silverbullet/silverbullet-update-restart
@@ -304,7 +304,7 @@ menu:
         cmd: kitty  --app-id repo --title=nixos -e jjui ~/NixOS
       - key: "2"
         desc: dms
-        cmd: kitty  --app-id repo --title=dms -e jjui ~/.config/quickshell/dms
+        cmd: kitty  --app-id repo --title=dms -e jjui ~/.config/quickshell/DankMaterialShell
       - key: "3"
         desc: mangowc
         cmd: kitty  --app-id repo --title=dms -e jjui ~/Code/mangowc
@@ -317,15 +317,30 @@ menu:
       - key: "6"
         desc: jjui
         cmd: kitty  --app-id repo --title=jjui -e jjui ~/Code/jjui
-      - key: "7"
-        desc: dgop
-        cmd: kitty  --app-id repo --title=dgop -e jjui ~/Code/dgop
-      - key: "8"
-        desc: dms-plugins
-        cmd: kitty  --app-id repo --title=dms-plugins -e jjui ~/Code/dms-plugins
   - key: "s"
     desc: toggle system theme
     cmd: toggle-system-theme
   - key: "t"
     desc: "timer"
     cmd: kitty --app-id=timer peaclock
+  - key: "u"
+    desc: update
+    submenu:
+      - key: "n"
+        desc: nix profile
+        submenu:
+          - key: "h"
+            desc: helix
+            cmd: kitty -e nix profile upgrade helix
+          - key: "j"
+            desc: jjui
+            cmd: kitty -e nix profile upgrade jjui
+          - key: "m"
+            desc: mangowc
+            cmd: kitty -e nix profile upgrade mangowc
+          - key: "n"
+            desc: niri
+            cmd: kitty -e nix profile upgrade niri
+      - key: "s"
+        desc: system
+        cmd: kitty nh os switch --update --ask ~/NixOS

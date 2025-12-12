@@ -3,7 +3,4 @@ output "DP-3" {
     mode "2560x1440@165.080"
     // variable-refresh-rate //on-demand=true
     position x=2560 y=0
-    hot-corners {
-        bottom-left
-    }
 }

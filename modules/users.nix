@@ -46,9 +46,11 @@
         cotp # CLI OTP/2FA code provider - only use for bitwarden which manages all the rest
         darkman
         ddcutil # Adjust monitor brightness and other settings from cli
+        dgop # System Info for DankMaterialShell
         diff-so-fancy
         distrobox
         distrobox-tui
+        dms-shell # DankMaterialShell - only using dms bin.. following git for shell config
         dust # quick dir size for 'sys' script
         emacs-pgtk
         espanso-wayland # Service not working with Niri. Starting manually.

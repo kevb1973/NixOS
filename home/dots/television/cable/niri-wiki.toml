@@ -1,0 +1,23 @@
+[metadata]
+name = "niri-wiki"
+description = "Current version of the Niri Compositor Wiki"
+requirements = ["treemd"]
+
+[source]
+# List all markdown files in wiki directory
+command = "fd --type f -e md . ~/Code/niri/docs/wiki/ | cut -d'/' -f 8 | cut -d. -f1"
+
+[preview]
+# Show a preview for the selected entry
+command = "mdcat ~/Code/niri/docs/wiki/'{0}'.md"
+
+[keybindings]
+enter = "actions:open"
+
+[actions.open]
+description = "Open the selected markdown document with treemd"
+command = "treemd -L 1 ~/Code/niri/docs/wiki/'{0}'.md"
+mode = "execute"
+
+[ui.preview_panel]
+header = "{0}"

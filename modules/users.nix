@@ -166,6 +166,7 @@
         tealdeer # Command line help 'tldr'
         television # Similar to fzf. Using with nix-search-tv
         tombi # Newer TOML LS
+        treemd # TUI Markdown viewer (used for tv niri-wiki)
         tree-sitter
         udiskie # For access to cli only. Service enabled in home-manager
         uv # Wiki says this is an easy way to manage python versions and packages (non-declarative)

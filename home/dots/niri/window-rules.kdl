@@ -10,11 +10,12 @@ window-rule {
 window-rule {
     match app-id="remind-tui"
     open-floating true
-    default-column-width { fixed 680; }
-    default-window-height { fixed 360; }
+    default-column-width { proportion 0.28; }
+    default-window-height { proportion 0.35; }
 }
 window-rule {
     match app-id="com.github.hluk.copyq"
+    match app-id="run" // For fzf launcher script "run"
     open-floating true
     default-column-width { proportion 0.25; }
     default-window-height { proportion 0.50; }
@@ -30,7 +31,7 @@ window-rule {
     default-column-width { fixed 1000; }
     default-window-height { fixed 1030; }
     open-floating true
-    open-focused false
+    open-focused true
     shadow { on; }
 }
 window-rule {

@@ -9,7 +9,8 @@ binds {
     Mod+KP_Multiply       { spawn "qalculate-gtk"; }
     Mod+N                 { spawn-sh "kitty --app-id='remind-tui' ~/NixOS/home/dots/bin/remind_tui"; }
     Mod+Shift+N           { spawn-sh "/home/kev/Code/dms-bin/dms ipc notepad toggle"; }
-    Mod3+A                { spawn-sh "pkill wlr-which-key || wlr-which-key ~/.config/wlr-which-key/config.yaml"; }
+    // Mod3+A                { spawn-sh "pkill wlr-which-key || wlr-which-key ~/.config/wlr-which-key/config.yaml"; }
+    Mod+Z                { spawn-sh "kitty --app-id run run"; }
     Mod+grave             { spawn-sh "kitten quick-access-terminal --instance-group kitty"; }
     Mod+KP_End            { spawn-sh "kitten quick-access-terminal --instance-group jjui jjui ~/NixOS"; }
     Mod+KP_Down           { spawn-sh "kitten quick-access-terminal --instance-group aichat aichat -m llama-cpp:gemma3-4b -r concise -s session --empty-session"; }
@@ -24,7 +25,7 @@ binds {
     Mod+M                 { spawn "~/bin/play_yt.sh"; }
     Mod+KP_Add            { spawn-sh "toggle_magnifier"; }
     Mod3+Tab              { spawn-sh "warpd --oneshot --hint"; }
-    Mod+z                 { spawn-sh "wl-kbptr -o modes=floating,click -o mode_floating.source=detect && wlrctl pointer move 2560 -1440"; }
+    Mod3+A                 { spawn-sh "wl-kbptr -o modes=floating,click -o mode_floating.source=detect && wlrctl pointer move 2560 -1440"; }
     // Mod+z                 { spawn "mouse_move"; }
     Mod+Shift+z           { spawn-sh "wl-kbptr -o modes=floating -o mode_floating.source=detect"; }
 
@@ -125,6 +126,7 @@ binds {
     // Miscellaneous Binds
     // Mod+s                 { spawn-sh "hyprshot -m region -s --clipboard-only"; }
     Mod+s                 { screenshot; }
+    Mod3+s                 { spawn "toggle-system-theme"; }
     Mod+Shift+s           { spawn-sh "hyprshot -m region -s -r --clipboard-only | satty -f -"; }
     Mod+Shift+a           { spawn-sh "wl-paste | satty -f - --actions-on-enter save-to-clipboard,exit --copy-command wl-copy"; }
     // Mod+Shift+Slash       { show-hotkey-overlay; }

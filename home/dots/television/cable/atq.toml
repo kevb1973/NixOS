@@ -1,0 +1,20 @@
+[metadata]
+name = "atq"
+description = "A channel to see details of scheduled commands"
+
+[source]
+command = "atq | sort -r"
+
+[preview]
+command = "at -c $(echo '{}' | awk -F ' ' '{print $1}') | tail -2"
+
+[ui]
+layout = "portrait"
+
+[keybindings]
+Delete = "actions:remove"
+
+[actions.remove]
+description = "Remove the selected command"
+command = "at -d $(echo '{}' | awk -F ' ' '{print $1}') | tail -2"
+mode = "execute"

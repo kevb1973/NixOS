@@ -8,10 +8,10 @@ ICON_PATH="/run/current-system/sw/share/icons/Adwaita/symbolic/emotes"
 if [ -z $URL ];
   then
       result=$(notify-send \
-      --action=add5=+5m \
       --action=add15=+15m \
       --action=add30=+30m \
       --action=add1hr=+1hr \
+      --action=add24hr=+24hr \
       -i "$ICON_PATH/face-smile-symbolic.svg" \
       --urgency=critical \
       "$TITLE" \
@@ -19,10 +19,10 @@ if [ -z $URL ];
   else
     result=$(notify-send \
       --action=url=URL \
-      --action=add5=+5m \
       --action=add15=+15m \
       --action=add30=+30m \
       --action=add1hr=+1hr \
+      --action=add24hr=+24h \
       -i "$ICON_PATH/face-smile-symbolic.svg" \
       --urgency=critical \
       "$TITLE" \
@@ -31,9 +31,6 @@ fi
 
 # Check which button the user clicked
 case "$result" in
-   add5)
-     echo "notify-snooze '$TITLE' '$MESSAGE' '$URL'" | at "now + 5 min"
-     exit ;;
    add15)
      echo "notify-snooze '$TITLE' '$MESSAGE' '$URL'" | at "now + 15 min"
      exit ;;
@@ -42,6 +39,9 @@ case "$result" in
      exit ;;
    add1hr)
      echo "notify-snooze '$TITLE' '$MESSAGE' '$URL'" | at "now + 1 hour"
+     exit ;;
+   add24hr)
+     echo "notify-snooze '$TITLE' '$MESSAGE' '$URL'" | at "now + 24 hour"
      exit ;;
    url)
      xdg-open "$URL" 

@@ -3,12 +3,12 @@ binds {
     // Launchers,
     Mod+Return            { spawn-sh "kitty -1"; }
     Mod+Shift+Return      { spawn "nautilus"; }
-    Mod+KP_Enter          { spawn-sh "/home/kev/Code/dms-bin/dms ipc spotlight toggle"; }
-    Mod+P                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc call dankdash wallpaper"; }
+    Mod+KP_Enter          { spawn-sh "dms ipc spotlight toggle"; }
+    Mod+P                 { spawn-sh "dms ipc call dankdash wallpaper"; }
     Mod+Tab               { toggle-overview; }
     Mod+KP_Multiply       { spawn "qalculate-gtk"; }
     Mod+N                 { spawn-sh "kitty --app-id='remind-tui' ~/NixOS/home/dots/bin/remind_tui"; }
-    Mod+Shift+N           { spawn-sh "/home/kev/Code/dms-bin/dms ipc notepad toggle"; }
+    Mod+Shift+N           { spawn-sh "dms ipc notepad toggle"; }
     // Mod3+A                { spawn-sh "pkill wlr-which-key || wlr-which-key ~/.config/wlr-which-key/config.yaml"; }
     Mod+Z                { spawn "toggle_run"; }
     Mod+grave             { spawn-sh "kitten quick-access-terminal --instance-group kitty"; }
@@ -19,8 +19,8 @@ binds {
     // F10                   { spawn "/home/kev/NixOS/home/dots/bin/dotool-move-mouse.sh"; }
     F10                   { spawn-sh "wlrctl pointer move 2560 -1440"; }
     Mod+c                 { spawn-sh "copyq toggle"; }
-    Mod+a                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc notifications toggle"; }
-    Mod+b                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc bar toggle"; }
+    Mod+a                 { spawn-sh "dms ipc notifications toggle"; }
+    Mod+b                 { spawn-sh "dms ipc bar toggle"; }
     Mod+e                 { spawn "/home/kev/NixOS/home/dots/bin/emoji-picker"; }
     Mod+M                 { spawn "~/bin/play_yt.sh"; }
     Mod+KP_Add            { spawn-sh "toggle_magnifier"; }
@@ -32,9 +32,12 @@ binds {
     // Media
 
     // PC Volume
-    XF86AudioRaiseVolume  { spawn-sh "/home/kev/Code/dms-bin/dms ipc audio increment 1"; }
-    XF86AudioLowerVolume  { spawn-sh "/home/kev/Code/dms-bin/dms ipc audio decrement 1"; }
-    XF86AudioMute         { spawn-sh "/home/kev/Code/dms-bin/dms ipc audio mute"; }
+    XF86AudioRaiseVolume  { spawn-sh "dms ipc audio increment 1"; }
+    XF86AudioLowerVolume  { spawn-sh "dms ipc audio decrement 1"; }
+    XF86AudioMute         { spawn-sh "dms ipc audio mute"; }
+    Mod+Alt+Up            { spawn-sh "dms ipc audio increment 1"; }
+    Mod+Alt+Down          { spawn-sh "dms ipc audio decrement 1"; }
+    Mod+Alt+m             { spawn-sh "dms ipc audio mute"; }
 
     // LGTV
     Mod+Delete            { spawn "/home/kev/NixOS/home/dots/bin/lgtv" "system" "turnOff";}
@@ -130,7 +133,7 @@ binds {
     Mod+Shift+s           { spawn-sh "hyprshot -m region -s -r --clipboard-only | satty -f -"; }
     Mod+Shift+a           { spawn-sh "wl-paste | satty -f - --actions-on-enter save-to-clipboard,exit --copy-command wl-copy"; }
     // Mod+Shift+Slash       { show-hotkey-overlay; }
-    Mod+q                 { spawn-sh "/home/kev/Code/dms-bin/dms ipc call powermenu toggle"; }
+    Mod+q                 { spawn-sh "dms ipc call powermenu toggle"; }
     Mod+KP_Divide         { power-off-monitors; }
 
     // Mouse Binds

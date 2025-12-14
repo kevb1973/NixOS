@@ -82,8 +82,7 @@
         hyprshot # Wayland screenshots
         igrep # interactive grep->edit@line. cmd:ig
         inxi # Hardware info app
-        isd # Manage systemd units
-        # jamesdsp
+        systemctl-tui # Manage systemd units
         # jjui # Moved to nix profile install to track github
         jq
         jujutsu
@@ -140,6 +139,7 @@
         playerctl
         podman-compose
         podman-tui
+        puddletag # Music tag editor
         python3
         pywalfox-native # Native component for pywalfox extension
         qalculate-gtk

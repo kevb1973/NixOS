@@ -9,7 +9,6 @@
     flatpak.enable = true;
     fwupd.enable = false; # disabled.. slowing boot.. no updates available anyways. (fwdupdmgr get-updates)
     geoclue2.enable = true;
-    # gnome.gnome-keyring.enable = lib.mkDefault false; # using programs.ssh.startAgent, override due to niri-flake
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true; # Mount, trash, and other functionalities
     journald.extraConfig = "SystemMaxUse=500M";

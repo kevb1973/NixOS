@@ -105,14 +105,14 @@ S-tab = ["unindent"]
 "]" = "goto_line_end"
 
 [keys.normal."'"]
-b = [":cd ~/.local/bin", "file_picker_in_current_directory"]
-c = [":cd ~/.config", "file_explorer_in_current_directory"]
-d = [":cd ~/NixOS/home/dots", "file_explorer_in_current_directory"]
+b = [":cd ~/NixOS/home/dots/bin"]
+c = [":cd ~/.config"]
+d = [":cd ~/NixOS/home/dots"]
 h = ":open ~/.config/helix/config.toml"
 l = ":open ~/.config/helix/languages.toml"
-m = [":cd ~/NixOS/home/dots/mango", "file_picker_in_current_directory"]
-n = [":cd ~/NixOS", "file_picker_in_current_directory"]
-N = [":cd ~/.config/niri", "file_picker_in_current_directory"]
+m = [":cd ~/NixOS/home/dots/mango"]
+n = [":cd ~/NixOS"]
+N = [":cd ~/.config/niri"]
 p = ":open ~/NixOS/modules/programs.nix"
 s = ":open ~/NixOS/modules/services.nix"
 u = ":open ~/NixOS/modules/users.nix"

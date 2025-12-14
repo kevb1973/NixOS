@@ -34,7 +34,7 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
     { run = 'treemd "$0"', desc = "View with treemd", block = true, for = "linux" }
   ]
   edit = [
-  	{ run = 'kitten edit-in-kitty "$@"', desc = "$EDITOR", block = true, for = "unix" }
+  	{ run = 'hx "$@"', desc = "$EDITOR", block = true, for = "unix" }
   ]
 
 [open]

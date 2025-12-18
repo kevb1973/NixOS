@@ -68,7 +68,7 @@ hotkey-overlay {
 }
 
 overview {
-    zoom 0.30
+    zoom 0.55
     backdrop-color "#0f1417"
 }
 

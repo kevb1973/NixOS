@@ -14,6 +14,13 @@ window-rule {
     default-window-height { proportion 0.35; }
 }
 window-rule {
+    match app-id="neovide"
+    open-floating true
+    open-focused true
+    default-column-width { proportion 0.50; }
+    default-window-height { proportion 0.50; }
+}
+window-rule {
     match app-id="com.github.hluk.copyq"
     match app-id="run" // For fzf launcher script "run"
     open-floating true

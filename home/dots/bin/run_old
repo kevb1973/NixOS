@@ -77,7 +77,6 @@ apps=(
   "Update Nix Profile - helix:kitty -e nix profile upgrade helix"
   "Update Nix Profile - jjui:kitty -e nix profile upgrade jjui"
   "Update Nix Profile - mango:kitty -e nix profile upgrade mangowc"
-  "Update Nix Profile - niri:kitty -e nix profile upgrade niri"
   "Update Nix Profile - zen:kitty -e nix profile upgrade zen-browser-flake"
   "Yazi - code:kitty yazi ~/Code"
   "Yazi - config:kitty yazi ~/.config"

@@ -118,7 +118,7 @@
         ncpamixer
         neovide
         nettools
-        networkmanagerapplet
+        # networkmanagerapplet # switched to networkd/wpa_supplicant
         nh # nix helper
         nil # for zed-editor
         # nix-search-cli

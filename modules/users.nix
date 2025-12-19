@@ -83,6 +83,7 @@
         hyprshot # Wayland screenshots
         igrep # interactive grep->edit@line. cmd:ig
         inxi # Hardware info app
+        serpl # Neat tui find/replace in project
         systemctl-tui # Manage systemd units
         # jjui # Moved to nix profile install to track github
         jq

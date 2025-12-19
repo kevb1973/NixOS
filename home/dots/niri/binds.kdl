@@ -1,6 +1,6 @@
 // Binds
+// Launchers {{{1
 binds {
-    // Launchers,
     Mod+Return            { spawn-sh "kitty -1"; }
     Mod+Shift+Return      { spawn "nautilus"; }
     Mod+KP_Enter          { spawn-sh "dms ipc spotlight toggle"; }
@@ -10,13 +10,13 @@ binds {
     Mod+N                 { spawn-sh "kitty --app-id='remind-tui' ~/NixOS/home/dots/bin/remind_tui"; }
     Mod+Shift+N           { spawn-sh "dms ipc notepad toggle"; }
     // Mod3+A                { spawn-sh "pkill wlr-which-key || wlr-which-key ~/.config/wlr-which-key/config.yaml"; }
-    Mod+Z                { spawn "toggle_run"; }
+    Mod+Z                 { spawn-sh "fish -c launch_toggle"; }
+    // Mod+Z                 { spawn-sh "kitty --detach --app-id cute_launch run_old"; }
     Mod+grave             { spawn-sh "kitten quick-access-terminal --instance-group kitty"; }
     Mod+KP_End            { spawn-sh "kitten quick-access-terminal --instance-group jjui jjui ~/NixOS"; }
     Mod+KP_Down           { spawn-sh "kitten quick-access-terminal --instance-group aichat aichat -m llama-cpp:gemma3-4b -r concise -s session --empty-session"; }
     Mod+KP_Next           { spawn-sh "kitten quick-access-terminal --instance-group rmpc rmpc"; }
-    // Utilities
-    // F10                   { spawn "/home/kev/NixOS/home/dots/bin/dotool-move-mouse.sh"; }
+// Utilities {{{1
     F10                   { spawn-sh "wlrctl pointer move 2560 -1440"; }
     Mod+c                 { spawn-sh "copyq toggle"; }
     Mod+a                 { spawn-sh "dms ipc notifications toggle"; }
@@ -26,12 +26,10 @@ binds {
     Mod+KP_Add            { spawn-sh "toggle_magnifier"; }
     Mod3+Tab              { spawn-sh "warpd --oneshot --hint"; }
     Mod3+A                 { spawn-sh "wl-kbptr -o modes=floating,click -o mode_floating.source=detect && wlrctl pointer move 2560 -1440"; }
-    // Mod+z                 { spawn "mouse_move"; }
     Mod+Shift+z           { spawn-sh "wl-kbptr -o modes=floating -o mode_floating.source=detect"; }
 
-    // Media
-
-    // PC Volume
+// Media {{{1 
+  // PC Volume {{{2
     XF86AudioRaiseVolume  { spawn-sh "dms ipc audio increment 1"; }
     XF86AudioLowerVolume  { spawn-sh "dms ipc audio decrement 1"; }
     XF86AudioMute         { spawn-sh "dms ipc audio mute"; }
@@ -39,7 +37,7 @@ binds {
     Mod+Alt+Down          { spawn-sh "dms ipc audio decrement 1"; }
     Mod+Alt+m             { spawn-sh "dms ipc audio mute"; }
 
-    // LGTV
+  // LGTV {{{2
     Mod+Delete            { spawn "/home/kev/NixOS/home/dots/bin/lgtv" "system" "turnOff";}
     Mod+Shift+Delete      { spawn "/home/kev/NixOS/home/dots/bin/lgtv" "wakeonlan"; }
     Mod+Prior             { spawn "/home/kev/NixOS/home/dots/bin/lgtv" "audio" "setMute" "true"; }
@@ -48,14 +46,14 @@ binds {
     Mod+Shift+Next        { spawn "/home/kev/NixOS/home/dots/bin/lgtv" "audio" "volumeUp"; }
     Mod+t                 { spawn "/home/kev/NixOS/home/dots/bin/lgtvgui"; }
 
-    // MPRIS
+  // MPRIS {{{2
     Mod+KP_Home           { spawn "playerctl" "play-pause"; }
     Mod+KP_Up             { spawn "playerctl" "previous"; }
     Mod+KP_Prior          { spawn "playerctl" "next"; }
     Mod+KP_Begin          { spawn "playerctld" "shift" "&&" "~/bin/currentPlayer"; }
     Mod+KP_Right          { spawn "playerctld" "unshift" "&&" "~/bin/currentPlayer"; }
 
-    // Window Management
+// Window Management {{{1
     Mod+Shift+1           { move-window-to-workspace 1; }
     Mod+Shift+2           { move-window-to-workspace 2; }
     Mod+Shift+3           { move-window-to-workspace 3; }
@@ -96,7 +94,7 @@ binds {
     // Mod3+up               {move-floating-window -y 10; }
     // Mod3+down             {move-floating-window -y -10; }
 
-    // Focus
+// Focus {{{1
     Mod+Left              { focus-column-left-or-last; }
     Mod+Right             { focus-column-right-or-first; }
     // Mod+Up                { focus-window-up; }
@@ -114,7 +112,7 @@ binds {
     Mod+9                 { focus-workspace 9; }
     Mod+slash             { center-column; }
 
-    // Resize
+// Resize {{{1
     Mod+R                 { switch-preset-column-width; }
     Mod+W                 { toggle-column-tabbed-display; }
     Mod+Backspace         { maximize-column; }
@@ -126,8 +124,7 @@ binds {
     Mod+Shift+Minus       { set-window-height "-1%"; }
     Mod+Shift+Equal       { set-window-height "+1%"; }
 
-    // Miscellaneous Binds
-    // Mod+s                 { spawn-sh "hyprshot -m region -s --clipboard-only"; }
+// Miscellaneous Binds {{{1
     Mod+s                 { screenshot; }
     Mod3+s                 { spawn "toggle-system-theme"; }
     Mod+Shift+s           { spawn-sh "hyprshot -m region -s -r --clipboard-only | satty -f -"; }
@@ -136,8 +133,9 @@ binds {
     Mod+q                 { spawn-sh "dms ipc call powermenu toggle"; }
     Mod+KP_Divide         { power-off-monitors; }
 
-    // Mouse Binds
+// Mouse Binds {{{1
     Mod+WheelScrollUp     { focus-workspace-up; }
     Mod+WheelScrollDown   { focus-workspace-down; }
 
 }
+// vim: foldlevel=0

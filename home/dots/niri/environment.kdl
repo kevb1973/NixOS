@@ -1,3 +1,5 @@
+// Environment Variables
+
 environment {
     // DISPLAY ":1"
     DMS_SCREENSHOT_EDITOR "satty"

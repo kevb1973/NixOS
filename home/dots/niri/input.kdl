@@ -1,4 +1,5 @@
-// User Mod3 for Hyper
+// Input Config
+
 input {
     keyboard {
         xkb {

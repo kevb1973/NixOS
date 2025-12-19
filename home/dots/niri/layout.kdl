@@ -1,3 +1,6 @@
+// Layout Config
+
+// focus ring {{{1
 layout {
     focus-ring {
         width 1
@@ -6,13 +9,13 @@ layout {
         // active-color 150 136 62 255
         // inactive-color 80 80 80 255
     }
-
+// border {{{1
     border {
         // active-color   "#bac3ff"
         // inactive-color "#c3c5dd"
         width 1
     }
-
+// column widths{{{1
     preset-column-widths {
         proportion 0.317
         proportion 0.5
@@ -20,19 +23,19 @@ layout {
         proportion 1.00
         // proportion 0.66667
     }
-
+// shadows{{{1
     shadow {
         on
         draw-behind-window true
     }
-
+// struts{{{1
     struts {
         left 5
         right 5
         top 5
         bottom 5
     }
-
+// tab indicator{{{1
     tab-indicator {
             // off
             hide-when-single-tab
@@ -47,8 +50,8 @@ layout {
             corner-radius 8
             // active-gradient from="#80c8ff" to="#bbddff" angle=45
             // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
-        }
-
+    }
+// background{{{1
     // background-color "#004f98"
     background-color "transparent"
     default-column-width { proportion 0.5; }

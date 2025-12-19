@@ -1,3 +1,5 @@
+// Layer Rules
+
 layer-rule {
     match namespace="quickshell:bar"
     shadow {

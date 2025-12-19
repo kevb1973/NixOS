@@ -1,51 +1,20 @@
 // Window Rules
-window-rule {
-    match app-id="qalculate-gtk"
-    match app-id="satty"
-    match app-id="clipse"
-    open-floating true
-    default-column-width { proportion 0.25; }
-    default-window-height { proportion 0.50; }
-}
-window-rule {
-    match app-id="remind-tui"
-    open-floating true
-    default-column-width { proportion 0.28; }
-    default-window-height { proportion 0.35; }
-}
-window-rule {
-    match app-id="neovide"
-    open-floating true
-    open-focused true
-    default-column-width { proportion 0.50; }
-    default-window-height { proportion 0.50; }
-}
-window-rule {
-    match app-id="com.github.hluk.copyq"
-    match app-id="run" // For fzf launcher script "run"
-    open-floating true
-    default-column-width { proportion 0.25; }
-    default-window-height { proportion 0.50; }
-}
-window-rule {
-    match app-id="timer"
-    default-column-width { fixed 400; }
-    open-focused true
-}
-window-rule {
-    match app-id="nmtui"
-    default-floating-position x=780 y=180 relative-to="top-left"
-    default-column-width { fixed 1000; }
-    default-window-height { fixed 1030; }
-    open-floating true
-    open-focused true
-    shadow { on; }
-}
+
+// browser                                    {{{1
 window-rule {
     match app-id="firefox|vivaldi|Vivaldi-flatpak|zen"
     default-column-width { proportion 1.00; }
     open-on-workspace "1"
 }
+// copyq                                      {{{1
+window-rule {
+    match app-id="com.github.hluk.copyq"
+    match app-id="cute_launch" // For fzf launcher script "launch_toggle.fish"
+    open-floating true
+    default-column-width { proportion 0.25; }
+    default-window-height { proportion 0.50; }
+}
+// firefox picture-in-picture                 {{{1
 window-rule {
     // Firefox PIP
     match title="Picture-in-Picture"
@@ -56,16 +25,36 @@ window-rule {
     open-focused false
     // shadow { on; }
 }
-// window-rule {
-//     // Vivaldi PIP
-//     match title="Picture in picture"
-//     default-floating-position x=1905 y=55 relative-to="bottom-left"
-//     default-column-width { fixed 620; }
-//     default-window-height { fixed 340; }
-//     open-floating true
-//     open-focused false
-//     shadow { on; }
-// }
+// kitty quick-access-terminals               {{{1
+window-rule {
+    match app-id="term"
+    open-on-workspace "term"
+    default-column-width { proportion 0.50; }
+    open-focused false
+}
+// peaclock timer                             {{{1
+window-rule {
+    match app-id="timer"
+    default-column-width { fixed 400; }
+    open-focused true
+}
+// qalculate                                  {{{1
+window-rule {
+    match app-id="qalculate-gtk"
+    match app-id="satty"
+    match app-id="clipse"
+    open-floating true
+    default-column-width { proportion 0.25; }
+    default-window-height { proportion 0.50; }
+}
+// remind-tui                                 {{{1
+window-rule {
+    match app-id="remind-tui"
+    open-floating true
+    default-column-width { proportion 0.28; }
+    default-window-height { proportion 0.35; }
+}
+// spotify - mini-player                      {{{1
 window-rule {
     // for Spotify mini-player
     match app-id="chromium-browser"
@@ -78,6 +67,7 @@ window-rule {
     open-focused false
     shadow { off; }
 }
+// sudoku                                     {{{1
 window-rule {
     match app-id="sudoku-Main"
     default-column-width { fixed 700; }
@@ -85,12 +75,18 @@ window-rule {
     open-floating true
     open-focused true
 }
-window-rule {
-    match app-id="term"
-    open-on-workspace "term"
-    default-column-width { proportion 0.50; }
-    open-focused false
-}
+// vivaldi picture-in-picture                 {{{1
+// window-rule {
+//     // Vivaldi PIP
+//     match title="Picture in picture"
+//     default-floating-position x=1905 y=55 relative-to="bottom-left"
+//     default-column-width { fixed 620; }
+//     default-window-height { fixed 340; }
+//     open-floating true
+//     open-focused false
+//     shadow { on; }
+// }
+// catch all                                  {{{1
 // window-rule {
 //     match app-id=".*"
 //     geometry-corner-radius 12

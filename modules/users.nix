@@ -1,3 +1,4 @@
+
 { pkgs, ... }: {
   users = {
     groups = { # Add extra groups
@@ -114,6 +115,7 @@
         multimarkdown # Markdown preview in emacs
         nautilus
         ncpamixer
+        neovide
         nettools
         networkmanagerapplet
         nh # nix helper
@@ -206,3 +208,4 @@
     };
   };
 }
+# vim: foldlevel=99

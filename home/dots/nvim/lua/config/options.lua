@@ -16,3 +16,10 @@ set_autoformat({ "nix" }, false)
 set_autoformat({ "fish" }, true)
 set_autoformat({ "lua" }, true)
 set_autoformat({ "yaml" }, true)
+
+-- OPTIONS
+local opt = vim.opt
+opt.foldmethod = "marker"
+opt.foldlevelstart = 99
+opt.foldlevel = 99
+opt.foldnestmax = 4

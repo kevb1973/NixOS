@@ -8,7 +8,6 @@ export XDG_DATA_DIRS=/home/kev/.local/share/darkman:$XDG_DATA_DIRS
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
 alias p='yay'
 alias arch='distrobox enter arch'
 alias h='Hyprland'

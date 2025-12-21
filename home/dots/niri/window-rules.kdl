@@ -75,6 +75,17 @@ window-rule {
     open-floating true
     open-focused true
 }
+// dms settings                               {{{1
+window-rule {
+    match title="Settings"
+    match app-id="org.quickshell"
+    match app-id="floater"
+    open-floating true
+    open-focused true
+    default-column-width { proportion 0.50; }
+    default-window-height { proportion 0.75; }
+
+}
 // vivaldi picture-in-picture                 {{{1
 // window-rule {
 //     // Vivaldi PIP

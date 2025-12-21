@@ -71,7 +71,6 @@
         gnome-boxes
         gnome-software # Install and manage flatpaks
         gnome-themes-extra
-        grc # colourizer for fishPlugins.grc
         grc # generic text colourizer. Using with fishPlugins.grc
         grim
         gum # Script enhancer - use for remind_tui
@@ -136,6 +135,7 @@
         optnix
         p7zip
         pamixer
+        pik # interactive process killer (fzf)
         pinta # Simple image editor
         pwvucontrol # Pipewire GUI mixer
         peaclock # TUI Clock/Stopwatch/Timer

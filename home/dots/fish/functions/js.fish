@@ -1,7 +1,7 @@
 function js -d "Run jj split until ctrl-c"
     while true
         if test (jj st | head -1) = "The working copy has no changes."
-            echo "Nothing to split!"
+            echo "All Done!"
             break
         end
         jj split 2>/dev/null

@@ -18,7 +18,6 @@ alias less="bat --paging=always"
 alias lg="lazygit"
 alias logs="sudo lazyjournal"
 alias lp="nix profile list"
-alias ls="lsd"
 alias more="bat --paging=always"
 alias no="optnix -s nixos"
 alias np="tv nix -i nixpkgs "
@@ -58,3 +57,5 @@ abbr -a --set-cursor='%' -- park 'nix profile install nixpkgs/(nixos-version --h
 abbr -a -- scu 'systemctl --user'
 abbr -a --set-cursor='%' -- ytm 'yt-dlp -x --audio-format mp3 --audio-quality 320k %'
 abbr -a --set-cursor='%' -- ytv "ytd-video %"
+abbr -a -- ls lsd
+abbr -a -- ll 'lsd -l'

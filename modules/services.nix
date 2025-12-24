@@ -16,7 +16,7 @@
     printing.drivers = [ pkgs.brlaser ]; 
     printing.enable = true;
     seatd.enable = true; # For lemur display manager
-    tumbler.enable = false; # Thumbnail support for images
+    # tumbler.enable = false; # Thumbnail support for images
     udisks2.enable = true; 
 
     atd = {
@@ -158,11 +158,12 @@
 
 
     xserver = {
-      enable = false;
+      enable = true;
       xkb = {
         layout = "us";
         variant = "";
       };
+      desktopManager.xfce.enable = true;
       deviceSection = ''Option "TearFree" "true"'';
       displayManager = {
         startx.enable = true; # console login

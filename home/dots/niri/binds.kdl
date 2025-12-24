@@ -10,7 +10,7 @@ binds {
     Mod+N                 { spawn-sh "kitty --app-id='remind-tui' ~/NixOS/home/dots/bin/remind_tui"; }
     Mod+Shift+N           { spawn-sh "dms ipc notepad toggle"; }
     // Mod3+A                { spawn-sh "pkill wlr-which-key || wlr-which-key ~/.config/wlr-which-key/config.yaml"; }
-    Mod+Z                 { spawn-sh "kitty --app-id launch launch"; }
+    Mod+Z                 { spawn-sh "toggle_launch"; }
     // Mod+Z                 { spawn-sh "kitty --detach --app-id cute_launch run_old"; }
     Mod+grave             { spawn-sh "kitten quick-access-terminal --instance-group kitty"; }
     Mod+KP_End            { spawn-sh "kitten quick-access-terminal --instance-group jjui jjui ~/NixOS"; }

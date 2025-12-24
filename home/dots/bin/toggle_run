@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-pkill -f fzf-run || kitty --detach --app-id fzf-run fish -c run

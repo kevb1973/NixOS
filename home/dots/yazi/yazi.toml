@@ -31,10 +31,10 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
   markdown = [
-    { run = 'treemd "$0"', desc = "View with treemd", block = true, for = "linux" }
+    { run = 'kitten @ launch --type=tab treemd "$0"', desc = "View with treemd", block = true, for = "linux" }
   ]
   edit = [
-  	{ run = 'hx "$@"', desc = "$EDITOR", block = true, for = "unix" }
+  	{ run = 'kitten @ launch --type=tab hx "$@"', desc = "$EDITOR", block = true, for = "unix" }
   ]
 
 [open]

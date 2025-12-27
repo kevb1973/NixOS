@@ -84,7 +84,16 @@ window-rule {
     open-focused true
     default-column-width { proportion 0.50; }
     default-window-height { proportion 0.75; }
-
+}
+window-rule {
+    match app-id="panel-unfocused"
+    open-focused false
+    default-column-width { proportion 0.20; }
+}
+window-rule {
+    match app-id="panel-focused"
+    open-focused true
+    default-column-width { proportion 0.20; }
 }
 // vivaldi picture-in-picture                 {{{1
 // window-rule {

@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# Shortcut to set a timer with `clock-rs`
+
+# set -e # exit on any non-zero exit code (catch ctrl-c in gum which returns 130)
+clear
+gum style --border double --align center --width 50 --margin "1 2" 'Set a timer'
+
+# Prompt for hours/minutes/seconds
+HOURS=$(gum input --prompt "Hours:" --width 5 --placeholder="")
+MINUTES=$(gum input --prompt "Minutes:" --width 5 --placeholder="")
+SEC=$(gum input --prompt "Seconds:" --width 5 --placeholder="") 
+
+if [[ -n $HOURS   ]]; then HR_PARAM="-H $HOURS";else HR_PARAM="";fi
+if [[ -n $MINUTES ]]; then MIN_PARAM=" -M $MINUTES";else MIN_PARAM="";fi
+if [[ -n $SEC ]]; then SEC_PARAM=" -S $SEC";else SEC_PARAM="";fi
+
+# If no paramters, just exit
+if [ "$HR_PARAM" == "" ] && [ "$MIN_PARAM" == "" ] && [ "$SEC_PARAM" == "" ]; then
+	exit
+else
+	# Build and execute command
+	clock-rs -c '#BAC3FF' timer --kill $HR_PARAM $MIN_PARAM $SEC_PARAM
+	# clock-rs returns 0 when q pressed to quit, 1 if timer completes and exits with `--kill`.
+	if [[ $? -eq 1 ]]; then
+		notify-send -u critical --icon=clock 'TIMER' '[[ DONE ]]'
+	fi
+fi
+

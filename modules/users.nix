@@ -43,6 +43,7 @@
         cargo
         cava # Terminal audio visualizer
         cliphist # Clipboard manager (for DankMaterialShell)
+        clock-rs # stopwatch, timers, clock
         copyq # clipboard manager++
         cotp # CLI OTP/2FA code provider - only use for bitwarden which manages all the rest
         darkman
@@ -138,7 +139,6 @@
         pik # interactive process killer (fzf)
         pinta # Simple image editor
         pwvucontrol # Pipewire GUI mixer
-        peaclock # TUI Clock/Stopwatch/Timer
         playerctl
         podman-compose
         podman-tui

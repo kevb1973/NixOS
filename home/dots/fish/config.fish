@@ -3,20 +3,18 @@ if status is-interactive
     switch (hostname)
         case halcyon
             zoxide init fish | source
-            # atuin init fish | source # currently broken.. using bind -k
-            source ~/.config/fish/atuin_init # temp solution.. modified atuin init
+            atuin init fish | source
             bind ctrl-down 'zi && commandline --function repaint'
             bind ctrl-up __fzf_cd
             set -gx pure_check_for_new_release false
             set -gx pure_enable_nixdevshell true
             set -gx pure_show_prefix_root_prompt true
             set fish_greeting Halcyon NixOS
-            alias cat="bat"
         case arch.halcyon
             set fish_greeting Halcyon Arch
     end
 
-    set -gx ALTERNATE_EDITOR ''
+    set -gx ALTERNATE_EDITOR '' # For emacsclient - if no server, start one.
 end
 
 if status is-login

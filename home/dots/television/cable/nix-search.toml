@@ -1,0 +1,35 @@
+[metadata]
+name = "nix-search"
+description = "Work with nix-search-cli json output saved to /tmp/nix-search-results.json\n\nKEYBINDS:\n\nF1 - nix profile install\nF2 - nix shell\nF3 - nix run"
+requirements = ["jq", "nix-search"]
+
+[source]
+command = "jq -r '.package_pname' /tmp/nix-search-results.json"
+
+[preview]
+command = 'echo;echo; jq -r "select(.package_pname == \"{}\") | .package_description, \"\", \"Homepage: \", .package_homepage[]" /tmp/nix-search-results.json'
+
+[ui]
+layout = "landscape"
+theme = "cattpuccin"
+
+[keybindings]
+F1 = "actions:install"
+F2 = "actions:shell"
+F3 = "actions:run"
+
+[actions.install]
+description = "nix profile install"
+command = "nix profile install nixpkgs#{}"
+mode = "execute"
+
+[actions.shell]
+description = "nix shell"
+command = "nix shell nixpkgs#{}"
+mode = "execute"
+
+[actions.run]
+description = "nix run"
+command = "nix run nixpkgs#{}"
+mode = "execute"
+

@@ -6,7 +6,7 @@ description = "A channel to see details of scheduled commands"
 command = "atq | sort -r"
 
 [preview]
-command = "at -c $(echo '{}' | awk -F ' ' '{print $1}') | tail -2"
+command = "at -c $(echo '{}' | awk -F ' ' '{print $1}') | tail -3"
 
 [ui]
 layout = "portrait"
@@ -16,5 +16,5 @@ Delete = "actions:remove"
 
 [actions.remove]
 description = "Remove the selected command"
-command = "at -d $(echo '{}' | awk -F ' ' '{print $1}') | tail -2"
+command = "at -d $(echo '{}' | awk -F ' ' '{print $1}') | tail -3"
 mode = "execute"

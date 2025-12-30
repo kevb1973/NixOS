@@ -4,11 +4,11 @@ description = "Work with nix-search-cli json output saved to /tmp/nix-search-res
 requirements = ["jq", "nix-search"]
 
 [source]
-command = "jq -r '.package_pname' /tmp/nix-search-results.json"
+command = "jq -r '.package_attr_name' /tmp/nix-search-results.json"
 
 [preview]
 # command = 'echo;echo; jq -r "select(.package_pname == \"{}\") | .package_description, \"*Version*\", .package_pversion,  \"*Homepage*\", .package_homepage[]" /tmp/nix-search-results.json | fold -w 87 -s'
-command =  'echo;echo; echo "*Description*"; echo; jq -r "select(.package_pname == \"{}\") | .package_description" /tmp/nix-search-results.json; echo; echo "*Version*"; jq -r "select(.package_pname == \"{}\") | .package_pversion" /tmp/nix-search-results.json; echo; echo "*Homepage*"; jq -r "select(.package_pname == \"{}\") | .package_homepage[]" /tmp/nix-search-results.json | fold -w 87 -s'
+command =  'echo;echo; echo "*Description*"; echo; jq -r "select(.package_attr_name == \"{}\") | .package_description" /tmp/nix-search-results.json; echo; echo "*Version*"; jq -r "select(.package_attr_name == \"{}\") | .package_pversion" /tmp/nix-search-results.json; echo; echo "*Homepage*"; jq -r "select(.package_attr_name == \"{}\") | .package_homepage[]" /tmp/nix-search-results.json | fold -w 87 -s'
 
 [ui]
 layout = "landscape"

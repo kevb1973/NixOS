@@ -1,7 +1,7 @@
-theme = "base16_transparent"
+theme = "my_theme"
 
-# dark = "catppuccin_mocha"
-# light = "catppuccin_latte"
+# dark = "ayu_dark"
+# light = "ayu_light"
 # no_preference = "base16_transparent"
 
 

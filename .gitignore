@@ -9,3 +9,4 @@ home/dots/nvim/lazy-lock.json
 home/dots/nvim/.neoconf.json
 home/dots/nvim/lazyvim.json
 home/dots/fish/fish_variables*
+home/dots/helix/themes/my_theme.toml

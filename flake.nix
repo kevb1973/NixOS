@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,6 +15,7 @@
   outputs = {
     nixpkgs,
     home-manager,
+    determinate,
     ...
   }@inputs: {
     nixosConfigurations = {
@@ -22,6 +24,7 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
+          determinate.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager = {

@@ -4,9 +4,10 @@ description = "List packages installed in user profile"
 requirements = ["nix"]
 
 [source]
-command = "nix profile list | grep Name: | cut -c 20-"
-output = "{trim}"
+command = "jq -r '.elements | keys[]' /tmp/nix-profile.json"
+# output = "{trim}"
 # ansi = true
 
 [preview]
-command = "nix profile list | grep {}"
+command = "jq -r '.elements.\"{}\" | {originalUrl, storePaths}' /tmp/nix-profile.json"
+# ansi = true

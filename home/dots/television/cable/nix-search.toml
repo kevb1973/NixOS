@@ -7,7 +7,7 @@ requirements = ["jq", "nix-search"]
 command = "jq -r '.package_pname' /tmp/nix-search-results.json"
 
 [preview]
-command = 'echo;echo; jq -r "select(.package_pname == \"{}\") | .package_description, \"\", \"Homepage: \", .package_homepage[]" /tmp/nix-search-results.json'
+command = 'echo;echo; jq -r "select(.package_pname == \"{}\") | .package_description, \"\", \"Homepage: \", .package_homepage[]" /tmp/nix-search-results.json | fold -w 60 -s'
 
 [ui]
 layout = "landscape"

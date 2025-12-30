@@ -10,7 +10,7 @@ _:
     useNetworkd = true;
     wireless = {
       enable = true; # Enables wireless support via wpa_supplicant.
-      userControlled.enable = true;
+      userControlled = true;
     };
     # networkmanager = {
     #   enable = true;

@@ -59,3 +59,9 @@ abbr -a --set-cursor='%' -- ytm 'yt-dlp -x --audio-format mp3 --audio-quality 32
 abbr -a --set-cursor='%' -- ytv "ytd-video %"
 abbr -a -- ls lsd
 abbr -a -- ll 'lsd -l'
+
+# Convert ..., .... etc/ to cd ../.. 
+function multicd
+    echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
+end
+abbr --add dotdot --regex '^\.\.+$' --function multicd

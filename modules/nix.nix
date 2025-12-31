@@ -4,7 +4,7 @@
     extraOptions = ''
       experimental-features = nix-command flakes 
     '';
-    # package = pkgs.lix; # alternative to nix
+    package = pkgs.lix; # alternative to nix
     # package = pkgs.nixVersions.latest;
     registry.nixpkgs.flake = inputs.nixpkgs; # Pin nixpkgs to speed up nix commands
     gc = {
@@ -21,14 +21,14 @@
       auto-optimise-store = false; # Auto optimize every build. (slow)
       builders-use-substitutes = true;
       substituters = [
-        "https://install.determinate.systems"
+        # "https://install.determinate.systems"
         # "https://hyprland.cachix.org"
         # "https://niri.cachix.org"
         # "https://cosmic.cachix.org/"
         # "https://watersucks.cachix.org"
       ];
       trusted-public-keys = [ 
-        "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
+        # "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
         # "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" 
         # "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
         # "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="

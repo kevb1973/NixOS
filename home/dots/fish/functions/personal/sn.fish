@@ -18,7 +18,6 @@ function sn
 
     if test -z "$QUERY"
         then echo 'search cancelled'
-        exit
     end
 
     echo "Searching $TYPE for '$QUERY'"

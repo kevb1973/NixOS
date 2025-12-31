@@ -55,7 +55,6 @@
         dms-shell # DankMaterialShell - only using dms bin.. following git for shell config
         dust # quick dir size for 'sys' script
         emacs-pgtk
-        espanso-wayland # Service not working with Niri. Starting manually.
         fd
         ffmpeg
         file

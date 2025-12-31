@@ -27,6 +27,7 @@
       ".config/helix".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/helix";
       ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/hypr";
       ".config/isd_tui".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/isd";
+      ".config/jj".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/jj";
       ".config/jjui".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/jjui";
       ".config/khal".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/khal";
       ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/kitty";

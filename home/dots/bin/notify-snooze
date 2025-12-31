@@ -18,7 +18,7 @@ if [ -z $URL ];
       "$MESSAGE")
   else
     result=$(notify-send \
-      --action=url=URL \
+      --action=url=Open \
       --action=add15=+15m \
       --action=add30=+30m \
       --action=add1hr=+1hr \

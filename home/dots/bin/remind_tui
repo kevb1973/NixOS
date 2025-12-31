@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# set -xe
 # Shortcut to add a one off notification using atd
 # Calls notify-snooze script which wraps notify-send with snooze options
 
@@ -15,7 +15,7 @@ gum style --border double --align center --width 50 --margin "1 2" 'Create a Rem
 TITLE=$(gum input --prompt "Title: " --char-limit 40 --width 40 --placeholder="" --value="$TITLE")
 MESSAGE=$(gum write --header "$TITLE:" --width 40 --height 2 --placeholder="" --value="$MESSAGE")
 TIME=$(gum input --prompt "Date/Time: " --width 0 --placeholder="hh:mm(am/pm) mm/dd/yy or dayname") 
-URL=$(gum input --prompt "URL: " --width 0 --placeholder="https://www.bumblefuck.com" --value="$URL") 
+URL=$(gum input --prompt "URL: " --width 0 --placeholder="URL/filepath" --value="$URL") 
 
 # Check if either MESSAGE or TIME are missing.. if so, warn and restart keeping existing message (if exists)
 if [ -z "$TITLE" ] || [ -z "$MESSAGE" ] || [ -z "$TIME" ]; then
@@ -28,7 +28,7 @@ fi
 if [ -z $URL ]; then
 		echo "notify-snooze '$TITLE' '$MESSAGE'" | at "$TIME" > /dev/null 2>&1
 else
-		echo "notify-snooze '$TITLE' '$MESSAGE' '$URL'" | at "$TIME" > /dev/null 2>&1
+		echo "notify-snooze '$TITLE' '$MESSAGE' $URL" | at "$TIME" > /dev/null 2>&1
 fi
 
 

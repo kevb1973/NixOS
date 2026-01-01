@@ -7,11 +7,11 @@ function arch # Enter Arch distrobox
 end
 
 function funcs # List functions
-    grep function ~/.config/fish/functions/functions.fish | sed s/function//g | sort
+    grep function ~/.config/fish/functions/personal/functions.fish | sed s/function//g | sort
 end
 
 function funcedit # Edit Functions
-    hx ~/.config/fish/functions/functions.fish && source ~/.config/fish/functions/functions.fish
+    hx ~/.config/fish/functions/personal/functions.fish && source ~/.config/fish/functions/personal/functions.fish
 end
 
 function store # Visit app location in /nix/store

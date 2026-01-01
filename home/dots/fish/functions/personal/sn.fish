@@ -4,16 +4,16 @@ function sn
     # Note: 'default' search type is currently broken in nix-search-cli. created github issue.
     # when fixed, add default to gum filter command below.
 
-    set TYPE (gum filter name description program)
+    set -f TYPE (gum filter name description program)
     if test -z "$TYPE"
         then echo 'search cancelled'
         exit
     end
 
     if test -n "$argv"
-        set QUERY $argv
+        set -f QUERY $argv
     else
-        set QUERY (gum input --placeholder='Search Term')
+        set -f QUERY (gum input --placeholder='Search Term')
     end
 
     if test -z "$QUERY"

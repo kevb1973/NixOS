@@ -14,8 +14,10 @@ binds {
     // Mod+Z                 { spawn-sh "kitty --detach --app-id cute_launch run_old"; }
     Mod+grave             { spawn-sh "kitten quick-access-terminal --instance-group kitty"; }
     Mod+KP_End            { spawn-sh "kitten quick-access-terminal --instance-group jjui jjui ~/NixOS"; }
-    Mod+KP_Down           { spawn-sh "kitten quick-access-terminal --instance-group aichat aichat -m llama-cpp:gemma3-4b -r concise -s session --empty-session"; }
+    // Mod+KP_Down           { spawn-sh "kitten quick-access-terminal -o font_size=34 --instance-group newboat newsboat"; }
+    Mod+KP_Down           { spawn-sh "toggle_newsboat"; }
     Mod+KP_Next           { spawn-sh "kitten quick-access-terminal --instance-group rmpc rmpc"; }
+
 // Utilities {{{1
     F10                   { spawn-sh "wlrctl pointer move 2560 -1440"; }
     Mod+c                 { spawn-sh "copyq toggle"; }

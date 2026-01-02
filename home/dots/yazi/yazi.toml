@@ -39,6 +39,6 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [open]
 prepend_rules = [
-  { name = "*.md", use = "markdown" },
+  { url = "*.md", use = "markdown" },
 ]
 

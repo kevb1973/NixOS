@@ -57,6 +57,7 @@
       })
       cmake
       desktop-file-utils
+      dnsmasq # Needed for VM Networks
       gcc
       glib
       gitFull

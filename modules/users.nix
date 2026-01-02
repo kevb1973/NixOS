@@ -80,7 +80,7 @@
         # hyprmagnifier # magnifier for wayland - BROKEN: Dec 1 2025
         hyprpicker # Simple color picker with zoom and hex preview
         hyprshot # Wayland screenshots
-        igrep # interactive grep->edit@line. cmd:ig
+        # igrep # interactive grep->edit@line. cmd:ig # BROKEN: 01/01/2026
         inxi # Hardware info app
         serpl # Neat tui find/replace in project
         systemctl-tui # Manage systemd units

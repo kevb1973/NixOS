@@ -103,13 +103,12 @@
       };
     };
 
-    # nixos-cli = { # was only using for options search.. switched to optnix with no flake input needed.
-    #   enable = true;
-    #   config = {
-    #     config_location = "/home/kev/NixOS";
-    #     use_nvd = true;
-    #   };
-    # };
+
+    miniflux = {
+      enable = true;
+      adminCredentialsFile = "/etc/nixos/miniflux-admin-credentials";
+      config.LISTEN_ADDR = "localhost:3002";
+    };
 
     pipewire = {
       enable = true;

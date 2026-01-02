@@ -5,6 +5,6 @@
 echo "----------------"
 echo "Starting Servers"
 echo "----------------"
-podman compose -f ~/Code/podman/miniflux/compose.yml up -d &&
-  podman compose -f ~/Code/podman/silverbullet/compose.yml up -d
+# podman compose -f ~/Code/podman/miniflux/compose.yml up -d &&
+podman compose -f ~/Code/podman/silverbullet/compose.yml up -d
 # podman compose -f ~/Code/podman/openweb-ui/compose.yml up -d

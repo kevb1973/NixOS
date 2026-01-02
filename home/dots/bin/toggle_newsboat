@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-pkill newsboat || kitty -o font_size=20 newsboat
+pkill newsboat || kitty -o font_size=16 newsboat

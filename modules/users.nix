@@ -1,18 +1,18 @@
-
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   users = {
-    groups = { # Add extra groups
-      adbusers = {};
-      media = {};
-      mpd = {};
-      storage = {};
+    groups = {
+      # Add extra groups
+      adbusers = { };
+      media = { };
+      mpd = { };
+      storage = { };
     };
     users.kev = {
       initialPassword = "password"; # Change after a fresh install with passwd
       isNormalUser = true;
       description = "kev";
-      linger =
-        true; # Auto start user systemd units at boot. Keep running on logout.
+      linger = true; # Auto start user systemd units at boot. Keep running on logout.
       extraGroups = [
         "adbusers"
         "audio"
@@ -117,6 +117,7 @@
         ncpamixer
         neovide
         nettools
+        newsboat
         # networkmanagerapplet # switched to networkd/wpa_supplicant
         nh # nix helper
         nil # for zed-editor
@@ -201,8 +202,11 @@
         yt-dlp
         zoxide
         (mpv.override {
-          scripts =
-            [ mpvScripts.mpris mpvScripts.visualizer mpvScripts.modernz ];
+          scripts = [
+            mpvScripts.mpris
+            mpvScripts.visualizer
+            mpvScripts.modernz
+          ];
         })
       ];
     };

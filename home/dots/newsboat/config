@@ -1,10 +1,15 @@
+bind <RIGHT> feedlist,articlelist open
+bind <RIGHT> article open-in-browser
+bind <LEFT> everywhere quit
 browser "zen --new-tab %u"
 cleanup-on-quit yes
 confirm-mark-feed-read no
 delete-read-articles-on-quit yes
 error-log "~/.local/share/newsboat/error.log"
-show-read-feeds no
-show-read-articles no
-urls-source "miniflux"
-miniflux-url "http://localhost:3002"
 miniflux-token "aff720d0867f72c5e9b9bad192b804de7fd41ac1b2f627600c84872919ac8729"
+miniflux-url "http://localhost:3002"
+refresh-on-startup yes
+reload-time 10
+show-read-articles no
+show-read-feeds no
+urls-source "miniflux"

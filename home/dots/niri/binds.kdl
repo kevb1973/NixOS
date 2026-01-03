@@ -14,8 +14,8 @@ binds {
     // Mod+Z                 { spawn-sh "kitty --detach --app-id cute_launch run_old"; }
     Mod+grave             { spawn-sh "kitten quick-access-terminal --instance-group kitty"; }
     Mod+KP_End            { spawn-sh "kitten quick-access-terminal --instance-group jjui jjui ~/NixOS"; }
-    // Mod+KP_Down           { spawn-sh "kitten quick-access-terminal -o font_size=34 --instance-group newboat newsboat"; }
-    Mod+KP_Down           { spawn-sh "toggle_newsboat"; }
+    Mod+KP_Down           { spawn-sh "kitten quick-access-terminal --instance-group newsboat -o font_size=16 newsboat"; }
+    // Mod+KP_Down           { spawn-sh "toggle_newsboat"; }
     Mod+KP_Next           { spawn-sh "kitten quick-access-terminal --instance-group rmpc rmpc"; }
 
 // Utilities {{{1
@@ -30,7 +30,7 @@ binds {
     Mod3+A                 { spawn-sh "wl-kbptr -o modes=floating,click -o mode_floating.source=detect && wlrctl pointer move 2560 -1440"; }
     // Mod+Shift+z           { spawn-sh "start_warpd"; }
 
-// Media {{{1 
+// Media {{{1
   // PC Volume {{{2
     XF86AudioRaiseVolume  { spawn-sh "dms ipc audio increment 1"; }
     XF86AudioLowerVolume  { spawn-sh "dms ipc audio decrement 1"; }

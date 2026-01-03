@@ -5,9 +5,10 @@
   ...
 }:
 let
-  configLinks = (import ./symlinkDots.nix).configSymlinks;
+  configSymlinks = ((import ./symlinkDots.nix) { config = config; }).configSymlinks;
   configsPath = ./dots;
   configsAbsolutePath = "/home/kev/NixOS/home/dots";
+  mkOutOfStoreSymlink = config.lib.file.mkOutOfStoreSymlink;
 in
 {
   home = {
@@ -16,40 +17,11 @@ in
     sessionPath = [
       "$HOME/NixOS/home/dots/bin"
     ];
+    file = {
+      ".bashrc".source = mkOutOfStoreSymlink "/home/kev/NixOS/home/non-xdg-dots/bash/.bashrc";
+      ".local/bin".source = mkOutOfStoreSymlink "/home/kev/NixOS/home/non-xdg-dots/bin";
+    };
     stateVersion = "24.05";
-    # file = {
-    # ".bashrc".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/bash/.bashrc";
-    # ".local/bin".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/bin";
-    # ".config/aichat".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/aichat";
-    # ".config/atuin".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/atuin";
-    # ".config/cava".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/cava";
-    # ".config/fish".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/fish";
-    # ".config/fuzzel".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/fuzzel";
-    # ".config/gammastep".source =
-    #   config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/gammastep";
-    # ".config/helix".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/helix";
-    # ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/hypr";
-    # ".config/isd_tui".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/isd";
-    # ".config/jj".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/jj";
-    # ".config/jjui".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/jjui";
-    # ".config/khal".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/khal";
-    # ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/kitty";
-    # ".config/lgtv".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/lgtv";
-    # ".config/mango".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/mango";
-    # ".config/matugen".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/matugen";
-    # ".config/mpd".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/mpd";
-    # ".config/mpv".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/mpv";
-    # ".config/newsboat".source =
-    #   config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/newsboat";
-    # ".config/niri".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/niri";
-    # ".config/television".source =
-    #   config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/television";
-    # ".config/wlr-which-key".source =
-    #   config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/wlr-which-key";
-    # ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/nvim";
-    # ".config/warpd".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/warpd";
-    # ".config/yazi".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/yazi";
-    # # };
   };
 
   programs = {
@@ -129,7 +101,9 @@ in
 
   xdg = {
     enable = true;
-    configFile = configLinks.configSymlinks configsPath configsAbsolutePath;
+    # link all subdirs in configsPath (~/NixOS/home/xdg-dots) to ~/.config
+    # configSymlinks function is defined in ./symlinkDots.nix
+    configFile = configSymlinks configsPath configsAbsolutePath;
   };
 }
 # end home.nix

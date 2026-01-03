@@ -89,6 +89,7 @@ apps=(
     "shell - nixos:kitty --detach --hold -d ~/NixOS"
     "shell - nixos:kitty --detach --hold -d ~/NixOS"
     "shell - temp:kitty --detach --hold -d ~/Temp"
+    "util - check nixpkgs pr merge:kitty --detach --app-id floater fish -c checkpr"
     "util - color picker (hex/rgb):niri-pick-color"
     "util - color picker (hex with zoom):hyprpicker -f hex -a"
     "util - ssh to sam's pc:kitty -e ssh sam@10.0.0.4"

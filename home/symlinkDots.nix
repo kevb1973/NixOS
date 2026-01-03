@@ -1,20 +1,44 @@
 { config }:
 {
-  # -------------------------------------------------------------------------
-  #   `configsPath`: a path value to a directory who's files/directories
-  #   should be symlinked to from `~/.config/`.
+  # This function accepts a directory containing a repo directory containing config files.
+  # It needs the path twice since the relative path used by `readDir` must be a path type,
+  # while the absolute path used by `mkOutOfStoreSymlink` must be a string to avoid copying
+  # the config to the store.
+  # What's happening:
+  #  - readDir reads all the subdirs from the passed `configsPath` into a set like:
+  # { dirname1 = path; dirname2 = path; } etc.
+  # - attrNames creates a list of just the dirNames
+  # - map applies the `mkSymlink` function to the list, which returns:
+  #   a list of sets, each set containing the attributes name, value.source for a config dir.
+  # - Finally, listToAttrs takes a list of attr sets with the attrs being name, value.
+  # [
+  #   {
+  #     name = "kitty";
+  #     value = {
+  #       source = "/home/kev/NixOS/home/dots/kitty";
+  #     };
+  #   }
+  #   {
+  #     name = "helix";
+  #     value = {
+  #       source = "/home/kev/NixOS/home/dots/helix";
+  #     };
+  #   }
+  # ]
   #
-  #   `configsAbsolutePath`: an absolute path to `configsPath`.
-  #
-  #   The reason this function requires two path parameters to the same
-  #   directory is that it uses `builtins.readDir` which would require
-  #   `--impure` if only an absolute path were used. If using only a literal
-  #   Nix path, the symlinks would point to the Nix store, and thereby require
-  #   a build whenever a config file is edited.
-  #
-  #   `returns`: an attribute set suitable for `xdg.configFile`.
-  # -----------------------------------------------------------------
-  configSymlinks = configsPath: configsAbsolutePath:
+  # It constructs an attr set using name,value from the list. In this case, the attr set
+  # is in the format xdg.configFile is expecting:
+  # {
+  #   kitty = {
+  #     source = "/home/kev/NixOS/home/dots/kitty";
+  #   };
+  #   helix = {
+  #     source = "/home/kev/NixOS/home/dots/helix";
+  #   };
+  # }
+
+  configSymlinks =
+    configsPath: configsAbsolutePath:
     let
       inherit (config.lib.file) mkOutOfStoreSymlink;
 
@@ -22,9 +46,6 @@
         name = name;
         value.source = mkOutOfStoreSymlink "${configsAbsolutePath}/${name}";
       };
-    in configsPath
-      |> builtins.readDir
-      |> builtins.attrNames
-      |> map mkSymlink
-      |> builtins.listToAttrs;
+    in
+    builtins.listToAttrs (builtins.map mkSymlink (builtins.attrNames (builtins.readDir configsPath)));
 }

@@ -36,6 +36,8 @@
       ".config/matugen".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/matugen";
       ".config/mpd".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/mpd";
       ".config/mpv".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/mpv";
+      ".config/newsboat".source =
+        config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/newsboat";
       ".config/niri".source = config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/niri";
       ".config/television".source =
         config.lib.file.mkOutOfStoreSymlink "/home/kev/NixOS/home/dots/television";

@@ -9,7 +9,7 @@ window-rule {
 // copyq                                      {{{1
 window-rule {
     match app-id="com.github.hluk.copyq"
-    match app-id="cmd-launch" // For fzf launcher script 
+    match app-id="cmd-launch" // For fzf launcher script
     open-floating true
     default-column-width { proportion 0.25; }
     default-window-height { proportion 0.50; }
@@ -32,10 +32,10 @@ window-rule {
     default-column-width { proportion 0.50; }
     open-focused false
 }
-// peaclock timer                             {{{1
+// newsboat                             {{{1
 window-rule {
-    match app-id="timer"
-    default-column-width { fixed 400; }
+    match app-id="newsboat"
+    default-column-width { proportion 0.62; }
     open-focused true
 }
 // qalculate                                  {{{1

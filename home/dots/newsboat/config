@@ -1,4 +1,4 @@
-browser "zen --new-window %u"
+browser "zen --new-tab %u"
 cleanup-on-quit yes
 confirm-mark-feed-read no
 delete-read-articles-on-quit yes

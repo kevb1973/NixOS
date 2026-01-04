@@ -7,14 +7,14 @@ binds {
     Mod+P                 { spawn-sh "dms ipc call dankdash wallpaper"; }
     Mod+Tab               { toggle-overview; }
     Mod+KP_Multiply       { spawn "qalculate-gtk"; }
-    Mod+N                 { spawn-sh "kitty --app-id='remind-tui' ~/NixOS/home/dots/bin/remind_tui"; }
+    Mod+N                 { spawn-sh "kitty --app-id='remind-tui' ~/NixOS/home/non-xdg-dots/bin/remind_tui"; }
     Mod+Shift+N           { spawn-sh "dms ipc notepad toggle"; }
     // Mod3+A                { spawn-sh "pkill wlr-which-key || wlr-which-key ~/.config/wlr-which-key/config.yaml"; }
     Mod+Z                 { spawn-sh "toggle_launch"; }
     // Mod+Z                 { spawn-sh "kitty --detach --app-id cute_launch run_old"; }
     Mod+grave             { spawn-sh "kitten quick-access-terminal --instance-group kitty"; }
     Mod+KP_End            { spawn-sh "kitten quick-access-terminal --instance-group jjui jjui ~/NixOS"; }
-    Mod+KP_Down           { spawn-sh "kitten quick-access-terminal --instance-group newsboat -o font_size=16 newsboat"; }
+    Mod+KP_Down           { spawn-sh "kitten quick-access-terminal --instance-group newsboat -o font_size=20 newsboat"; }
     // Mod+KP_Down           { spawn-sh "toggle_newsboat"; }
     Mod+KP_Next           { spawn-sh "kitten quick-access-terminal --instance-group rmpc rmpc"; }
 
@@ -40,13 +40,13 @@ binds {
     Mod+Alt+m             { spawn-sh "dms ipc audio mute"; }
 
   // LGTV {{{2
-    Mod+Delete            { spawn "/home/kev/NixOS/home/dots/bin/lgtv" "system" "turnOff";}
-    Mod+Shift+Delete      { spawn "/home/kev/NixOS/home/dots/bin/lgtv" "wakeonlan"; }
-    Mod+Prior             { spawn "/home/kev/NixOS/home/dots/bin/lgtv" "audio" "setMute" "true"; }
-    Mod+Shift+Prior       { spawn "/home/kev/NixOS/home/dots/bin/lgtv" "audio" "setMute" "false"; }
-    Mod+Next              { spawn "/home/kev/NixOS/home/dots/bin/lgtv" "audio" "volumeDown"; }
-    Mod+Shift+Next        { spawn "/home/kev/NixOS/home/dots/bin/lgtv" "audio" "volumeUp"; }
-    Mod+t                 { spawn "/home/kev/NixOS/home/dots/bin/lgtvgui"; }
+    Mod+Delete            { spawn "/home/kev/NixOS/home/non-xdg-dots/bin/lgtv" "system" "turnOff";}
+    Mod+Shift+Delete      { spawn "/home/kev/NixOS/home/non-xdg-dots/bin/lgtv" "wakeonlan"; }
+    Mod+Prior             { spawn "/home/kev/NixOS/home/non-xdg-dots/bin/lgtv" "audio" "setMute" "true"; }
+    Mod+Shift+Prior       { spawn "/home/kev/NixOS/home/non-xdg-dots/bin/lgtv" "audio" "setMute" "false"; }
+    Mod+Next              { spawn "/home/kev/NixOS/home/non-xdg-dots/bin/lgtv" "audio" "volumeDown"; }
+    Mod+Shift+Next        { spawn "/home/kev/NixOS/home/non-xdg-dots/bin/lgtv" "audio" "volumeUp"; }
+    Mod+t                 { spawn "/home/kev/NixOS/home/non-xdg-dots/bin/lgtvgui"; }
 
   // MPRIS {{{2
     Mod+KP_Home           { spawn "playerctl" "play-pause"; }

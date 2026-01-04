@@ -129,7 +129,7 @@ menu:
             submenu:
               - key: "e"
                 desc: Edit float script to add rules
-                cmd: kitty hx ~/NixOS/home/dots/bin/niri-open-float.py
+                cmd: kitty hx ~/NixOS/home/non-xdg-dots/bin/niri-open-float.py
               - key: "r"
                 desc: restart script
                 cmd: niri-open-float

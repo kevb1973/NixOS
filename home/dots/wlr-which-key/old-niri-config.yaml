@@ -21,30 +21,30 @@ menu:
   - key: "a"
     desc: ai
     submenu:
-    - key: "a"
-      desc: aichat
-      cmd: kitty aichat -m llama-cpp:lfm2-8b -r concise -s session --empty-session
-    - key: "k"
-      desc: kill llama-server
-      cmd: pkill llama-server
-    - key: "1"
-      desc: Gemma3-4b (vision)
-      cmd: notify-send -u low 'AI Model' 'Loading Gemma3-4b' && pkill llama-server; niri msg action spawn-sh -- "llama-server -a 'Gemma3-4b (vision)' -m ~/Code/models/ggml-org_gemma-3-4b-it-GGUF_gemma-3-4b-it-Q4_K_M.gguf --mmproj ~/Code/models/ggml-org_gemma-3-4b-it-GGUF_mmproj-model-f16.gguf --temp 1.0 --top-k 64 --min-p 0.00 --top-p 0.95 --repeat-penalty 1.0 --ctx-size 8192 --port 8081 --host 127.0.0.1"
-    - key: "2"
-      desc: LFM2-8B-A1B (fast and concise)
-      cmd: notify-send -u low 'AI Model' 'Loading LFM2' && pkill llama-server; niri msg action spawn-sh -- "llama-server -a 'LFM2-8B-A1B' -m ~/Code/models/LFM2-8B-A1B-Q4_K_M.gguf --ctx-size 8192 --temp 0.3 --min-p 0.15 --repeat-penalty 1.05 --port 8081 --host 127.0.0.1"
-    - key: "3"
-      desc: Qwen3-4B-Instruct (fast and friendly)
-      cmd: notify-send -u low 'AI Model' 'Loading Qwen3-4B-Instruct' && pkill llama-server; niri msg action spawn-sh -- "llama-server -a 'Qwen3-4B-Instruct' -m ~/Code/models/Qwen3-4B-Instruct-2507-IQ4_XS.gguf --ctx-size 8192 --temp 0.7 --top-p 0.8 --top-k 20 --min-p 0 --presence-penalty 1.05 --port 8081 --host 127.0.0.1"
-    - key: "4"
-      desc: Qwen3-30B-A3B (MoE)
-      cmd: notify-send -u low 'AI Model' 'Loading Qwen3-30B-A3B' && pkill llama-server; niri msg action spawn-sh -- "llama-server -a 'Qwen-30b-A3B' -m ~/Code/models/Qwen3-30B-A3B-Instruct-2507-Q4_K_M.gguf --ctx-size 8192 --temp 0.7 --top-p 0.8 --min-p 0 --top-k 20 --presence-penalty 1.05 --port 8081 --host 127.0.0.1"
-    - key: "5"
-      desc: GPT-OSS-20b (MoE/thinking)
-      cmd: notify-send -u low 'AI Model' 'Loading GPT-OSS-20B' && pkill llama-server; niri msg action spawn-sh -- "llama-server -a 'GPT-OSS-20b' -m ~/Code/models/gpt-oss-20b-MXFP4.gguf --jinja --ctx-size 8192 -ub 2048 -b 2048 --n-cpu-moe 21 --temp 1.0 --top-p 1.0 --top-k 0 --min-p 0 --port 8081 --host 127.0.0.1"
-    - key: "6"
-      desc: Enoch-12b
-      cmd: notify-send -u low 'AI Model' 'Loading Enoch-12b' && pkill llama-server; niri msg action spawn-sh -- "llama-server -m ~/Code/models/Enoch-CWC-Mistral-Nemo-12B-v2-GGUF-q4_k_m.gguf -a 'Enoch-12b' --ctx-size 8192 --port 8081 --host 127.0.0.1"
+      - key: "a"
+        desc: aichat
+        cmd: kitty aichat -m llama-cpp:lfm2-8b -r concise -s session --empty-session
+      - key: "k"
+        desc: kill llama-server
+        cmd: pkill llama-server
+      - key: "1"
+        desc: Gemma3-4b (vision)
+        cmd: notify-send -u low 'AI Model' 'Loading Gemma3-4b' && pkill llama-server; niri msg action spawn-sh -- "llama-server -a 'Gemma3-4b (vision)' -m ~/Code/models/ggml-org_gemma-3-4b-it-GGUF_gemma-3-4b-it-Q4_K_M.gguf --mmproj ~/Code/models/ggml-org_gemma-3-4b-it-GGUF_mmproj-model-f16.gguf --temp 1.0 --top-k 64 --min-p 0.00 --top-p 0.95 --repeat-penalty 1.0 --ctx-size 8192 --port 8081 --host 127.0.0.1"
+      - key: "2"
+        desc: LFM2-8B-A1B (fast and concise)
+        cmd: notify-send -u low 'AI Model' 'Loading LFM2' && pkill llama-server; niri msg action spawn-sh -- "llama-server -a 'LFM2-8B-A1B' -m ~/Code/models/LFM2-8B-A1B-Q4_K_M.gguf --ctx-size 8192 --temp 0.3 --min-p 0.15 --repeat-penalty 1.05 --port 8081 --host 127.0.0.1"
+      - key: "3"
+        desc: Qwen3-4B-Instruct (fast and friendly)
+        cmd: notify-send -u low 'AI Model' 'Loading Qwen3-4B-Instruct' && pkill llama-server; niri msg action spawn-sh -- "llama-server -a 'Qwen3-4B-Instruct' -m ~/Code/models/Qwen3-4B-Instruct-2507-IQ4_XS.gguf --ctx-size 8192 --temp 0.7 --top-p 0.8 --top-k 20 --min-p 0 --presence-penalty 1.05 --port 8081 --host 127.0.0.1"
+      - key: "4"
+        desc: Qwen3-30B-A3B (MoE)
+        cmd: notify-send -u low 'AI Model' 'Loading Qwen3-30B-A3B' && pkill llama-server; niri msg action spawn-sh -- "llama-server -a 'Qwen-30b-A3B' -m ~/Code/models/Qwen3-30B-A3B-Instruct-2507-Q4_K_M.gguf --ctx-size 8192 --temp 0.7 --top-p 0.8 --min-p 0 --top-k 20 --presence-penalty 1.05 --port 8081 --host 127.0.0.1"
+      - key: "5"
+        desc: GPT-OSS-20b (MoE/thinking)
+        cmd: notify-send -u low 'AI Model' 'Loading GPT-OSS-20B' && pkill llama-server; niri msg action spawn-sh -- "llama-server -a 'GPT-OSS-20b' -m ~/Code/models/gpt-oss-20b-MXFP4.gguf --jinja --ctx-size 8192 -ub 2048 -b 2048 --n-cpu-moe 21 --temp 1.0 --top-p 1.0 --top-k 0 --min-p 0 --port 8081 --host 127.0.0.1"
+      - key: "6"
+        desc: Enoch-12b
+        cmd: notify-send -u low 'AI Model' 'Loading Enoch-12b' && pkill llama-server; niri msg action spawn-sh -- "llama-server -m ~/Code/models/Enoch-CWC-Mistral-Nemo-12B-v2-GGUF-q4_k_m.gguf -a 'Enoch-12b' --ctx-size 8192 --port 8081 --host 127.0.0.1"
   - key: "c"
     desc: configs
     submenu:
@@ -128,67 +128,67 @@ menu:
             cmd: kitty hx ~/.config/niri/window-rules.kdl
       - key: "p"
         desc: color picker
-        cmd: ~/NixOS/home/dots/bin/niri-pick-color
+        cmd: ~/NixOS/home/non-xdg-dots/bin/niri-pick-color
   - key: "d"
     desc: dms
     submenu:
-    - key: "k"
-      desc: kill shell
-      cmd: systemctl --user stop dms
-    - key: "l"
-      desc: launch shell
-      cmd: systemctl --user start dms
-    - key: "r"
-      desc: restart shell
-      cmd: systemctl --user restart dms
-    - key: "s"
-      desc: open settings
-      cmd: ~/Code/dms-bin/dms ipc settings toggle
-    - key: "w"
-      desc: wallpaper
-      submenu:
-        - key: "n"
-          desc: next wallpaper
-          cmd: dms ipc wallpaper next
-        - key: "p"
-          desc: previous wallpaper
-          cmd: dms ipc wallaper prev
+      - key: "k"
+        desc: kill shell
+        cmd: systemctl --user stop dms
+      - key: "l"
+        desc: launch shell
+        cmd: systemctl --user start dms
+      - key: "r"
+        desc: restart shell
+        cmd: systemctl --user restart dms
+      - key: "s"
+        desc: open settings
+        cmd: ~/Code/dms-bin/dms ipc settings toggle
+      - key: "w"
+        desc: wallpaper
+        submenu:
+          - key: "n"
+            desc: next wallpaper
+            cmd: dms ipc wallpaper next
+          - key: "p"
+            desc: previous wallpaper
+            cmd: dms ipc wallaper prev
   - key: "f"
     desc: file manager
     cmd: nautilus
   - key: "l"
     desc: launch
     submenu:
-        - key: "b"
-          desc: "bOxbuddy, bTop"
-          submenu:
-            - key: "o"
-              desc: "boxbuddy"
-              cmd: boxbuddy-rs
-            - key: "t"
-              desc: btop
-              cmd: kitty btop
-        - key: "c"
-          desc: calendar
-          cmd: kitty khal interactive
-        - key: "e"
-          desc: emacs
-          cmd: emacsclient -c
-        - key: "f"
-          desc: firefox
-          cmd: firefox
-        - key: "h"
-          desc: helix
-          cmd: kitty hx
-        - key: "l"
-          desc: lm-studio
-          cmd: lm-studio 
-        - key: "s"
-          desc: spotify
-          cmd: spotify --no-zygote
-        - key: "y"
-          desc: yazi
-          cmd: kitty yazi ~/Downloads
+      - key: "b"
+        desc: "bOxbuddy, bTop"
+        submenu:
+          - key: "o"
+            desc: "boxbuddy"
+            cmd: boxbuddy-rs
+          - key: "t"
+            desc: btop
+            cmd: kitty btop
+      - key: "c"
+        desc: calendar
+        cmd: kitty khal interactive
+      - key: "e"
+        desc: emacs
+        cmd: emacsclient -c
+      - key: "f"
+        desc: firefox
+        cmd: firefox
+      - key: "h"
+        desc: helix
+        cmd: kitty hx
+      - key: "l"
+        desc: lm-studio
+        cmd: lm-studio
+      - key: "s"
+        desc: spotify
+        cmd: spotify --no-zygote
+      - key: "y"
+        desc: yazi
+        cmd: kitty yazi ~/Downloads
   - key: "m"
     desc: music
     submenu:
@@ -224,13 +224,13 @@ menu:
         submenu:
           - key: "m"
             desc: miniflux
-            cmd: kitty podman compose restart miniflux 
+            cmd: kitty podman compose restart miniflux
           - key: "o"
             desc: open-webui
-            cmd: kitty podman compose restart open-webui 
+            cmd: kitty podman compose restart open-webui
           - key: "s"
             desc: silverbullet
-            cmd: kitty podman compose restart silverbullet 
+            cmd: kitty podman compose restart silverbullet
       - key: "u"
         desc: update container
         submenu:
@@ -246,7 +246,7 @@ menu:
       - key: "p"
         desc: podman-tui
         cmd: kitty podman-tui
-          
+
   - key: "r"
     desc: repos
     submenu:

@@ -1,7 +1,7 @@
 
 ## yazi - bin
 ```bash
-kitty --detach yazi ~/NixOS/home/dots/bin
+kitty --detach yazi ~/NixOS/home/non-xdg-dots/bin
 ```
 ## yazi - code
 ```bash

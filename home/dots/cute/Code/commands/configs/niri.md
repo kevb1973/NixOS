@@ -8,7 +8,7 @@ kitty --detach ~/.config/niri/config.kdl
 ```
 ## config - niri - niri-open-float.py
 ```bash
-kitty --detach ~/NixOS/home/dots/bin/niri-open-float.py
+kitty --detach ~/NixOS/home/non-xdg-dots/bin/niri-open-float.py
 ```
 ## config - niri - environment
 ```bash

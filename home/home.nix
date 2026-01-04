@@ -15,7 +15,7 @@ in
     username = "kev";
     homeDirectory = "/home/kev";
     sessionPath = [
-      "$HOME/NixOS/home/dots/bin"
+      "$HOME/NixOS/home/non-xdg-dots/bin"
     ];
     file = {
       ".bashrc".source = mkOutOfStoreSymlink "/home/kev/NixOS/home/non-xdg-dots/bash/.bashrc";

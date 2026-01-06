@@ -13,11 +13,11 @@
     gvfs.enable = true; # Mount, trash, and other functionalities
     journald.extraConfig = "SystemMaxUse=500M";
     openssh.enable = false;
-    printing.drivers = [ pkgs.brlaser ]; 
+    printing.drivers = [ pkgs.brlaser ];
     printing.enable = true;
     seatd.enable = true; # For lemur display manager
     # tumbler.enable = false; # Thumbnail support for images
-    udisks2.enable = true; 
+    udisks2.enable = true;
 
     atd = {
       enable = true; # 'at' daemon for reminders
@@ -55,7 +55,7 @@
             style = {
               color = "black";
               hint_color = "white";
-              
+
               show_border = true;
               border_color = "dark gray";
             };
@@ -69,14 +69,14 @@
         };
       };
       sddm = {
-        enable= true;
+        enable = true;
         autoNumlock = true;
         theme = "catppuccin-mocha-lavender";
         extraPackages = with pkgs; [
           qt6.qt5compat
-     			kdePackages.qtsvg
-      		kdePackages.qtmultimedia
-      		kdePackages.qtvirtualkeyboard
+          kdePackages.qtsvg
+          kdePackages.qtmultimedia
+          kdePackages.qtvirtualkeyboard
         ];
         wayland.enable = true;
       };
@@ -102,7 +102,6 @@
         };
       };
     };
-
 
     miniflux = {
       enable = true;
@@ -141,20 +140,21 @@
       enable = false;
       virtualHost = "localhost";
       config = {
-        system.enabled_bridges = ["*"];
-        authentication = { token = "rss-bridge"; };
+        system.enabled_bridges = [ "*" ];
+        authentication = {
+          token = "rss-bridge";
+        };
       };
     };
     nginx.virtualHosts."localhost".listen = [
-            {
-              addr = "0.0.0.0";
-              port = 3001;
-            }
+      {
+        addr = "0.0.0.0";
+        port = 3001;
+      }
     ];
     udev.extraRules = ''
       KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
     ''; # add user perms to uinput for ydotool
-
 
     xserver = {
       enable = true;
@@ -162,7 +162,7 @@
         layout = "us";
         variant = "";
       };
-      desktopManager.xfce.enable = true;
+      desktopManager.xfce.enable = false;
       deviceSection = ''Option "TearFree" "true"'';
       displayManager = {
         startx.enable = true; # console login

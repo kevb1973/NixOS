@@ -4,7 +4,7 @@ description = "List packages installed in user profile"
 requirements = ["nix"]
 
 [source]
-command = "jq -r '.elements | keys[]' /tmp/nix-profile.json"
+command = "nix profile list --json > /tmp/nix-profile.json && jq -r '.elements | keys[]' /tmp/nix-profile.json"
 # output = "{trim}"
 # ansi = true
 

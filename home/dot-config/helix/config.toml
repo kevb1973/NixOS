@@ -105,9 +105,9 @@ S-tab = ["unindent"]
 "]" = "goto_line_end"
 
 [keys.normal."'"]
-b = [":cd ~/NixOS/home/non-xdg-dots/bin"]
+b = [":cd ~/NixOS/home/.local/bin"]
 c = [":cd ~/.config"]
-d = [":cd ~/NixOS/home/dots"]
+d = [":cd ~/NixOS/home/dot-config"]
 h = ":open ~/.config/helix/config.toml"
 l = ":open ~/.config/helix/languages.toml"
 m = [":cd ~/NixOS/home/dots/mango"]

@@ -128,7 +128,7 @@ menu:
             cmd: kitty hx ~/.config/niri/window-rules.kdl
       - key: "p"
         desc: color picker
-        cmd: ~/NixOS/home/non-xdg-dots/bin/niri-pick-color
+        cmd: ~/NixOS/home/.local/bin/niri-pick-color
   - key: "d"
     desc: dms
     submenu:

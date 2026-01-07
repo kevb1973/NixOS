@@ -6,8 +6,8 @@
 }:
 let
   configSymlinks = ((import ./symlinkDots.nix) { config = config; }).configSymlinks;
-  configsPath = ./dots;
-  configsAbsolutePath = "/home/kev/NixOS/home/dots";
+  configsPath = ./dot-config;
+  configsAbsolutePath = "/home/kev/NixOS/home/dot-config";
   mkOutOfStoreSymlink = config.lib.file.mkOutOfStoreSymlink;
 in
 {
@@ -15,11 +15,12 @@ in
     username = "kev";
     homeDirectory = "/home/kev";
     sessionPath = [
-      "$HOME/NixOS/home/non-xdg-dots/bin"
+      "$HOME/NixOS/home/other-config/bin"
     ];
     file = {
-      ".bashrc".source = mkOutOfStoreSymlink "/home/kev/NixOS/home/non-xdg-dots/bash/.bashrc";
-      ".local/bin".source = mkOutOfStoreSymlink "/home/kev/NixOS/home/non-xdg-dots/bin";
+      # link configs that are not under ~/.config
+      ".bashrc".source = mkOutOfStoreSymlink "/home/kev/NixOS/home/other-config/bash/.bashrc";
+      ".local/bin".source = mkOutOfStoreSymlink "/home/kev/NixOS/home/other-config/bin";
     };
     stateVersion = "24.05";
   };
@@ -101,7 +102,7 @@ in
 
   xdg = {
     enable = true;
-    # link all subdirs in configsPath (~/NixOS/home/xdg-dots) to ~/.config
+    # link all subdirs in configsPath (~/NixOS/home/dot-config) to ~/.config
     # configSymlinks function is defined in ./symlinkDots.nix
     configFile = configSymlinks configsPath configsAbsolutePath;
   };

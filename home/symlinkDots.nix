@@ -15,13 +15,13 @@
   #   {
   #     name = "kitty";
   #     value = {
-  #       source = "/home/kev/NixOS/home/dots/kitty";
+  #       source = "/home/kev/NixOS/home/dot-config/kitty";
   #     };
   #   }
   #   {
   #     name = "helix";
   #     value = {
-  #       source = "/home/kev/NixOS/home/dots/helix";
+  #       source = "/home/kev/NixOS/home/dot-config/helix";
   #     };
   #   }
   # ]
@@ -30,10 +30,10 @@
   # is in the format xdg.configFile is expecting:
   # {
   #   kitty = {
-  #     source = "/home/kev/NixOS/home/dots/kitty";
+  #     source = "/home/kev/NixOS/home/dot-config/kitty";
   #   };
   #   helix = {
-  #     source = "/home/kev/NixOS/home/dots/helix";
+  #     source = "/home/kev/NixOS/home/dot-config/helix";
   #   };
   # }
 
@@ -47,5 +47,5 @@
         value.source = mkOutOfStoreSymlink "${configsAbsolutePath}/${name}";
       };
     in
-    builtins.listToAttrs (builtins.map mkSymlink (builtins.attrNames (builtins.readDir configsPath)));
+    builtins.listToAttrs (map mkSymlink (builtins.attrNames (builtins.readDir configsPath)));
 }

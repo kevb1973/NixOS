@@ -125,7 +125,6 @@
         nix-search-tv # Search nixos/home-manager options + nixpkgs/nur with 'television'
         nix-tree
         nixd
-        nixfmt-rfc-style # official nix code formatter
         nodePackages.prettier
         nodejs # Need for Neovim Mason
         nushell # cuz its cool (and easier than jq)

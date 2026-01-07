@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-pkill newsboat || kitty -o font_size=16 --app-id newsboat newsboat
+pkill newsboat || kitty -o font_size=16 --app-id floater newsboat
+# kitten quick-accesss-terminal --instance-group newsboat newsboat -o font_size=16

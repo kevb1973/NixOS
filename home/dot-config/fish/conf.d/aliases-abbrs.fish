@@ -28,7 +28,7 @@ alias rb="nh os switch ~/NixOS/"
 alias referrer="nix-store --query --referrers"
 alias repair-store="sudo nix-store --verify --check-contents --repair"
 alias rev="nixos-version --hash | cut -c 1-7"
-alias sam_ssh="ssh sam@10.0.0.4"
+alias sam_ssh="kitten ssh sam@10.0.0.4"
 alias sct="systemctl-tui"
 alias sg="nixos-rebuild list-generations"
 alias storebin="nix-store -q --roots (which $argv)"
@@ -60,7 +60,7 @@ abbr -a --set-cursor='%' -- ytv "ytd-video %"
 abbr -a -- ls lsd
 abbr -a -- ll 'lsd -l'
 
-# Convert ..., .... etc/ to cd ../.. 
+# Convert ..., .... etc/ to cd ../..
 function multicd
     echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
 end

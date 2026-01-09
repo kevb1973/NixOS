@@ -3,6 +3,9 @@
 # Add `personal` subdir in `functions` to fish_function_path
 set fish_function_path ~/.config/fish/functions/personal $fish_function_path
 
+# disable prompt path abbreviation
+set -g fish_prompt_pwd_dir_length 0
+
 if status is-interactive
     # Commands to run in interactive sessionif status is-interactive
     switch (hostname)

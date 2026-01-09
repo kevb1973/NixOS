@@ -76,6 +76,7 @@ r = ":recentf-open-files"
 "." = ":show-directory"
 "=" = ":format"
 1 = ":reload"
+F = "file_picker_in_current_buffer_directory"
 
 [keys.normal]
 V = ["goto_first_nonwhitespace", "extend_to_line_end"]
@@ -100,7 +101,6 @@ D = ["collapse_selection", "extend_to_line_end", "delete_selection", "insert_mod
 "`" = "goto_word"
 tab = "indent"
 S-tab = "unindent"
-"\\" = ":streal-open"
 
 [keys.normal."["]
 "[" = "goto_line_start"
@@ -134,13 +134,16 @@ X = ["extend_line_up", "extend_to_line_bounds"]
 V = ["goto_first_nonwhitespace", "extend_to_line_end"]
 Y = ":yank-join"
 "ret" = "repeat_last_motion"
-"\\" = ":streal-open"
 
 
 [keys.normal.m]
-"\"" = "@f\";vmmdi\""
-"'"  = "@f';vmmdi'"
-"[" = "@f];vmmdi["
-"(" = "@f);vmmdi("
-"<"  = "@f<gt>;vmmdi<lt><gt><left>"
-"{" = "@f};vmmdi{"
+"\"" = "@2f\";<left>mi\"c"
+"'" = "@2f';<left>mi'c"
+"[" = "@f];<left>mi[c"
+"]" = "@F];<left>mi[c"
+"(" = "@f);<left>mi(c"
+")" = "@F);<left>mi(c"
+"<" = "@f<gt>;<left>mimc"
+">" = "@F<gt>;<left>mimc"
+"{" = "@f};<left>mi{c"
+"}" = "@F};<left>mi{c"

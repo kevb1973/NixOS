@@ -1,0 +1,13 @@
+[metadata]
+name = "jj-new"
+description = "A channel to select newly added files in repo (to gitignore/untrack)"
+
+[source]
+command = "jj status | grep '^A.*' | sed 's/^..//'"
+
+[preview]
+command = "jj diff '{}'"
+
+[ui]
+layout = "landscape"
+

@@ -17,9 +17,9 @@ function nixup
             # For use with widgets (waybar/DMS). Returns symbol for widget label.
             if test "$local_rev" != "$remote_rev"
                 # notify-send -u normal "Nixpkgs Update Available" "Revision: $remote_rev"
-                echo "⬆"
+                echo "🗲"
             else
-                echo "󰸞"
+                echo "🗸"
             end
         case '*' # For terminal use with no flags
             if test "$local_rev" = "$remote_rev"
@@ -35,3 +35,4 @@ function nixup
             echo ------------------------
     end
 end
+# ↑⬆🗸🗲

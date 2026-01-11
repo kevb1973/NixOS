@@ -54,13 +54,13 @@ menu:
         submenu:
           - key: "a"
             desc: aliases/abbrs
-            cmd: kitty hx ~/NixOS/home/dots/fish/conf.d/aliases-abbrs.fish
+            cmd: kitty hx ~/NixOS/home/dot-config/fish/conf.d/aliases-abbrs.fish
           - key: "c"
             desc: config
-            cmd: kitty hx ~/NixOS/home/dots/fish/config.fish
+            cmd: kitty hx ~/NixOS/home/dot-config/fish/config.fish
           - key: "f"
             desc: functions
-            cmd: kitty yazi ~/NixOS/home/dots/fish/functions
+            cmd: kitty yazi ~/NixOS/home/dot-config/fish/functions
       - key: "h"
         desc: helix
         submenu:
@@ -129,7 +129,7 @@ menu:
             submenu:
               - key: "e"
                 desc: Edit float script to add rules
-                cmd: kitty hx ~/NixOS/home/.local/bin/niri-open-float.py
+                cmd: kitty hx ~/bin/niri-open-float.py
               - key: "r"
                 desc: restart script
                 cmd: niri-open-float

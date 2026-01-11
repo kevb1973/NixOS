@@ -1,4 +1,4 @@
-theme = "my_transparent_theme"
+theme = "base16_default"
 
 # dark = "ayu_dark"
 # light = "ayu_light"
@@ -109,7 +109,7 @@ S-tab = "unindent"
 "]" = "goto_line_end"
 
 [keys.normal."'"]
-b = [":cd ~/NixOS/home/.local/bin"]
+b = [":cd ~/.local/bin"]
 c = [":cd ~/.config"]
 d = [":cd ~/NixOS/home/dot-config"]
 h = ":open ~/.config/helix/config.toml"

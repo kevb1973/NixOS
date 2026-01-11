@@ -1,17 +1,15 @@
 // Binds
 // Launchers {{{1
 binds {
-    Mod+Return            { spawn-sh "kitty -1"; }
+    Mod+Return            { spawn-sh "kitty"; }
     Mod+Shift+Return      { spawn "nautilus"; }
-    Mod+KP_Enter          { spawn-sh "dms ipc spotlight toggle"; }
-    Mod+P                 { spawn-sh "dms ipc call dankdash wallpaper"; }
+    Mod+KP_Enter          { spawn-sh "noctalia-shell ipc call launcher toggle"; }
+    Mod+P                 { spawn-sh "noctalia-shell ipc call wallpaper toggle"; }
     Mod+Tab               { toggle-overview; }
     Mod+KP_Multiply       { spawn "qalculate-gtk"; }
-    Mod+N                 { spawn-sh "kitty --app-id='remind-tui' ~/NixOS/home/.local/bin/remind_tui"; }
-    Mod+Shift+N           { spawn-sh "dms ipc notepad toggle"; }
-    // Mod3+A                { spawn-sh "pkill wlr-which-key || wlr-which-key ~/.config/wlr-which-key/config.yaml"; }
+    Mod+N                 { spawn-sh "kitty --app-id='remind-tui' ~/.local/bin/remind_tui"; }
+    // Mod+Shift+N           { spawn-sh "dms ipc notepad toggle"; }
     Mod+Z                 { spawn-sh "toggle_launch"; }
-    // Mod+Z                 { spawn-sh "kitty --detach --app-id cute_launch run_old"; }
     Mod+grave             { spawn-sh "kitten quick-access-terminal --instance-group kitty"; }
     Mod+KP_End            { spawn-sh "kitten quick-access-terminal --instance-group jjui jjui ~/NixOS"; }
     // Mod+KP_Down           { spawn-sh "kitten quick-access-terminal --instance-group newsboat -o font_size=20 newsboat"; }
@@ -20,10 +18,16 @@ binds {
 
 // Utilities {{{1
     F10                   { spawn-sh "wlrctl pointer move 2560 -1440"; }
-    Mod+c                 { spawn-sh "copyq toggle"; }
-    Mod+a                 { spawn-sh "dms ipc notifications toggle"; }
-    Mod+b                 { spawn-sh "dms ipc bar toggle"; }
-    Mod+e                 { spawn "emoji-picker"; }
+    // Mod+c                 { spawn-sh "copyq toggle"; }
+    Mod+c                 { spawn-sh "noctalia-shell ipc call launcher clipboard"; }
+    Mod+Shift+c           { spawn-sh "cliphist wipe"; }
+    Mod+a                 { spawn-sh "noctalia-shell ipc call notifications toggleHistory"; }
+    Mod+Shift+a           { spawn-sh "noctalia-shell ipc call notifications removeOldestHistory"; }
+    Mod+Control+Shift+a   { spawn-sh "noctalia-shell ipc call notifications clear"; }
+    Mod+d           { spawn-sh "noctalia-shell ipc call notifications dismissAll"; }
+    Mod+b                 { spawn-sh "noctalia-shell ipc call bar toggle"; }
+    // Mod+e                 { spawn "emoji-picker"; }
+    Mod+e                 { spawn-sh "noctalia-shell ipc call launcher emoji"; }
     Mod+M                 { spawn "~/bin/play_yt.sh"; }
     Mod+KP_Add            { spawn-sh "toggle_magnifier"; }
     Mod3+Tab              { spawn-sh "wl-kbptr -o modes=floating -o mode_floating.source=detect"; }
@@ -32,21 +36,21 @@ binds {
 
 // Media {{{1
   // PC Volume {{{2
-    XF86AudioRaiseVolume  { spawn-sh "dms ipc audio increment 1"; }
-    XF86AudioLowerVolume  { spawn-sh "dms ipc audio decrement 1"; }
-    XF86AudioMute         { spawn-sh "dms ipc audio mute"; }
-    Mod+Alt+Up            { spawn-sh "dms ipc audio increment 1"; }
-    Mod+Alt+Down          { spawn-sh "dms ipc audio decrement 1"; }
-    Mod+Alt+m             { spawn-sh "dms ipc audio mute"; }
+    XF86AudioRaiseVolume  { spawn-sh "noctalia-shell ipc call volume increase"; }
+    XF86AudioLowerVolume  { spawn-sh "noctalia-shell ipc call volume decrease"; }
+    XF86AudioMute         { spawn-sh "noctalia-shell ipc call volume muteOutput"; }
+    Mod+Alt+Up            { spawn-sh "noctalia-shell ipc call volume increase 1"; }
+    Mod+Alt+Down          { spawn-sh "noctalia-shell ipc call volume decrease 1"; }
+    Mod+Alt+m             { spawn-sh "noctalia-shell ipc call volume mute"; }
 
   // LGTV {{{2
-    Mod+Delete            { spawn "/home/kev/NixOS/home/.local/bin/lgtv" "system" "turnOff";}
-    Mod+Shift+Delete      { spawn "/home/kev/NixOS/home/.local/bin/lgtv" "wakeonlan"; }
-    Mod+Prior             { spawn "/home/kev/NixOS/home/.local/bin/lgtv" "audio" "setMute" "true"; }
-    Mod+Shift+Prior       { spawn "/home/kev/NixOS/home/.local/bin/lgtv" "audio" "setMute" "false"; }
-    Mod+Next              { spawn "/home/kev/NixOS/home/.local/bin/lgtv" "audio" "volumeDown"; }
-    Mod+Shift+Next        { spawn "/home/kev/NixOS/home/.local/bin/lgtv" "audio" "volumeUp"; }
-    Mod+t                 { spawn "/home/kev/NixOS/home/.local/bin/lgtvgui"; }
+    Mod+Delete            { spawn "/home/kev/.local/bin/lgtv" "system" "turnOff";}
+    Mod+Shift+Delete      { spawn "/home/kev/.local/bin/lgtv" "wakeonlan"; }
+    Mod+Prior             { spawn "/home/kev/.local/bin/lgtv" "audio" "setMute" "true"; }
+    Mod+Shift+Prior       { spawn "/home/kev/.local/bin/lgtv" "audio" "setMute" "false"; }
+    Mod+Next              { spawn "/home/kev/.local/bin/lgtv" "audio" "volumeDown"; }
+    Mod+Shift+Next        { spawn "/home/kev/.local/bin/lgtv" "audio" "volumeUp"; }
+    Mod+t                 { spawn "/home/kev/.local/bin/lgtvgui"; }
 
   // MPRIS {{{2
     Mod+KP_Home           { spawn "playerctl" "play-pause"; }
@@ -130,9 +134,8 @@ binds {
     Mod+s                 { screenshot; }
     Mod3+s                 { spawn "toggle-system-theme"; }
     Mod+Shift+s           { spawn-sh "hyprshot -m region -s -r --clipboard-only | satty -f -"; }
-    Mod+Shift+a           { spawn-sh "wl-paste | satty -f - --actions-on-enter save-to-clipboard,exit --copy-command wl-copy"; }
     // Mod+Shift+Slash       { show-hotkey-overlay; }
-    Mod+q                 { spawn-sh "dms ipc call powermenu toggle"; }
+    Mod+q                 { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
     Mod+KP_Divide         { power-off-monitors; }
 
 // Mouse Binds {{{1

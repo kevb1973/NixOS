@@ -27,17 +27,17 @@ output_path = "~/.config/btop/themes/matugen.theme"
 input_path = 'templates/pywalfox-colors.json'
 output_path = '~/.cache/wal/colors.json'
 
-# [templates.shell]
-# input_path = 'templates/colors-shell'
-# output_path = '~/.cache/colors/shell/colors'
+[templates.shell]
+input_path = 'templates/colors-shell'
+output_path = '~/.cache/colors/shell/colors'
 
 # [templates.foot]
 # input_path = 'templates/foot'
 # output_path = '~/.cache/colors/foot/colors.ini'
 
-[templates.helix]
-input_path = 'templates/helix'
-output_path = '~/.config/helix/themes/matugen.toml'
+# [templates.helix]
+# input_path = 'templates/helix'
+# output_path = '~/.config/helix/themes/matugen.toml'
 
 # [templates.gtk]
 # input_path = 'templates/gtk'
@@ -47,9 +47,9 @@ output_path = '~/.config/helix/themes/matugen.toml'
 # input_path = 'templates/gtk4'
 # output_path = '~/.config/gtk-4.0/gtk.css'
 
-# [templates.colors]
-# input_path = 'templates/colors'
-# output_path = '~/.cache/colors/colors.css'
+[templates.colors]
+input_path = 'templates/colors'
+output_path = '~/.cache/colors/colors.css'
 
 # [templates.greetd]
 # input_path = 'templates/colors'
@@ -58,5 +58,5 @@ output_path = '~/.config/helix/themes/matugen.toml'
 
 [templates.cava]
 input_path = '~/.config/matugen/templates/cava-colors.ini'
-output_path = '~/.config/cava/themes/your-theme'
+output_path = '~/.config/cava/themes/noctalia'
 post_hook = "pkill -USR1 cava"

@@ -8,14 +8,18 @@ current=${scheme//\'/}
 case "$current" in
   prefer-light)
     # current theme is light, so switch to dark
+    noctalia-shell ipc call darkMode setDark
     dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
-    dms ipc theme dark
-    sed -i 's/catppuccin_latte/catppuccin_macchiato/g' ~/.config/helix/themes/my_theme.toml && pkill -USR1 hx
+    pkill -USR1 -f kitty
+    # dms ipc theme dark
+    # sed -i 's/catppuccin_latte/catppuccin_macchiato/g' ~/.config/helix/themes/my_theme.toml && pkill -USR1 hx
     ;;
   prefer-dark)
     # current theme is dark, so switch to light
+    noctalia-shell ipc call darkMode setLight
     dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
-    dms ipc theme light
-    sed -i 's/catppuccin_macchiato/catppuccin_latte/g' ~/.config/helix/themes/my_theme.toml && pkill -USR1 hx
+    pkill -USR1 -f kitty
+    # dms ipc theme light
+    # sed -i 's/catppuccin_macchiato/catppuccin_latte/g' ~/.config/helix/themes/my_theme.toml && pkill -USR1 hx
     ;;
 esac

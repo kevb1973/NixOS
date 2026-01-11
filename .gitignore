@@ -9,3 +9,10 @@ home/dot-config/nvim/.neoconf.json
 home/dot-config/nvim/lazyvim.json
 home/dot-config/fish/fish_variables*
 home/dot-config/helix/themes/my_theme.toml
+home/dot-config/helix/themes/noctalia.toml
+home/dot-config/kitty/current-theme.conf
+home/dot-config/kitty/themes/noctalia.conf
+home/dot-config/mango/noctalia.conf
+home/dot-config/mango/theme.conf.bak
+home/dot-config/niri/noctalia.kdl
+home/dot-config/yazi/flavors/noctalia.yazi/flavor.toml

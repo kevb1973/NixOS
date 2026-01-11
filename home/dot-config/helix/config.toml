@@ -17,7 +17,6 @@ cursorline = false
 end-of-line-diagnostics = "disable"
 idle-timeout = 50
 jump-label-alphabet = "1234567890asdf"
-line-number = "relative"
 rainbow-brackets = true
 # rulers = [120]
 scroll-lines = 1

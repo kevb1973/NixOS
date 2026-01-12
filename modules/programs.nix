@@ -132,10 +132,22 @@
     #   extraPackages = [ ];
     # };
 
-    # ydotool = {
-    #   enable = true;
-    #   group = "users";
-    # };
+    uwsm = {
+      enable = true;
+      waylandCompositors = {
+        mangowc = {
+          prettyName = "Mango";
+          comment = "Mango Compositor";
+          binPath = "/home/kev/.nix-profile/bin/mango";
+        };
+        niri-git = {
+          prettyName = "Niri Git";
+          comment = "Niri Compositor";
+          # binPath = "/run/current-system/sw/bin/niri";
+          binPath = "/home/kev/.nix-profile/bin/niri";
+        };
+      };
+    };
     waybar.enable = false;
   }; # End of programs
 }

@@ -16,3 +16,4 @@ alias n='niri --session'
 PS1='[\u@\h \W]\$ '
 
 # source /home/kev/.config/broot/launcher/bash/br
+source /home/kev/Code/cute/cute

@@ -141,9 +141,8 @@
           binPath = "/home/kev/.nix-profile/bin/mango";
         };
         niri-git = {
-          prettyName = "Niri Git";
+          prettyName = "Niri";
           comment = "Niri Compositor";
-          # binPath = "/run/current-system/sw/bin/niri";
           binPath = "/home/kev/.nix-profile/bin/niri";
         };
       };

@@ -27,6 +27,7 @@ binds {
     Mod+d                 { spawn-sh "noctalia-shell ipc call notifications dismissAll"; }
     Mod+b                 { spawn-sh "noctalia-shell ipc call bar toggle"; }
     Mod+t                 { spawn-sh "noctalia-shell ipc call plugin:timer toggle"; }
+    Mod+w                 { spawn-sh "noctalia-shell ipc call calendar toggle"; }
     Mod+Shift+t           { spawn-sh "noctalia-shell ipc call plugin:timer reset"; }
     // Mod+e                 { spawn "emoji-picker"; }
     Mod+e                 { spawn-sh "noctalia-shell ipc call launcher emoji"; }
@@ -119,7 +120,7 @@ binds {
 
 // Resize {{{1
     Mod+R                 { switch-preset-column-width; }
-    Mod+W                 { toggle-column-tabbed-display; }
+    // Mod+W                 { toggle-column-tabbed-display; }
     Mod+Backspace         { maximize-column; }
     Mod+Shift+Backspace   { maximize-window-to-edges; }
     Mod+Backslash         { center-visible-columns; }

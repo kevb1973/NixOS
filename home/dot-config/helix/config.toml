@@ -1,4 +1,4 @@
-theme = "base16_default"
+theme = "ayu_dark"
 
 # dark = "ayu_dark"
 # light = "ayu_light"
@@ -75,7 +75,7 @@ r = ":recentf-open-files"
 "." = ":show-directory"
 "=" = ":format"
 1 = ":reload"
-F = "file_picker_in_current_buffer_directory"
+F = "file_picker_in_current_directory"
 
 [keys.normal]
 V = ["goto_first_nonwhitespace", "extend_to_line_end"]

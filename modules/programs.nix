@@ -145,6 +145,11 @@
           comment = "Niri Compositor";
           binPath = "/home/kev/.nix-profile/bin/niri";
         };
+        hyprland-git = {
+          prettyName = "Hyprland";
+          comment = "Hyprland Compositor";
+          binPath = "/home/kev/.nix-profile/bin/start-hyprland";
+        };
       };
     };
     waybar.enable = false;

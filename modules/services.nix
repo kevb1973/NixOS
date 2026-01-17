@@ -38,7 +38,7 @@
       # autoLogin.user = "kev";
       # gdm.enable = true;
       lemurs = {
-        enable = false;
+        enable = true;
         settings = {
           username_field = {
             remember = true;
@@ -69,7 +69,7 @@
         };
       };
       sddm = {
-        enable = true;
+        enable = false;
         autoNumlock = true;
         theme = "catppuccin-mocha-lavender";
         extraPackages = with pkgs; [
@@ -136,22 +136,13 @@
 
     };
 
-    rss-bridge = {
-      enable = false;
-      virtualHost = "localhost";
-      config = {
-        system.enabled_bridges = [ "*" ];
-        authentication = {
-          token = "rss-bridge";
-        };
-      };
-    };
     nginx.virtualHosts."localhost".listen = [
       {
         addr = "0.0.0.0";
         port = 3001;
       }
     ];
+
     udev.extraRules = ''
       KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
     ''; # add user perms to uinput for ydotool

@@ -1,0 +1,23 @@
+// Noctalia binds
+binds {
+
+    Mod+KP_Enter          { spawn-sh "noctalia-shell ipc call launcher toggle"; }
+    Mod+P                 { spawn-sh "noctalia-shell ipc call wallpaper toggle"; }
+    Mod+c                 { spawn-sh "noctalia-shell ipc call launcher clipboard"; }
+    Mod+a                 { spawn-sh "noctalia-shell ipc call notifications toggleHistory"; }
+    Mod+Shift+a           { spawn-sh "noctalia-shell ipc call notifications removeOldestHistory"; }
+    Mod+Control+Shift+a   { spawn-sh "noctalia-shell ipc call notifications clear"; }
+    Mod+d                 { spawn-sh "noctalia-shell ipc call notifications dismissAll"; }
+    Mod+b                 { spawn-sh "noctalia-shell ipc call bar toggle"; }
+    Mod+t                 { spawn-sh "noctalia-shell ipc call plugin:timer toggle"; }
+    Mod+w                 { spawn-sh "noctalia-shell ipc call calendar toggle"; }
+    Mod+Shift+t           { spawn-sh "noctalia-shell ipc call plugin:timer reset"; }
+    Mod+e                 { spawn-sh "noctalia-shell ipc call launcher emoji"; }
+    XF86AudioRaiseVolume  { spawn-sh "noctalia-shell ipc call volume increase"; }
+    XF86AudioLowerVolume  { spawn-sh "noctalia-shell ipc call volume decrease"; }
+    XF86AudioMute         { spawn-sh "noctalia-shell ipc call volume muteOutput"; }
+    Mod+Alt+Up            { spawn-sh "noctalia-shell ipc call volume increase 1"; }
+    Mod+Alt+Down          { spawn-sh "noctalia-shell ipc call volume decrease 1"; }
+    Mod+Alt+m             { spawn-sh "noctalia-shell ipc call volume muteOutput"; }
+    Mod+q                 { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
+}

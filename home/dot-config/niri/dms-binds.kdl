@@ -1,0 +1,18 @@
+// DMS binds
+binds {
+
+    Mod+KP_Enter          { spawn-sh "dms ipc spotlight toggle"; }
+    Mod+P                 { spawn-sh "dms ipc call dankdash wallpaper"; }
+    Mod+c                 { spawn-sh "dms ipc call cipboard toggle"; }
+    Mod+a                 { spawn-sh "dms ipc notifications toggle"; }
+    Mod+Shift+a           { spawn-sh "dms ipc notifications dismissAllPopups"; }
+    Mod+Control+Shift+a   { spawn-sh "dms ipc notifications clearAll"; }
+    Mod+b                 { spawn-sh "dms ipc bar toggle"; }
+    // Mod+w                 { spawn-sh "noctalia-shell ipc call calendar toggle"; }
+    // Mod+Shift+t           { spawn-sh "noctalia-shell ipc call plugin:timer reset"; }
+    Mod+e                 { spawn-sh "emoji-picker"; }
+    XF86AudioRaiseVolume  { spawn-sh "dms ipc audio increment 1"; }
+    XF86AudioLowerVolume  { spawn-sh "dms ipc audio decrement 1"; }
+    XF86AudioMute         { spawn-sh "dms ipc audio mute"; }
+    Mod+q                 { spawn-sh "dms ipc call powermenu toggle"; }
+}

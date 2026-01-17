@@ -93,6 +93,8 @@ apps=(
     "shell - home: uwsm-app -- kitty --detach --hold"
     "shell - nixos: uwsm-app -- kitty --detach --hold -d ~/NixOS"
     "shell - temp: uwsm-app -- kitty --detach --hold -d ~/Temp"
+    "styles - GAW(light): uwsm-app -- kitty hx ~/Code/userstyles/gaw-light.user.css"
+    "styles - GAW(dark): uwsm-app -- kitty hx ~/Code/userstyles/gaw-dark.user.css"
     "util - check nixpkgs pr merge: uwsm-app -- kitty --detach --app-id floater fish -c checkpr"
     "util - color picker (hex/rgb):niri-pick-color"
     "util - color picker (hex with zoom):hyprpicker -f hex -a"

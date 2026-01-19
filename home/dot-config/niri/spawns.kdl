@@ -1,7 +1,7 @@
 // Spawns
 
 // spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=$XDG_CURRENT_DESKTOP"
-spawn-sh-at-startup "wl-paste --watch cliphist store"
+// spawn-sh-at-startup "wl-paste --watch cliphist store"
 spawn-sh-at-startup "start_servers"
 // spawn-sh-at-startup "copyq"
 spawn-sh-at-startup "playerctld daemon"
@@ -10,4 +10,5 @@ spawn-sh-at-startup "playerctld daemon"
 // spawn-sh-at-startup "ssh-add"
 // spawn-sh-at-startup "uwsm finalize XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP"
 // spawn-sh-at-startup "noctalia-shell"
+spawn-sh-at-startup "dms run"
 spawn-sh-at-startup "zen"

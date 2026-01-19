@@ -102,7 +102,6 @@ binds {
 
 // Resize {{{1
     Mod+R                 { switch-preset-column-width; }
-    // Mod+W                 { toggle-column-tabbed-display; }
     Mod+Backspace         { maximize-column; }
     Mod+Shift+Backspace   { maximize-window-to-edges; }
     Mod+Backslash         { center-visible-columns; }
@@ -114,7 +113,7 @@ binds {
 
 // Miscellaneous Binds {{{1
     Mod+s                 { screenshot; }
-    Mod3+s                { spawn "toggle-system-theme"; }
+    Mod3+s                { spawn-sh "fish -c system-theme-toggle"; }
     Mod+Shift+s           { spawn-sh "hyprshot -m region -s -r --clipboard-only | satty -f -"; }
     // Mod+Shift+Slash       { show-hotkey-overlay; }
     Mod+KP_Divide         { power-off-monitors; }

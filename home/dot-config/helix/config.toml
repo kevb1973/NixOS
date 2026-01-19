@@ -38,7 +38,7 @@ select = "underline"
 [editor.file-picker]
 hidden = false
 follow-symlinks = true
-max-depth = 4
+max-depth = 6
 
 [editor.gutters]
 layout = ["diff", "diagnostics", "line-numbers", "spacer", "spacer"]

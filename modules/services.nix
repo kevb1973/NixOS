@@ -3,7 +3,7 @@
   services = {
     accounts-daemon.enable = true;
     avahi.enable = true;
-    blueman.enable = false; # wifi/bluetooth card stopped working..TODO: need to investigate.
+    blueman.enable = false; 
     dbus.enable = true;
     envfs.enable = true; # fixes script shebangs looking in /usr/bin /bin etc.
     flatpak.enable = true;
@@ -23,8 +23,6 @@
       enable = true; # 'at' daemon for reminders
       allowEveryone = true;
     };
-
-    bpftune.enable = false; # Auto tune kernel/network (disable due to net issues)
 
     desktopManager = {
       cosmic.enable = false;
@@ -94,15 +92,6 @@
       # autologinUser = "kev";
     };
 
-    greetd = {
-      enable = false;
-      settings = {
-        default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --greeting 'Welcome to NixOS' --remember --remember-user-session --time --theme border=cyan;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red --cmd niri-session";
-        };
-      };
-    };
-
     miniflux = {
       enable = true;
       adminCredentialsFile = "/etc/nixos/miniflux-admin-credentials";
@@ -115,25 +104,6 @@
       alsa.support32Bit = true;
       pulse.enable = true;
       jack.enable = false;
-    };
-
-    # silverbullet = { # switched to docker version for faster updates
-    #   enable = true;
-    #   user = "kev";
-    #   openFirewall = true;
-    #   listenAddress = "localhost";
-    #   listenPort = 8082;
-    # };
-
-    ollama = {
-      enable = false;
-      package = pkgs.ollama-rocm;
-      rocmOverrideGfx = "10.3.0";
-      environmentVariables = {
-        HIP_VISIBLE_DEVICES = "1";
-        ROCR_VISIBLE_DEVICES = "0";
-      };
-
     };
 
     nginx.virtualHosts."localhost".listen = [
@@ -156,7 +126,7 @@
       desktopManager.xfce.enable = false;
       deviceSection = ''Option "TearFree" "true"'';
       displayManager = {
-        startx.enable = true; # console login
+        startx.enable = false; # console login
       };
       #updateDbusEnvironment = true;
     };

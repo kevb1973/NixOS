@@ -140,11 +140,6 @@
           comment = "Mango Compositor";
           binPath = "/home/kev/.nix-profile/bin/mango";
         };
-        niri-git = {
-          prettyName = "Niri";
-          comment = "Niri Compositor";
-          binPath = "/home/kev/.nix-profile/bin/niri";
-        };
         hyprland-git = {
           prettyName = "Hyprland";
           comment = "Hyprland Compositor";

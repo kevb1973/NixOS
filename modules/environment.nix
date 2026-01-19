@@ -65,8 +65,6 @@
       gsettings-desktop-schemas
       libcxxStdenv # Needed to build binaries for tree-sitter
       lua-language-server
-      # mfcl2700dnlpr # Remove for now.. too many issues.
-      # mfcl2700dncupswrapper # See above
       neovim
       nixfmt
       nodePackages.bash-language-server

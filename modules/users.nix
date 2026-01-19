@@ -52,7 +52,7 @@
         diff-so-fancy
         distrobox
         distrobox-tui
-        dms-shell # DankMaterialShell - only using dms bin.. following git for shell config
+        # dms-shell # DankMaterialShell - only using dms bin.. following git for shell config
         dust # quick dir size for 'sys' script
         emacs-pgtk
         fd

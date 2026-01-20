@@ -5,7 +5,7 @@ binds {
     Mod+p                 { spawn-sh "dms ipc call dankdash wallpaper"; }
     Mod+c                 { spawn-sh "dms ipc call clipboard toggle"; }
     Mod+a                 { spawn-sh "dms ipc call notifications toggle"; }
-    Mod+Shift+a           { spawn-sh "dms ipc call notifications dismissAllPopups"; }
+    Mod+d                 { spawn-sh "dms ipc call notifications dismissAllPopups"; }
     Mod+b                 { spawn-sh "dms ipc call bar toggle"; }
     Mod+W                 { spawn-sh "dms ipc call dash toggle weather"; }
     Mod+m                 { spawn-sh "dms ipc call dash toggle media"; }

@@ -35,7 +35,7 @@ window-rule {
 // newsboat                             {{{1
 window-rule {
     match app-id="newsboat"
-    default-column-width { proportion 0.62; }
+    default-column-width { proportion 0.4; }
     open-focused true
 }
 // qalculate                                  {{{1

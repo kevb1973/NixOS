@@ -18,7 +18,7 @@ binds {
     F10                   { spawn-sh "wlrctl pointer move 2560 -1440"; }
     // Mod+c                 { spawn-sh "copyq toggle"; }
     Mod+Shift+c           { spawn-sh "cliphist wipe"; }
-    // Mod+e                 { spawn "emoji-picker"; }
+    Mod+e                 { spawn "emoji-picker"; }
     Mod3+Tab              { spawn-sh "wl-kbptr -o modes=floating -o mode_floating.source=detect"; }
     Mod3+A                { spawn-sh "wl-kbptr -o modes=floating,click -o mode_floating.source=detect && wlrctl pointer move 2560 -1440"; }
     Mod+Shift+z           { spawn-sh "kitty --detach --app-id floater cute_launcher.sh"; }

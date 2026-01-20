@@ -13,3 +13,5 @@ reload-time 10
 show-read-articles no
 show-read-feeds no
 urls-source "miniflux"
+articlelist-format "%2i %D %t"
+feedlist-format "%2n %11u %t"

@@ -34,14 +34,14 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
     { run = 'kitten @ launch --type=tab treemd %s', desc = "View with treemd", block = true, for = "linux" }
   ]
   edit = [
-  	{ run = 'kitten @ launch --type=tab hx %s', desc = "$EDITOR", block = true, for = "unix" }
+  	{ run = 'kitten @ launch --type=tab hx %s', desc = "Edit with Helix", block = true, for = "unix" }
   ]
   open = [
   	{ run = "xdg-open %s", desc = "Open" },
   ]
 [open]
 prepend_rules = [
-  { url = "*.md", use = "markdown" },
+  { url = "*.md", use = ["markdown", "edit"] },
 ]
 append_rules = [
   { url = "*", use = "open" },

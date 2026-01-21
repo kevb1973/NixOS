@@ -42,7 +42,7 @@
     # mango.enable = true;
 
     niri = {
-      enable = true;
+      enable = false;
       # package = inputs.niri.packages.${pkgs.system}.default;
     };
 
@@ -133,7 +133,7 @@
     # };
 
     uwsm = {
-      enable = true;
+      enable = false;
       waylandCompositors = {
         mangowc = {
           prettyName = "Mango";

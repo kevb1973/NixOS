@@ -4,6 +4,22 @@
     pathsToLink = [ "/libexec" ]; # enable polkit
     etc = {
       "nix/inputs/nixpkgs".source = "${inputs.nixpkgs}"; # needed to fix <nixpkgs> on flake. See also nix.nixPath
+      # If needed.. git verion niri bin: /home/kev/.nix-profile/bin/niri
+      "lemurs/wayland/Niri-git" = {
+        mode = "755";
+        text = ''
+          #!/usr/bin/env sh
+          exec niri --session
+        '';
+      };
+      "lemurs/wayland/Mango-git" = {
+        mode = "755";
+        text = ''
+          #!/usr/bin/env sh
+          exec mango
+        '';
+      };
+
     };
     sessionVariables = {
       # HSA_OVERRIDE_GFX_VERSION="10.3.0";

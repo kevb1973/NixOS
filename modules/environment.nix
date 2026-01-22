@@ -9,7 +9,7 @@
         mode = "755";
         text = ''
           #!/usr/bin/env sh
-          exec niri --session
+          exec niri-session
         '';
       };
       "lemurs/wayland/Mango-git" = {

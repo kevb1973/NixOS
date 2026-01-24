@@ -9,4 +9,4 @@
 BEMOJI_PICKER_CMD="fuzzel -d --config ~/.config/fuzzel/fuzzel.ini --font='Noto Emoji:size=20'" bemoji -c -n
 # Paste the copied emoji using ctrl-v. Having bemoji type emoji directly results in empty square box, like a missing glyph.
 
-wtype -M ctrl -P v -p v -m ctrl
+ydotool key 29:1 47:1 47:0 29:0

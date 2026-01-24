@@ -70,7 +70,7 @@
         gum # Script enhancer - use for remind_tui
         hydra-check # check build status.. hydra-check --channel unstable <pkg>
         hyprpicker # Simple color picker with zoom and hex preview
-        hyprshot # Wayland screenshots
+        # hyprshot # Wayland screenshots (removed as pulling in hyprland!)
         serpl # Neat tui find/replace in project
         systemctl-tui # Manage systemd units
         jq
@@ -161,6 +161,7 @@
         xwayland-satellite # for Niri
         yaml-language-server
         yazi
+        ydotool # Using to autopaste emojis (bemoji)
         yt-dlp
         zoxide
         (mpv.override {

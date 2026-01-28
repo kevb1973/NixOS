@@ -29,6 +29,7 @@ alias referrer="nix-store --query --referrers"
 alias repair-store="sudo nix-store --verify --check-contents --repair"
 alias rev="nixos-version --hash | cut -c 1-7"
 alias sam_ssh="kitten ssh sam@10.0.0.4"
+alias sam_suspend="ssh -t sam@10.0.0.4 'sudo systemctl suspend'" # may need to switch to double quotes around cmd..
 alias sct="systemctl-tui"
 alias sg="nixos-rebuild list-generations"
 alias storebin="nix-store -q --roots (which $argv)"

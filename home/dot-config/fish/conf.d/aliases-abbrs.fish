@@ -59,7 +59,7 @@ abbr -a -- scu 'systemctl --user'
 abbr -a --set-cursor='%' -- snn "nix-search -d -r --name '%'"
 abbr -a --set-cursor='%' -- snp "nix-search -d -r --program '%'"
 abbr -a --set-cursor='%' -- snd "nix-search -d -r --query-string='package_description:('%')'"
-abbr -a --set-cursor='%' -- ytm 'yt-dlp -x --audio-format mp3 --audio-quality 320k %'
+abbr -a --set-cursor='%' -- ytm 'yt-dlp --add-metadata -x --audio-format mp3 --audio-quality 320k %'
 abbr -a --set-cursor='%' -- ytv "ytd-video %"
 abbr -a -- ls lsd
 abbr -a -- ll 'lsd -l'

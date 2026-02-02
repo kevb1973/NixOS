@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 # Had to put this in a script as I couldn't figure out how to escape the <= in nix.
-yt-dlp -v -f "bv*[height<=1440]+ba*[ext=m4a]" -N 4 $1
+yt-dlp --add-metadata -v -f "bv*[height<=1440]+ba*[ext=m4a]" -N 4 $1

@@ -39,6 +39,7 @@
         boxbuddy
         cacert
         # calibre # BROKEN again. Switched to flatpak
+        cantata # GUI MPD client
         cargo
         cava # Terminal audio visualizer
         cliphist # Clipboard manager (for DankMaterialShell)

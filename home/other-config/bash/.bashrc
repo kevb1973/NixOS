@@ -14,6 +14,3 @@ alias h='Hyprland'
 alias rb='pushd ~/NixOS && sudo nixos-rebuild switch --flake .# && /home/kev/bin/sysdiff && popd'
 alias n='niri --session'
 PS1='[\u@\h \W]\$ '
-
-# source /home/kev/.config/broot/launcher/bash/br
-source /home/kev/Code/cute/cute

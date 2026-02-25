@@ -80,7 +80,7 @@
         kdePackages.qt6ct
         kdePackages.qtmultimedia
         kdePackages.qtstyleplugin-kvantum
-        khal # Local Calendar used by DankMaterialShell
+        # khal # Local Calendar used by DMS [Broken:Feb 24]
         kitty
         kitty-themes
         lazyjournal # tui for logs

@@ -23,6 +23,7 @@
   system.stateVersion = "22.11"; # Don't change unless fresh install from new ISO
 
   documentation.man = {
+    # cache.enable = false; # override fish enabling this and slowing build
     man-db.enable = false;
     mandoc.enable = true;
     generateCaches = false; # override fish enabling this and slowing build

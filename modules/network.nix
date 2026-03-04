@@ -1,7 +1,7 @@
 _:
 {
   networking = {
-    dhcpcd.enable = false; # Disable for networkd
+    # dhcpcd.enable = false; # Disable for networkd
     hostName = "halcyon";
     # nameservers = [ "9.9.9.9" "2620:fe::fe" ];
     # dhcpcd.extraConfig = "nohook resolv.conf";
@@ -10,14 +10,14 @@ _:
       allowedUDPPorts = [ 5353 11434 36475 53317 ];
       interfaces."podman+".allowedUDPPorts = [ 53 ];
     };
-    useNetworkd = true;
-    wireless = {
-      enable = true; # Enables wireless support via wpa_supplicant.
-      userControlled = true;
-    };
-    # networkmanager = {
-    #   enable = true;
-    #   # dns = "none";
+    # useNetworkd = true;
+    # wireless = {
+    #   enable = true; # Enables wireless support via wpa_supplicant.
+    #   userControlled = true;
     # };
+    networkmanager = {
+      enable = true;
+    #   # dns = "none";
+    };
   };
 }

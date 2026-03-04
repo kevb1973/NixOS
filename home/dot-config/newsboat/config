@@ -1,6 +1,7 @@
 bind <RIGHT> feedlist,articlelist open
 bind <RIGHT> article open-in-browser
 bind <LEFT> everywhere quit
+bind a articlelist mark-all-above-as-read -- "Mark all above as read"
 browser "zen --new-tab %u"
 cleanup-on-quit yes
 confirm-mark-feed-read no

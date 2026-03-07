@@ -99,11 +99,11 @@
         mpv-shim-default-shaders
         nautilus
         ncpamixer
-        neovide
         nettools
         newsboat
         nh # nix helper
         nil # for zed-editor
+        nix-search-cli
         nix-search-tv # Search nixos/home-manager options + nixpkgs/nur with 'television'
         nix-tree
         nixd

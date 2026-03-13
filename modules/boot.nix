@@ -36,6 +36,7 @@
       "iommu=pt"
       "preempt=full" # suggested to avoid audio cracks/noises
       "systemd.mask=dev-tpmrm0.device"
+      "usbcore.autosuspend=-1"
     ];
     consoleLogLevel = 3; 
     

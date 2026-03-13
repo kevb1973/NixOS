@@ -139,10 +139,3 @@ limit = 0
 
 [graph]
   batch_size = 50
-
-
-[custom_commands]
-# Can't get file edit to work!
-# "edit file" = { key = ["ctrl+e"], desc = "Edit File", args = ["util","exec","--","kitty","@","launch","--type=tab","hx","$PWD/$file"] }
-"show all" = { revset = "all()" }
-"show default" = { revset = "present(@) | ancestors(immutable_heads().., 2) | present(trunk())" }

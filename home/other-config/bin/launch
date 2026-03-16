@@ -106,6 +106,7 @@ apps=(
     "util - stopwatch: kitty --app-id panel-unfocused -o font_size=9 clock-rs stopwatch"
     "util - set timer: kitty --detach --app-id panel-focused -o font_size=9 set_timer"
     "util - suspend sam's pc: kitty --detach --app-id floater ssh -t sam@10.0.0.4 'sudo systemctl suspend'"
+    "util - toggle system dark theme: toggle-system-theme"
     "util - tv env: kitty tv env"
     "util - kill process: kitty pik"
     "wifi - enable radio:rfkill unblock 1"

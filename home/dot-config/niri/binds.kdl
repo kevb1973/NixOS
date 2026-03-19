@@ -114,7 +114,7 @@ binds {
 
 // Miscellaneous Binds {{{1
     Mod+s                 { screenshot; }
-    // Mod3+s                { spawn-sh "fish -c system-theme-toggle"; }
+    Mod3+Shift+s          { spawn-sh "fish -c system-theme-toggle"; }
     Mod+Shift+s           { spawn-sh "hyprshot -m region -s -r --clipboard-only | satty -f -"; }
     // Mod+Shift+Slash       { show-hotkey-overlay; }
     Mod+KP_Divide         { power-off-monitors; }

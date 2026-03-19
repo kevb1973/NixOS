@@ -48,7 +48,7 @@ apps=(
     "DMS - restart:dms kill; dms run"
     "DMS - start:niri msg action spawn-sh -- 'dms run'"
     "DMS - stop:dms kill"
-    "noctalia - restart:pkill quickshell; noctalia-shell"
+    "noctalia - restart:pkill quickshell; sleep 2; noctalia-shell"
     "noctalia - start:noctalia-shell"
     "noctalia - stop:pkill quickshell"
     "Helix - bin: kitty hx -w ~/.local.bin ~/.local/bin"

@@ -88,6 +88,7 @@ in
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = true;
     };
+    gtk4.theme = config.gtk.theme; # Needed since stateVersion < 26.05.
   };
 
   qt.enable = true;

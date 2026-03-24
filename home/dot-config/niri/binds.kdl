@@ -19,10 +19,10 @@ binds {
     // Mod+c                 { spawn-sh "copyq toggle"; }
     Mod+Shift+c           { spawn-sh "cliphist wipe"; }
     Mod+e                 { spawn "emoji-picker"; }
+    Mod+m                 { spawn "open-link-mpv"; }
     Mod3+Tab              { spawn-sh "wl-kbptr -o modes=floating -o mode_floating.source=detect"; }
     Mod3+A                { spawn-sh "wl-kbptr -o modes=floating,click -o mode_floating.source=detect && wlrctl pointer move 2560 -1440"; }
     Mod3+S                { spawn-sh "wl-kbptr -o modes=floating,click -o mode_floating.source=detect -o mode_click.button=right"; }
-    Mod+Shift+z           { spawn-sh "kitty --detach --app-id floater cute_launcher.sh"; }
 
 // Media {{{1
   // PC Volume {{{2

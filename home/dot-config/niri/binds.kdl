@@ -9,7 +9,7 @@ binds {
     Mod+N                 { spawn-sh "kitty --app-id='remind-tui' ~/.local/bin/remind_tui"; }
     // Mod+Shift+N           { spawn-sh "dms ipc notepad toggle"; }
     Mod+Z                 { spawn-sh "toggle_launch"; }
-    Mod+grave             { spawn-sh "kitten quick-access-terminal --instance-group kitty"; }
+    Mod+grave             { spawn-sh "kitten quick-access-terminal --instance-group kitty zellij"; }
     Mod+KP_End            { spawn-sh "kitten quick-access-terminal --instance-group jjui jjui ~/NixOS"; }
     Mod+KP_Down           { spawn-sh "toggle_newsboat"; }
     Mod+KP_Next           { spawn-sh "kitten quick-access-terminal --instance-group rmpc rmpc"; }

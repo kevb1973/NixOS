@@ -52,6 +52,7 @@
         distrobox
         dust # quick dir size for 'sys' script
         emacs-pgtk
+        fastfetch # System info for Noctalia-Shell
         fd
         ffmpeg
         file
@@ -69,11 +70,14 @@
         gnome-themes-extra
         grc # generic text colourizer. Using with fishPlugins.grc
         gum # Script enhancer - use for remind_tui
+        helix # Modal Editor
         hydra-check # check build status.. hydra-check --channel unstable <pkg>
         hyprpicker # Simple color picker with zoom and hex preview
         # hyprshot # Wayland screenshots (removed as pulling in hyprland!)
+        seahorse # GUI for system passwords
         serpl # Neat tui find/replace in project
         systemctl-tui # Manage systemd units
+        jjui # GUI for Jujutsu
         jq
         jujutsu
         kdePackages.polkit-kde-agent-1
@@ -164,6 +168,7 @@
         yazi
         ydotool # Using to autopaste emojis (bemoji)
         yt-dlp
+        zellij # Terminal multiplexer
         zoxide
         (mpv.override {
           scripts = [

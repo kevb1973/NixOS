@@ -48,7 +48,7 @@ in
       tray = "auto";
     };
     wlsunset = {
-      enable = true;
+      enable = false;
       latitude = 43.7;
       longitude = -79.4;
       temperature = {

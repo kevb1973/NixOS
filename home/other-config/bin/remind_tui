@@ -7,6 +7,7 @@
 TITLE="$1"
 MESSAGE="$2"
 URL="$3"
+if [ -z "$TITLE" ]; then TITLE="Reminder"; fi
 set -e # exit on any non-zero exit code (catch ctrl-c in gum which returns 130)
 clear
 gum style --border double --align center --width 50 --margin "1 2" 'Create a Reminder' 'ctrl-c to quit'

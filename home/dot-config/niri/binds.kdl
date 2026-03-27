@@ -10,9 +10,9 @@ binds {
     // Mod+Shift+N           { spawn-sh "dms ipc notepad toggle"; }
     Mod+Z                 { spawn-sh "toggle_launch"; }
     Mod+grave             { spawn-sh "kitten quick-access-terminal --instance-group kitty zellij"; }
-    Mod+KP_End            { spawn-sh "kitten quick-access-terminal --instance-group jjui jjui ~/NixOS"; }
-    Mod+KP_Down           { spawn-sh "toggle_newsboat"; }
-    Mod+KP_Next           { spawn-sh "kitten quick-access-terminal --instance-group rmpc rmpc"; }
+    // Mod+KP_End            { spawn-sh "kitten quick-access-terminal --instance-group jjui jjui ~/NixOS"; }
+    // Mod+KP_Down           { spawn-sh "toggle_newsboat"; }
+    // Mod+KP_Next           { spawn-sh "kitten quick-access-terminal --instance-group rmpc rmpc"; }
 
 // Utilities {{{1
     F10                   { spawn-sh "wlrctl pointer move 2560 -1440"; }
@@ -20,9 +20,9 @@ binds {
     Mod+Shift+c           { spawn-sh "cliphist wipe"; }
     Mod+e                 { spawn "emoji-picker"; }
     Mod+m                 { spawn "open-link-mpv"; }
-    Mod3+Tab              { spawn-sh "wl-kbptr -o modes=floating -o mode_floating.source=detect"; }
+    Mod3+S                { spawn-sh "wl-kbptr -o modes=floating -o mode_floating.source=detect"; }
     Mod3+A                { spawn-sh "wl-kbptr -o modes=floating,click -o mode_floating.source=detect && wlrctl pointer move 2560 -1440"; }
-    Mod3+S                { spawn-sh "wl-kbptr -o modes=floating,click -o mode_floating.source=detect -o mode_click.button=right"; }
+    Mod3+Tab              { spawn-sh "wl-kbptr -o modes=floating,click -o mode_floating.source=detect -o mode_click.button=right"; }
 
 // Media {{{1
   // PC Volume {{{2

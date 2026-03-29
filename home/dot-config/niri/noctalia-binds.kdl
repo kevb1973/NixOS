@@ -15,6 +15,7 @@ binds {
     Mod+Control+t         { spawn-sh "noctalia-shell ipc call plugin:timer start stopwatch"; }
     Mod+w                 { spawn-sh "noctalia-shell ipc call calendar toggle"; }
     Mod+e                 { spawn-sh "noctalia-shell ipc call launcher emoji"; }
+    Mod+m                 { spawn-sh "noctalia-shell ipc call media toggle"; }
     XF86AudioRaiseVolume  { spawn-sh "noctalia-shell ipc call volume increase"; }
     XF86AudioLowerVolume  { spawn-sh "noctalia-shell ipc call volume decrease"; }
     XF86AudioMute         { spawn-sh "noctalia-shell ipc call volume muteOutput"; }

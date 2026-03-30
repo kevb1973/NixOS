@@ -1,12 +1,26 @@
 keybinds clear-defaults=true {
     locked {
-        bind "Ctrl g" { SwitchToMode "normal"; }
-        bind "Ctrl Space" {
+        bind "Ctrl /" { SwitchToMode "normal"; }
+        bind "Alt Space" {
             LaunchOrFocusPlugin "file:~/.config/zellij/plugins/room.wasm" {
                 floating true
                 ignore_case true
                 quick_jump true
             }
+        }
+        bind "Alt Up" {
+            Run "yazi" {
+                in_place true
+                close_on_exit true
+            };
+            SwitchToMode "locked";        
+        }
+        bind "Alt Down" {
+            Run "hx" {
+                in_place true
+                close_on_exit true
+            };
+            SwitchToMode "locked";        
         }
     }
     pane {
@@ -35,6 +49,19 @@ keybinds clear-defaults=true {
     normal {
         bind "Alt left" { MoveTab "left"; }
         bind "Alt right" { MoveTab "right"; }
+        bind "f" {
+            LaunchPlugin "filepicker" {
+                close_on_selection true
+            };
+            SwitchToMode "locked";
+        }
+        bind "j" {
+            Run "jjui" {
+                in_place true
+                close_on_exit true
+            };
+            SwitchToMode "locked";        
+        }
     }
     tab {
         bind "left" { GoToPreviousTab; }
@@ -165,7 +192,6 @@ keybinds clear-defaults=true {
         bind "Alt =" { Resize "Increase"; }
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
-        bind "Alt f" { ToggleFloatingPanes; }
         bind "Alt h" { MoveFocusOrTab "left"; }
         bind "Alt i" { MoveTab "left"; }
         bind "Alt j" { MoveFocus "down"; }

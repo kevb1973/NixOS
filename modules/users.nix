@@ -36,9 +36,9 @@
         bat
         bemoji
         bluetuith
-        boxbuddy
+        btrfs-progs
         cacert
-        # calibre # BROKEN again. Switched to flatpak
+        calibre 
         cantata # GUI MPD client
         cargo
         cava # Terminal audio visualizer
@@ -48,7 +48,6 @@
         cotp # CLI OTP/2FA code provider - only use for bitwarden which manages all the rest
         ddcutil # Adjust monitor brightness and other settings from cli
         dgop # System Info for DankMaterialShell
-        diff-so-fancy
         distrobox
         dust # quick dir size for 'sys' script
         emacs-pgtk
@@ -108,11 +107,8 @@
         nh # nix helper
         nil # for zed-editor
         nix-search-cli
-        nix-search-tv # Search nixos/home-manager options + nixpkgs/nur with 'television'
         nix-tree
         nixd
-        nodePackages.prettier
-        nodejs # Need for Neovim Mason
         nushell # cuz its cool (and easier than jq)
         nvd # Nix derivation diff tool
         nvtopPackages.amd # htop for video cards
@@ -130,14 +126,12 @@
         ripgrep
         rmpc # nice alternative to ncmpcpp
         satty # Screenshot Editor
-        shellcheck # Needed for doom emacs
+        shellcheck 
         shfmt # bash code formatter
         sioyek # nice pdf viewer
         snore # sleep, with feedback
         spotify
         spotify-player
-        statix # Lints and suggestions for nix. Need for lazyvim.
-        swww # wallpaper setter for matugen
         tealdeer # Command line help 'tldr'
         television # Similar to fzf. Using with nix-search-tv
         tombi # Newer TOML LS
@@ -160,7 +154,6 @@
         wl-kbptr # click via keyboard (like vimium for niri)
         wlogout
         wlrctl # alternate to dotool (move mouse off screen)
-        wlr-which-key
         wtype # For wofi-emoji or walker
         xdg-user-dirs
         xwayland-satellite # for Niri

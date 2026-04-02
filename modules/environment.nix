@@ -83,7 +83,6 @@
       lua-language-server
       neovim
       nixfmt
-      nodePackages.bash-language-server
       pciutils
       pulseaudioFull
       # rocmPackages.clr

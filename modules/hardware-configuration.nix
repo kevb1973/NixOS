@@ -26,6 +26,11 @@
     { device = "/dev/disk/by-uuid/0276-884F";
       fsType = "vfat";
     };
+   fileSystems."/home/kev" = {
+     device = "/dev/disk/by-uuid/3db3c7a6-68cf-4cf5-9461-010c3e787979";
+     fsType = "btrfs";
+     options = [ "compress=zstd" "noatime" ];
+   }; 
 
   swapDevices = [ ];
 

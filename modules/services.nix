@@ -3,7 +3,7 @@
   services = {
     accounts-daemon.enable = true;
     avahi.enable = true;
-    blueman.enable = false; 
+    blueman.enable = false;
     dbus.enable = true;
     envfs.enable = true; # fixes script shebangs looking in /usr/bin /bin etc.
     flatpak.enable = true;
@@ -22,6 +22,12 @@
     atd = {
       enable = true; # 'at' daemon for reminders
       allowEveryone = true;
+    };
+
+    btrfs.autoScrub = {
+      enable = true;
+      interval = "monthly";
+      fileSystems = [ "/home/kev" ];
     };
 
     desktopManager = {
@@ -98,6 +104,13 @@
       config.LISTEN_ADDR = "localhost:3002";
     };
 
+    nginx.virtualHosts."localhost".listen = [
+      {
+        addr = "0.0.0.0";
+        port = 3001;
+      }
+    ];
+
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -106,12 +119,17 @@
       jack.enable = false;
     };
 
-    nginx.virtualHosts."localhost".listen = [
-      {
-        addr = "0.0.0.0";
-        port = 3001;
-      }
-    ];
+    smartd = {
+      enable = true;
+      devices = [
+        {
+          device = "/dev/nvme0";
+        }
+        {
+          device = "/dev/nvme1";
+        }
+      ];
+    };
 
     udev.extraRules = ''
       KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"

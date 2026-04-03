@@ -79,7 +79,7 @@
         jjui # GUI for Jujutsu
         jq
         jujutsu
-        kdePackages.polkit-kde-agent-1
+        # kdePackages.polkit-kde-agent-1
         kdePackages.qt6ct
         kdePackages.qtmultimedia
         kdePackages.qtstyleplugin-kvantum
@@ -119,6 +119,7 @@
         playerctl
         podman-compose
         podman-tui
+        polkit_gnome
         puddletag # Music tag editor
         python3
         qalculate-gtk

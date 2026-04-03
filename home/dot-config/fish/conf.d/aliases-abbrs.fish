@@ -3,7 +3,7 @@
 # =======
 
 # alias cat="bat" # this alias causes error. Fine if I put it in config.fish. ??
-alias edit-aliases="hx ~/NixOS/home/dots/fish/conf.d/aliases-abbrs.fish && source ~/NixOS/home/dots/fish/conf.d/aliases-abbrs.fish"
+alias edit-aliases="hx ~/NixOS/home/dot-config/fish/conf.d/aliases-abbrs.fish && source ~/NixOS/home/dots/fish/conf.d/aliases-abbrs.fish"
 alias conf="hx ~/NixOS/"
 alias dg="nh clean user"
 alias edit-broken="hx ~/bin/check_broken" # Edit list of currently broken packages

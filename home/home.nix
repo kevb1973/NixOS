@@ -91,7 +91,10 @@ in
     gtk4.theme = config.gtk.theme; # Needed since stateVersion < 26.05.
   };
 
-  qt.enable = true;
+  qt = {
+    enable = true;
+    platformTheme.name = "qtct";
+  };
 
   systemd.user.startServices = "sd-switch";
 

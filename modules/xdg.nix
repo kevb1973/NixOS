@@ -8,6 +8,7 @@
          # xdg-desktop-portal-wlr
          xdg-desktop-portal-gtk
          xdg-desktop-portal-gnome
+         kdePackages.xdg-desktop-portal-kde
        ];
     };
     mime = {

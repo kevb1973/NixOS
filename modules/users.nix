@@ -89,6 +89,7 @@
         lazyjournal # tui for logs
         libnotify
         libsForQt5.qtstyleplugin-kvantum
+        libsForQt5.qt5ct
         libtool # Needed for DMS
         llama-cpp-vulkan
         lsd

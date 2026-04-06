@@ -65,9 +65,11 @@ keybinds clear-defaults=true {
     }
     tab {
         bind "left" { GoToPreviousTab; }
+        bind "right" { GoToNextTab; }
+        bind "Alt left" { MoveTab "left";  }
+        bind "Alt right" { MoveTab "right";  }
         bind "down" { GoToNextTab; }
         bind "up" { GoToPreviousTab; }
-        bind "right" { GoToNextTab; }
         bind "1" { GoToTab 1; SwitchToMode "locked"; }
         bind "2" { GoToTab 2; SwitchToMode "locked"; }
         bind "3" { GoToTab 3; SwitchToMode "locked"; }
@@ -193,12 +195,12 @@ keybinds clear-defaults=true {
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt h" { MoveFocusOrTab "left"; }
-        bind "Alt i" { MoveTab "left"; }
+        // bind "Ctrl left" { MoveTab "left"; }
+        // bind "Ctrl right" { MoveTab "right"; }
         bind "Alt j" { MoveFocus "down"; }
         bind "Alt k" { MoveFocus "up"; }
         bind "Alt l" { MoveFocusOrTab "right"; }
         bind "Alt n" { NewPane; }
-        bind "Alt o" { MoveTab "right"; }
         bind "Alt p" { TogglePaneInGroup; }
         bind "Alt Shift p" { ToggleGroupMarking; }
     }

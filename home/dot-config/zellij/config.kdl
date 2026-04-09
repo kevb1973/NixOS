@@ -8,14 +8,14 @@ keybinds clear-defaults=true {
                 quick_jump true
             }
         }
-        bind "Alt Up" {
+        bind "Ctrl Alt Up" {
             Run "yazi" {
                 in_place true
                 close_on_exit true
             };
             SwitchToMode "locked";        
         }
-        bind "Alt Down" {
+        bind "Ctrl Alt Down" {
             Run "hx" {
                 in_place true
                 close_on_exit true
@@ -265,6 +265,13 @@ keybinds clear-defaults=true {
     }
 }
 
+// UI Settings
+ui {
+    pane_frames {
+        rounded_corners true
+    };
+}
+
 // Plugin aliases - can be used to change the implementation of Zellij
 // changing these requires a restart to take effect
 plugins {
@@ -303,7 +310,8 @@ web_client {
 // Choose the theme that is specified in the themes section.
 // Default: default
 // 
-theme "everforest-dark"
+// theme "everforest-dark"
+theme "iceberg-dark"
  
 // Choose the base input mode of zellij.
 // Default: normal

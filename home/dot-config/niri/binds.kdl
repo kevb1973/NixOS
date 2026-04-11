@@ -8,7 +8,8 @@ binds {
     Mod+KP_Multiply       { spawn-sh "toggle_calc"; }
     Mod+N                 { spawn-sh "kitty --app-id='remind-tui' ~/.local/bin/remind_tui"; }
     // Mod+Shift+N           { spawn-sh "dms ipc notepad toggle"; }
-    Mod+Z                 { spawn-sh "toggle_launch"; }
+    Mod+Shift+KP_Enter    { spawn-sh "toggle_launch"; }
+    Mod+Z                 { spawn-sh "vicinae toggle"; }
     Mod+grave             { spawn-sh "kitten quick-access-terminal --instance-group kitty zellij"; }
     // Mod+KP_End            { spawn-sh "kitten quick-access-terminal --instance-group jjui jjui ~/NixOS"; }
     // Mod+KP_Down           { spawn-sh "toggle_newsboat"; }
@@ -18,7 +19,8 @@ binds {
     F10                   { spawn-sh "wlrctl pointer move 2560 -1440"; }
     // Mod+c                 { spawn-sh "copyq toggle"; }
     Mod+Shift+c           { spawn-sh "cliphist wipe"; }
-    Mod+e                 { spawn "emoji-picker"; }
+    // Mod+e                 { spawn "emoji-picker"; }
+    Mod+e                 { spawn-sh "vicinae vicinae://launch/core/search-emojis"; }
     Mod+m                 { spawn "open-link-mpv"; }
     Mod3+S                { spawn-sh "wl-kbptr -o modes=floating -o mode_floating.source=detect"; }
     Mod3+A                { spawn-sh "wl-kbptr -o modes=floating,click -o mode_floating.source=detect && wlrctl pointer move 2560 -1440"; }

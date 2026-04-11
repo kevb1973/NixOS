@@ -54,11 +54,11 @@ layout {
             plugin location="zellij:status-bar"
         }
     }
-    tab name="noctalia" hide_floating_panes=true {
+    tab name="DMS" hide_floating_panes=true {
         pane size=1 borderless=true {
             plugin location="zellij:tab-bar"
         }
-        pane command="jjui" cwd="Code/noctalia-shell" {
+        pane command="jjui" cwd="Code/DankMaterialShell" {
             start_suspended false
         }
         pane size=1 borderless=true {

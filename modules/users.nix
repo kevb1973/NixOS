@@ -69,7 +69,7 @@
         gnome-themes-extra
         grc # generic text colourizer. Using with fishPlugins.grc
         gum # Script enhancer - use for remind_tui
-        helix # Modal Editor
+        # helix # Modal Editor
         hydra-check # check build status.. hydra-check --channel unstable <pkg>
         hyprpicker # Simple color picker with zoom and hex preview
         # hyprshot # Wayland screenshots (removed as pulling in hyprland!)
@@ -143,6 +143,7 @@
         uv # Wiki says this is an easy way to manage python versions and packages (non-declarative)
         uwu-colors # LSP to display color swatches
         vdirsyncer # Sync web calendar to khal for DankMaterialShell
+        vicinae # Sweet launcher with plugins and custom scripts
         virt-manager
         # vivaldi
         # vivaldi-ffmpeg-codecs

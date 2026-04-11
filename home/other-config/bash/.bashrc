@@ -2,8 +2,7 @@
 # ~/.bashrc
 #
 export PATH=/home/kev/NixOS/home/non-xdg-dots/bin:/home/kev/Code/dms-bin:$PATH
-# Darkman looks under XDG_DATA_DIRS for dark/light mode scripts
-export XDG_DATA_DIRS=/home/kev/.local/share/darkman:$XDG_DATA_DIRS
+export XDG_DATA_DIRS=/etc/profiles/per-user/kev/bin:$XDG_DATA_DIRS
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return

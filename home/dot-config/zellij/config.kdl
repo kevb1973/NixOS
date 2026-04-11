@@ -9,7 +9,7 @@ keybinds clear-defaults=true {
             }
         }
         bind "Ctrl Alt Up" {
-            Run "yazi" {
+            Run "yazi_cwd_zellij" {
                 in_place true
                 close_on_exit true
             };
@@ -17,6 +17,13 @@ keybinds clear-defaults=true {
         }
         bind "Ctrl Alt Down" {
             Run "hx" {
+                in_place true
+                close_on_exit true
+            };
+            SwitchToMode "locked";        
+        }
+        bind "Ctrl Alt Left" {
+            Run "jjui" {
                 in_place true
                 close_on_exit true
             };
@@ -54,13 +61,6 @@ keybinds clear-defaults=true {
                 close_on_selection true
             };
             SwitchToMode "locked";
-        }
-        bind "j" {
-            Run "jjui" {
-                in_place true
-                close_on_exit true
-            };
-            SwitchToMode "locked";        
         }
     }
     tab {

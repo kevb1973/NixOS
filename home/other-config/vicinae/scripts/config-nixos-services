@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title config-nixos-services
+# @vicinae.mode silent
+
+# kitty --detach hx -w ~/NixOS ~/NixOS/modules/services.nix
+zellij run --cwd ~/NixOS -- hx ~/NixOS/modules/services.nix

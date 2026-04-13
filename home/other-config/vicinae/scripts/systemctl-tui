@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title systemctl-tui
+# @vicinae.mode silent
+
+# kitty --detach systemctl-tui
+zellij run -- systemctl-tui

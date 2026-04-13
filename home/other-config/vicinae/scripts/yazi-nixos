@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title yazi-nixos
+# @vicinae.mode silent
+
+# kitty --detach yazi ~/NixOS
+zellij run --cwd ~/NixOS -- yazi 

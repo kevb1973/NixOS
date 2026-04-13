@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title yazi-fish-functions
+# @vicinae.mode silent
+
+# kitty --detach yazi ~/NixOS/home/dot-config/fish/functions/personal
+zellij run --cwd ~/NixOS/home/dot-config/fish/functions/personal -- yazi 

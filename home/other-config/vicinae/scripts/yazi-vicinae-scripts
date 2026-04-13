@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title yazi-vicinae-scripts
+# @vicinae.mode silent
+
+# kitty --detach yazi ~/.local/share/vicinae/scripts
+zellij run --cwd ~/.local/share/vicinae/scripts -- yazi 

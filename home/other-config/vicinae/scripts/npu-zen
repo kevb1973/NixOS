@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title Update zen-browser-flake
+# @vicinae.mode silent
+
+# kitty --detach nix profile upgrade zen-browser-flake
+zellij run -- nix profile upgrade zen-browser-flake

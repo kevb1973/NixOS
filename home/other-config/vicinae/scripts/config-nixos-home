@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title config-nixos-home
+# @vicinae.mode silent
+
+# kitty --detach hx -w ~/NixOS ~/NixOS/home/home.nix
+zellij run --cwd ~/NixOS -- hx ~/NixOS/home/home.nix

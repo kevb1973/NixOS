@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title podman-tui
+# @vicinae.mode silent
+
+# kitty --detach podman-tui
+zellij run podman-tui

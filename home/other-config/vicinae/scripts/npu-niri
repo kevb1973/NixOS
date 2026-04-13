@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title Update niri
+# @vicinae.mode silent
+
+# kitty --detach nix profile upgrade niri
+zellij run -- nix profile upgrade niri

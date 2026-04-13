@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title yazi-dot-configs
+# @vicinae.mode silent
+
+# kitty --detach yazi ~/.config
+zellij run --cwd ~/.config -- yazi

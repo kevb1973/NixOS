@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title yazi-downloads
+# @vicinae.mode silent
+
+# kitty --detach yazi ~/Downloads
+zellij run --cwd ~/Downloads -- yazi 

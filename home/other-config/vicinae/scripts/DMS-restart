@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title DMS-restart
+# @vicinae.mode silent
+
+
+dms kill && niri msg action spawn-sh -- 'dms run'

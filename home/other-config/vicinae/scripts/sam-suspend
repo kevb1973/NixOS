@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title Suspend Sam's PC
+# @vicinae.mode silent
+
+kitty --detach --app-id floater ssh -t sam@10.0.0.4 'sudo systemctl suspend'

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title config-niri-spawns
+# @vicinae.mode silent
+
+# kitty --detach hx -w ~/NixOS ~/NixOS/home/dot-config/niri/spawns.kdl
+zellij run --cwd ~/NixOS -- hx ~/NixOS/home/dot-config/niri/spawns.kdl

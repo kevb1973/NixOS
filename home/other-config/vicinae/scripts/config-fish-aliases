@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title config-fish-aliases
+# @vicinae.mode silent
+
+# kitty --detach hx -w ~/NixOS ~/NixOS/home/dot-config/fish/conf.d/aliases-abbrs.fish
+zellij run --cwd ~/NixOS -- hx ~/NixOS/home/dot-config/fish/conf.d/aliases-abbrs.fish

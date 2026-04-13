@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title config-zellij
+# @vicinae.mode silent
+
+# kitty --detach hx -w ~/NixOS ~/NixOS/home/dot-config/zellij/config.kdl
+zellij run --cwd ~/NixOS -- hx ~/NixOS/home/dot-config/zellij/config.kdl

@@ -2,6 +2,7 @@
 binds {
 
     Mod+KP_Enter          { spawn-sh "dms ipc call spotlight toggle"; }
+    Mod+x                 { spawn-sh "dms ipc call plugins toggle aiAssistant"; }
     Mod+p                 { spawn-sh "dms ipc call dankdash wallpaper"; }
     Mod+c                 { spawn-sh "dms ipc call clipboard toggle"; }
     Mod+a                 { spawn-sh "dms ipc call notifications toggle"; }

@@ -111,8 +111,8 @@ limit = 0
 
 [ui]
   # theme = "base24-solarized-dark-higher-contrast"
-  #   light = "base16-ayu-dark"
-  #   dark = "base16-ayu-dark"
+    light = "base16-nord"
+    dark = "base16-nord"
   auto_refresh_interval = 0
   [ui.tracer]
     enabled = true

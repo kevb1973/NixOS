@@ -10,7 +10,7 @@ binds {
     Mod+b                 { spawn-sh "dms ipc call bar toggle"; }
     Mod+W                 { spawn-sh "dms ipc call dash toggle weather"; }
     Mod+m                 { spawn-sh "dms ipc call dash toggle media"; }
-    // Mod+w                 { spawn-sh "noctalia-shell ipc call calendar toggle"; }
+    Mod+Shift+n           { spawn-sh "dms ipc call notepad toggle"; }
     // Mod+Shift+t           { spawn-sh "noctalia-shell ipc call plugin:timer reset"; }
     // Mod+e                 { spawn-sh "emoji-picker"; }
     // Mod+e                 { spawn-sh "dms ipc call spotlight toggleQuery ':e '"; }

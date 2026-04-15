@@ -139,3 +139,17 @@ limit = 0
 
 [graph]
   batch_size = 50
+
+[[actions]]
+name = "edit file"
+desc = "edit selected file"
+lua = '''
+  exec_shell("hx " .. context.file())
+'''
+
+[[bindings]]
+action = "edit file"
+key = "e"
+scope = "revisions.details"
+desc = "Edit File"
+

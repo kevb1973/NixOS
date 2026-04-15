@@ -10,7 +10,6 @@ keybinds clear-defaults=true {
         }
         bind "Ctrl Alt Up" {
             Run "yazi" {
-                in_place true
                 close_on_exit true
             };
             SwitchToMode "locked";        

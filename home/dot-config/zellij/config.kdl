@@ -9,7 +9,7 @@ keybinds clear-defaults=true {
             }
         }
         bind "Ctrl Alt Up" {
-            Run "yazi_cwd_zellij" {
+            Run "yazi" {
                 in_place true
                 close_on_exit true
             };

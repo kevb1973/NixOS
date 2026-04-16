@@ -14,6 +14,13 @@ keybinds clear-defaults=true {
             };
             SwitchToMode "locked";        
         }
+        bind "Ctrl Shift Alt Up" {
+            Run "yazi" {
+                close_on_exit true
+                in_place true
+            };
+            SwitchToMode "locked";        
+        }
         bind "Ctrl Alt Down" {
             Run "hx" {
                 in_place true

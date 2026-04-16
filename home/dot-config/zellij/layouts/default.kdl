@@ -10,22 +10,22 @@ layout {
             plugin location="zellij:status-bar"
         }
     }
-    tab name="rmpc" hide_floating_panes=true {
+    tab name="rss" hide_floating_panes=true {
         pane size=1 borderless=true {
             plugin location="zellij:tab-bar"
         }
-        pane command="rmpc" {
+        pane command="newsboat" {
             start_suspended false
         }
         pane size=1 borderless=true {
             plugin location="zellij:status-bar"
         }
     }
-    tab name="rss" hide_floating_panes=true {
+    tab name="rmpc" hide_floating_panes=true {
         pane size=1 borderless=true {
             plugin location="zellij:tab-bar"
         }
-        pane command="newsboat" {
+        pane command="rmpc" {
             start_suspended false
         }
         pane size=1 borderless=true {

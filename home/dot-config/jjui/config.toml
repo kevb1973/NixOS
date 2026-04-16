@@ -153,3 +153,42 @@ key = "e"
 scope = "revisions.details"
 desc = "Edit File"
 
+[[actions]]
+name = "append-ancestors-to-revset"
+desc = "append ancestors of current revision to revset"
+lua = '''
+local change_id = revisions.current()
+if not change_id then return end
+
+local current = revset.current()
+local bumped = false
+local updated = current:gsub("ancestors%(" .. change_id .. "%s*,%s*(%d+)%)", function(n)
+  bumped = true
+  return "ancestors(" .. change_id .. ", " .. (tonumber(n) + 1) .. ")"
+end, 1)
+
+if not bumped then
+  updated = current .. " | ancestors(" .. change_id .. ", 2)"
+end
+
+revset.set(updated)
+'''
+
+[[bindings]]
+action = "append-ancestors-to-revset"
+key = "+"
+scope = "revisions"
+desc = "append ancestors to revset"
+
+
+[[bindings]]
+action = "revisions.page_down"
+key = "ctrl+down"
+scope = "revisions"
+desc = "page down revisions"
+
+[[bindings]]
+action = "revisions.page_up"
+key = "ctrl+up"
+scope = "revisions"
+desc = "page up revisions"

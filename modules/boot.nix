@@ -26,7 +26,6 @@
     };
     kernelParams = [
       "quiet" #for silent boot 
-      "splash" #for silent boot 
       "boot.shell_on_fail" #for silent boot 
       "loglevel=3" #for silent boot 
       "rd.systemd.show_status=auto" #for silent boot 

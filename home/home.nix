@@ -5,10 +5,10 @@
   ...
 }:
 let
-  configSymlinks = ((import ./symlinkDots.nix) { config = config; }).configSymlinks;
+  inherit (((import ./symlinkDots.nix) { inherit config; })) configSymlinks;
   configsPath = ./dot-config;
   configsAbsolutePath = "/home/kev/NixOS/home/dot-config";
-  mkOutOfStoreSymlink = config.lib.file.mkOutOfStoreSymlink;
+  inherit (config.lib.file) mkOutOfStoreSymlink;
 in
 {
   home = {

@@ -43,7 +43,7 @@
       inherit (config.lib.file) mkOutOfStoreSymlink;
 
       mkSymlink = name: {
-        name = name;
+        inherit name;
         value.source = mkOutOfStoreSymlink "${configsAbsolutePath}/${name}";
       };
     in

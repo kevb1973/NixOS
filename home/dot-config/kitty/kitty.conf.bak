@@ -6,7 +6,7 @@ font_size 14.0
 editor hx
 scrollback_lines 10000
 window_margin_width 21.75
-window_padding_width 12
+window_padding_width 7
 confirm_os_window_close 0
 tab_bar_edge top
 
@@ -40,6 +40,9 @@ map ctrl+shift+3 			goto_tab 3
 map ctrl+shift+4 			goto_tab 4
 map ctrl+shift+5 			goto_tab 5
 map ctrl+shift+6 			goto_tab 6
+
+# Disable Unicode input shortcut.. need for rmpc library update
+map ctrl+shift+u no_op
 
 # Install hinted app from nix-search into user profile
 # This one works with nix-search-cli

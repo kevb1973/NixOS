@@ -39,10 +39,10 @@
     #   #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     # };
 
-    # mango.enable = true;
+    mangowc.enable = true;
 
     niri = {
-      enable = false;
+      enable = true;
       # package = inputs.niri.packages.${pkgs.system}.default;
     };
 

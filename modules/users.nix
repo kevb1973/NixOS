@@ -124,7 +124,7 @@
         puddletag # Music tag editor
         python3
         qalculate-gtk
-        quickshell
+        # quickshell
         ripgrep
         rmpc # nice alternative to ncmpcpp
         satty # Screenshot Editor

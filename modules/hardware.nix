@@ -5,7 +5,7 @@
       enable = true;
       powerOnBoot = true;
     };
-    cpu.amd.updateMicrocode = false; # Checking to see if it's actually updating..
+    cpu.amd.updateMicrocode = true; 
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
     graphics = {

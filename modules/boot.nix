@@ -8,14 +8,14 @@
     kernelModules = [ "i2c-dev" ];
     kernelPackages = pkgs.linuxPackages_latest;
     swraid.enable = false; # Setting needed as system state ver < 23.11
-    initrd = {
-      kernelModules = [ "amdgpu" ];
-      systemd = {
-        enable = true; # Supposedly results in faster boot?
-        network.wait-online.enable = false;
-      };
-      verbose = false; #for silent boot
-    };
+    # initrd = {
+      # kernelModules = [ "amdgpu" ];
+      # systemd = {
+      #   enable = true; # Supposedly results in faster boot?
+      #   network.wait-online.enable = false;
+      # };
+      # verbose = false; #for silent boot
+    # };
     loader = {
       systemd-boot.enable = true;
       timeout = 1; 
@@ -28,13 +28,13 @@
       "quiet" #for silent boot 
       "boot.shell_on_fail" #for silent boot 
       "loglevel=3" #for silent boot 
-      "rd.systemd.show_status=auto" #for silent boot 
-      "rd.udev.log_level=3" #for silent boot 
+      # "rd.systemd.show_status=auto" #for silent boot 
+      # "rd.udev.log_level=3" #for silent boot 
       "udev.log_priority=3" #for silent boot 
-      "amd_iommu=on"
-      "iommu=pt"
+      # "amd_iommu=on"
+      # "iommu=pt"
       "preempt=full" # suggested to avoid audio cracks/noises
-      "systemd.mask=dev-tpmrm0.device"
+      # "systemd.mask=dev-tpmrm0.device"
       "usbcore.autosuspend=-1"
     ];
     consoleLogLevel = 3; 

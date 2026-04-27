@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title Niri Configs
+# @vicinae.mode silent
+
+# kitty --detach hx -w ~/NixOS ~/NixOS/home/dot-config/niri/environment.kdl
+zellij run --cwd ~/NixOS/home/dot-config/niri -- hx binds.kdl config.kdl environment.kdl input.kdl layer-rules.kdl layout.kdl noctalia-binds.kdl spawns.kdl window-rules.kdl

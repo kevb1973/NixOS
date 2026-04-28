@@ -24,6 +24,8 @@
         "application/x-shellscript" = "Helix.desktop";
         "application/xhtml+xml" = "zen.desktop";
         "audio/x-mpegurl" = "vlc.desktop";
+        "audio/flac" = "vlc.desktop";
+        "audio/mpeg" = "vlc.desktop";
         "image/png" = "feh.desktop";
         "text/*" = "Helix.desktop";
         "text/css" = "Helix.desktop";
@@ -31,10 +33,11 @@
         "text/markdown" = "calibre-ebook-viewer.desktop";
         "text/plain" = "Helix.desktop";
         "text/xml" = "Helix.desktop";
-        "video/*" = "umpv.desktop";
+        "video/*" = "vlc.desktop";
         "x-scheme-handler/http" = "zen.desktop";
         "x-scheme-handler/https" = "zen.desktop";
-        "x-scheme-handler/mpv" = "open-in-mpv.desktop";
+        # "x-scheme-handler/mpv" = "open-in-mpv.desktop";
+        "x-scheme-handler/mpv" = "vlc.desktop";
       };
     };
   };

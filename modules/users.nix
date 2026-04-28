@@ -68,11 +68,11 @@
         gnome-software # Install and manage flatpaks
         gnome-themes-extra
         grc # generic text colourizer. Using with fishPlugins.grc
+        gscreenshot # Screenshots
         gum # Script enhancer - use for remind_tui
         # helix # Modal Editor
         hydra-check # check build status.. hydra-check --channel unstable <pkg>
         hyprpicker # Simple color picker with zoom and hex preview
-        # hyprshot # Wayland screenshots (removed as pulling in hyprland!)
         seahorse # GUI for system passwords
         serpl # Neat tui find/replace in project
         systemctl-tui # Manage systemd units
@@ -147,6 +147,7 @@
         virt-manager
         # vivaldi
         # vivaldi-ffmpeg-codecs
+        vlc
         vscode-langservers-extracted # Various LS
         wakeonlan # For lgtv control
         websocat # For lgtv control
@@ -163,16 +164,16 @@
         yaml-language-server
         yazi
         ydotool # Using to autopaste emojis (bemoji)
-        yt-dlp
-        zellij # Terminal multiplexer
+        # yt-dlp # Broken deps (deno) Apr 28 2026
+        # zellij # Terminal multiplexer
         zoxide
-        (mpv.override {
-          scripts = [
-            mpvScripts.mpris
-            mpvScripts.visualizer
-            mpvScripts.modernz
-          ];
-        })
+        # (mpv.override { # Broken due to yt-dlp Apr 28 2026
+        #   scripts = [
+        #     mpvScripts.mpris
+        #     mpvScripts.visualizer
+        #     mpvScripts.modernz
+        #   ];
+        # })
       ];
     };
   };

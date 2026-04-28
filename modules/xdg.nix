@@ -14,7 +14,7 @@
     mime = {
       enable = true;
       defaultApplications = {
-        "application/pdf" = "sioyek.desktop";
+        "application/pdf" = "zen.desktop";
         "application/vnd.apple.mpegurl" = "vlc.desktop";
         "application/x-extension-htm" = "zen.desktop";
         "application/x-extension-html" = "zen.desktop";

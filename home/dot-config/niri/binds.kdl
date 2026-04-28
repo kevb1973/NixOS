@@ -10,7 +10,7 @@ binds {
     // Mod+Shift+N           { spawn-sh "dms ipc notepad toggle"; }
     Mod+Shift+KP_Enter    { spawn-sh "toggle_launch"; }
     Mod+Z                 { spawn-sh "vicinae toggle"; }
-    Mod+grave             { spawn-sh "kitten quick-access-terminal --instance-group kitty zellij"; }
+    Mod+grave             { spawn-sh "kitten quick-access-terminal --instance-group kitty --session ~/.config/kitty/default.kitty-session"; }
     // Mod+KP_End            { spawn-sh "kitten quick-access-terminal --instance-group jjui jjui ~/NixOS"; }
     // Mod+KP_Down           { spawn-sh "toggle_newsboat"; }
     // Mod+KP_Next           { spawn-sh "kitten quick-access-terminal --instance-group rmpc rmpc"; }

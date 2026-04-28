@@ -41,9 +41,13 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
   open = [
   	{ run = "xdg-open %s", desc = "Open" },
   ]
+  pdf_view = [
+    { run = "sioyek %s", desc = "View PDF" },
+  ]
 [open]
 prepend_rules = [
   { url = "*.md", use = ["markdown", "edit"] },
+  { url = "*.pdf", use = ["pdf_view"] },
 ]
 append_rules = [
   { url = "*", use = "open" },

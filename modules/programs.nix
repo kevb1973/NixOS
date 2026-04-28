@@ -18,7 +18,6 @@
 
     firefox = {
       enable = true;
-      # nativeMessagingHosts.packages = [ pkgs.fx-cast-bridge ];
     };
 
     fish = {
@@ -33,11 +32,6 @@
       keybindings = false;
       fuzzyCompletion = true;
     };
-
-    # hyprland = {
-    #   enable = true;
-    #   #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    # };
 
     mangowc.enable = true;
 
@@ -125,28 +119,5 @@
         zlib
       ];
     };
-
-    # sway = {
-    #   enable = true;
-    #   wrapperFeatures.gtk = true;
-    #   extraPackages = [ ];
-    # };
-
-    uwsm = {
-      enable = false;
-      waylandCompositors = {
-        mangowc = {
-          prettyName = "Mango";
-          comment = "Mango Compositor";
-          binPath = "/home/kev/.nix-profile/bin/mango";
-        };
-        hyprland-git = {
-          prettyName = "Hyprland";
-          comment = "Hyprland Compositor";
-          binPath = "/home/kev/.nix-profile/bin/start-hyprland";
-        };
-      };
-    };
-    waybar.enable = false;
   }; # End of programs
 }

@@ -21,9 +21,8 @@
       # };
 
     };
-    sessionVariables = {
-      # HSA_OVERRIDE_GFX_VERSION="10.3.0";
-    };
+    # sessionVariables = {
+    # };
     variables = {
       ALTERNATE_EDITOR = ""; # allow emacsclient to start daemon if not already running
       AMD_VULKAN_ICD = "RADV";
@@ -32,9 +31,8 @@
       CLUTTER_BACKEND = "wayland";
       EDITOR = "hx";
       ELECTRON_OZONE_PLATFORM_HINT = "auto";
-      # GDK_BACKEND = "wayland,x11";
+      GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
-      # GTK_THEME="Adwaita:light";
       GTK_THEME = "adw-gtk3";
       MANPAGER = "nvim +Man!";
       MANWIDTH = "100";
@@ -44,8 +42,6 @@
       # OLLAMA_HOST = "127.0.0.1:11434";
       # OLLAMA_FLASH_ATTENTION = "1";
       PAGER = "bat";
-      # ROCM_PATH = "/opt/rocm";
-      # HSA_OVERRIDE_GFX_VERSION="10.3.0";
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_IM_MODULE = "ibus";
       QT_QPA_PLATFORM = "wayland";
@@ -58,7 +54,7 @@
       XDG_CONFIG_HOME = "$HOME/.config";
       XDG_SCREENSHOTS_DIR = "$HOME/screenshots";
       XMODIFIERS = "@im=ibus";
-      # _JAVA_AWT_WM_NONREPARENTING = "1";
+      _JAVA_AWT_WM_NONREPARENTING = "1";
     };
 
     systemPackages = with pkgs; [
@@ -79,19 +75,20 @@
       gitFull
       gnumake
       gsettings-desktop-schemas
+      helix
       libcxxStdenv # Needed to build binaries for tree-sitter
       lua-language-server
       neovim
       nixfmt
       pciutils
       pulseaudioFull
-      # rocmPackages.clr
       tela-circle-icon-theme
       unar
       unzip
       usbutils
       wpa_supplicant_gui
       xdg-utils # for opening default programms when clicking links
+      yazi
       zip
     ];
   };

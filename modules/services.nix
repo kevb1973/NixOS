@@ -16,7 +16,6 @@
     printing.drivers = [ pkgs.brlaser ];
     printing.enable = true;
     seatd.enable = true; # For lemur display manager
-    # tumbler.enable = false; # Thumbnail support for images
     udisks2.enable = true;
 
     atd = {

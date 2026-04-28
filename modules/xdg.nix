@@ -5,7 +5,7 @@
       config.common.default = "*"; # Needed for xdg-desktop-portal
       enable = true;
        extraPortals = with pkgs; [
-         # xdg-desktop-portal-wlr
+         xdg-desktop-portal-wlr
          xdg-desktop-portal-gtk
          xdg-desktop-portal-gnome
          kdePackages.xdg-desktop-portal-kde
@@ -36,7 +36,6 @@
         "video/*" = "vlc.desktop";
         "x-scheme-handler/http" = "zen.desktop";
         "x-scheme-handler/https" = "zen.desktop";
-        # "x-scheme-handler/mpv" = "open-in-mpv.desktop";
         "x-scheme-handler/mpv" = "vlc.desktop";
       };
     };

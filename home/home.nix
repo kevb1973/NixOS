@@ -30,7 +30,6 @@ in
   programs = {
     atuin.enable = true; # Shell history database
     home-manager.enable = true;
-    helix.enable = true;
   };
 
   services = {

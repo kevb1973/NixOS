@@ -44,7 +44,6 @@
         cava # Terminal audio visualizer
         cliphist # Clipboard manager (for DankMaterialShell)
         clock-rs # stopwatch, timers, clock
-        # copyq # clipboard manager++ (disabled as using DMS built-in clipboard manager)
         cotp # CLI OTP/2FA code provider - only use for bitwarden which manages all the rest
         ddcutil # Adjust monitor brightness and other settings from cli
         dgop # System Info for DankMaterialShell
@@ -79,7 +78,6 @@
         jjui # GUI for Jujutsu
         jq
         jujutsu
-        # kdePackages.polkit-kde-agent-1
         kdePackages.qt6ct
         kdePackages.qtmultimedia
         kdePackages.qtstyleplugin-kvantum
@@ -145,8 +143,6 @@
         vdirsyncer # Sync web calendar to khal for DankMaterialShell
         vicinae # Sweet launcher with plugins and custom scripts
         virt-manager
-        # vivaldi
-        # vivaldi-ffmpeg-codecs
         vlc
         vscode-langservers-extracted # Various LS
         wakeonlan # For lgtv control
@@ -164,9 +160,8 @@
         yaml-language-server
         yazi
         ydotool # Using to autopaste emojis (bemoji)
-        # yt-dlp # Broken deps (deno) Apr 28 2026
-        # zellij # Terminal multiplexer
         zoxide
+        # yt-dlp # Broken deps (deno) Apr 28 2026
         # (mpv.override { # Broken due to yt-dlp Apr 28 2026
         #   scripts = [
         #     mpvScripts.mpris

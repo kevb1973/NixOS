@@ -3,5 +3,5 @@
 # @vicinae.title yazi-vicinae-scripts
 # @vicinae.mode silent
 
-# kitty --detach yazi ~/.local/share/vicinae/scripts
-zellij run --cwd ~/.local/share/vicinae/scripts -- yazi 
+kitty --detach yazi ~/.local/share/vicinae/scripts
+# zellij run --cwd ~/.local/share/vicinae/scripts -- yazi 

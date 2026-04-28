@@ -3,5 +3,5 @@
 # @vicinae.title yazi-dot-configs
 # @vicinae.mode silent
 
-# kitty --detach yazi ~/.config
-zellij run --cwd ~/.config -- yazi
+kitty --detach yazi ~/.config
+# zellij run --cwd ~/.config -- yazi

@@ -3,5 +3,5 @@
 # @vicinae.title yazi-nixos
 # @vicinae.mode silent
 
-# kitty --detach yazi ~/NixOS
-zellij run --cwd ~/NixOS -- yazi 
+kitty --detach yazi ~/NixOS
+# zellij run --cwd ~/NixOS -- yazi 

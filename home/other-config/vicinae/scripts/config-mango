@@ -3,4 +3,5 @@
 # @vicinae.title Mango Configs
 # @vicinae.mode silent
 
-zellij run --cwd ~/NixOS/home/dot-config/mango -- hx config.conf binds.conf rules.conf noctalia-binds.conf 
+# zellij run --cwd ~/NixOS/home/dot-config/mango -- hx config.conf binds.conf rules.conf noctalia-binds.conf 
+kitty --detach -d ~/NixOS/home/dot-config/mango -- hx config.conf binds.conf rules.conf noctalia-binds.conf 

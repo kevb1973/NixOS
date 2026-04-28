@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @vicinae.schemaVersion 1
-# @vicinae.title config-fish-conf
+# @vicinae.title Fish Configs
 # @vicinae.mode silent
 
-# kitty --detach hx -w ~/NixOS ~/NixOS/home/dot-config/fish/config.fish
-zellij run --cwd ~/NixOS -- hx ~/NixOS/home/dot-config/fish/config.fish
+kitty --detach -d ~/NixOS/home/dot-config/fish -- hx config.fish conf.d/aliases-abbrs.fish
+# zellij run --cwd ~/NixOS -- hx ~/NixOS/home/dot-config/fish/config.fish

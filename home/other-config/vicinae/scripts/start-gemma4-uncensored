@@ -3,4 +3,5 @@
 # @vicinae.title Start Gemma4 (uncensored)
 # @vicinae.mode silent
 
-pkill llama-server;llama-server -a 'Gemma4-uncensored' -m ~/Code/models/gemma-4-E4B-it-heretic-ara.i1-Q4_K_S.gguf --ctx-size 16384 --temp 1.0 --top-p 0.95 --top-k 64 --jinja --reasoning off --port 8081 --host 127.0.0.1
+pkill llama-server
+llama-server -a 'Gemma4-uncensored' -m ~/Code/models/gemma-4-E4B-it-heretic-ara.i1-Q4_K_S.gguf --ctx-size 16384 --temp 1.0 --top-p 0.95 --top-k 64 --jinja --reasoning off --port 8081 --host 127.0.0.1

@@ -3,5 +3,5 @@
 # @vicinae.title Update DMS
 # @vicinae.mode silent
 
-# kitty --detach nix profile upgrade DankMaterialShell
-zellij run -- nix profile upgrade DankMaterialShell
+kitty --detach --app-id floater -- nix profile upgrade DankMaterialShell
+# zellij run -- nix profile upgrade DankMaterialShell

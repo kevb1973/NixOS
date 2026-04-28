@@ -3,5 +3,5 @@
 # @vicinae.title Update jjui
 # @vicinae.mode silent
 
-# kitty --detach nix profile upgrade jjui
-zellij run -- nix profile upgrade jjui
+kitty --detach --app-id floater -- nix profile upgrade jjui
+# zellij run -- nix profile upgrade jjui

@@ -3,5 +3,5 @@
 # @vicinae.title Update noctalia-shell
 # @vicinae.mode silent
 
-# kitty --detach nix profile upgrade noctalia-shell
-zellij run -- nix profile upgrade noctalia-shell
+kitty --detach nix profile upgrade noctalia-shell
+# zellij run -- nix profile upgrade noctalia-shell

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # @vicinae.schemaVersion 1
-# @vicinae.title config-kitty
+# @vicinae.title Kitty Config
 # @vicinae.mode silent
 
-# kitty --detach hx -w ~/NixOS ~/NixOS/home/dot-config/kitty/kitty.conf
-zellij run --cwd ~/NixOS -- hx ~/NixOS/home/dot-config/kitty/kitty.conf
+kitty --detach -d ~/NixOS/home/dot-config/kitty -- hx kitty.conf default.kitty-session
+# zellij run --cwd ~/NixOS -- hx ~/NixOS/home/dot-config/kitty/kitty.conf

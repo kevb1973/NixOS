@@ -3,5 +3,5 @@
 # @vicinae.title yazi-downloads
 # @vicinae.mode silent
 
-# kitty --detach yazi ~/Downloads
-zellij run --cwd ~/Downloads -- yazi 
+kitty --detach yazi ~/Downloads
+# zellij run --cwd ~/Downloads -- yazi 

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title Noctalia-stop
+# @vicinae.mode silent
+
+
+pkill quickshell

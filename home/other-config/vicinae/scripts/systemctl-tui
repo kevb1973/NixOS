@@ -3,5 +3,5 @@
 # @vicinae.title systemctl-tui
 # @vicinae.mode silent
 
-# kitty --detach systemctl-tui
-zellij run -- systemctl-tui
+kitty --detach --app-id floater -- systemctl-tui
+# zellij run -- systemctl-tui

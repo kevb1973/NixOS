@@ -72,18 +72,6 @@
           };
         };
       };
-      sddm = {
-        enable = false;
-        autoNumlock = true;
-        theme = "catppuccin-mocha-lavender";
-        extraPackages = with pkgs; [
-          qt6.qt5compat
-          kdePackages.qtsvg
-          kdePackages.qtmultimedia
-          kdePackages.qtvirtualkeyboard
-        ];
-        wayland.enable = true;
-      };
     };
 
     emacs = {

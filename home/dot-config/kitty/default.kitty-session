@@ -24,3 +24,6 @@ new_tab jjui-jj
 cd ~/Code/jjui
 launch jjui
 
+new_tab noctalia-jj
+cd ~/Code/noctalia-shell
+launch jjui

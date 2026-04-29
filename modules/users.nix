@@ -75,7 +75,7 @@
         seahorse # GUI for system passwords
         serpl # Neat tui find/replace in project
         systemctl-tui # Manage systemd units
-        jjui # GUI for Jujutsu
+        # jjui # GUI for Jujutsu
         jq
         jujutsu
         kdePackages.qt6ct

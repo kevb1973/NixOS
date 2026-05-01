@@ -160,15 +160,15 @@
         yaml-language-server
         yazi
         ydotool # Using to autopaste emojis (bemoji)
+        yt-dlp 
         zoxide
-        # yt-dlp # Broken deps (deno) Apr 28 2026
-        # (mpv.override { # Broken due to yt-dlp Apr 28 2026
-        #   scripts = [
-        #     mpvScripts.mpris
-        #     mpvScripts.visualizer
-        #     mpvScripts.modernz
-        #   ];
-        # })
+        (mpv.override { 
+          scripts = [
+            mpvScripts.mpris
+            mpvScripts.visualizer
+            mpvScripts.modernz
+          ];
+        })
       ];
     };
   };

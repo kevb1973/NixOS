@@ -11,7 +11,8 @@ if [[ $1 ]]; then
  nvd diff /nix/var/nix/profiles/system-{$1,$2}-link
 else
     if  (( GENS > 1 )); then
-        nvd diff $(ls -d1v /nix/var/nix/profiles/system-*-link|tail -n 2)
+        # nvd diff $(ls -d1v /nix/var/nix/profiles/system-*-link|tail -n 2)
+        dix $(ls -d1v /nix/var/nix/profiles/system-*-link|tail -n 2)
     else
         echo "Only 1 generation. No diff available."
     fi

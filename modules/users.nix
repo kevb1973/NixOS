@@ -48,6 +48,7 @@
         ddcutil # Adjust monitor brightness and other settings from cli
         dgop # System Info for DankMaterialShell
         distrobox
+        dix # Rust rewrite of nvd - for diffing generations
         dust # quick dir size for 'sys' script
         emacs-pgtk
         fastfetch # System info for Noctalia-Shell
@@ -109,7 +110,7 @@
         nix-tree
         nixd
         nushell # cuz its cool (and easier than jq)
-        nvd # Nix derivation diff tool
+        # nvd # Nix derivation diff tool
         nvtopPackages.amd # htop for video cards
         optnix
         p7zip

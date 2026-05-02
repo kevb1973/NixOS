@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title Toggle system theme
+# @vicinae.mode silent
+
+~/.local/bin/toggle-system-theme
+# zellij run -- systemctl-tui

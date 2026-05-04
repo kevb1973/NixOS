@@ -5,7 +5,7 @@
     avahi.enable = true;
     blueman.enable = false;
     dbus.enable = true;
-    envfs.enable = true; # fixes script shebangs looking in /usr/bin /bin etc.
+    # envfs.enable = true; # fixes script shebangs looking in /usr/bin /bin etc. Disabled.. causing `can't mount /usr/bin error` on boot
     flatpak.enable = true;
     fwupd.enable = false; # disabled.. slowing boot.. no updates available anyways. (fwdupdmgr get-updates)
     geoclue2.enable = true;

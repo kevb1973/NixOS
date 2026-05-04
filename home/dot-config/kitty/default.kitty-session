@@ -27,3 +27,7 @@ launch jjui
 new_tab noctalia-jj
 cd ~/Code/noctalia-shell
 launch jjui
+
+new_tab DMS-jj
+cd ~/Code/DankMaterialShell
+launch jjui

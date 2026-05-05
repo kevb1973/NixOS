@@ -4,4 +4,5 @@
 # @vicinae.mode silent
 
 
-niri msg action spawn-sh -- 'dms kill'
+# niri msg action spawn-sh -- 'dms kill'
+dms kill

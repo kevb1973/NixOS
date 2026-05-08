@@ -1,6 +1,7 @@
 { pkgs, inputs, ... }:
 {
   nix = {
+    channel.enable = false;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';

@@ -14,6 +14,7 @@ if [ -z $URL ];
       --action=add24hr=+24hr \
       -i "$ICON_PATH/face-smile-symbolic.svg" \
       --urgency=critical \
+      --expire-time=21600000 \
       "$TITLE" \
       "$MESSAGE")
   else
@@ -25,6 +26,7 @@ if [ -z $URL ];
       --action=add24hr=+24h \
       -i "$ICON_PATH/face-smile-symbolic.svg" \
       --urgency=critical \
+      --expire-time=21600000 \
       "$TITLE" \
       "$MESSAGE")
 fi

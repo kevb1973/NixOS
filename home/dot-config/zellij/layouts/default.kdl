@@ -91,7 +91,7 @@ layout {
         pane size=1 borderless=true {
             plugin location="zellij:tab-bar"
         }
-        pane command="hx" cwd="NixOS/home/dot-config/mango" {
+        pane command="nvim" cwd="NixOS/home/dot-config/mango" {
             start_suspended false
             args "config.conf" "binds.conf" "rules.conf" 
         }

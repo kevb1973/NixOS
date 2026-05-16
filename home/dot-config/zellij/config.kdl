@@ -22,7 +22,7 @@ keybinds clear-defaults=true {
             SwitchToMode "locked";        
         }
         bind "Ctrl Alt Down" {
-            Run "hx" {
+            Run "nvim" {
                 in_place true
                 close_on_exit true
             };

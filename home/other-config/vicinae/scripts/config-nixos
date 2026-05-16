@@ -3,5 +3,5 @@
 # @vicinae.title NixOS Configs
 # @vicinae.mode silent
 
-kitty --detach -d ~/NixOS -- hx modules/users.nix modules/programs.nix flake.nix home/home.nix modules/services.nix
-# zellij run --cwd ~/NixOS -- hx ~/NixOS/modules/environment.nix
+kitty --detach -d ~/NixOS -- nvim modules/users.nix modules/programs.nix flake.nix home/home.nix modules/services.nix
+# zellij run --cwd ~/NixOS -- nvim ~/NixOS/modules/environment.nix

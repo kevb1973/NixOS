@@ -144,7 +144,7 @@ limit = 0
 name = "edit file"
 desc = "edit selected file"
 lua = '''
-  exec_shell("hx " .. context.file())
+  exec_shell("nvim " .. context.file())
 '''
 
 [[bindings]]

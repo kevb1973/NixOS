@@ -3,5 +3,5 @@
 # @vicinae.title Yazi Configs
 # @vicinae.mode silent
 
-kitty --detach -d ~/NixOS/home/dot-config/yazi -- hx yazi.toml keymaps.toml
-# zellij run --cwd ~/NixOS -- hx ~/NixOS/home/dot-config/yazi/yazi.toml
+kitty --detach -d ~/NixOS/home/dot-config/yazi -- nvim yazi.toml keymaps.toml
+# zellij run --cwd ~/NixOS -- nvim ~/NixOS/home/dot-config/yazi/yazi.toml

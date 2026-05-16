@@ -12,7 +12,7 @@ exec-once = clipse -listen
 exec-once = swaync
 # exec-once = [workspace 8 silent] foot http-server -p 8085 -c-1 ~/dotfiles/firefox_ext_confs/surfingkeys
 # exec-once = sudo -b ydotoold --socket-path="$HOME/.ydotool_socket" --socket-own="$(id -u):$(id -g)"
-# exec-once = [workspace special:popterm silent] foot hx
+# exec-once = [workspace special:popterm silent] foot nvim
 # exec-once = [workspace special:popterm silent] foot lazygit -p ~/NixOS
 # exec-once = [workspace special:popterm silent] foot
 # exec-once = [workspace 1] firefox

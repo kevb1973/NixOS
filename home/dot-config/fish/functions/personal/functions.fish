@@ -11,7 +11,7 @@ function funcs # List functions
 end
 
 function funcedit # Edit Functions
-    hx ~/.config/fish/functions/personal/functions.fish && source ~/.config/fish/functions/personal/functions.fish
+    nvim ~/.config/fish/functions/personal/functions.fish && source ~/.config/fish/functions/personal/functions.fish
 end
 
 function store # Visit app location in /nix/store

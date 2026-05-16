@@ -29,7 +29,7 @@
       BAT_STYLE = "header";
       BEMENU_OPTS = "--hf '#5e81ac' --tf '#5e81ac' --fn 'mono 30'";
       CLUTTER_BACKEND = "wayland";
-      EDITOR = "hx";
+      EDITOR = "nvim";
       ELECTRON_OZONE_PLATFORM_HINT = "auto";
       GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
@@ -49,7 +49,7 @@
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
       SSL_CERT_FILE = "/etc/ssl/certs/ca-bundle.crt"; # Needed for X-Plane "AutoOrtho"
       UV_PYTHON_DOWNLOADS = "never"; # Stop uv from downloading binaries
-      VISUAL = "hx";
+      VISUAL = "nvim";
       VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/radeon_icd.x86_64.json";
       XDG_CONFIG_HOME = "$HOME/.config";
       XDG_SCREENSHOTS_DIR = "$HOME/screenshots";

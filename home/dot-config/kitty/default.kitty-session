@@ -10,11 +10,12 @@ launch rmpc
 
 new_tab nix-conf
 cd ~/NixOS
-launch hx modules/users.nix modules/programs.nix modules/services.nix home/home.nix
+launch nvim modules/users.nix modules/programs.nix modules/services.nix home/home.nix
 
 new_tab mango-conf
 cd ~/.config/mango
-launch hx config.conf binds.conf rules.conf
+#launch nvim config.conf binds.conf rules.conf
+launch nvim config.conf binds.conf rules.conf
 
 new_tab nixos-jj
 cd ~/NixOS

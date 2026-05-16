@@ -23,3 +23,7 @@ opt.foldmethod = "marker"
 opt.foldlevelstart = 99
 opt.foldlevel = 99
 opt.foldnestmax = 4
+opt.expandtab = true
+opt.relativenumber = false
+opt.clipboard = "unnamed"
+opt.shell = "fish"

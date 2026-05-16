@@ -32,13 +32,14 @@
         adw-gtk3
         aria2
         at
+        ast-grep # extended grep for lazyvim
         authenticator
         bat
         bemoji
         bluetuith
         btrfs-progs
         cacert
-        calibre 
+        calibre
         cantata # GUI MPD client
         cargo
         cava # Terminal audio visualizer
@@ -133,6 +134,7 @@
         snore # sleep, with feedback
         spotify
         spotify-player
+        statix # Lints and suggestions for the nix programming language
         tealdeer # Command line help 'tldr'
         television # Similar to fzf. Using with nix-search-tv
         tombi # Newer TOML LS

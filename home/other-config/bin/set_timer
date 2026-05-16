@@ -20,10 +20,10 @@ if [ "$HR_PARAM" == "" ] && [ "$MIN_PARAM" == "" ] && [ "$SEC_PARAM" == "" ]; th
 	exit
 else
 	# Build and execute command
-	clock-rs -c '#BAC3FF' timer --kill $HR_PARAM $MIN_PARAM $SEC_PARAM
-	# clock-rs returns 0 when q pressed to quit, 1 if timer completes and exits with `--kill`.
-	if [[ $? -eq 1 ]]; then
-		notify-send -u critical --icon=clock 'TIMER' '[[ DONE ]]'
-	fi
+	clock-rs -c '#BAC3FF' timer --kill $HR_PARAM $MIN_PARAM $SEC_PARAM && notify-send -u critical --icon=clock 'TIMER' '\n DING!'
+	# clock-rs always returns 0, so this block is never called.. 
+	# if [[ $? -eq 1 ]]; then
+	# 	notify-send -u critical --icon=clock 'TIMER' '[[ DONE ]]'
+	# fi
 fi
 

@@ -41,6 +41,9 @@
             "watcherPaths": ""
          }
       },
+      "snippets": {
+         "enabled": false
+      },
       "system": {
          "entrypoints": {
             "run": {

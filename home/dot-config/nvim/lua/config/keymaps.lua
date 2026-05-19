@@ -33,8 +33,10 @@ map(
   "<cmd>vert new | set buftype=nofile | read ++edit # | 0d_ | diffthis | wincmd p | diffthis<cr>",
   { desc = "Diff buffer with file", remap = true }
 )
--- Alternate quit shortcut (easy save/quit with C-s, C-q)
+--  Some other useful mappings
 map("n", "<C-q>", "<cmd>qa<cr>", { desc = "Quit All", remap = true })
 map("n", "<leader>dF", "<cmd>DiffWithSaved<cr>", { desc = "Diff with file in tab", remap = false, silent = true })
 map({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to clipboard", remap = false, silent = true })
 map({ "n", "v" }, "<C-/>", "gcc", { desc = "Comment line", remap = true })
+map("n", "<leader>t", "Snacks.terminal.toggle()", { desc = "Toggle Terminal", remap = true })
+map("n", "<leader>fd", "<cmd>Dashboard<cr>", { desc = "Open Dashboard", remap = true })

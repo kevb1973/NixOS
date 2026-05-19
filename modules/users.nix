@@ -103,6 +103,7 @@
         mpv-shim-default-shaders
         nautilus
         ncpamixer
+        neovide
         nettools
         newsboat
         nh # nix helper

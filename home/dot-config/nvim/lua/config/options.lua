@@ -16,6 +16,7 @@ set_autoformat({ "nix" }, false)
 set_autoformat({ "fish" }, true)
 set_autoformat({ "lua" }, true)
 set_autoformat({ "yaml" }, true)
+set_autoformat({ "toml" }, true)
 
 -- OPTIONS
 local opt = vim.opt
@@ -27,3 +28,4 @@ opt.expandtab = true
 opt.relativenumber = false
 opt.clipboard = "unnamed"
 opt.shell = "fish"
+opt.autochdir = true

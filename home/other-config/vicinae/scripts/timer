@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title Timer
+# @vicinae.mode silent
+
+kitty --detach set_timer

@@ -80,6 +80,7 @@
         # jjui # GUI for Jujutsu
         jq
         jujutsu
+        kanata-with-cmd # Keyboard layers/mouse-keys
         kdePackages.qt6ct
         kdePackages.qtmultimedia
         kdePackages.qtstyleplugin-kvantum

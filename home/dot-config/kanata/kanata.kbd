@@ -1,0 +1,82 @@
+
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv  1    2    3    4    5    6    7    8    9    0    -    =   bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]   \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft        up        
+  lctl lmet lalt           spc                       rctl      left down rght 
+)
+
+(deflayer qwerty
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv  1    2    3    4    5    6    7    8    9    0    -    =   bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]   \
+  @ms2  a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft          up        
+  lctl lmet lalt           spc                       rctl          left down rght 
+)
+
+(defalias
+  ms3 (layer-switch mouse)
+  msq (layer-switch qwerty)
+  ms1 (layer-switch mouse-spd-1)
+  ms2 (layer-switch mouse-spd-2)
+  msr (layer-switch mouse-scroll)
+  mst (layer-while-held mouse-scroll)
+  msa (layer-while-held qwerty)
+)
+
+(defalias
+  mm↑ (movemouse-up 10 5)
+  mm← (movemouse-left 10 5)
+  mm↓ (movemouse-down 10 5)
+  mm→ (movemouse-right 10 5)
+  ms↑ (mwheel-up 10 12)
+  ms↓ (mwheel-down 10 12)
+  slw (movemouse-speed 25)
+  fst (movemouse-speed 200)
+  sp1↑ (movemouse-up 10 2)
+  sp1← (movemouse-left 10 2)
+  sp1↓ (movemouse-down 10 2)
+  sp1→ (movemouse-right 10 2)
+  sp2↑ (movemouse-up 10 4)
+  sp2← (movemouse-left 10 4)
+  sp2↓ (movemouse-down 10 4)
+  sp2→ (movemouse-right 10 4)
+)
+
+(deflayer mouse
+_    _    _    _    _    _    _    _    _    _    _    _    _
+_  @ms1 @ms2   _    _    _    _    _    _    _    _    _    _    _
+_    _  @fst @slw  mmid  _    _    _    _    _    _    _    _    _
+@msq _  @msr   _   mlft mrgt  _    _    _    _    _    _    _
+@mst _    _    _    _    _    _    _    _  lrld   _   @mst          @mm↑
+_    _    _              _                        _           @mm←  @mm↓ @mm→
+)
+(deflayer mouse-spd-1
+_    _    _    _    _    _    _    _    _    _    _    _    _
+_    _  @ms2 @ms3   _    _    _    _    _    _    _    _    _    _
+_    _  @fst @slw  mmid  _    _    _    _    _    _    _    _    _
+@msq _  @msr   _   mlft mrgt  _    _    _    _    _    _    _
+@mst _    _    _    _    _    _    _    _  lrld   _   @mst          @sp1↑
+_    _    _              _                        _          @sp1←  @sp1↓ @sp1→
+)
+
+(deflayer mouse-spd-2
+_    _    _    _    _    _    _    _    _    _    _    _    _
+_  @ms1   _  @ms3   _    _    _    _    _    _    _    _    _    _
+_    _  @fst @slw  mmid  _    _    _    _    _    _    _    _    _
+@msq _  @msr   _   mlft mrgt  _    _    _    _    _    _    _
+@mst _    _    _    _    _    _    _    _  lrld   _   @mst          @sp2↑
+_    _    _              _                        _          @sp2←  @sp2↓ @sp2→
+)
+
+(deflayer mouse-scroll
+_    _    _    _    _    _    _    _    _    _    _    _    _
+_    _    _    _    _    _    _    _    _    _    _    _    _    _
+_    _    _    _    _    _    _    _    _    _    _    _    _    _
+@msq _  @ms2   _    _    _    _    _    _    _    _    _    _
+@ms2 _    _    _    _    _    _    _    _    _    _   @ms2          @ms↑
+_    _    _              _                        _          left   @ms↓  rght
+)

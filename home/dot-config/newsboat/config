@@ -2,7 +2,8 @@ bind <RIGHT> feedlist,articlelist open
 bind <RIGHT> article open-in-browser
 bind <LEFT> everywhere quit
 bind a articlelist mark-all-above-as-read -- "Mark all above as read"
-browser "zen --new-tab %u"
+#browser "zen --new-tab %u"
+browser "brave %u"
 cleanup-on-quit yes
 confirm-mark-feed-read no
 delete-read-articles-on-quit yes

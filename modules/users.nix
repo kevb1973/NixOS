@@ -37,6 +37,7 @@
         bat
         bemoji
         bluetuith
+        brave
         btrfs-progs
         cacert
         calibre

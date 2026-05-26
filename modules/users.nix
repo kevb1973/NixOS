@@ -164,7 +164,6 @@
         xdg-user-dirs
         xwayland-satellite # for Niri
         yaml-language-server
-        yazi
         ydotool # Using to autopaste emojis (bemoji)
         yt-dlp 
         zoxide

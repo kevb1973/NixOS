@@ -39,6 +39,7 @@ alias ug="nix-env --list-generations"
 alias up="nh os switch --update --ask ~/NixOS"
 # alias up="nix flake update --flake /home/kev/NixOS"
 alias verify-store="sudo nix-store --verify --check-contents"
+alias v="vifm"
 alias windows="lswt"
 alias zzz="cd (fd . -td -tl -H -d2 -c always | fzf --height 50% --color=dark --ansi)" # search for dirs, change dir
 alias zz="zi"

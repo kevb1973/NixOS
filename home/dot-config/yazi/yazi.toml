@@ -34,7 +34,7 @@ markdown = [
   { run = 'kitten @ launch --type=tab treemd %s', desc = "View with treemd", block = true, for = "linux" },
 ]
 edit = [
-  { run = 'kitten @ launch --type=tab nvim %s', desc = "Edit with Helix", block = true, for = "unix" },
+  { run = 'kitten @ launch --type=tab nvim %s', desc = "Edit with NVim", block = true, for = "unix" },
   # { run = 'nvim %s', desc = "Edit with Helix", block = true, for = "unix" }
 ]
 open = [{ run = "xdg-open %s", desc = "Open", block = false, for = "unix" }]
@@ -42,13 +42,22 @@ pdf_view = [
   { run = "zen --new-tab %s", desc = "open with browser", block = false, for = "unix" },
 ]
 [open]
-prepend_rules = [
-  { url = "*.md", use = [
-    "markdown",
-    "edit",
-  ] },
-  { url = "*.pdf", use = [
-    "pdf_view",
-  ] },
-]
+# prepend_rules = [
+#   { url = "*.md", use = [
+#     "markdown",
+#     "edit",
+#   ] },
+#   { url = "*.pdf", use = [
+#     "pdf_view",
+#   ] },
+# ]
 append_rules = [{ url = "*", use = "open" }]
+
+# ~/.config/yazi/yazi.toml
+[[opener.bulk-rename]]
+run = "nvim %s"
+block = true
+
+[[open.prepend_rules]]
+url = "bulk-rename.txt"
+use = "bulk-rename"

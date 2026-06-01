@@ -12,6 +12,7 @@
       enable = true;
       enable32Bit = true;
     };
+    usbStorage.manageShutdown = true;
   };
 
   powerManagement = {

@@ -7,17 +7,25 @@
     '';
     package = pkgs.lix; # alternative to nix
     # package = pkgs.nixVersions.latest;
-    registry.nixpkgs.flake = inputs.nixpkgs; # Pin nixpkgs to speed up nix commands
+    
+    registry = rec {
+      nixpkgs.flake = inputs.nixpkgs; # Pin nixpkgs to speed up nix commands;
+      n = nixpkgs;
+    };
+    
     gc = {
       # Auto discard system generations
       automatic = true; # Slows boot, but need to stop myself from deleting all generations!
       dates = "daily";
       options = "--delete-older-than 1d";
     };
+    
     nixPath = [
       "nixpkgs=${inputs.nixpkgs}"
     ]; # Fix <nixpkgs> for flakes. See environment.etc."nix/inputs/nixpkgs"
+    
     optimise.automatic = true; # Auto optimize once per day at 3:45am (default)
+    
     settings = {
       auto-optimise-store = false; # Auto optimize every build. (slow)
       builders-use-substitutes = true;

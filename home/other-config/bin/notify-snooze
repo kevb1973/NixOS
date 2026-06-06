@@ -5,49 +5,54 @@ MESSAGE="$2"
 URL="$3"
 ICON_PATH="/run/current-system/sw/share/icons/Adwaita/symbolic/emotes"
 
-if [ -z $URL ];
-  then
-      result=$(notify-send \
-      --action=add15=+15m \
-      --action=add30=+30m \
-      --action=add1hr=+1hr \
-      --action=add24hr=+24hr \
-      -i "$ICON_PATH/face-smile-symbolic.svg" \
-      --urgency=critical \
-      --expire-time=21600000 \
-      "$TITLE" \
-      "$MESSAGE")
-  else
-    result=$(notify-send \
-      --action=url=Open \
-      --action=add15=+15m \
-      --action=add30=+30m \
-      --action=add1hr=+1hr \
-      --action=add24hr=+24h \
-      -i "$ICON_PATH/face-smile-symbolic.svg" \
-      --urgency=critical \
-      --expire-time=21600000 \
-      "$TITLE" \
-      "$MESSAGE")
+if [ -z $URL ]; then
+  result=$(notify-send \
+    --action=add15=+15m \
+    --action=add30=+30m \
+    --action=add1hr=+1hr \
+    --action=add24hr=+24hr \
+    -i "$ICON_PATH/face-smile-symbolic.svg" \
+    --urgency=critical \
+    --expire-time=10000 \
+    "$TITLE" \
+    "$MESSAGE")
+else
+  result=$(notify-send \
+    --action=url=Open \
+    --action=add15=+15m \
+    --action=add30=+30m \
+    --action=add1hr=+1hr \
+    --action=add24hr=+24h \
+    -i "$ICON_PATH/face-smile-symbolic.svg" \
+    --urgency=critical \
+    --expire-time=10000 \
+    "$TITLE" \
+    "$MESSAGE")
 fi
 
 # Check which button the user clicked
 case "$result" in
-   add15)
-     echo "notify-snooze '$TITLE' '$MESSAGE' '$URL'" | at "now + 15 min"
-     exit ;;
-   add30)
-     echo "notify-snooze '$TITLE' '$MESSAGE' '$URL'" | at "now + 30 min"
-     exit ;;
-   add1hr)
-     echo "notify-snooze '$TITLE' '$MESSAGE' '$URL'" | at "now + 1 hour"
-     exit ;;
-   add24hr)
-     echo "notify-snooze '$TITLE' '$MESSAGE' '$URL'" | at "now + 24 hour"
-     exit ;;
-   url)
-     xdg-open "$URL" 
-     exit ;;
-   *)
-     exit ;; 
+add15)
+  echo "notify-snooze '$TITLE' '$MESSAGE' '$URL'" | at "now + 15 min"
+  exit
+  ;;
+add30)
+  echo "notify-snooze '$TITLE' '$MESSAGE' '$URL'" | at "now + 30 min"
+  exit
+  ;;
+add1hr)
+  echo "notify-snooze '$TITLE' '$MESSAGE' '$URL'" | at "now + 1 hour"
+  exit
+  ;;
+add24hr)
+  echo "notify-snooze '$TITLE' '$MESSAGE' '$URL'" | at "now + 24 hour"
+  exit
+  ;;
+url)
+  xdg-open "$URL"
+  exit
+  ;;
+*)
+  exit
+  ;;
 esac

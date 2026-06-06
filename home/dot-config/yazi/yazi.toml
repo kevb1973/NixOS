@@ -39,18 +39,14 @@ edit = [
 ]
 open = [{ run = "xdg-open %s", desc = "Open", block = false, for = "unix" }]
 pdf_view = [
-  { run = "zen --new-tab %s", desc = "open with browser", block = false, for = "unix" },
+  { run = "helium %s", desc = "open with browser", block = false, for = "unix" },
 ]
 [open]
-# prepend_rules = [
-#   { url = "*.md", use = [
-#     "markdown",
-#     "edit",
-#   ] },
-#   { url = "*.pdf", use = [
-#     "pdf_view",
-#   ] },
-# ]
+prepend_rules = [
+  # { url = "*.md", use = [ "markdown", "edit", ] },
+  { url = "*.pdf", use = "pdf_view" },
+  { url = "bulk-rename.txt", use = "bulk-rename" },
+]
 append_rules = [{ url = "*", use = "open" }]
 
 # ~/.config/yazi/yazi.toml
@@ -58,6 +54,6 @@ append_rules = [{ url = "*", use = "open" }]
 run = "nvim %s"
 block = true
 
-[[open.prepend_rules]]
-url = "bulk-rename.txt"
-use = "bulk-rename"
+# [[open.prepend_rules]]
+# url = "bulk-rename.txt"
+# use = "bulk-rename"

@@ -39,7 +39,7 @@ edit = [
 ]
 open = [{ run = "xdg-open %s", desc = "Open", block = false, for = "unix" }]
 pdf_view = [
-  { run = "helium %s", desc = "open with browser", block = false, for = "unix" },
+  { run = "brave %s", desc = "open with browser", block = false, for = "unix" },
 ]
 [open]
 prepend_rules = [

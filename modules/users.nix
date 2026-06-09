@@ -116,6 +116,7 @@
         nushell # cuz its cool (and easier than jq)
         # nvd # Nix derivation diff tool
         nvtopPackages.amd # htop for video cards
+        ollama-vulkan
         optnix
         p7zip
         pamixer

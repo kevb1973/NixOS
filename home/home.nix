@@ -22,7 +22,6 @@ in
       ".bashrc".source = mkOutOfStoreSymlink "/home/kev/NixOS/home/other-config/bash/.bashrc";
       ".local/bin".source = mkOutOfStoreSymlink "/home/kev/NixOS/home/other-config/bin";
       ".local/share/vicinae/scripts".source = mkOutOfStoreSymlink "/home/kev/NixOS/home/other-config/vicinae/scripts";
-      ".local/share/vicinae/snippets".source = mkOutOfStoreSymlink "/home/kev/NixOS/home/other-config/vicinae/snippets";
     };
     stateVersion = "24.05";
   };

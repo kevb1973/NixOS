@@ -82,6 +82,7 @@
         jq
         jujutsu
         kanata-with-cmd # Keyboard layers/mouse-keys
+        kdePackages.kpat # Solitaire
         kdePackages.qt6ct
         kdePackages.qtmultimedia
         kdePackages.qtstyleplugin-kvantum

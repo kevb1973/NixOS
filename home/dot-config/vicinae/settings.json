@@ -30,8 +30,9 @@
    },
    "favorites": [
       "applications:brave-browser",
-      "applications:neovide",
+      "applications:org.kde.kpat",
       "applications:spotify",
+      "applications:neovide",
       "applications:zen"
    ],
    "providers": {

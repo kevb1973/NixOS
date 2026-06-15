@@ -4,18 +4,18 @@ set -x
 # scheme=$(dconf read /org/gnome/desktop/interface/color-scheme)
 # current=${scheme//\'/}
 noctalia=$(noctalia msg theme-mode-get)
+dark="'prefer-dark'"
+light="'prefer-light'"
 
 # case "$current" in
 case "$noctalia" in
 light)
-  # Switch to light themes
-  dconf write /org/gnome/desktop/interface/color-scheme "prefer-light"
+  dconf write /org/gnome/desktop/interface/color-scheme "$light"
   # pkill -USR1 -f kitty
   # sed -i 's/catppuccin_latte/catppuccin_macchiato/g' ~/.config/helix/themes/my_theme.toml && pkill -USR1 hx
   ;;
 dark)
-  # Switch to dark themes
-  dconf write /org/gnome/desktop/interface/color-scheme "prefer-dark"
+  dconf write /org/gnome/desktop/interface/color-scheme "$dark"
   # pkill -USR1 -f kitty
   # sed -i 's/catppuccin_macchiato/catppuccin_latte/g' ~/.config/helix/themes/my_theme.toml && pkill -USR1 hx
   ;;

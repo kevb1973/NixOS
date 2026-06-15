@@ -3,4 +3,4 @@
 # @vicinae.title Start Gemma4
 # @vicinae.mode silent
 
-llama-server -a 'Gemma4-E4B' -m ~/Code/models/gemma-4-E4B-it-qat-UD-Q4_K_XL.gguf --ctx-size 16384 --temp 1.0 --top-p 0.95 --top-k 64 --jinja --reasoning off --port 8081 --host 127.0.0.1
+kitty llama-server -a 'Gemma4-E4B' -m ~/Code/models/gemma-4-E4B-it-qat-UD-Q4_K_XL.gguf -mm ~/Code/models/gemma4-mmproj-F16.gguf --ctx-size 16384 --temp 1.0 --top-p 0.95 --top-k 64 --jinja --reasoning off --port 8081 --host 127.0.0.1

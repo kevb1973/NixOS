@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+CURRENT=$(nixos-version --hash)
+REMOTE=$(curl -s https://api.github.com/repos/NixOS/nixpkgs/branches/nixos-unstable | jq -r '.commit.sha')
+
+if [ -z "$CURRENT" ] || [ -z "$REMOTE" ]; then
+    echo "Error: Failed to fetch version info" >&2
+    exit 1
+fi
+
+if [ "$CURRENT" != "$REMOTE" ]; then
+  notify-send "Nixpkgs Update" "Revision: ${REMOTE:0:7} available!"
+fi

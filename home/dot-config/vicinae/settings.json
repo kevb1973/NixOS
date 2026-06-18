@@ -36,6 +36,9 @@
       "applications:zen"
    ],
    "providers": {
+      "developer": {
+         "enabled": false
+      },
       "files": {
          "preferences": {
             "autoIndexing": true,

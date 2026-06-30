@@ -56,16 +56,16 @@
 (deflayer mouse
 _    _    _    _    _    _    _    _    _    _    _    _    _
 _  @ms1 @ms2   _    _    _    _    _    _    _    _    _    _    _
-_    _  @fst @slw  mmid  _    _    _    _    _    _    _    _    _
-@msq _  @msr   _   mlft mrgt  _    _    _    _    _    _    _
+_    _  @fst @slw  mmid  _    _    _    _    _    _    _   mmid mrgt
+@msq _  @msr   _   mlft mrgt  _    _    _    _    _    _   mlft
 @mst _    _    _    _    _    _    _    _  lrld  @hfw  @mst          @mm↑
 _    _   @thq           @msr                     @hbk          @mm←  @mm↓ @mm→
 )
 (deflayer mouse-spd-1
 _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _  @ms2 @ms3   _    _    _    _    _    _    _    _    _    _
-_    _  @fst @slw  mmid  _    _    _    _    _    _    _    _    _
-@msq _  @msr   _   mlft mrgt  _    _    _    _    _    _    _
+_    _  @fst @slw  mmid  _    _    _    _    _    _    _  mmid mrgt
+@msq _  @msr   _   mlft mrgt  _    _    _    _    _    _  mlft
 @mst _    _    _    _    _    _    _    _  lrld  @hfw  @mst          @sp1↑
 _    _   @thq          @msr                     @hbk         @sp1←  @sp1↓ @sp1→
 )
@@ -73,8 +73,8 @@ _    _   @thq          @msr                     @hbk         @sp1←  @sp1↓ @s
 (deflayer mouse-spd-2
 _    _    _    _    _    _    _    _    _    _    _    _    _
 _  @ms1   _  @ms3   _    _    _    _    _    _    _    _    _    _
-_    _  @fst @slw  mmid  _    _    _    _    _    _    _    _    _
-@msq _  @msr   _   mlft mrgt  _    _    _    _    _    _    _
+_    _  @fst @slw  mmid  _    _    _    _    _    _    _  mmid mrgt
+@msq _  @msr   _   mlft mrgt  _    _    _    _    _    _  mlft
 @mst _    _    _    _    _    _    _    _  lrld  @hfw  @mst          @sp2↑
 _    _  @thq            @msr                     @hbk         @sp2←  @sp2↓ @sp2→
 )
@@ -83,7 +83,7 @@ _    _  @thq            @msr                     @hbk         @sp2←  @sp2↓ @
 _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _  mmid   _    _    _    _    _    _    _    _    _
-@msq _  @ms2   _  mlft mrgt   _    _    _    _    _    _    _
+@msq _  @ms2   _  mlft mrgt   _    _    _    _    _    _  mlft
 @ms2 _    _    _    _    _    _    _    _    _   @hfw  @ms2          @ms↑
 _    _  @thq            @ms2                     @hbk         left   @ms↓  rght
 )

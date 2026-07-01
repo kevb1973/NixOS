@@ -26,6 +26,7 @@
   ms1 (layer-switch mouse-spd-1)
   ms2 (layer-switch mouse-spd-2)
   msr (layer-switch mouse-scroll)
+  msrf (layer-while-held mouse-scroll-fast)
   mst (layer-while-held mouse-scroll)
   msa (layer-while-held qwerty)
   thw (multi F24 (tap-hold 200 200 @ms3 lalt))
@@ -39,6 +40,8 @@
   mm→ (movemouse-right 10 5)
   ms↑ (mwheel-up 10 12)
   ms↓ (mwheel-down 10 12)
+  msf↑ (mwheel-up 10 36)
+  msf↓ (mwheel-down 10 36)
   slw (movemouse-speed 25)
   fst (movemouse-speed 175)
   sp1↑ (movemouse-up 10 2)
@@ -80,10 +83,19 @@ _    _  @thq            @msr                     @hbk         @sp2←  @sp2↓ @
 )
 
 (deflayer mouse-scroll
+_     _    _    _    _    _    _    _    _    _    _    _    _
+_     _    _    _    _    _    _    _    _    _    _    _    _    _
+_     _    _    _  mmid   _    _    _    _    _    _    _    _    _
+@msq  _  @ms2   _  mlft mrgt   _    _    _    _    _    _  mlft
+@msrf _    _    _    _    _    _    _    _    _   @hfw  @msrf         @ms↑
+_     _  @thq            @ms2                     @hbk         left   @ms↓  rght
+)
+
+(deflayer mouse-scroll-fast
 _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _  mmid   _    _    _    _    _    _    _    _    _
 @msq _  @ms2   _  mlft mrgt   _    _    _    _    _    _  mlft
-@ms2 _    _    _    _    _    _    _    _    _   @hfw  @ms2          @ms↑
-_    _  @thq            @ms2                     @hbk         left   @ms↓  rght
+@ms2 _    _    _    _    _    _    _    _    _   @hfw  _             @msf↑
+_    _  @thq            @ms2                     @hbk         left   @msf↓  rght
 )

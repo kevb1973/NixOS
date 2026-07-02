@@ -33,7 +33,10 @@
       fuzzyCompletion = true;
     };
 
-    mangowc.enable = true;
+    mangowc = {
+      enable = true;
+      package = pkgs.mango; # Had to override after pkg name change
+    };
 
     niri = {
       enable = true;

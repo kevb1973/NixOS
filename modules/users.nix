@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   users = {
     groups = {
@@ -77,6 +77,7 @@
         hyprpicker # Simple color picker with zoom and hex preview
         seahorse # GUI for system passwords
         serpl # Neat tui find/replace in project
+        super-productivity # Nice todo list.
         systemctl-tui # Manage systemd units
         # jjui # GUI for Jujutsu
         jq

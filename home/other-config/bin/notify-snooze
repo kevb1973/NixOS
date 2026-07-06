@@ -6,28 +6,32 @@ URL="$3"
 ICON_PATH="/run/current-system/sw/share/icons/Adwaita/symbolic/emotes"
 
 if [ -z $URL ]; then
-  result=$(notify-send \
-    --action=add15=+15m \
-    --action=add30=+30m \
-    --action=add1hr=+1hr \
-    --action=add24hr=+24hr \
-    -i "$ICON_PATH/face-smile-symbolic.svg" \
-    --urgency=critical \
-    --expire-time=10000 \
-    "$TITLE" \
-    "$MESSAGE")
+  result=$(
+    notify-send \
+      --action=add15=+15m \
+      --action=add30=+30m \
+      --action=add1hr=+1hr \
+      --action=add24hr=+24hr \
+      -i "$ICON_PATH/face-smile-symbolic.svg" \
+      --urgency=critical \
+      \
+      "$TITLE" \
+      "$MESSAGE" # --expire-time=10000 \
+  )
 else
-  result=$(notify-send \
-    --action=url=Open \
-    --action=add15=+15m \
-    --action=add30=+30m \
-    --action=add1hr=+1hr \
-    --action=add24hr=+24h \
-    -i "$ICON_PATH/face-smile-symbolic.svg" \
-    --urgency=critical \
-    --expire-time=10000 \
-    "$TITLE" \
-    "$MESSAGE")
+  result=$(
+    notify-send \
+      --action=url=Open \
+      --action=add15=+15m \
+      --action=add30=+30m \
+      --action=add1hr=+1hr \
+      --action=add24hr=+24h \
+      -i "$ICON_PATH/face-smile-symbolic.svg" \
+      --urgency=critical \
+      \
+      "$TITLE" \
+      "$MESSAGE" # --expire-time=10000 \
+  )
 fi
 
 # Check which button the user clicked

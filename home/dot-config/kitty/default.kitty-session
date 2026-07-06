@@ -23,7 +23,3 @@ launch jjui
 new_tab DMS-jj
 cd ~/Code/DankMaterialShell
 launch jjui
-
-new_tab Mango-jj
-cd ~/Code/mango/
-launch jjui

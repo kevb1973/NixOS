@@ -20,10 +20,10 @@ set_autoformat({ "toml" }, true)
 
 -- OPTIONS
 local opt = vim.opt
-opt.foldmethod = "marker"
-opt.foldlevelstart = 99
-opt.foldlevel = 99
-opt.foldnestmax = 4
+-- opt.foldmethod = "marker"
+-- opt.foldlevelstart = 99
+-- opt.foldlevel = 99
+-- opt.foldnestmax = 4
 opt.expandtab = true
 opt.relativenumber = false
 opt.clipboard = "unnamed"

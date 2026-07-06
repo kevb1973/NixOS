@@ -104,13 +104,14 @@
         mdcat # cat/less for markdown
         mediainfo # Provides info on media files.
         micro-with-wl-clipboard # simple editor for jujutsu
+        mount-zip
         mpv-shim-default-shaders
         nautilus
         ncpamixer
         neovide
         nettools
         newsboat
-        nh # nix helper
+        # nh # nix helper (disabled 06/07/26 due to bugs in nixpkgs version)
         nil # for zed-editor
         nix-search-cli
         nix-tree

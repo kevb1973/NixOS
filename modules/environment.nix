@@ -86,7 +86,7 @@
       unar
       unzip
       usbutils
-      vifm
+      vifm-full
       wpa_supplicant_gui
       xdg-utils # for opening default programms when clicking links
       yazi

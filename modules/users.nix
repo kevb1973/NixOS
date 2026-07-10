@@ -87,7 +87,7 @@
         kdePackages.qt6ct
         kdePackages.qtmultimedia
         kdePackages.qtstyleplugin-kvantum
-        khal # Local Calendar used by DMS
+        # khal # Local Calendar used by DMS
         kitty
         kitty-themes
         lazyjournal # tui for logs
@@ -150,7 +150,7 @@
         udiskie # For access to cli only. Service enabled in home-manager
         uv # Wiki says this is an easy way to manage python versions and packages (non-declarative)
         uwu-colors # LSP to display color swatches
-        vdirsyncer # Sync web calendar to khal for DankMaterialShell
+        # vdirsyncer # Sync web calendar to khal for DankMaterialShell
         vicinae # Sweet launcher with plugins and custom scripts
         virt-manager
         vlc

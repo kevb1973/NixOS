@@ -62,15 +62,15 @@ in
   gtk = {
     enable = false;
     font = {
-      package = pkgs.cantarell-fonts;
-      name = "Cantarell";
-      size = 12;
+      # package = pkgs.cantarell-fonts;
+      name = "Noto Sans";
+      size = 14;
     };
 
     # Theme settings
     theme = {
-      package = pkgs.adw-gtk3;
-      name = "adw-gtk3";
+    #   package = pkgs.adw-gtk3;
+      name = "adwaita";
     };
 
     # Icon theme

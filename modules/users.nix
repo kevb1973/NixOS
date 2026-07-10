@@ -29,7 +29,6 @@
       ];
 
       packages = with pkgs; [
-        adw-gtk3
         aria2
         at
         ast-grep # extended grep for lazyvim

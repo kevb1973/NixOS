@@ -33,7 +33,7 @@
       ELECTRON_OZONE_PLATFORM_HINT = "auto";
       GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
-      GTK_THEME = "adw-gtk3";
+      GTK_THEME = "adwaita";
       MANPAGER = "nvim +Man!";
       MANWIDTH = "100";
       NIX_ALLOW_UNFREE = "1";

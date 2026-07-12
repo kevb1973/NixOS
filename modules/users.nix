@@ -73,6 +73,7 @@
         gum # Script enhancer - use for remind_tui
         # helix # Modal Editor
         hydra-check # check build status.. hydra-check --channel unstable <pkg>
+        hyprmagnifier
         hyprpicker # Simple color picker with zoom and hex preview
         seahorse # GUI for system passwords
         serpl # Neat tui find/replace in project

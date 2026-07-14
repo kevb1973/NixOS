@@ -91,13 +91,6 @@
       config.LISTEN_ADDR = "localhost:3002";
     };
 
-    nginx.virtualHosts."localhost".listen = [
-      {
-        addr = "0.0.0.0";
-        port = 3001;
-      }
-    ];
-
     pipewire = {
       enable = true;
       alsa.enable = true;

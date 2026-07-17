@@ -1,0 +1,260 @@
+[audio]
+enable_sounds = true
+
+[bar]
+order = [ "main" ]
+
+    [bar.main]
+    capsule = true
+    center = [ "clock-date", "clock", "weather", "notifications", "nix-monitor" ]
+    end = [ "media", "volume", "cpu", "ram", "tray", "clipboard", "control-center", "session" ]
+    margin_edge = 5
+    margin_ends = 15
+    padding = 10
+    position = "top"
+    radius = 5
+    start = [ "launcher", "workspaces", "active_window" ]
+
+[calendar]
+enabled = true
+
+    [calendar.account.personal_google]
+    color = "primary"
+    name = "Google"
+    type = "google"
+
+[control_center]
+compact = false
+
+    [[control_center.shortcuts]]
+    type = "wifi"
+
+    [[control_center.shortcuts]]
+    type = "bluetooth"
+
+    [[control_center.shortcuts]]
+    type = "caffeine"
+
+    [[control_center.shortcuts]]
+    type = "nightlight"
+
+    [[control_center.shortcuts]]
+    type = "power_profile"
+
+    [[control_center.shortcuts]]
+    type = "dark_mode"
+
+[dock]
+auto_hide = true
+position = "right"
+
+[hooks]
+theme_mode_changed = "toggle-system-theme"
+
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = false
+    timeout = 600
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = false
+    timeout = 900
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 3600
+
+[keybinds]
+cancel = [ "Escape" ]
+down = [ "Down" ]
+left = [ "Left" ]
+right = [ "Right" ]
+up = [ "Up" ]
+validate = [ "Return" ]
+
+[location]
+auto_locate = true
+
+[lockscreen]
+enabled = false
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 1
+widget_order = [ "lockscreen-login-box@DP-3" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-3"]
+    cx = 1280.0
+    cy = 1317.0
+    output = "DP-3"
+    rotation = 0.0
+    scale = 1.0
+    type = "login_box"
+
+[nightlight]
+enabled = true
+
+[notification]
+enable_daemon = true
+filter_order = [ "filter" ]
+
+    [notification.filter.filter]
+    allow_permanent = true
+    enabled = true
+    match = "notify-send"
+    override_duration = 0
+    play_sound = true
+    save_history = true
+    show_toast = true
+
+[plugin_settings."avivbintangaringga/nix-monitor"]
+clean_command = "nix-collect-garbage -d"
+update_command = "nh os switch --update --ask ~/NixOS"
+
+[plugin_settings."me/nixup"]
+update_hours = 1.0
+
+[plugin_settings."noctalia/notes"]
+extension = "md"
+notes_dir = "~/Temp/noctalia-notes"
+panel_placement = "attached"
+
+[plugins]
+enabled = [ "avivbintangaringga/nix-monitor", "noctalia/notes" ]
+
+    [[plugins.source]]
+    auto_update = true
+    kind = "git"
+    location = "https://github.com/noctalia-dev/community-plugins"
+    name = "community"
+
+    [[plugins.source]]
+    auto_update = true
+    kind = "git"
+    location = "https://github.com/noctalia-dev/official-plugins"
+    name = "official"
+
+    [[plugins.source]]
+    enabled = false
+    kind = "path"
+    location = "~/.config/noctalia/plugins"
+    name = "my-plugins"
+
+[shell]
+app_icon_color = "primary"
+app_icon_colorize = true
+avatar_path = "/home/kev/Pictures/nixos.png"
+clipboard_confirm_clear_history = false
+clipboard_image_action_command = "satty -f -"
+settings_show_advanced = false
+telemetry_enabled = false
+
+    [shell.panel]
+    clipboard_placement = "attached"
+    launcher_placement = "attached"
+
+    [shell.screenshot]
+    confirm_region = true
+    save_to_file = false
+
+    [[shell.session.actions]]
+    action = "lock"
+    enabled = false
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "logout"
+    command = "loginctl kill-user kev"
+    enabled = true
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "suspend"
+    command = "sudo systemctl suspend"
+    enabled = true
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "reboot"
+    command = "sudo systemctl reboot"
+    enabled = true
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "shutdown"
+    enabled = true
+    variant = "destructive"
+
+[theme]
+builtin = "Tokyo-Night"
+community_palette = "Ayu Blue"
+mode = "dark"
+source = "community"
+wallpaper_scheme = "m3-content"
+
+    [theme.templates]
+    community_ids = [ "zen-browser" ]
+
+[wallpaper]
+directory = "/home/kev/Pictures/wallpaper/1440p"
+directory_dark = ""
+directory_light = ""
+edge_smoothness = 0.29999999999999999
+enabled = true
+fill_color = "#15212f"
+fill_mode = "stretch"
+transition = [ "fade", "wipe", "disc", "stripes", "zoom", "honeycomb" ]
+transition_duration = 1500
+transition_on_startup = true
+
+    [wallpaper.default]
+    path = "color:#15212f"
+
+    [wallpaper.last]
+    path = "color:#15212f"
+
+    [wallpaper.monitors.DP-3]
+    path = "color:#15212f"
+
+[weather]
+address = "Oshawa, ON"
+auto_locate = true
+enabled = true
+refresh_minutes = 30
+unit = "metric"
+
+[widget.clock]
+format = "%I:%M %p"
+
+[widget.clock-date]
+format = "%a %b %e"
+type = "clock"
+
+[widget.cpu]
+stat = "cpu_usage"
+type = "sysmon"
+
+[widget.media]
+capsule = true
+hide_when_no_media = true
+title_scroll = "always"
+
+[widget.nix-monitor]
+type = "avivbintangaringga/nix-monitor:nix-monitor"
+
+[widget.ram]
+stat = "ram_used"
+type = "sysmon"
+
+[widget.workspaces]
+hide_when_empty = true

@@ -151,7 +151,6 @@
         uv # Wiki says this is an easy way to manage python versions and packages (non-declarative)
         uwu-colors # LSP to display color swatches
         # vdirsyncer # Sync web calendar to khal for DankMaterialShell
-        vicinae # Sweet launcher with plugins and custom scripts
         virt-manager
         vlc
         vscode-langservers-extracted # Various LS

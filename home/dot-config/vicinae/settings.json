@@ -30,9 +30,9 @@
    },
    "favorites": [
       "applications:brave-browser",
+      "scripts:start-kitty-session",
       "applications:org.kde.kpat",
-      "applications:spotify",
-      "applications:zen"
+      "applications:spotify"
    ],
    "providers": {
       "developer": {

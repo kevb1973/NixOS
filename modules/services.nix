@@ -86,7 +86,7 @@
     };
 
     miniflux = {
-      enable = true;
+      enable = false;
       adminCredentialsFile = "/etc/nixos/miniflux-admin-credentials";
       config.LISTEN_ADDR = "localhost:3002";
     };

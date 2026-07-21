@@ -62,11 +62,6 @@
       alsa-utils
       bibata-cursors
       btop
-      (catppuccin-sddm.override {
-        fontSize = "12";
-        clockEnabled = false;
-        accent = "lavender";
-      })
       cmake
       desktop-file-utils
       dnsmasq # Needed for VM Networks

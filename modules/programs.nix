@@ -34,7 +34,7 @@
     };
 
     mangowc = {
-      enable = true;
+      enable = false;
       package = pkgs.mango; # Had to override after pkg name change
     };
 

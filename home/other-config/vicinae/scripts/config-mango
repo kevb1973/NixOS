@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-# @vicinae.schemaVersion 1
-# @vicinae.title Mango Configs
-# @vicinae.mode silent
-
-# zellij run --cwd ~/NixOS/home/dot-config/mango -- nvim config.conf binds.conf rules.conf noctalia-binds.conf 
-kitty --detach -d ~/NixOS/home/dot-config/mango -- nvim config.conf binds.conf rules.conf noctalia-binds.conf 

@@ -3,5 +3,4 @@
 # @vicinae.title Noctalia-restart
 # @vicinae.mode silent
 
-
-pkill quickshell && noctalia-shell
+pkill noctalia && sleep 2 && noctalia -d

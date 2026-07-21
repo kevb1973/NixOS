@@ -3,5 +3,4 @@
 # @vicinae.title Noctalia-stop
 # @vicinae.mode silent
 
-
-pkill quickshell
+pkill noctalia

@@ -3,6 +3,4 @@
 # @vicinae.title Update Silverbullet
 # @vicinae.mode silent
 
-
 kitty --detach --app-id floater -- /home/kev/Code/podman/silverbullet/silverbullet-update-restart
-# zellij run --cwd /home/kev/Code -- /home/kev/Code/podman/silverbullet/silverbullet-update-restart

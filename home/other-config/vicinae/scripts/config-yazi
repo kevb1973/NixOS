@@ -4,4 +4,3 @@
 # @vicinae.mode silent
 
 kitty --detach -d ~/NixOS/home/dot-config/yazi -- nvim yazi.toml keymaps.toml
-# zellij run --cwd ~/NixOS -- nvim ~/NixOS/home/dot-config/yazi/yazi.toml

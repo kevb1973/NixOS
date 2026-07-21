@@ -4,4 +4,3 @@
 # @vicinae.mode silent
 
 kitty --detach -d ~/NixOS/home/dot-config/fish -- nvim config.fish conf.d/aliases-abbrs.fish
-# zellij run --cwd ~/NixOS -- nvim ~/NixOS/home/dot-config/fish/config.fish

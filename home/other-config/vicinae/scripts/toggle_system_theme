@@ -4,4 +4,3 @@
 # @vicinae.mode silent
 
 ~/.local/bin/toggle-system-theme
-# zellij run -- systemctl-tui

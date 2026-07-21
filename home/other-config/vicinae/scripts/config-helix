@@ -4,4 +4,3 @@
 # @vicinae.mode silent
 
 kitty --detach -d ~/NixOS/home/dot-config/helix -- nvim config.toml languages.toml
-# zellij run --cwd ~/NixOS -- nvim ~/NixOS/home/dot-config/helix/config.toml

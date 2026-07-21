@@ -4,4 +4,3 @@
 # @vicinae.mode silent
 
 kitty --detach podman-tui
-# zellij run podman-tui

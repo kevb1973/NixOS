@@ -4,4 +4,3 @@
 # @vicinae.mode silent
 
 kitty --detach nix profile upgrade mangowc
-# zellij run -- nix profile upgrade mangowc

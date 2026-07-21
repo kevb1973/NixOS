@@ -4,4 +4,3 @@
 # @vicinae.mode silent
 
 kitty --detach --app-id floater -- systemctl-tui
-# zellij run -- systemctl-tui

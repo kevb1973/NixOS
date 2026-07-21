@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title Nixpkgs Documentation
+# @vicinae.mode silent
+
+kitty --detach markless /etc/nix/inputs/nixpkgs/doc/

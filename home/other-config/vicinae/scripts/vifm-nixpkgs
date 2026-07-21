@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title vifm-nixpkgs
+# @vicinae.mode silent
+
+kitty --detach vifm /etc/nix/inputs/nixpkgs

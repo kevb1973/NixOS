@@ -4,4 +4,3 @@
 # @vicinae.mode silent
 
 kitty --detach --app-id floater -- nix profile upgrade DankMaterialShell
-# zellij run -- nix profile upgrade DankMaterialShell

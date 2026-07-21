@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title vifm-fish-functions
+# @vicinae.mode silent
+
+kitty --detach vifm ~/NixOS/home/dot-config/fish/functions/personal

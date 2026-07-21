@@ -4,4 +4,3 @@
 # @vicinae.mode silent
 
 kitty --detach -d ~/NixOS/home/dot-config/kitty -- nvim kitty.conf default.kitty-session
-# zellij run --cwd ~/NixOS -- nvim ~/NixOS/home/dot-config/kitty/kitty.conf

@@ -4,10 +4,19 @@
 }:
 {
   systemd = {
-    coredump.enable = false;
+
+    coredump = {
+      enable = true;
+      settings.Coredump = {
+        Storage = "none";
+        ProcessSizeMax = "0";
+      };
+    };
+
     services = {
       systemd-vconsole-setup.after = [ "local-fs.target" ]; # fix slow boot caused by vconsole-setup
     };
+
     settings.Manager = {
       DefaultTimeoutStopSec = "10s";
     };

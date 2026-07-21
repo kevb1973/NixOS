@@ -31,19 +31,19 @@
       builders-use-substitutes = true;
       substituters = [
         # "https://install.determinate.systems"
-        # "https://hyprland.cachix.org"
+        "https://hyprland.cachix.org"
         # "https://niri.cachix.org"
         # "https://cosmic.cachix.org/"
         # "https://watersucks.cachix.org"
       ];
       trusted-public-keys = [
         # "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
-        # "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         # "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
         # "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
         # "watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="
       ];
-      trusted-users = [ "kev" ]; # Needed to use substituters with nix profile install/upgrade
+      trusted-users = [ "root" "@wheel" ]; # Needed to use substituters with nix profile install/upgrade
     };
   };
 }

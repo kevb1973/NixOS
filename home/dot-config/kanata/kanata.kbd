@@ -17,7 +17,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]   \
   @ms3  a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft          up        
-  lctl lmet @thw         spc                       rctl          left down rght 
+  lctl lmet lalt         spc                       rctl          left down rght 
 )
 
 (defalias
@@ -64,7 +64,7 @@ _  @ms1 @ms2   _    _    _    _    _    _    _    _    _    _    _
 _    _  @fst @slw  mmid  _    _    _    _    _    _    _   mmid mrgt
 @msq _  @msr   _   mlft mrgt  _    _    _    _    _    _   mlft
 @mst _    _    _    _    _    _    _    _  lrld  @hfw  @mst          @mm↑
-_    _   @thq           @msr                     @hbk          @mm←  @mm↓ @mm→
+_    _    _             @msr                     @hbk          @mm←  @mm↓ @mm→
 )
 (deflayer mouse-spd-1
 _    _    _    _    _    _    _    _    _    _    _    _    _
@@ -72,7 +72,7 @@ _    _  @ms2 @ms3   _    _    _    _    _    _    _    _    _    _
 _    _  @fst @slw  mmid  _    _    _    _    _    _    _  mmid mrgt
 @msq _  @msr   _   mlft mrgt  _    _    _    _    _    _  mlft
 @mst _    _    _    _    _    _    _    _  lrld  @hfw  @mst          @sp1↑
-_    _   @thq          @msr                     @hbk         @sp1←  @sp1↓ @sp1→
+_    _    _             @msr                     @hbk         @sp1←  @sp1↓ @sp1→
 )
 
 (deflayer mouse-spd-2
@@ -81,7 +81,7 @@ _  @ms1   _  @ms3   _    _    _    _    _    _    _    _    _    _
 _    _  @fst @slw  mmid  _    _    _    _    _    _    _  mmid mrgt
 @msq _  @msr   _   mlft mrgt  _    _    _    _    _    _  mlft
 @mst _    _    _    _    _    _    _    _  lrld  @hfw  @mst          @sp2↑
-_    _  @thq            @msr                     @hbk         @sp2←  @sp2↓ @sp2→
+_    _    _              @msr                     @hbk         @sp2←  @sp2↓ @sp2→
 )
 
 (deflayer mouse-scroll
@@ -90,7 +90,7 @@ _     _    _    _    _    _    _    _    _    _    _    _    _    _
 _     _    _    _  mmid   _    _    _    _    _    _    _    _    _
 @msq  _  @ms2   _  mlft mrgt   _    _    _    _    _    _  mlft
 @msrf _    _    _    _    _    _    _    _    _   @hfw  @msrf         @ms↑
-_     _  @thq            @ms2                     @hbk         @mwl   @ms↓  @mwr
+_     _    _             @ms2                     @hbk         @mwl   @ms↓  @mwr
 )
 
 (deflayer mouse-scroll-fast
@@ -99,5 +99,5 @@ _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _  mmid   _    _    _    _    _    _    _    _    _
 @msq _  @ms2   _  mlft mrgt   _    _    _    _    _    _  mlft
 @ms2 _    _    _    _    _    _    _    _    _   @hfw  _             @msf↑
-_    _  @thq            @ms2                     @hbk         @mwl   @msf↓  @mwr
+_    _    _             @ms2                     @hbk         @mwl   @msf↓  @mwr
 )

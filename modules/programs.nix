@@ -33,13 +33,12 @@
       fuzzyCompletion = true;
     };
 
-    mangowc = {
+    mango = {
       enable = false;
-      package = pkgs.mango; # Had to override after pkg name change
     };
 
     niri = {
-      enable = true;
+      enable = false; # BROKEN: Jul 27, 2026
       # package = inputs.niri.packages.${pkgs.system}.default;
     };
 

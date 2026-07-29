@@ -3,7 +3,7 @@ cd ~
 launch --title "Main" fish
 
 new_tab rss
-launch eilmeldung
+launch newsboat
 
 new_tab rmpc
 launch rmpc

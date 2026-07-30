@@ -2,8 +2,8 @@
   description = "Halcyon System Configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

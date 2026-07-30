@@ -39,6 +39,7 @@
         brave
         btrfs-progs
         cacert
+        cachix
         calibre
         cantata # GUI MPD client
         cargo

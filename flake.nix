@@ -15,7 +15,6 @@
     {
       nixpkgs,
       home-manager,
-      # determinate,
       ...
     }@inputs:
     {
@@ -25,7 +24,6 @@
           system = "x86_64-linux";
           modules = [
             ./configuration.nix
-            # determinate.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               home-manager = {

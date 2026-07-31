@@ -15,29 +15,23 @@
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
   grv  1    2    3    4    5    6    7    8    9    0    -    =   bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]   \
-  @ms3  a    s    d    f    g    h    j    k    l    ;    '    ret
+  @ms2  a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft          up        
   lctl lmet lalt         spc                       rctl          left down rght 
 )
 
 (defalias
-  ms3 (layer-switch mouse)
   msq (layer-switch qwerty)
   ms1 (layer-switch mouse-spd-1)
   ms2 (layer-switch mouse-spd-2)
+  ms3 (layer-switch mouse-spd-3)
   msr (layer-switch mouse-scroll)
   msrf (layer-while-held mouse-scroll-fast)
   mst (layer-while-held mouse-scroll)
   msa (layer-while-held qwerty)
-  thw (multi F24 (tap-hold 200 200 @ms3 lalt))
-  thq (multi F24 (tap-hold 200 200 @msq lalt))
 )
 
 (defalias
-  mm↑ (movemouse-up 10 5)
-  mm← (movemouse-left 10 5)
-  mm↓ (movemouse-down 10 5)
-  mm→ (movemouse-right 10 5)
   ms↑ (mwheel-up 10 12)
   ms↓ (mwheel-down 10 12)
   msf↑ (mwheel-up 10 36)
@@ -50,22 +44,18 @@
   sp1← (movemouse-left 10 2)
   sp1↓ (movemouse-down 10 2)
   sp1→ (movemouse-right 10 2)
-  sp2↑ (movemouse-up 10 4)
-  sp2← (movemouse-left 10 4)
-  sp2↓ (movemouse-down 10 4)
-  sp2→ (movemouse-right 10 4)
+  sp2↑ (movemouse-up 10 5)
+  sp2← (movemouse-left 10 5)
+  sp2↓ (movemouse-down 10 5)
+  sp2→ (movemouse-right 10 5)
+  sp3↑ (movemouse-up 1 1)
+  sp3← (movemouse-left 10 8)
+  sp3↓ (movemouse-down 10 8)
+  sp3→ (movemouse-right 10 8)
   hbk A-ArrowLeft
   hfw A-right
 )
 
-(deflayer mouse
-_    _    _    _    _    _    _    _    _    _    _    _    _
-_  @ms1 @ms2   _    _    _    _    _    _    _    _    _    _    _
-_    _  @fst @slw  mmid  _    _    _    _    _    _    _   mmid mrgt
-@msq _  @msr   _   mlft mrgt  _    _    _    _    _    _   mlft
-@mst _    _    _    _    _    _    _    _  lrld  @hfw  @mst          @mm↑
-_    _    _             @msr                     @hbk          @mm←  @mm↓ @mm→
-)
 (deflayer mouse-spd-1
 _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _  @ms2 @ms3   _    _    _    _    _    _    _    _    _    _
@@ -80,9 +70,18 @@ _    _    _    _    _    _    _    _    _    _    _    _    _
 _  @ms1   _  @ms3   _    _    _    _    _    _    _    _    _    _
 _    _  @fst @slw  mmid  _    _    _    _    _    _    _  mmid mrgt
 @msq _  @msr   _   mlft mrgt  _    _    _    _    _    _  mlft
-@mst _    _    _    _    _    _    _    _  lrld  @hfw  @mst          @sp2↑
+@mst _    _    _    _    _    _    _    _  lrld  @hfw  @mst           @sp2↑
 _    _    _              @msr                     @hbk         @sp2←  @sp2↓ @sp2→
 )
+
+(deflayer mouse-spd-3
+ _    _    _    _    _    _    _    _    _    _    _    _    _
+ _  @ms1 @ms2   _    _    _    _    _    _    _    _    _    _    _
+ _    _  @fst @slw  mmid  _    _    _    _    _    _    _   mmid mrgt
+ @msq _  @msr   _   mlft mrgt  _    _    _    _    _    _   mlft
+ @mst _    _    _    _    _    _    _    _  lrld  @hfw  @mst          @sp3↑
+ _    _    _             @msr                     @hbk         @sp3←  @sp3↓ @sp3→
+ )
 
 (deflayer mouse-scroll
 _     _    _    _    _    _    _    _    _    _    _    _    _

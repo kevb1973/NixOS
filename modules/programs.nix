@@ -38,7 +38,7 @@
     };
 
     niri = {
-      enable = false; # BROKEN: Jul 27, 2026
+      enable = true;
       # package = inputs.niri.packages.${pkgs.system}.default;
     };
 

@@ -1,26 +1,30 @@
 // Noctalia binds
 binds {
 
-    Mod+KP_Enter          { spawn-sh "noctalia-shell ipc call launcher toggle"; }
-    Mod+P                 { spawn-sh "noctalia-shell ipc call wallpaper toggle"; }
-    Mod+c                 { spawn-sh "noctalia-shell ipc call launcher clipboard"; }
-    Mod+Shift+s           { spawn-sh "noctalia-shell ipc call settings toggle"; }
-    Mod+a                 { spawn-sh "noctalia-shell ipc call notifications toggleHistory"; }
-    Mod+Shift+a           { spawn-sh "noctalia-shell ipc call notifications removeOldestHistory"; }
-    Mod+Control+Shift+a   { spawn-sh "noctalia-shell ipc call notifications clear"; }
-    Mod+d                 { spawn-sh "noctalia-shell ipc call notifications dismissAll"; }
-    Mod+b                 { spawn-sh "noctalia-shell ipc call bar toggle"; }
-    Mod+t                 { spawn-sh "noctalia-shell ipc call plugin:timer toggle"; }
-    Mod+Shift+t           { spawn-sh "noctalia-shell ipc call plugin:timer reset"; }
-    Mod+Control+t         { spawn-sh "noctalia-shell ipc call plugin:timer start stopwatch"; }
-    Mod+w                 { spawn-sh "noctalia-shell ipc call calendar toggle"; }
-    Mod+e                 { spawn-sh "noctalia-shell ipc call launcher emoji"; }
-    Mod+m                 { spawn-sh "noctalia-shell ipc call media toggle"; }
-    XF86AudioRaiseVolume  { spawn-sh "noctalia-shell ipc call volume increase"; }
-    XF86AudioLowerVolume  { spawn-sh "noctalia-shell ipc call volume decrease"; }
-    XF86AudioMute         { spawn-sh "noctalia-shell ipc call volume muteOutput"; }
-    Mod+Alt+Up            { spawn-sh "noctalia-shell ipc call volume increase 1"; }
-    Mod+Alt+Down          { spawn-sh "noctalia-shell ipc call volume decrease 1"; }
-    Mod+Alt+m             { spawn-sh "noctalia-shell ipc call volume muteOutput"; }
-    Mod+q                 { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
+    Mod+KP_Enter                { spawn-sh "noctalia-shell ipc call launcher toggle"; }
+    Mod+b                       { spawn-sh "noctalia msg bar-toggle"; }
+    Mod+m                       { spawn-sh "noctalia msg panel-toggle control-center media"; }
+    Mod+P                       { spawn-sh "noctalia msg panel-toggle launcher /wall"; }
+    Mod+Shift+P                 { spawn-sh "noctalia msg wallpaper-set color:#15212f"; }
+    Mod+w                       { spawn-sh "noctalia msg panel-toggle control-center weather "; }
+    Mod+SHIFT+w                 { spawn-sh "noctalia msg panel-toggle control-center calendar"; }
+    Mod+q                       { spawn-sh "noctalia msg panel-toggle session"; }
+    Mod+period                  { spawn-sh "noctalia msg settings-toggle"; }
+    Mod+SHIFT+m                 { spawn-sh "noctalia msg panel-toggle control-center system"; }
+    Mod+SHIFT+n                 { spawn-sh "noctalia msg panel-toggle noctalia/notes:panel"; }
+    Mod+c                       { spawn-sh "noctalia msg panel-toggle clipboard"; }
+    Mod+u                       { spawn-sh "noctalia msg panel-toggle avivbintangaringga/nix-monitor:panel"; }
+    Mod+SHIFT+c                 { spawn-sh "noctalia msg clipboard-clear"; }
+    Mod+SHIFT+t                 { spawn-sh "noctalia msg theme-mode-toggle"; }
+    Mod+KP_Enter                { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+a                       { spawn-sh "noctalia msg panel-toggle control-center notifications"; }
+    Mod+SHIFT+a                 { spawn-sh "noctalia msg notification-clear-history"; }
+    Mod+d                       { spawn-sh "noctalia msg notification-clear-active"; }
+    Mod+t                       { spawn-sh "kitty clock-rs stopwatch"; }
+    none+XF86AudioLowerVolume   { spawn-sh "noctalia msg volume-down 1"; }
+    none+XF86AudioMute          { spawn-sh "noctalia msg volume-mute"; }
+    none+XF86AudioRaiseVolume   { spawn-sh "noctalia msg volume-up 1"; }
+    Mod+KP_7                    { spawn-sh "noctalia msg media toggle"; }
+    Mod+KP_8                    { spawn-sh "noctalia msg media previous"; }
+    Mod+KP_9                    { spawn-sh "noctalia msg media next"; }
 }

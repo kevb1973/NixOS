@@ -126,7 +126,7 @@
       displayManager = {
         startx.enable = false; # console login
       };
-      #updateDbusEnvironment = true;
+      updateDbusEnvironment = true;
     };
 
     libinput = {

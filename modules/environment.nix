@@ -12,13 +12,13 @@
       #     exec niri-session
       #   '';
       # };
-      "lemurs/wayland/Mango-git" = {
-        mode = "755";
-        text = ''
-          #!/usr/bin/env sh
-          exec /home/kev/.nix-profile/bin/mango
-        '';
-      };
+      # "lemurs/wayland/Mango-git" = {
+      #   mode = "755";
+      #   text = ''
+      #     #!/usr/bin/env sh
+      #     exec /home/kev/.nix-profile/bin/mango
+      #   '';
+      # };
 
     };
     # sessionVariables = {

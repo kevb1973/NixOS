@@ -19,11 +19,3 @@ launch jjui
 new_tab noctalia-jj
 cd ~/Code/noctalia
 launch jjui
-
-new_tab dms-jj
-cd ~/Code/DankMaterialShell
-launch jjui
-
-new_tab mango-jj
-cd ~/Code/mango/
-launch jjui

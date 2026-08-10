@@ -59,7 +59,7 @@ abbr -a --set-cursor='%' -- npi 'nix profile install nixpkgs#%'
 abbr -a --set-cursor='%' -- npis 'nix profile install nixpkgs/release-24.11#%'
 abbr -a --set-cursor='%' -- nr 'nix run nixpkgs#%'
 abbr -a --set-cursor='%' -- ns 'nix shell nixpkgs#% -c fish'
-abbr -a --set-cursor='%' -- park 'nix profile install nixpkgs/(nixos-version --hash)#%'
+abbr -a --set-cursor='%' -- pin 'nix profile install nixpkgs/(nixos-version --hash)#%'
 abbr -a -- scu 'systemctl --user'
 abbr -a --set-cursor='%' -- snn "nix-search -d -r --name '%'"
 # abbr -a --set-cursor='%' -- snp "nix-search -d -r --program '%'"

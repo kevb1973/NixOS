@@ -31,7 +31,7 @@
       CLUTTER_BACKEND = "wayland";
       EDITOR = "nvim";
       ELECTRON_OZONE_PLATFORM_HINT = "auto";
-      GDK_BACKEND = "wayland,x11";
+      # GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";
       GTK_THEME = "adwaita";
       MANPAGER = "nvim +Man!";

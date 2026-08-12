@@ -29,6 +29,8 @@
       fileSystems = [ "/home/kev" ];
     };
 
+    dbus.packages = [pkgs.dconf]; 
+
     desktopManager = {
       cosmic.enable = false;
       plasma6.enable = false;
@@ -39,9 +41,10 @@
       # enable = false; # disable ALL display managers
       # autoLogin.enable = false;
       # autoLogin.user = "kev";
-      # gdm.enable = true;
+      defaultSession = "mango"; 
+      gdm.enable = false;
       lemurs = {
-        enable = true;
+        enable = false;
         settings = {
           username_field = {
             remember = true;
@@ -71,6 +74,7 @@
           };
         };
       };
+      sddm.enable = true;
     };
 
     emacs = {

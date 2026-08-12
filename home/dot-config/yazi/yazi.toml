@@ -31,10 +31,10 @@ ueberzug_offset = [0, 0, 0, 0]
 
 [opener]
 markdown = [
-  { run = 'kitten @ launch --type=tab treemd %s', desc = "View with treemd", block = true, for = "linux" },
+  { run = 'treemd %s', desc = "View with treemd", block = true, for = "linux" },
 ]
 edit = [
-  { run = 'kitten @ launch --type=tab nvim %s', desc = "Edit with NVim", block = true, for = "unix" },
+  { run = 'nvim %s', desc = "Edit with NVim", block = true, for = "unix" },
   # { run = 'nvim %s', desc = "Edit with Helix", block = true, for = "unix" }
 ]
 open = [{ run = "xdg-open %s", desc = "Open", block = false, for = "unix" }]

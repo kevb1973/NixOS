@@ -26,7 +26,7 @@ _:
         });
       '';
     };
-    # rtkit.enable = false;
+    rtkit.enable = true;
     sudo.extraRules = [
       {
         users = [ "kev" ];

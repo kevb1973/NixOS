@@ -1,7 +1,6 @@
 // Noctalia binds
 binds {
 
-    Mod+KP_Enter                { spawn-sh "noctalia-shell ipc call launcher toggle"; }
     Mod+b                       { spawn-sh "noctalia msg bar-toggle"; }
     Mod+m                       { spawn-sh "noctalia msg panel-toggle control-center media"; }
     Mod+P                       { spawn-sh "noctalia msg panel-toggle launcher /wall"; }
@@ -21,9 +20,9 @@ binds {
     Mod+SHIFT+a                 { spawn-sh "noctalia msg notification-clear-history"; }
     Mod+d                       { spawn-sh "noctalia msg notification-clear-active"; }
     Mod+t                       { spawn-sh "kitty clock-rs stopwatch"; }
-    none+XF86AudioLowerVolume   { spawn-sh "noctalia msg volume-down 1"; }
-    none+XF86AudioMute          { spawn-sh "noctalia msg volume-mute"; }
-    none+XF86AudioRaiseVolume   { spawn-sh "noctalia msg volume-up 1"; }
+    XF86AudioLowerVolume        { spawn-sh "noctalia msg volume-down 1"; }
+    XF86AudioMute               { spawn-sh "noctalia msg volume-mute"; }
+    XF86AudioRaiseVolume        { spawn-sh "noctalia msg volume-up 1"; }
     Mod+KP_7                    { spawn-sh "noctalia msg media toggle"; }
     Mod+KP_8                    { spawn-sh "noctalia msg media previous"; }
     Mod+KP_9                    { spawn-sh "noctalia msg media next"; }

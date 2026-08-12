@@ -8,7 +8,7 @@ binds {
     Mod+KP_Multiply       { spawn-sh "toggle_calc"; }
     Mod+N                 { spawn-sh "kitty --app-id='remind-tui' ~/.local/bin/remind_tui"; }
     // Mod+Shift+N           { spawn-sh "dms ipc notepad toggle"; }
-    Mod+Shift+KP_Enter    { spawn-sh "toggle_launch"; }
+    // Mod+Shift+KP_Enter    { spawn-sh "toggle_launch"; }
     Mod+Z                 { spawn-sh "vicinae toggle"; }
     Mod+grave             { spawn-sh "kitten quick-access-terminal --instance-group kitty --session ~/.config/kitty/default.kitty-session"; }
     // Mod+KP_End            { spawn-sh "kitten quick-access-terminal --instance-group jjui jjui ~/NixOS"; }

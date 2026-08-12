@@ -4,13 +4,11 @@
     portal = {
       config.common.default = "*"; # Needed for xdg-desktop-portal
       enable = true;
+      xdgOpenUsePortal = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-wlr
         xdg-desktop-portal-gtk
-        xdg-desktop-portal-gnome
-        # kdePackages.xdg-desktop-portal-kde
       ];
-      wlr.enable = true;
     };
     mime = {
       enable = true;

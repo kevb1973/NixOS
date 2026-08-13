@@ -40,7 +40,7 @@
         btrfs-progs
         cacert
         cachix
-        # calibre # Broken Aug 13 26
+        calibre
         cantata # GUI MPD client
         cargo
         cava # Terminal audio visualizer

@@ -161,6 +161,7 @@
         wget
         wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
         wl-color-picker
+        wl-find-cursor
         wl-kbptr # click via keyboard (like vimium for niri)
         wlogout
         wlrctl # alternate to dotool (move mouse off screen)

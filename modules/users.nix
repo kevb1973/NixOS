@@ -113,7 +113,7 @@
         neovide
         nettools
         newsboat
-        # nh # nix helper (disabled 06/07/26 due to bugs in nixpkgs version)
+        nh # nix helper
         nil # for zed-editor
         nix-search-cli
         nix-tree

@@ -38,7 +38,7 @@
     };
 
     niri = {
-      enable = true;
+      enable = false; # disable for now due to xdg-desktop-gnome depenencies issue
       # package = inputs.niri.packages.${pkgs.system}.default;
     };
 

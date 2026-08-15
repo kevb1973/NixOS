@@ -19,7 +19,7 @@
    },
    "theme": {
       "dark": {
-         "name": "nord"
+         "name": "noctalia"
       }
    },
    "launcher_window": {
@@ -35,6 +35,13 @@
       "applications:spotify"
    ],
    "providers": {
+      "applications": {
+         "entrypoints": {
+            "org.gnome.Software": {
+               "alias": "flatpak store"
+            }
+         }
+      },
       "developer": {
          "enabled": false
       },

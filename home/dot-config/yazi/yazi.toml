@@ -34,18 +34,22 @@ markdown = [
   { run = 'treemd %s', desc = "View with treemd", block = true, for = "linux" },
 ]
 edit = [
-  { run = 'nvim %s', desc = "Edit with NVim", block = true, for = "unix" },
-  # { run = 'nvim %s', desc = "Edit with Helix", block = true, for = "unix" }
+  { run = 'nvim %s', desc = "Edit with NVim", block = true, for = "linux" },
 ]
-open = [{ run = "xdg-open %s", desc = "Open", block = false, for = "unix" }]
+open = [{ run = "xdg-open %s", desc = "Open", block = false, for = "linux" }]
 pdf_view = [
-  { run = "brave %s", desc = "open with browser", block = false, for = "unix" },
+  { run = "brave %s", desc = "Open with browser", block = false, for = "linux" },
 ]
+img_view = [
+  { run = "pix %s", desc = "Open with pix image viewer", block = false, for = "linux" },
+]
+
 [open]
 prepend_rules = [
   # { url = "*.md", use = [ "markdown", "edit", ] },
   { url = "*.pdf", use = "pdf_view" },
   { url = "bulk-rename.txt", use = "bulk-rename" },
+  { mime = "image/*", use = "img_view" },
 ]
 append_rules = [{ url = "*", use = "open" }]
 

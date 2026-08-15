@@ -13,7 +13,7 @@
 
     appimage = {
       enable = false;
-      # binfmt = true;
+      binfmt = true;
     };
 
     firefox = {

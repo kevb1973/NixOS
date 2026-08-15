@@ -126,6 +126,7 @@
         p7zip
         pamixer
         pwvucontrol # Pipewire GUI mixer
+        pix
         playerctl
         podman-compose
         podman-tui

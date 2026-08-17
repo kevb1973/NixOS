@@ -15,7 +15,6 @@
     openssh.enable = false;
     printing.drivers = [ pkgs.brlaser ];
     printing.enable = true;
-    seatd.enable = true; # For lemur display manager
     udisks2.enable = true;
 
     atd = {

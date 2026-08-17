@@ -5,8 +5,8 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-    package = pkgs.lix; # alternative to nix
-    # package = pkgs.nixVersions.latest;
+    # package = pkgs.lix; # alternative to nix
+    package = pkgs.nixVersions.latest;
     
     registry = rec {
       nixpkgs.flake = inputs.nixpkgs; # Pin nixpkgs to speed up nix commands;

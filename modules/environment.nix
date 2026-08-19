@@ -39,6 +39,8 @@
       NIX_ALLOW_UNFREE = "1";
       NIXOS_CONFIG = "/home/kev/NixOS";
       NIX_PAGER = "bat";
+      NNN_PLUG = "z:autojump;f:finder;p:preview-tui";
+      NNN_FIFO = "/tmp/nnn.fifo";
       # OLLAMA_HOST = "127.0.0.1:11434";
       # OLLAMA_FLASH_ATTENTION = "1";
       PAGER = "bat";

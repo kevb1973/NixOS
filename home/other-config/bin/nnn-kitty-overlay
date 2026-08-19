@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+export NNN_PLUG='z:autojump;f:finder;p:preview-tui'
+export NNN_FIFO=/tmp/nnn.fifo
+nnn -a -A -Pp

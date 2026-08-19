@@ -30,3 +30,5 @@ end
 set PATH $PATH /home/kev/.local/bin /home/kev/.config/emacs/bin /home/kev/.cargo/bin /home/kev/.local/bin
 # set -gx DISPLAY :1
 # set fish_function_path $fish_function_path $__fish_config_dir/functions/*/
+set -gx NNN_PLUG 'z:autojump;f:finder;p:preview-tui'
+set -gx NNN_FIFO /tmp/nnn.fifo

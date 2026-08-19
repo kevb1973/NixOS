@@ -3,6 +3,8 @@
 #
 export PATH=/home/kev/NixOS/home/non-xdg-dots/bin:/home/kev/Code/dms-bin:$PATH
 export XDG_DATA_DIRS=/etc/profiles/per-user/kev/bin:$XDG_DATA_DIRS
+export NNN_PLUG='z:autojump;f:finder;p:preview-tui'
+export NNN_FIFO=/tmp/nnn.fifo
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return

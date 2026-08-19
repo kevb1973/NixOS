@@ -29,6 +29,7 @@
       ];
 
       packages = with pkgs; [
+        archivemount
         aria2
         at
         ast-grep # extended grep for lazyvim
@@ -118,6 +119,7 @@
         nix-search-cli
         nix-tree
         nixd
+        nnn
         nushell # cuz its cool (and easier than jq)
         # nvd # Nix derivation diff tool
         nvtopPackages.amd # htop for video cards
@@ -131,6 +133,7 @@
         podman-compose
         podman-tui
         polkit_gnome
+        poppler-utils # For nnn previews
         puddletag # Music tag editor
         python3
         qalculate-gtk

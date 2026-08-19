@@ -31,8 +31,8 @@
       packages = with pkgs; [
         archivemount
         aria2
-        at
         ast-grep # extended grep for lazyvim
+        at
         authenticator
         bat
         bemoji
@@ -74,14 +74,8 @@
         grc # generic text colourizer. Using with fishPlugins.grc
         gscreenshot # Screenshots
         gum # Script enhancer - use for remind_tui
-        # helix # Modal Editor
         hydra-check # check build status.. hydra-check --channel unstable <pkg>
         hyprpicker # Simple color picker with zoom and hex preview
-        seahorse # GUI for system passwords
-        serpl # Neat tui find/replace in project
-        super-productivity # Nice todo list.
-        systemctl-tui # Manage systemd units
-        # jjui # GUI for Jujutsu
         jq
         jujutsu
         kanata-with-cmd # Keyboard layers/mouse-keys
@@ -89,13 +83,12 @@
         kdePackages.qt6ct
         kdePackages.qtmultimedia
         kdePackages.qtstyleplugin-kvantum
-        # khal # Local Calendar used by DMS
         kitty
         kitty-themes
         lazyjournal # tui for logs
         libnotify
-        libsForQt5.qtstyleplugin-kvantum
         libsForQt5.qt5ct
+        libsForQt5.qtstyleplugin-kvantum
         libtool # Needed for DMS
         llama-cpp-vulkan
         lsd
@@ -121,13 +114,11 @@
         nixd
         nnn
         nushell # cuz its cool (and easier than jq)
-        # nvd # Nix derivation diff tool
         nvtopPackages.amd # htop for video cards
         ollama-vulkan
         optnix
         p7zip
         pamixer
-        pwvucontrol # Pipewire GUI mixer
         pix
         playerctl
         podman-compose
@@ -135,12 +126,15 @@
         polkit_gnome
         poppler-utils # For nnn previews
         puddletag # Music tag editor
+        pwvucontrol # Pipewire GUI mixer
         python3
         qalculate-gtk
         quickshell
         ripgrep
         rmpc # nice alternative to ncmpcpp
         satty # Screenshot Editor
+        seahorse # GUI for system passwords
+        serpl # Neat tui find/replace in project
         shellcheck 
         shfmt # bash code formatter
         sioyek # nice pdf viewer
@@ -148,6 +142,8 @@
         spotify
         spotify-player
         statix # Lints and suggestions for the nix programming language
+        super-productivity # Nice todo list.
+        systemctl-tui # Manage systemd units
         tealdeer # Command line help 'tldr'
         television # Similar to fzf. Using with nix-search-tv
         tombi # Newer TOML LS
@@ -155,7 +151,6 @@
         udiskie # For access to cli only. Service enabled in home-manager
         uv # Wiki says this is an easy way to manage python versions and packages (non-declarative)
         uwu-colors # LSP to display color swatches
-        # vdirsyncer # Sync web calendar to khal for DankMaterialShell
         virt-manager
         vlc
         vscode-langservers-extracted # Various LS

@@ -17,8 +17,11 @@
       noto-fonts-lgc-plus
       noto-fonts-color-emoji
     ];
-    fontconfig.defaultFonts = {
-      monospace = [ "VictorMono Nerd Font" ];
+    fontconfig = { 
+      defaultFonts = {
+        monospace = [ "VictorMono Nerd Font" ];
+      };
+      subpixel.rgba = "rgb";
     };
   };
   nixpkgs.config.input-fonts.acceptLicense = true; # Needed for unfree font

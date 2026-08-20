@@ -88,6 +88,5 @@ screenshot-path null
 // Static Workspaces {{{1
 workspace "web"
 workspace "term"
-include "./noctalia.kdl"
 
 include "dms/cursor.kdl"

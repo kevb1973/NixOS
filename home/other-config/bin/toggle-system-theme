@@ -11,4 +11,4 @@ dark)
   ;;
 esac
 
-systemctl --user restart xdg-desktop-portal.service --ignore-dependencies
+# systemctl --user restart xdg-desktop-portal.service --ignore-dependencies

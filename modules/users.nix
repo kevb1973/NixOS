@@ -95,7 +95,6 @@
         lswt # Find app-id and title for mangowm
         markdown-oxide # markdown LS
         markless
-        marksman
         matugen # For quickshell - DankMaterialShell
         mdcat # cat/less for markdown
         mediainfo # Provides info on media files.

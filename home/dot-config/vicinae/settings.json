@@ -12,6 +12,7 @@
    "$schema": "https://vicinae.com/schemas/config.json",
    "close_on_focus_loss": true,
    "pop_to_root_on_close": true,
+   "escape_key_behavior": "close_window",
    "font": {
       "normal": {
          "size": 12
@@ -19,7 +20,8 @@
    },
    "theme": {
       "dark": {
-         "name": "noctalia"
+         "name": "noctalia",
+         "icon_theme": "Default"
       }
    },
    "launcher_window": {
@@ -29,12 +31,23 @@
       }
    },
    "favorites": [
+      "@HarshNarayanJha/store.vicinae.timer:index",
       "applications:brave-browser",
       "scripts:start-kitty-session",
       "applications:org.kde.kpat",
       "applications:spotify"
    ],
    "providers": {
+      "@HarshNarayanJha/store.vicinae.timer": {
+         "preferences": {
+            "presets": "10m, 15m, 20m, 30m, 1h, 1.5h, 2h"
+         }
+      },
+      "@c4n4m1/store.vicinae.zoxide-recent-directories": {
+         "preferences": {
+            "application": "kitty --appid=floater nnn"
+         }
+      },
       "applications": {
          "entrypoints": {
             "org.gnome.Software": {
@@ -60,7 +73,7 @@
          "entrypoints": {
             "run": {
                "preferences": {
-                  "default-action": "run-in-terminal"
+                  "default-action": "run-in-terminal-hold"
                }
             }
          }

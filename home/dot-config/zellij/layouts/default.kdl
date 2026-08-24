@@ -54,11 +54,11 @@ layout {
             plugin location="zellij:status-bar"
         }
     }
-    tab name="DMS" hide_floating_panes=true {
+    tab name="Miru" hide_floating_panes=true {
         pane size=1 borderless=true {
             plugin location="zellij:tab-bar"
         }
-        pane command="jjui" cwd="Code/DankMaterialShell" {
+        pane command="jjui" cwd="Code/miru" {
             start_suspended false
         }
         pane size=1 borderless=true {
@@ -69,31 +69,8 @@ layout {
         pane size=1 borderless=true {
             plugin location="zellij:tab-bar"
         }
-        pane command="jjui" cwd="Code/noctalia-shell" {
+        pane command="jjui" cwd="Code/noctalia" {
             start_suspended false
-        }
-        pane size=1 borderless=true {
-            plugin location="zellij:status-bar"
-        }
-    }
-    tab name="niri" hide_floating_panes=true {
-        pane size=1 borderless=true {
-            plugin location="zellij:tab-bar"
-        }
-        pane command="jjui" cwd="Code/niri" {
-            start_suspended false
-        }
-        pane size=1 borderless=true {
-            plugin location="zellij:status-bar"
-        }
-    }
-    tab name="mango-conf" hide_floating_panes=true {
-        pane size=1 borderless=true {
-            plugin location="zellij:tab-bar"
-        }
-        pane command="nvim" cwd="NixOS/home/dot-config/mango" {
-            start_suspended false
-            args "config.conf" "binds.conf" "rules.conf" 
         }
         pane size=1 borderless=true {
             plugin location="zellij:status-bar"

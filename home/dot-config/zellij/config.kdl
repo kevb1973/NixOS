@@ -9,13 +9,13 @@ keybinds clear-defaults=true {
             }
         }
         bind "Ctrl Alt Up" {
-            Run "yazi" {
+            Run "nnn" {
                 close_on_exit true
             };
             SwitchToMode "locked";        
         }
         bind "Ctrl Shift Alt Up" {
-            Run "yazi" {
+            Run "nnn" {
                 close_on_exit true
                 in_place true
             };

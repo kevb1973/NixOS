@@ -169,6 +169,7 @@
         yaml-language-server
         ydotool # Using to autopaste emojis (bemoji)
         yt-dlp 
+        zellij
         zoxide
         (mpv.override { 
           scripts = [

@@ -71,6 +71,7 @@
         gnome-boxes
         gnome-software # Install and manage flatpaks
         gnome-themes-extra
+        gocryptfs # Folder encryption using fusermount
         grc # generic text colourizer. Using with fishPlugins.grc
         gscreenshot # Screenshots
         gum # Script enhancer - use for remind_tui

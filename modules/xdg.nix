@@ -26,6 +26,7 @@
         "audio/flac" = "vlc.desktop";
         "audio/mpeg" = "vlc.desktop";
         "image/png" = "feh.desktop";
+        "inode/directory" = "nnn.desktop";
         "text/*" = "nvim.desktop";
         "text/css" = "nvim.desktop";
         "text/html" = "brave.desktop";

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# For use in kitty bind alt-space>p
+
+brave --new-tab "https://github.com/NixOS/nixpkgs/pull/$1"

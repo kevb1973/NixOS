@@ -148,7 +148,7 @@
         television # Similar to fzf. Using with nix-search-tv
         tombi # Newer TOML LS
         tree-sitter
-        udiskie # For access to cli only. Service enabled in home-manager
+        # udiskie # For access to cli only. Service enabled in home-manager (BROKEN: Aug 27 2026)
         uv # Wiki says this is an easy way to manage python versions and packages (non-declarative)
         uwu-colors # LSP to display color swatches
         virt-manager

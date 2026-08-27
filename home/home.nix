@@ -46,7 +46,7 @@ in
     };
     mpdris2.enable = true;
     udiskie = {
-      enable = true;
+      enable = false; # BROKEN: Aug 27, 2026
       tray = "auto";
     };
     wlsunset = {

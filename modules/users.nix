@@ -42,7 +42,6 @@
         cacert
         cachix
         calibre
-        cantata # GUI MPD client
         cargo
         cava # Terminal audio visualizer
         cliphist # Clipboard manager (for DankMaterialShell)
@@ -113,7 +112,6 @@
         nix-tree
         nixd
         nnn
-        nushell # cuz its cool (and easier than jq)
         nvtopPackages.amd # htop for video cards
         ollama-vulkan
         optnix
@@ -122,14 +120,12 @@
         pix
         playerctl
         podman-compose
-        podman-tui
         polkit_gnome
         poppler-utils # For nnn previews
         puddletag # Music tag editor
         pwvucontrol # Pipewire GUI mixer
         python3
         qalculate-gtk
-        quickshell
         ripgrep
         rmpc # nice alternative to ncmpcpp
         satty # Screenshot Editor

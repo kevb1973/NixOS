@@ -39,4 +39,3 @@ map("n", "<leader>dF", "<cmd>DiffWithSaved<cr>", { desc = "Diff with file in tab
 map({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to clipboard", remap = false, silent = true })
 map({ "n", "v" }, "<C-c>", "gcc", { desc = "Comment line", remap = true })
 map("n", "<leader>j", "<cmd>TermExec cmd='jjui' dir=~/NixOS<cr>", { desc = "Toggle jjui", remap = true })
-map("n", "<leader>fd", "<cmd>Dashboard<cr>", { desc = "Open Dashboard", remap = true })

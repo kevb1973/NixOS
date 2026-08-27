@@ -15,6 +15,13 @@ keybinds clear-defaults=true {
             SwitchToMode "locked"
         }
         bind "Alt left" { MoveFocusOrTab "left"; }
+        bind "Ctrl Alt Shift down" {
+            Run "nvim" {
+                in_place false
+                close_on_exit true
+            }
+            SwitchToMode "locked"
+        }
         bind "Ctrl Alt down" {
             Run "nvim" {
                 in_place true

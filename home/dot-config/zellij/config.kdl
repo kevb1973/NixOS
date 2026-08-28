@@ -5,6 +5,13 @@
 keybinds clear-defaults=true {
     normal {
         bind "f" { LaunchPlugin "filepicker"; SwitchToMode "locked"; }
+        bind "Ctrl r" {
+            Run "fish" "-c" "npu"{
+                in_place false
+                close_on_exit false
+            }
+            SwitchToMode "locked"
+        }
     }
     locked {
         bind "Ctrl Alt left" {

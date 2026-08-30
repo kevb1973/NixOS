@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# @vicinae.schemaVersion 1
+# @vicinae.title Noctalia Documentation
+# @vicinae.mode silent
+
+kitty --detach markless ~/Code/noctalia/docs/user/

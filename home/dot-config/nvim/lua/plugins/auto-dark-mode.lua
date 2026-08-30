@@ -4,11 +4,11 @@ return {
   opts = {
     set_dark_mode = function()
       vim.api.nvim_set_option_value("background", "dark", {})
-      vim.cmd("colorscheme tokyonight-night")
+      vim.cmd("colorscheme base16-gruvbox-dark")
     end,
     set_light_mode = function()
       vim.api.nvim_set_option_value("background", "light", {})
-      vim.cmd("colorscheme tokyonight-day")
+      vim.cmd("colorscheme base16-gruvbox-light")
     end,
     -- your configuration comes here
     -- or leave it empty to use the default settings

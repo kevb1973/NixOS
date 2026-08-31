@@ -40,7 +40,7 @@
    "providers": {
       "@HarshNarayanJha/store.vicinae.timer": {
          "preferences": {
-            "presets": "10m, 15m, 20m, 30m, 1h, 1.5h, 2h"
+            "presets": "3m, 10m, 15m, 20m, 30m, 1h, 1.5h, 2h"
          }
       },
       "@c4n4m1/store.vicinae.zoxide-recent-directories": {

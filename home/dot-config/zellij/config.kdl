@@ -43,7 +43,7 @@ keybinds clear-defaults=true {
             SwitchToMode "locked"
         }
         bind "Ctrl Alt up" {
-            Run "fish" "-c" "n" {
+            Run "fish" "-c" "n" "$PWD" {
                 in_place true
                 close_on_exit true
             }

@@ -15,7 +15,7 @@ keybinds clear-defaults=true {
     }
     locked {
         bind "Ctrl Alt left" {
-            Run "jjui" {
+            Run "jjui"  {
                 in_place true
                 close_on_exit true
             }

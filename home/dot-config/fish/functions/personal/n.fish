@@ -29,7 +29,7 @@ function n --wraps nnn --description 'support nnn quit and change directory'
     # making an infinitely recursive alias
     set -x NNN_PLUG 'z:autojump;f:finder;p:preview-tui'
     set -x NNN_FIFO /tmp/nnn.fifo
-    command nnn -a -A $argv
+    command nnn -a -A -d $argv
 
     if test -e $NNN_TMPFILE
         source $NNN_TMPFILE

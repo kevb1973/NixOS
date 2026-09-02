@@ -13,15 +13,15 @@
     mime = {
       enable = true;
       defaultApplications = {
-        "application/pdf" = "brave.desktop";
+        "application/pdf" = "firefox-beta.desktop";
         "application/vnd.apple.mpegurl" = "vlc.desktop";
-        "application/x-extension-htm" = "brave.desktop";
-        "application/x-extension-html" = "brave.desktop";
-        "application/x-extension-shtml" = "brave.desktop";
-        "application/x-extension-xht" = "brave.desktop";
-        "application/x-extension-xhtml" = "brave.desktop";
+        "application/x-extension-htm" = "firefox-beta.desktop";
+        "application/x-extension-html" = "firefox-beta.desktop";
+        "application/x-extension-shtml" = "firefox-beta.desktop";
+        "application/x-extension-xht" = "firefox-beta.desktop";
+        "application/x-extension-xhtml" = "firefox-beta.desktop";
         "application/x-shellscript" = "nvim.desktop";
-        "application/xhtml+xml" = "brave.desktop";
+        "application/xhtml+xml" = "firefox-beta.desktop";
         "audio/x-mpegurl" = "vlc.desktop";
         "audio/flac" = "vlc.desktop";
         "audio/mpeg" = "vlc.desktop";
@@ -29,13 +29,13 @@
         "inode/directory" = "nnn.desktop";
         "text/*" = "nvim.desktop";
         "text/css" = "nvim.desktop";
-        "text/html" = "brave.desktop";
+        "text/html" = "firefox-beta.desktop";
         "text/markdown" = "calibre-ebook-viewer.desktop";
         "text/plain" = "nvim.desktop";
         "text/xml" = "nvim.desktop";
         "video/*" = "vlc.desktop";
-        "x-scheme-handler/http" = "brave.desktop";
-        "x-scheme-handler/https" = "brave.desktop";
+        "x-scheme-handler/http" = "firefox-beta.desktop";
+        "x-scheme-handler/https" = "firefox-beta.desktop";
         "x-scheme-handler/mpv" = "vlc.desktop";
       };
     };

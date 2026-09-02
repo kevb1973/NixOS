@@ -31,8 +31,8 @@
       }
    },
    "favorites": [
+      "applications:firefox-beta",
       "@HarshNarayanJha/store.vicinae.timer:index",
-      "applications:brave-browser",
       "scripts:start-kitty-session",
       "applications:org.kde.kpat",
       "applications:spotify"

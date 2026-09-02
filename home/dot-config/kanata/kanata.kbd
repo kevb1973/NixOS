@@ -55,8 +55,8 @@
 )
 
 (defalias
-  ms↑ (mwheel-up 10 12)
-  ms↓ (mwheel-down 10 12)
+  ms↑ (mwheel-up 10 9)
+  ms↓ (mwheel-down 10 9)
   msf↑ (mwheel-up 10 36)
   msf↓ (mwheel-down 10 36)
   mwl (mwheel-left 50 120)

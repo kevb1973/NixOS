@@ -11,7 +11,8 @@
     geoclue2.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true; # Mount, trash, and other functionalities
-    journald.extraConfig = "SystemMaxUse=500M";
+    # journald.extraConfig = "SystemMaxUse=500M";
+    journald.settings.Journal = { SystemMaxUse = "500M"; };
     openssh.enable = false;
     printing.drivers = [ pkgs.brlaser ];
     printing.enable = true;

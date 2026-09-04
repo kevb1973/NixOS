@@ -122,7 +122,6 @@
         podman-compose
         polkit_gnome
         poppler-utils # For nnn previews
-        puddletag # Music tag editor
         pwvucontrol # Pipewire GUI mixer
         python3
         qalculate-gtk

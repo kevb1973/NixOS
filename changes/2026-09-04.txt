@@ -1,0 +1,40 @@
+<<< /nix/store/7grmffk21k7yg5qx09rnc5a67yi6vax6-nixos-system-halcyon-26.11.20260902.3ed67ec
+>>> /nix/store/qnaqcd2b2j9rr4cy5wxm5r1zcr9plhxi-nixos-system-halcyon-26.11.20260903.0968519
+
+CHANGED
+[U*] cpupower                  7.2.2_fish-completions, 7.2.2 -> 7.2.3_fish-completions, 7.2.3
+[U*] firefox-beta              155.0b5 -> 156.0b2
+[U.] firefox-beta-unwrapped    155.0b5 -> 156.0b2, +1.77 MiB
+[C.] firefoxpwa-unwrapped      +52.8 KiB
+[U.] initrd-linux              7.2.2 -> 7.2.3
+[U*] libvirt                   12.6.0_fish-completions, 12.6.0 -> 12.7.0_fish-completions, 12.7.0, +383 KiB
+[U.] linux                     7.2.2-modules ×2, 7.2.2 -> 7.2.3-modules ×2, 7.2.3, +17.2 KiB
+[U.] mesa                      26.2.1 ×2 -> 26.2.2 ×2, +54.1 KiB
+[U.] nixos-system-halcyon      26.11.20260902.3ed67ec -> 26.11.20260903.0968519
+[U.] noto-fonts                2026.08.01 -> 2026.09.01
+[U.] noto-fonts-lgc-plus       2026.08.01 -> 2026.09.01
+[U.] python3.14-libvirt-python 12.6.0 -> 12.7.0
+[U.] python3.14-sip            6.15.1 -> 6.16.1, +1.98 MiB
+[D.] qtwebchannel              5.15.19, <unchanged> -> <unchanged>, -213 KiB
+[C.] source                    -399 KiB
+[U*] wireplumber               0.5.15-doc, 0.5.15_fish-completions, 0.5.15 -> 0.5.17-doc, 0.5.17_fish-completions, 0.5.17, +1.18 MiB
+
+REMOVED
+[R.] puddletag                 2.5.0, -5.06 MiB
+[R.] python3.14-audioop-lts    0.2.2, -93.0 KiB
+[R.] python3.14-audioread      3.1.0, -186 KiB
+[R.] python3.14-configobj      5.0.9, -408 KiB
+[R.] python3.14-levenshtein    0.27.3, -537 KiB
+[R.] python3.14-pyacoustid     1.3.1, -105 KiB
+[R.] python3.14-pyparsing      3.3.2, -1.57 MiB
+[R.] python3.14-pyqt5          5.15.10-dev, 5.15.10, -26.1 MiB
+[R.] python3.14-pyqt5-sip      12.17.0, -225 KiB
+[R.] python3.14-rapidfuzz      3.14.5, -12.4 MiB
+[R.] python3.14-standard-aifc  3.13.0, -129 KiB
+[R.] python3.14-standard-chunk 3.13.0, -28.4 KiB
+[R.] python3.14-standard-sunau 3.13.0, -77.6 KiB
+[R.] python3.14-unidecode      1.4.0, -1.56 MiB
+
+PATHS: 2517 -> 2501 (+184, -200)
+SIZE: 17.5 GiB -> 17.5 GiB
+DIFF: -43.6 MiB

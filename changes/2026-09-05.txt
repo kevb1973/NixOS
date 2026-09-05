@@ -1,0 +1,20 @@
+<<< /nix/store/qnaqcd2b2j9rr4cy5wxm5r1zcr9plhxi-nixos-system-halcyon-26.11.20260903.0968519
+>>> /nix/store/69dp8i8262dsxwkjv33z1gnf83q4qnwk-nixos-system-halcyon-26.11.20260904.801bef6
+
+CHANGED
+[C.] firefox-beta-unwrapped -19.2 KiB
+[C.] firefoxpwa-unwrapped   +17.9 KiB
+[U.] jujutsu                0.44.0 -> 0.45.1, +965 KiB
+[U.] libmtp                 1.1.22 -> 1.1.23
+[C*] nixos-manual-html      +30.9 KiB
+[U.] nixos-system-halcyon   26.11.20260903.0968519 -> 26.11.20260904.801bef6
+[U.] numen                  0.5.1 -> 0.6.1, +76.6 KiB
+[C.] openvswitch            +45.4 KiB
+[C.] source                 +553 KiB
+[U.] super-productivity     18.20.1 -> 18.21.2, +275 KiB
+[U.] vicinae                0.27.4 -> 0.28.0, +962 KiB
+[U.] wireless-regdb         2026.05.30-zstd -> 2026.09.03-zstd
+
+PATHS: 2501 -> 2501 (+86, -86)
+SIZE: 17.5 GiB -> 17.5 GiB
+DIFF: +2.86 MiB

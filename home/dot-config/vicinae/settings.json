@@ -32,10 +32,11 @@
    },
    "favorites": [
       "applications:firefox-beta",
+      "@knoopx/store.vicinae.agenda:upcoming-events",
+      "@wy3z/store.vicinae.reminders:remind",
       "@HarshNarayanJha/store.vicinae.timer:index",
-      "scripts:start-kitty-session",
-      "applications:org.kde.kpat",
-      "applications:spotify"
+      "clipboard:history",
+      "@c4n4m1/store.vicinae.zoxide-recent-directories:recent-directories"
    ],
    "providers": {
       "@HarshNarayanJha/store.vicinae.timer": {
@@ -45,7 +46,16 @@
       },
       "@c4n4m1/store.vicinae.zoxide-recent-directories": {
          "preferences": {
-            "application": "kitty --appid=floater nnn"
+            "application": "kitty --appid=floater nnn",
+            "alternativeApplication": "nautilus",
+            "defaultFilter": "all"
+         }
+      },
+      "@wy3z/store.vicinae.reminders": {
+         "entrypoints": {
+            "check-reminders": {
+               "enabled": false
+            }
          }
       },
       "applications": {
@@ -53,6 +63,15 @@
             "org.gnome.Software": {
                "alias": "flatpak store"
             }
+         }
+      },
+      "clipboard": {
+         "preferences": {
+            "eraseOnStartup": false,
+            "evictionThreshold": "86400",
+            "ignorePasswords": true,
+            "monitoring": true,
+            "preserveTagged": true
          }
       },
       "developer": {

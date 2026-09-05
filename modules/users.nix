@@ -59,6 +59,7 @@
         ffmpeg
         file
         file-roller
+        firefoxpwa
         fish-lsp
         fishPlugins.fzf
         fishPlugins.grc

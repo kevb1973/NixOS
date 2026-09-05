@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Script to record package update changes to ~/NixOS/changes/ by date,
+
+NEW=$(nixos-rebuild list-generations --json | jq -r '.[0].generation')
+OLD=$(nixos-rebuild list-generations --json | jq -r '.[1].generation')
+DATE=$(nixos-rebuild list-generations --json | jq -r '.[0].date' | cut -d " " -f 1)
+
+if [[ $OLD != "null" ]]; then
+  dix /nix/var/nix/profiles/system-{"$OLD","$NEW"}-link >~/NixOS/changes/"$DATE".txt
+  echo "Update changes recorded to ~/NixOS/changes/$DATE.txt"
+else
+  echo "Only 1 generation. No diff available."
+fi

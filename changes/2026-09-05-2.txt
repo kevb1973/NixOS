@@ -1,0 +1,15 @@
+<<< /nix/store/sn42vb7ziyr3xgsq35xd28advy9mck90-nixos-system-halcyon-26.11.20260904.801bef6
+>>> /nix/store/izp26q13gmpnpw0dk64vbicmzilrvgm3-nixos-system-halcyon-26.11.20260905.c043004
+
+CHANGED
+[C.] firefoxpwa-unwrapped +70.7 KiB
+[U*] mango                0.16.2 -> 0.16.3, +14.4 KiB
+[C*] nixos-manual-html    +117 KiB
+[U.] nixos-system-halcyon 26.11.20260904.801bef6 -> 26.11.20260905.c043004
+[U.] openvswitch          3.7.1 -> 4.0.0, -123 KiB
+[U.] python3.14-zeroconf  0.150.0 -> 0.151.3, -1.90 MiB
+[C.] source               +160 KiB
+
+PATHS: 2501 -> 2501 (+82, -82)
+SIZE: 17.5 GiB -> 17.5 GiB
+DIFF: -1.65 MiB

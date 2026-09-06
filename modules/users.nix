@@ -116,6 +116,7 @@
         nvtopPackages.amd # htop for video cards
         ollama-vulkan
         optnix
+        oyui # use for splitting commits in jujutsu
         p7zip
         pamixer
         pix

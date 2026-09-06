@@ -77,8 +77,12 @@
       lua-language-server
       neovim
       nixfmt
+      nnn
+      nvme-rs
+      nvme-cli
       pciutils
       pulseaudioFull
+      smartmontools
       tela-circle-icon-theme
       unar
       unzip

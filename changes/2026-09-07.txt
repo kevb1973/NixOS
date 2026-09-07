@@ -1,0 +1,18 @@
+<<< /nix/store/z61gw37481g6nz159z7fxkg6xp3h00mc-nixos-system-halcyon-26.11.20260905.c043004
+>>> /nix/store/0dh2vvwgwhys9yfw1lpcdfv7327f8161-nixos-system-halcyon-26.11.20260907.dc5d91f
+
+CHANGED
+[U.] brave                1.94.117 -> 1.94.121, +36.8 KiB
+[U*] fish                 4.8.1-doc, 4.8.1_fish-completions, 4.8.1 -> 4.9.2-doc, 4.9.2_fish-completions, 4.9.2, +209 KiB
+[U.] llama-cpp            0.3.0 -> 0.4.0, +2.23 MiB
+[U.] nilfs-utils          2.2.12 -> 2.3.1
+[U.] nixos-system-halcyon 26.11.20260905.c043004 -> 26.11.20260907.dc5d91f
+[C.] source               +31.2 KiB
+[U.] talloc               2.4.4 -> 2.5.0, +11.0 KiB
+
+ADDED
+[A.] glycin-loaders       2.1.5, +16.4 MiB
+
+PATHS: 2506 -> 2507 (+172, -171)
+SIZE: 17.5 GiB -> 17.5 GiB
+DIFF: +18.9 MiB

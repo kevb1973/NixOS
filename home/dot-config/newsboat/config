@@ -20,6 +20,7 @@ show-read-feeds no
 # urls-source "miniflux"
 articlelist-format "%2i %D %t"
 feedlist-format "%2n %11u %t"
-color listfocus_unread black blue
-color title black blue
-color info black blue
+color listfocus_unread black color71
+color listfocus black color71
+color title black color71
+color info black color71

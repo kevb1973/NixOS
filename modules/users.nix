@@ -68,6 +68,7 @@
         fzf
         gdu # Disk space analyzer
         geoclue2 # Needed for gammastep auto localation
+        gh # Github cli. Used by some apps
         gnome-boxes
         gnome-software # Install and manage flatpaks
         gnome-themes-extra

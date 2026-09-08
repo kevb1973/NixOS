@@ -21,11 +21,11 @@ layout {
             plugin location="zellij:status-bar"
         }
     }
-    tab name="rmpc" hide_floating_panes=true {
+    tab name="music" hide_floating_panes=true {
         pane size=1 borderless=true {
             plugin location="zellij:tab-bar"
         }
-        pane command="rmpc" {
+        pane command="kew" {
             start_suspended false
         }
         pane size=1 borderless=true {
@@ -48,6 +48,17 @@ layout {
             plugin location="zellij:tab-bar"
         }
         pane command="jjui" cwd="Code/jjui" {
+            start_suspended false
+        }
+        pane size=1 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+    tab name="kew" hide_floating_panes=true {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        pane command="jjui" cwd="Code/kew" {
             start_suspended false
         }
         pane size=1 borderless=true {

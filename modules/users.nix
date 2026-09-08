@@ -74,7 +74,6 @@
         gnome-themes-extra
         gocryptfs # Folder encryption using fusermount
         grc # generic text colourizer. Using with fishPlugins.grc
-        gscreenshot # Screenshots
         gum # Script enhancer - use for remind_tui
         hydra-check # check build status.. hydra-check --channel unstable <pkg>
         hyprpicker # Simple color picker with zoom and hex preview

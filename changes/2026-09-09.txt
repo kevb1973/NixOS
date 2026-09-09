@@ -1,0 +1,36 @@
+<<< /nix/store/8j1bvbxvn8h45prc08pxljcpx4bilhs1-nixos-system-halcyon-26.11.20260907.dc5d91f
+>>> /nix/store/rhp9p292pcq542f2fdwvhd9snjf32sjs-nixos-system-halcyon-26.11.20260908.d6524aa
+
+CHANGED
+[U.] bcachefs-tools         1.39.2 -> 1.39.4, +204 KiB
+[U*] cpupower               7.2.3_fish-completions, 7.2.3 -> 7.2.4_fish-completions, 7.2.4
+[U.] deno                   2.9.5 -> 2.9.6, -924 KiB
+[U*] firefox-beta           156.0b2 -> 156.0b4
+[U.] firefox-beta-unwrapped 156.0b2 -> 156.0b4, -32.8 KiB
+[D.] icu4c                  74.2, <unchanged> -> <unchanged>, -36.7 MiB
+[U.] initrd-linux           7.2.3 -> 7.2.4
+[U.] libwacom               2.19.1 -> 2.20.0, +12.6 KiB
+[U.] linux                  7.2.3-modules ×2, 7.2.3 -> 7.2.4-modules ×2, 7.2.4, -35.7 KiB
+[C*] nixos-manual-html      +10.9 KiB
+[U.] nixos-system-halcyon   26.11.20260907.dc5d91f -> 26.11.20260908.d6524aa
+[U.] ollama                 0.33.1 -> 0.33.3, +2.33 MiB
+[U.] shfmt                  3.14.0 -> 3.14.1
+[C.] source                 +231 KiB
+[U.] tombi                  1.4.1 -> 1.5.2, +617 KiB
+
+ADDED
+[A.] hm-putter.json         <none>
+
+REMOVED
+[R.] glew                   2.3.1, -1.17 MiB
+[R.] glu                    9.0.3, -1.50 MiB
+[R.] gscreenshot            3.11.1, -1.21 MiB
+[R.] imlib2                 1.12.6, -1.43 MiB
+[R.] python3.14-python-xlib 0.33, -2.12 MiB
+[R.] scrot                  1.12.1, -150 KiB
+[R.] slop                   7.7, -436 KiB
+[R.] xclip                  0.13, -41.6 KiB
+
+PATHS: 2508 -> 2500 (+123, -131)
+SIZE: 17.6 GiB -> 17.5 GiB
+DIFF: -42.4 MiB

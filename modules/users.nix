@@ -119,7 +119,6 @@
         oyui # use for splitting commits in jujutsu
         p7zip
         pamixer
-        pix
         playerctl
         podman-compose
         polkit_gnome

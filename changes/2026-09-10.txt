@@ -1,0 +1,59 @@
+<<< /nix/store/rhp9p292pcq542f2fdwvhd9snjf32sjs-nixos-system-halcyon-26.11.20260908.d6524aa
+>>> /nix/store/qkf17ypzl3xgawmsi579c4jnk546hmqq-nixos-system-halcyon-26.11.20260910.8ce4ef6
+
+CHANGED
+[U.] attica               6.29.0 -> 6.30.0
+[U*] breeze-icons         6.29.0-dev, 6.29.0 -> 6.30.0-dev, 6.30.0, +39.1 KiB
+[U.] electron             43.4.1 -> 43.5.1
+[U.] electron-unwrapped   43.4.1 -> 43.5.1, +2.43 MiB
+[U.] extra-cmake-modules  6.29.0 -> 6.30.0, +36.5 KiB
+[U.] fastfetch            2.67.1-man, 2.67.1 -> 2.68.1-man, 2.68.1
+[U.] fastfetch-unwrapped  2.67.1-man, 2.67.1 -> 2.68.1-man, 2.68.1, +421 KiB
+[U*] fish                 4.9.2-doc, 4.9.2_fish-completions, 4.9.2 -> 4.9.3-doc, 4.9.3_fish-completions, 4.9.3
+[U.] karchive             6.29.0 -> 6.30.0
+[U.] kauth                6.29.0 -> 6.30.0
+[U.] kbookmarks           6.29.0 -> 6.30.0
+[U.] kcmutils             6.29.0 -> 6.30.0
+[U.] kcodecs              6.29.0 -> 6.30.0
+[U.] kcolorscheme         6.29.0 -> 6.30.0
+[U.] kcompletion          6.29.0 -> 6.30.0
+[U.] kconfig              6.29.0 -> 6.30.0
+[U.] kconfigwidgets       6.29.0 -> 6.30.0
+[U.] kcoreaddons          6.29.0 -> 6.30.0
+[U.] kcrash               6.29.0 -> 6.30.0
+[U.] kdbusaddons          6.29.0 -> 6.30.0
+[U.] kdnssd               6.29.0 -> 6.30.0
+[U.] kdoctools            6.29.0 -> 6.30.0
+[U.] kglobalaccel         6.29.0 -> 6.30.0
+[U.] kguiaddons           6.29.0 -> 6.30.0
+[U.] ki18n                6.29.0 -> 6.30.0
+[U.] kiconthemes          6.29.0 -> 6.30.0
+[U.] kio                  6.29.0 -> 6.30.0, +208 KiB
+[U.] kirigami             6.29.0 -> 6.30.0, -109 KiB
+[U.] kitemviews           6.29.0 -> 6.30.0
+[U.] kjobwidgets          6.29.0 -> 6.30.0
+[U.] knewstuff            6.29.0 -> 6.30.0
+[U.] knotifications       6.29.0 -> 6.30.0
+[U.] kpackage             6.29.0 -> 6.30.0
+[U.] kservice             6.29.0 -> 6.30.0
+[U.] ktextwidgets         6.29.0 -> 6.30.0
+[U.] kwallet              6.29.0 -> 6.30.0, -255 KiB
+[U.] kwidgetsaddons       6.29.0 -> 6.30.0
+[U.] kwindowsystem        6.29.0 -> 6.30.0
+[U.] kxmlgui              6.29.0 -> 6.30.0
+[U.] layer-shell-qt       6.7.4 -> 6.7.5
+[C*] nixos-manual-html    +15.9 KiB
+[U.] nixos-system-halcyon 26.11.20260908.d6524aa -> 26.11.20260910.8ce4ef6
+[U.] qqc2-desktop-style   6.29.0 -> 6.30.0, -18.8 KiB
+[U.] solid                6.29.0 -> 6.30.0
+[U.] sonnet               6.29.0 -> 6.30.0
+[C.] source               -24.8 KiB
+[U.] syndication          6.29.0 -> 6.30.0
+[U.] syntax-highlighting  6.29.0 -> 6.30.0, +13.8 KiB
+[U.] uv                   0.12.5 -> 0.12.11, -1.62 MiB
+[U.] vicinae              0.28.0 -> 0.28.1, +29.3 KiB
+[U.] xapp                 3.2.2 -> 3.2.3
+
+PATHS: 2500 -> 2500 (+171, -171)
+SIZE: 17.5 GiB -> 17.5 GiB
+DIFF: +1.19 MiB

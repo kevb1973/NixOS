@@ -55,7 +55,6 @@
         emacs-pgtk
         fastfetch # System info for Noctalia-Shell
         fd
-        feedr
         ffmpeg
         file
         file-roller

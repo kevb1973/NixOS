@@ -28,6 +28,9 @@
       "opacity": 1,
       "client_side_decorations": {
          "enabled": true
+      },
+      "layer_shell": {
+         "enabled": false
       }
    },
    "favorites": [

@@ -153,6 +153,7 @@
         websocat # For lgtv control
         wev
         wget
+        where-is-my-sddm-theme
         wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
         wl-color-picker
         # wl-find-cursor #BROKEN: Sept 12, 2026

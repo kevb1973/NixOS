@@ -74,7 +74,15 @@
           };
         };
       };
-      sddm.enable = true;
+      sddm = {
+        enable = true;
+        theme = "/etc/profiles/per-user/kev/share/sddm/themes/where_is_my_sddm_theme/";
+        extraPackages = with pkgs; [
+          qt6.qt5compat
+          kdePackages.qtsvg
+          kdePackages.qtmultimedia
+        ];
+      };
     };
 
     emacs = {

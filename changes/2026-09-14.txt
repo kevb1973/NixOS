@@ -1,0 +1,21 @@
+<<< /nix/store/4nqajavw780n92la18f8g8b6qsvwfac4-nixos-system-halcyon-26.11.20260911.eaad089
+>>> /nix/store/k4rlicmw7iywvy40yvms5x6pb3qhsfka-nixos-system-halcyon-26.11.20260913.ef34387
+
+CHANGED
+[C.] firefox-beta-unwrapped               +94.0 KiB
+[C.] firefoxpwa-unwrapped                 +108 KiB
+[U*] fzf                                  0.74.3-man, 0.74.3 -> 0.74.4-man, 0.74.4, +8.53 KiB
+[U.] gum                                  2.0.0 -> 2.0.1
+[U*] gvfs                                 1.60.2 ×2 -> 1.60.3 ×2
+[C.] home-configuration-reference-manpage +18.0 KiB
+[U.] libcerf                              3.3 -> 3.6, +76.4 KiB
+[C*] nixos-manual-html                    +19.3 KiB
+[U.] nixos-system-halcyon                 26.11.20260911.eaad089 -> 26.11.20260913.ef34387
+[C.] source                               +638 KiB
+
+REMOVED
+[R.] feedr                                0.8.0, -9.32 MiB
+
+PATHS: 2647 -> 2646 (+70, -71)
+SIZE: 17.9 GiB -> 17.9 GiB
+DIFF: -8.38 MiB

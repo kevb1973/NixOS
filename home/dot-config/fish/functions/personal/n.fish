@@ -27,8 +27,6 @@ function n --wraps nnn --description 'support nnn quit and change directory'
 
     # The command function allows one to alias this function to `nnn` without
     # making an infinitely recursive alias
-    set -x NNN_PLUG 'z:autojump;f:finder;p:preview-tui'
-    set -x NNN_FIFO /tmp/nnn.fifo
     command nnn -a -A -d $argv
 
     if test -e $NNN_TMPFILE

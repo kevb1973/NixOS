@@ -5,7 +5,15 @@ set -euo pipefail
 
 selection=$(
   noctalia dmenu -p "Choose Script" <<'EOF'
+Noctalia Restart
+Update Noctalia
+Update jjui
+Update kew
+Stopwatch
+Toggle System Dark/Light
+Open Directory (tui)
 Manage Scheduled Reminders (at-rm)
+Edit Script Launcher
 Color Picker
 Mango Docs
 NixOS Docs
@@ -13,16 +21,9 @@ Nixpkgs Docs
 Noctalia Docs
 Mixer (gui)
 Mixer (tui)
-Noctalia Restart
 Noctalia Start
 Noctalia Stop
-Update Noctalia
-Update jjui
-Update kew
-Stopwatch
 Timer
-Toggle System Dark/Light
-Open Directory (tui)
 Open Directory (gui)
 EOF
 )
@@ -87,6 +88,9 @@ case "$selection" in
   ;;
 "Open Directory (gui)")
   ~/.local/bin/zoxide-dmenu-nautilus
+  ;;
+"Edit Script Launcher")
+  kitty --detach --app-id floater -- nvim ~/.local/bin/noctalia-script-launcher
   ;;
 *)
   exit 0

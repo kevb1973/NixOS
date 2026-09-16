@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+dir=$(zoxide query -l | noctalia dmenu -p "Open Directory") && [ -n "$dir" ] && nautilus "$dir"

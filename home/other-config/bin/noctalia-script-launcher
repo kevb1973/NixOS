@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+# Uses Noctalia dmenu support for shell integrated menu
+
+set -euo pipefail
+
+selection=$(
+  noctalia dmenu -p "Choose Script" <<'EOF'
+Manage Scheduled Reminders (at-rm)
+Color Picker
+Mango Docs
+NixOS Docs
+Nixpkgs Docs
+Noctalia Docs
+Mixer (gui)
+Mixer (tui)
+Noctalia Restart
+Noctalia Start
+Noctalia Stop
+Update Noctalia
+Update jjui
+Update kew
+Stopwatch
+Timer
+Toggle System Dark/Light
+Open Directory (tui)
+Open Directory (gui)
+EOF
+)
+
+# empty selection (Esc) -> quit cleanly
+[ -z "$selection" ] && exit 0
+
+case "$selection" in
+"Manage Scheduled Reminders (at-rm)")
+  kitty --detach --app-id floater -- fish -c at-rm &
+  ;;
+"Color Picker")
+  hyprpicker -f hex -a
+  ;;
+"Mango Docs")
+  kitty --detach markless ~/Code/mango/docs/
+  ;;
+"NixOS Docs")
+  kitty --detach markless /etc/nix/inputs/nixpkgs/nixos/doc/manual/
+  ;;
+"Nixpkgs Docs")
+  kitty --detach markless /etc/nix/inputs/nixpkgs/doc/
+  ;;
+"Noctalia Docs")
+  kitty --detach markless ~/Code/noctalia/docs/user/
+  ;;
+"Mixer (gui)")
+  pwvucontrol &
+  ;;
+"Mixer (tui)")
+  kitty --detach --app-id floater -- ncpamixer
+  ;;
+"Noctalia Restart")
+  pkill noctalia && sleep 2 && noctalia -d
+  ;;
+"Noctalia Start")
+  noctalia -d
+  ;;
+"Noctalia Stop")
+  pkill noctalia
+  ;;
+"Update Noctalia")
+  kitty --detach --app-id=floater -- nix profile upgrade noctalia
+  ;;
+"Update jjui")
+  kitty --detach --app-id floater -- nix profile upgrade jjui
+  ;;
+"Update kew")
+  kitty --detach --app-id floater -- nix profile upgrade kew
+  ;;
+"Stopwatch")
+  kitty --detach clock-rs stopwatch
+  ;;
+"Timer")
+  kitty --detach set_timer
+  ;;
+"Toggle System Dark/Light")
+  noctalia msg theme-mode-toggle
+  ;;
+"Open Directory (tui)")
+  ~/.local/bin/zoxide-dmenu-nnn
+  ;;
+"Open Directory (gui)")
+  ~/.local/bin/zoxide-dmenu-nautilus
+  ;;
+*)
+  exit 0
+  ;;
+esac

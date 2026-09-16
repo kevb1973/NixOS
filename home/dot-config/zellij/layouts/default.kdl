@@ -10,6 +10,17 @@ layout {
             plugin location="zellij:status-bar"
         }
     }
+    tab name="NixOS" hide_floating_panes=true {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        pane command="jjui" cwd="NixOS" {
+            start_suspended false
+        }
+        pane size=1 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
     tab name="rss" hide_floating_panes=true {
         pane size=1 borderless=true {
             plugin location="zellij:tab-bar"
@@ -26,17 +37,6 @@ layout {
             plugin location="zellij:tab-bar"
         }
         pane command="kew" {
-            start_suspended false
-        }
-        pane size=1 borderless=true {
-            plugin location="zellij:status-bar"
-        }
-    }
-    tab name="NixOS" hide_floating_panes=true {
-        pane size=1 borderless=true {
-            plugin location="zellij:tab-bar"
-        }
-        pane command="jjui" cwd="NixOS" {
             start_suspended false
         }
         pane size=1 borderless=true {
@@ -70,6 +70,17 @@ layout {
             plugin location="zellij:tab-bar"
         }
         pane command="jjui" cwd="Code/noctalia" {
+            start_suspended false
+        }
+        pane size=1 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+    tab name="Mango" hide_floating_panes=true {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        pane command="jjui" cwd="Code/mango" {
             start_suspended false
         }
         pane size=1 borderless=true {

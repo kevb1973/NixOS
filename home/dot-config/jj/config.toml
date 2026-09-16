@@ -6,8 +6,8 @@ email = "kyfeman@gmail.com"
 
 [ui]
 editor = "micro +2"
-# diff-editor = ":builtin"
-diff-editor = "oyui"
+diff-editor = ":builtin"
+# diff-editor = "oyui"
 diff-instructions = false
 default-command = "status"
 conflict-marker-style = "snapshot"

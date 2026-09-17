@@ -107,7 +107,7 @@
         nettools
         newsboat
         nh # nix helper
-        nil # for zed-editor
+        # nil # for zed-editor
         nix-search-cli
         nix-tree
         nixd

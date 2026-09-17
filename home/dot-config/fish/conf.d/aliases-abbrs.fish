@@ -7,7 +7,7 @@ alias edit-aliases="nvim ~/NixOS/home/dot-config/fish/conf.d/aliases-abbrs.fish 
 alias conf="nvim ~/NixOS/"
 alias dg="nh clean user --ask"
 alias edit-broken="nvim ~/bin/check_broken" # Edit list of currently broken packages
-alias e="nvim"
+alias e="emacsclient -nw"
 alias find-font="fc-list --format='%{family}\n' | grep"
 alias gcroots="sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'"
 alias gc="sudo nix store gc -v"

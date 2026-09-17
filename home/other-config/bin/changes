@@ -7,8 +7,8 @@ OLD=$(nixos-rebuild list-generations --json | jq -r '.[1].generation')
 DATE=$(nixos-rebuild list-generations --json | jq -r '.[0].date' | cut -d " " -f 1)
 
 if [[ $OLD != "null" ]]; then
-  dix /nix/var/nix/profiles/system-{"$OLD","$NEW"}-link >~/NixOS/changes/"$DATE".txt
-  echo "Update changes recorded to ~/NixOS/changes/$DATE.txt"
+  dix /nix/var/nix/profiles/system-{"$OLD","$NEW"}-link >~/NixOS/pkg_changes/"$DATE".txt
+  echo "Update changes recorded to ~/NixOS/pkg_changes/$DATE.txt"
 else
   echo "Only 1 generation. No diff available."
 fi

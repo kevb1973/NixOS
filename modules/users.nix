@@ -35,25 +35,25 @@
         at
         authenticator
         bat
-        bemoji
+        # bemoji
         bluetuith
-        brave
+        # brave
         btrfs-progs
         cacert
         cachix
-        calibre
-        cargo
+        # calibre
+        # cargo
         cava # Terminal audio visualizer
         cliphist # Clipboard manager (for DankMaterialShell)
         clock-rs # stopwatch, timers, clock
         cotp # CLI OTP/2FA code provider - only use for bitwarden which manages all the rest
         ddcutil # Adjust monitor brightness and other settings from cli
-        dgop # System Info for DankMaterialShell
+        # dgop # System Info for DankMaterialShell
         distrobox
         dix # Rust rewrite of nvd - for diffing generations
         dust # quick dir size for 'sys' script
         emacs-pgtk
-        fastfetch # System info for Noctalia-Shell
+        # fastfetch # System info for Noctalia-Shell
         fd
         ffmpeg
         file
@@ -62,8 +62,8 @@
         fish-lsp
         fishPlugins.fzf
         fishPlugins.grc
-        foliate
-        fuzzel # Using for emoji-picker script
+        # foliate # Ebook reader
+        # fuzzel # Using for emoji-picker script
         fzf
         gdu # Disk space analyzer
         geoclue2 # Needed for gammastep auto localation
@@ -113,7 +113,7 @@
         nixd
         nnn
         nvtopPackages.amd # htop for video cards
-        ollama-vulkan
+        # ollama-vulkan
         optnix
         p7zip
         pamixer
@@ -123,10 +123,10 @@
         poppler-utils # For nnn previews
         pwvucontrol # Pipewire GUI mixer
         python3
-        qalculate-gtk
+        # qalculate-gtk
         ripgrep
         rmpc # nice alternative to ncmpcpp
-        satty # Screenshot Editor
+        # satty # Screenshot Editor
         seahorse # GUI for system passwords
         serpl # Neat tui find/replace in project
         shellcheck 

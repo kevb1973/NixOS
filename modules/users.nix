@@ -90,6 +90,7 @@
         libsForQt5.qt5ct
         libsForQt5.qtstyleplugin-kvantum
         libtool # Needed for DMS
+        libqalculate # For Noctalia calculator panel
         llama-cpp-vulkan
         lsd
         lswt # Find app-id and title for mangowm

@@ -29,7 +29,7 @@ in
   programs = {
     atuin.enable = true; # Shell history database
     home-manager.enable = true;
-    vicinae.enable = true;
+    vicinae.enable = false;
   };
 
   services = {
@@ -46,7 +46,7 @@ in
     };
     mpdris2.enable = true;
     udiskie = {
-      enable = false; # BROKEN: Aug 27, 2026
+      enable = true;
       tray = "auto";
     };
     wlsunset = {

@@ -91,7 +91,7 @@
         libsForQt5.qtstyleplugin-kvantum
         libtool # Needed for DMS
         libqalculate # For Noctalia calculator panel
-        llama-cpp-vulkan
+        # llama-cpp-vulkan # BROKEN: Sept 18, 2026 due to nodejs-slim
         lsd
         lswt # Find app-id and title for mangowm
         markdown-oxide # markdown LS
@@ -143,7 +143,7 @@
         television # Similar to fzf. Using with nix-search-tv
         tombi # Newer TOML LS
         tree-sitter
-        # udiskie # For access to cli only. Service enabled in home-manager (BROKEN: Aug 27 2026)
+        udiskie # For access to cli only. Service enabled in home-manager
         uv # Wiki says this is an easy way to manage python versions and packages (non-declarative)
         uwu-colors # LSP to display color swatches
         virt-manager

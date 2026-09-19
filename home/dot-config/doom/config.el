@@ -85,5 +85,8 @@
 ;; Alternatively, use `C-h o' to look up a symbol (functions, variables, faces,
 ;; etc).
 ;;
+(custom-set-faces!
+  '(default
+    :height 140))
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.

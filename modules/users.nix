@@ -91,7 +91,7 @@
         libsForQt5.qtstyleplugin-kvantum
         libtool # Needed for DMS
         libqalculate # For Noctalia calculator panel
-        # llama-cpp-vulkan # BROKEN: Sept 18, 2026 due to nodejs-slim
+        # llama-cpp-vulkan
         lsd
         lswt # Find app-id and title for mangowm
         markdown-oxide # markdown LS

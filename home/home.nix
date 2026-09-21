@@ -29,7 +29,6 @@ in
   programs = {
     atuin.enable = true; # Shell history database
     home-manager.enable = true;
-    vicinae.enable = false;
   };
 
   services = {

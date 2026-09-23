@@ -18,7 +18,7 @@
 
     firefox = {
       enable = true;
-      package = pkgs.firefox-beta;
+      # package = pkgs.firefox-beta;
       nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
     };
 

@@ -91,7 +91,7 @@
       virtiofsd
       wpa_supplicant_gui
       xdg-utils # for opening default programms when clicking links
-      # yazi # Switched to flake version for faster updates
+      yazi
       zip
     ];
   };

@@ -29,7 +29,7 @@
       BAT_STYLE = "header";
       BEMENU_OPTS = "--hf '#5e81ac' --tf '#5e81ac' --fn 'mono 30'";
       CLUTTER_BACKEND = "wayland";
-      EDITOR = "emacsclient -nw";
+      EDITOR = "nvim";
       ELECTRON_OZONE_PLATFORM_HINT = "auto";
       # GDK_BACKEND = "wayland,x11";
       GTK_IM_MODULE = "ibus";

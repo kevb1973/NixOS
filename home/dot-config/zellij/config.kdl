@@ -37,13 +37,13 @@ keybinds clear-defaults=true {
             SwitchToMode "locked"
         }
         bind "Ctrl Alt Shift up" { 
-            Run "fish" "-c" "n" {
+            Run "fish" "-c" "vifm" {
                 close_on_exit true 
               }
             SwitchToMode "locked"
         }
         bind "Ctrl Alt up" {
-            Run "fish" "-c" "n" "$PWD" {
+            Run "vifm" {
                 in_place true
                 close_on_exit true
             }

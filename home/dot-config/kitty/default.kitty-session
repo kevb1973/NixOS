@@ -4,26 +4,22 @@ launch --title "Main" fish
 
 new_tab NixOS
 cd ~/NixOS
-launch jjui
+launch --hold jjui
 
 new_tab Feeds
-launch newsboat
+launch --hold newsboat
 
 new_tab Music
-launch kew
+launch --hold rmpc
 
 new_tab jjui-jj
 cd ~/Code/jjui
-launch jjui
-
-new_tab Kew
-cd ~/Code/kew/
-launch jjui
+launch --hold jjui
 
 new_tab Noctalia
 cd ~/Code/noctalia
-launch jjui
+launch --hold jjui
 
 new_tab Mango
 cd ~/Code/mango/
-launch jjui
+launch --hold jjui

@@ -113,6 +113,7 @@
         nix-tree
         nixd
         nnn
+        nodejs # For LazyVim Mason
         nvtopPackages.amd # htop for video cards
         # ollama-vulkan
         optnix

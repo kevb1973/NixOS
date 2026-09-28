@@ -35,7 +35,7 @@
         at
         authenticator
         bat
-        # bemoji
+        bemoji
         bluetuith
         # brave
         btrfs-progs

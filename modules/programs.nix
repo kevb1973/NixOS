@@ -49,6 +49,8 @@
       enableFishIntegration = true;
     };
 
+    umbriel.enable = false;
+
     nix-ld = {
       enable = true;
       libraries = with pkgs; [

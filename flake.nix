@@ -4,6 +4,7 @@
   inputs = {
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "https://nixos.org/channels/nixos-unstable/nixexprs.tar.zst";
+    # umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,6 +17,7 @@
       nixpkgs,
       home-manager,
       mango,
+      # umbriel,
       ...
     }@inputs:
     {
@@ -26,6 +28,7 @@
           modules = [
             ./configuration.nix
             mango.nixosModules.mango
+            # umbriel.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               home-manager = {

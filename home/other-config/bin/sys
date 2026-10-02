@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
-# Show current size of /nix/store and /var
-# set -x
-HOST=$(env hostname)
-HOST=${HOST^}
-echo "$HOST System Size"
-echo "-------------------"
-echo "/nix/store: $(sudo dust -D /nix/store | tail -n 1 | cut -d" " -f2)
-echo "/var: $(sudo dust -X /var/tmp -D /var | tail -n 1 | cut -d" " -f2)
+store=$(sudo dust -o gb -j -D /nix/store | jq -r '.size') # -r gives raw string
+var=$(sudo dust -j -o gb -X /var/tmp -D /var | jq -r '.size')
+
+printf '%s\n' "╭─────────────────────────────╮"
+printf '│ %-21s %5s │\n' "Halcyon System Size" "Size"
+printf '%s\n' "├─────────────────────────────┤"
+printf '│ %-21s %5s │\n' "/nix/store" "$store"
+printf '│ %-21s %5s │\n' "/var" "$var"
+printf '%s\n' "╰─────────────────────────────╯"

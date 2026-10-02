@@ -5,7 +5,6 @@ selection=$(printf \
 dwindle
 fair
 grid
-monocle
 right-tile
 scroller
 tile

@@ -32,3 +32,8 @@ set PATH $PATH /home/kev/.local/bin /home/kev/.config/emacs/bin /home/kev/.cargo
 # set fish_function_path $fish_function_path $__fish_config_dir/functions/*/
 set -gx NNN_PLUG 'z:autojump;f:fd-find;p:preview-tui;g:rg-find'
 set -gx NNN_FIFO /tmp/nnn.fifo
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /home/kev/.lmstudio/bin
+# End of LM Studio CLI section
+

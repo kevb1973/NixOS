@@ -8,7 +8,7 @@ selection=$(
 Noctalia Restart
 Update Noctalia
 Update jjui
-Update kew
+Toggle Visualizer
 Stopwatch
 Toggle System Dark/Light
 Open Directory (tui)
@@ -71,8 +71,8 @@ case "$selection" in
 "Update jjui")
   kitty --detach --app-id floater -- nix profile upgrade jjui
   ;;
-"Update kew")
-  kitty --detach --app-id floater -- nix profile upgrade kew
+"Toggle Visualizer")
+  pkill kwybars || kwybars
   ;;
 "Stopwatch")
   kitty --detach clock-rs stopwatch

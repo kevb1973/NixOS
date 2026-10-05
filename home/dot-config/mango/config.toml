@@ -1,0 +1,74 @@
+[global]
+exec_once = [
+  "ssh-add",
+  "ydotoold",
+  "kanata-tray",
+  "noctalia -d",
+  "zen-beta",
+  # kitty --app-id=kitty-session -- zellij",
+  "neovide",
+  "kitty --app-id=kitty-session --session ~/.config/kitty/default.kitty-session",
+]
+
+circle_layout         = ["scroller", "fair"]
+blur                  = 1
+blur_layer            = 1
+cursor_hide_timeout   = 2
+drag_lock             = 0
+drag_tile_to_tile     = 1
+float_full_to_top     = 0
+focus_cross_tag       = 1
+focus_on_activate     = 1
+focused_opacity       = 1.0
+jump_labels           = 123456789
+layer_shadows         = 0
+no_border_when_single = 1
+numlock_on            = 1
+#ov_tab_mode = 1
+shadows                    = 0
+single_scratchpad          = 0
+sloppy_focus               = 0
+trackpad_accel_speed       = 0.25
+trackpad_natural_scrolling = 1
+unfocused_opacity          = 1.0
+view_current_to_back       = 1
+
+# appearance
+border_px     = 1
+border_radius = 12
+focus_color   = 0x29B6F6FF
+# gappih        = 10
+
+xkb_rules_layout = "us"
+
+
+# animations
+animations                 = 1
+layer_animations           = 0
+animation_type_open        = "slide"
+animation_type_close       = "slide"
+layer_animation_type_open  = "zoom"
+layer_animation_type_close = "zoom"
+animation_duration_move    = 300
+animation_duration_open    = 300
+animation_duration_tag     = 200
+animation_duration_close   = 300
+tag_animation_direction    = 0
+
+scroller_proportion_preset = [0.25, 0.5, 0.75, 1.0]
+
+# scroller layout setting
+scroller_structs                   = 5
+scroller_default_proportion        = 0.5
+scroller_default_proportion_single = 1.0
+scroller_prefer_overspread         = 1
+
+# Imports
+source = [
+  "~/.config/mango/binds.toml",
+  "~/.config/mango/rules.toml",
+  "~/.config/mango/noctalia/noctalia-v5-binds.toml",
+  # "~/.config/mango/dms/dms-binds.conf",
+  # "~/.config/mango/dms/colors.conf",
+  # "~/.config/mango/dms/cursor.conf"
+]

@@ -1,0 +1,168 @@
+[[rule.window_rule]]
+app_id              = "firefox"
+tags                = 1
+scroller_proportion = 1.0
+focused_opacity     = 1.0
+unfocused_opacity   = 1.0
+
+[[rule.window_rule]]
+app_id              = "brave-browser"
+tags                = 1
+scroller_proportion = 1.0
+focused_opacity     = 1.0
+unfocused_opacity   = 1.0
+
+[[rule.window_rule]]
+app_id              = "zen"
+tags                = 1
+scroller_proportion = 1.0
+focused_opacity     = 1.0
+unfocused_opacity   = 1.0
+
+[[rule.window_rule]]
+app_id              = "kitty"
+scroller_proportion = 0.5
+
+[[rule.window_rule]]
+app_id              = "neovide"
+tags                = 0
+scroller_proportion = 1.0
+
+[[rule.window_rule]]
+app_id = "emacs"
+tags   = 3
+
+[[rule.window_rule]]
+app_id              = "silverbullet-app.bin"
+is_named_scratchpad = 1
+width               = 2400
+height              = 1370
+
+[[rule.window_rule]]
+app_id              = "superproductivity"
+is_named_scratchpad = 1
+width               = 2400
+height              = 1370
+
+[[rule.window_rule]]
+app_id              = "org.kde.kpat"
+is_named_scratchpad = 1
+width               = 1150
+height              = 1250
+
+[[rule.window_rule]]
+app_id              = "Spotify"
+is_named_scratchpad = 1
+width               = 2400
+height              = 1392
+force_render        = 1
+
+[[rule.window_rule]]
+title          = "Picture-in-Picture"
+is_floating    = 1
+is_open_silent = 1
+width          = 420
+height         = 240
+offset_x       = -100
+offset_y       = 20
+
+# [[rule.window_rule]]
+# title="Picture-in-picture"
+# is_floating=1
+# width=420
+# height=240
+# offset_x=-100
+# offset_y=20
+# isglobal=1
+
+[[rule.window_rule]]
+app_id      = "floater"
+is_floating = 1
+width       = 2000
+height      = 1000
+
+[[rule.window_rule]]
+title       = "Noctalia Settings"
+is_floating = 1
+width       = 1200
+height      = 1300
+
+[[rule.window_rule]]
+app_id      = "remind_tui"
+is_floating = 1
+width       = 700
+height      = 450
+
+[[rule.window_rule]]
+app_id              = "kitty-session"
+tags                = 0
+scroller_proportion = 1.0
+
+[[rule.window_rule]]
+app_id              = "qalculate-gtk"
+is_named_scratchpad = 1
+width               = 600
+height              = 300
+offset_y            = -99
+
+# SudokuSlam PWA
+[[rule.window_rule]]
+app_id              = "FFPWA-01M1N08DWAAR15K5EEPB3XYXEX"
+is_named_scratchpad = 1
+width               = 2400
+height              = 1370
+
+# WhatsApp PWA
+[[rule.window_rule]]
+app_id              = "FFPWA-01M1N04JRC5CEMMZBH3T3ZRE0V"
+is_named_scratchpad = 1
+width               = 2400
+height              = 1370
+
+# Kagi Assistant PWAFFPWA-
+[[rule.window_rule]]
+app_id              = "FFPWA-01M1MZ3PYEGWFX5982DN1WR0J1"
+is_named_scratchpad = 1
+width               = 1200
+height              = 1370
+
+[[rule.layer_rule]]
+layer_name   = "selection"
+no_animation = 1
+
+[[rule.layer_rule]]
+layer_name   = "dms:.*"
+no_animation = 1
+
+[[rule.layer_rule]]
+layer_name   = "noctalia.*"
+no_animation = 1
+
+[[rule.tag_rule]]
+id          = 0
+layout_name = "scroller"
+
+[[rule.tag_rule]]
+id          = 1
+layout_name = "scroller"
+
+[[rule.tag_rule]]
+id          = 2
+layout_name = "scroller"
+
+[[rule.tag_rule]]
+id          = 3
+layout_name = "fair"
+
+[[rule.tag_rule]]
+id          = 4
+layout_name = "scroller"
+
+[[rule.monitor_rule]]
+make    = "Dell Inc."
+model   = "DELL S2722DGM"
+width   = 2560
+height  = 1440
+refresh = 165.080002
+x       = 0
+y       = 0

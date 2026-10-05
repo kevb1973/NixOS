@@ -1,0 +1,135 @@
+[bind.default]
+"SUPER+SHIFT+q" = "quit"
+"SUPER+SHIFT+r" = "reload_config"
+
+# menu and terminal
+"SUPER+Return"       = "spawn,kitty"
+"SUPER+Alt+Return"   = "spawn,kitty --app-id=kitty-session --session ~/.config/kitty/default.kitty-session"
+"SUPER+SHIFT+Return" = "spawn,nautilus"
+"SUPER+SHIFT+x"      = "killclient"
+
+# tools
+"F10"             = "spawn_shell,wlrctl pointer move 2560 1440"
+"SUPER+KP_Divide" = "spawn,mmsg dispatch sleep_toggle_monitor"
+"SUPER+e"         = "spawn_shell,BEMOJI_PICKER_CMD='noctalia dmenu' bemoji -t -n"
+"SUPER+n"         = "spawn,kitty --app-id=remind_tui remind_tui"
+"SUPER+KP_Add"    = "spawn,hyprpicker -b -d -u 200 -s 1"
+"SUPER+code:91"   = "spawn,wl-find-cursor -s 100 -d 500 -c 50555500 # Used code as KP_Decimal not working"
+
+# switch layout
+"CTRL+SUPER+SHIFT+i" = "setlayout,fair"
+"CTRL+SUPER+SHIFT+l" = "setlayout,scroller"
+"SUPER+bracketright" = "spawn, ~/.local/bin/mango_layout_switcher.sh"
+"SUPER+SHIFT+d"      = "dwindle_toggle_split_direction"
+
+# switch window focus
+"SUPER+Left"  = "focusdir,left"
+"SUPER+Right" = "focusdir,right"
+"SUPER+Up"    = "focusdir,up"
+"SUPER+Down"  = "focusdir,down"
+
+# Scratchpad
+"SUPER+Grave"       = "toggle_special_tag"
+"SUPER+SHIFT+Grave" = "tag_special_silent"
+
+# Named Scratchpads
+# "SUPER+KP_Subtract" = "toggle_named_scratchpad,FFPWA-01M1N04JYMGMGPJAGJA1SZ6P7T,none,firefoxpwa site launch 01M1N04JYMGMGPJAGJA1SZ6P7T # Whatsapp"
+# "SUPER+KP_0"        = "toggle_named_scratchpad,FFPWA-01M1MZ3Q4DG8AH8E8JBKNDXTZQ,none,firefoxpwa site launch 01M1MZ3Q4DG8AH8E8JBKNDXTZQ # Kagi Assistant"
+# "SUPER+KP_1"        = "toggle_named_scratchpad,FFPWA-01M1N08DWAAR15K5EEPB3XYXEX,none,firefoxpwa site launch 01M1N08DWAAR15K5EEPB3XYXEX # Sudoku"
+"SUPER+KP_1" = "toggle_named_scratchpad,Spotify,none,env spotify"
+"SUPER+KP_2" = "toggle_named_scratchpad,org.kde.kpat,none,kpat"
+"SUPER+KP_3" = "toggle_named_scratchpad,silverbullet-app.bin,none,plus.silverbullet.desktop"
+"SUPER+KP_4" = "toggle_named_scratchpad,superproductivity,none,superproductivity"
+# Brave Web Apps
+# "SUPER+KP_6"        = "toggle_named_scratchpad,none,Sudoku.*,brave --profile-directory=Default --app-id=idblbllfglglnchoiofkaechglnfaded"
+# "SUPER+KP_Subtract" = "toggle_named_scratchpad,none,WhatsApp.*,brave --profile-directory=Default --app-id=hnpfjngllnobngcgfapefoaidbinmjnm"
+# "SUPER+KP_0"        = "toggle_named_scratchpad,none,Kagi Assistant.*,brave --profile-directory=Default --app-id=ljkacldhgllhakfdiahgjioaamcogcin"
+
+# swap window
+"SUPER+SHIFT+Left"  = "exchange_client,left"
+"SUPER+SHIFT+Down"  = "exchange_client,down"
+"SUPER+SHIFT+Up"    = "exchange_client,up"
+"SUPER+SHIFT+Right" = "exchange_client,right"
+"SUPER+ALT+Up"      = "tagtoleft"
+"SUPER+ALT+Down"    = "tagtoright"
+
+# resize window
+"SUPER+equal" = "resizewin,+50,+0"
+"SUPER+minus" = "resizewin,-50,+0"
+"SUPER+r"     = "switch_proportion_preset"
+
+# switch window status
+"SUPER+CTRL+space" = "togglefloating"
+"SUPER+g"          = "toggleglobal"
+"SUPER+BackSpace"  = "togglemaximizescreen"
+"SUPER+backslash"  = "togglefakefullscreen"
+"SUPER+f"          = "togglefullscreen"
+
+"SUPER+1" = "view,1,0"
+"SUPER+2" = "view,2,0"
+"SUPER+3" = "view,3,0"
+"SUPER+4" = "view,4,0"
+"SUPER+5" = "view,5,0"
+"SUPER+6" = "view,6,0"
+"SUPER+7" = "view,7,0"
+"SUPER+8" = "view,8,0"
+"SUPER+9" = "view,9,0"
+
+"SUPER+SHIFT+1" = "tag,1,0"
+"SUPER+SHIFT+2" = "tag,2,0"
+"SUPER+SHIFT+3" = "tag,3,0"
+"SUPER+SHIFT+4" = "tag,4,0"
+"SUPER+SHIFT+5" = "tag,5,0"
+"SUPER+SHIFT+6" = "tag,6,0"
+"SUPER+SHIFT+7" = "tag,7,0"
+"SUPER+SHIFT+8" = "tag,8,0"
+"SUPER+SHIFT+9" = "tag,9,0"
+
+"SUPER+CTRL+1" = "toggletag,1"
+"SUPER+CTRL+2" = "toggletag,2"
+"SUPER+CTRL+3" = "toggletag,3"
+"SUPER+CTRL+4" = "toggletag,4"
+"SUPER+CTRL+5" = "toggletag,5"
+"SUPER+CTRL+6" = "toggletag,6"
+"SUPER+CTRL+7" = "toggletag,7"
+"SUPER+CTRL+8" = "toggletag,8"
+"SUPER+CTRL+9" = "toggletag,9"
+
+"SUPER+SHIFT+CTRL+1" = "toggleview,1"
+"SUPER+SHIFT+CTRL+2" = "toggleview,2"
+"SUPER+SHIFT+CTRL+3" = "toggleview,3"
+"SUPER+SHIFT+CTRL+4" = "toggleview,4"
+"SUPER+SHIFT+CTRL+5" = "toggleview,5"
+"SUPER+SHIFT+CTRL+6" = "toggleview,6"
+"SUPER+SHIFT+CTRL+7" = "toggleview,7"
+"SUPER+SHIFT+CTRL+8" = "toggleview,8"
+"SUPER+SHIFT+CTRL+9" = "toggleview,9"
+
+# Lgtv
+"SUPER+Delete"       = "spawn,lgtv system turnOff"
+"SUPER+SHIFT+Delete" = "spawn,lgtv wakeonlan"
+"SUPER+Prior"        = "spawn,lgtv audio setMute true"
+"SUPER+SHIFT+Prior"  = "spawn,lgtv audio setMute false"
+"SUPER+Next"         = "spawn,lgtv audio volumeDown"
+"SUPER+SHIFT+Next"   = "spawn,lgtv audio volumeUp"
+
+[axisbind.default]
+"SUPER+SHIFT+CTRL+Up"   = "exchange_client,left"
+"SUPER+SHIFT+CTRL+Down" = "exchange_client,right"
+"SUPER+SHIFT+Up"        = "focusstack,prev"
+"SUPER+SHIFT+Down"      = "focusstack,next"
+"SUPER+Up"              = "viewtoleft,0"
+"SUPER+Down"            = "viewtoright,0"
+
+[mousebind.default]
+"SUPER+btn_left"       = "moveresize,curmove"
+"SUPER+btn_right"      = "moveresize,curresize"
+"SUPER+CTRL+btn_right" = "killclient"
+
+[gesturebind.default]
+"none+right+3" = "focusdir,left"
+"none+left+3"  = "focusdir,right"
+"none+down+3"  = "viewtoleft_have_client"
+"none+up+3"    = "viewtoright_have_client"
+"none+up+4"    = "toggleoverview"
+"none+down+4"  = "toggleoverview"

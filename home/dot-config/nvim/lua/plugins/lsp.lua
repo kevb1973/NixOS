@@ -11,14 +11,23 @@ return {
           cmd = { "nixd" },
           settings = {
             nixd = {
-              -- Example common settings (customize as needed)
               nixpkgs = {
-                expr = "import <nixpkgs> { }", -- or use a flake
+                expr = "import <nixpkgs> { }",
               },
               formatting = {
-                command = { "nixfmt" }, -- or alejandra
+                command = { "nixfmt" },
               },
-              -- options = { ... } for NixOS/home-manager completions
+            },
+          },
+        },
+
+        -- Configure taplo TOML formatting (align table entries)
+        taplo = {
+          settings = {
+            evenBetterToml = {
+              formatter = {
+                alignEntries = true,
+              },
             },
           },
         },

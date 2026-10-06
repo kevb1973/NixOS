@@ -69,14 +69,7 @@ in
 
     # Theme settings
     theme = {
-    #   package = pkgs.adw-gtk3;
       name = "adwaita";
-    };
-
-    # Icon theme
-    iconTheme = {
-      package = pkgs.tela-circle-icon-theme;
-      name = "Tela-circle";
     };
 
     # Cursor theme

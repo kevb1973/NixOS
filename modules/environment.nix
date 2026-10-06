@@ -83,7 +83,6 @@
       pciutils
       pulseaudioFull
       smartmontools
-      tela-circle-icon-theme
       unar
       unzip
       usbutils

@@ -13,7 +13,7 @@
 "SUPER+KP_Divide" = "spawn,mmsg dispatch sleep_toggle_monitor"
 "SUPER+e"         = "spawn_shell,BEMOJI_PICKER_CMD='noctalia dmenu' bemoji -t -n"
 "SUPER+n"         = "spawn,kitty --app-id=remind_tui remind_tui"
-"SUPER+KP_Add"    = "spawn,hyprpicker -b -d -u 200 -s 1"
+"SUPER+KP_Add"    = "spawn_shell,pkill hyprpicker || hyprpicker -b -d -u 200 -s 1"
 "SUPER+code:91"   = "spawn,wl-find-cursor -s 100 -d 500 -c 50555500 # Used code as KP_Decimal not working"
 
 # switch layout

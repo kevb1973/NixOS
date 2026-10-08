@@ -25,24 +25,25 @@ scroller_proportion = 0.5
 
 [[rule.window_rule]]
 app_id              = "neovide"
-tags                = 0
+tags                = 2
 scroller_proportion = 1.0
 
 [[rule.window_rule]]
 app_id = "emacs"
-tags   = 3
+tags   = 2
 
 [[rule.window_rule]]
 app_id              = "silverbullet-app.bin"
-is_named_scratchpad = 1
-width               = 2400
-height              = 1370
+scroller_proportion = 1.0
+tags                = 3
 
 [[rule.window_rule]]
-app_id              = "superproductivity"
-is_named_scratchpad = 1
-width               = 2400
-height              = 1370
+app_id = "superproductivity"
+# is_named_scratchpad = 1
+tags                = 3
+scroller_proportion = 1.0
+# width               = 2400
+# height              = 1370
 
 [[rule.window_rule]]
 app_id              = "org.kde.kpat"
@@ -58,13 +59,14 @@ height              = 1392
 force_render        = 1
 
 [[rule.window_rule]]
-title          = "Picture-in-Picture"
-is_floating    = 1
-is_open_silent = 1
-width          = 420
-height         = 240
-offset_x       = -100
-offset_y       = 20
+title               = "Picture-in-Picture"
+is_floating         = 1
+is_unmanaged_global = 1
+is_open_silent      = 1
+width               = 600
+height              = 340
+offset_x            = 99
+offset_y            = 90
 
 # [[rule.window_rule]]
 # title="Picture-in-picture"
@@ -95,7 +97,7 @@ height      = 450
 
 [[rule.window_rule]]
 app_id              = "kitty-session"
-tags                = 0
+tags                = 2
 scroller_proportion = 1.0
 
 [[rule.window_rule]]
@@ -152,7 +154,7 @@ layout_name = "scroller"
 
 [[rule.tag_rule]]
 id          = 3
-layout_name = "fair"
+layout_name = "scroller"
 
 [[rule.tag_rule]]
 id          = 4

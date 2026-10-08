@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+window=$(mmsg get all-clients | jq -r '.clients[].appid' | noctalia dmenu -p "Choose Window")
+wlrctl window focus "$window"

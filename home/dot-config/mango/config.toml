@@ -20,7 +20,7 @@ float_full_to_top     = 0
 focus_cross_tag       = 1
 focus_on_activate     = 1
 focused_opacity       = 1.0
-jump_labels           = 123456789
+jump_labels           = "123456789"
 layer_shadows         = 0
 no_border_when_single = 1
 numlock_on            = 1
@@ -30,7 +30,7 @@ single_scratchpad          = 0
 sloppy_focus               = 0
 trackpad_accel_speed       = 0.25
 trackpad_natural_scrolling = 1
-unfocused_opacity          = 1.0
+unfocused_opacity          = 0.8
 view_current_to_back       = 1
 
 # appearance

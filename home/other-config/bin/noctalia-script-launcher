@@ -39,7 +39,8 @@ case "$selection" in
   hyprpicker -f hex -a
   ;;
 "Mango Docs")
-  kitty --detach markless ~/Code/mango/docs/
+  # kitty --detach markless ~/Code/mango/docs/
+  plus.silverbullet.desktop ~/Code/mango/docs/
   ;;
 "NixOS Docs")
   kitty --detach markless /etc/nix/inputs/nixpkgs/nixos/doc/manual/

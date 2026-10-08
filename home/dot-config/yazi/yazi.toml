@@ -4,29 +4,29 @@
 # "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
 [mgr]
-ratio = [1, 4, 3]
-sort_by = "natural"
+ratio          = [1, 4, 3]
+sort_by        = "natural"
 sort_sensitive = false
-sort_reverse = false
+sort_reverse   = false
 sort_dir_first = true
-sort_translit = false
-linemode = "mtime"
-show_hidden = true
-show_symlink = true
-scrolloff = 5
-mouse_events = ["click", "scroll"]
+sort_translit  = false
+linemode       = "mtime"
+show_hidden    = true
+show_symlink   = true
+scrolloff      = 5
+mouse_events   = ["click", "scroll"]
 # title_format   = "Yazi: {cwd}"
 
 [preview]
-wrap = "no"
-tab_size = 2
-max_width = 600
-max_height = 900
-cache_dir = ""
-image_delay = 30
-image_filter = "triangle"
-image_quality = 75
-ueberzug_scale = 1
+wrap            = "no"
+tab_size        = 2
+max_width       = 600
+max_height      = 900
+cache_dir       = ""
+image_delay     = 30
+image_filter    = "triangle"
+image_quality   = 75
+ueberzug_scale  = 1
 ueberzug_offset = [0, 0, 0, 0]
 
 [opener]
@@ -38,7 +38,7 @@ edit = [
 ]
 open = [{ run = "xdg-open %s", desc = "Open", block = false, for = "linux" }]
 pdf_view = [
-  { run = "brave %s", desc = "Open with browser", block = false, for = "linux" },
+  { run = "zen-beta %s", desc = "Open with Zen Browser", block = false, for = "linux" },
 ]
 img_view = [
   { run = "pix %s", desc = "Open with pix image viewer", block = false, for = "linux" },
@@ -55,7 +55,7 @@ append_rules = [{ url = "*", use = "open" }]
 
 # ~/.config/yazi/yazi.toml
 [[opener.bulk-rename]]
-run = "nvim %s"
+run   = "nvim %s"
 block = true
 
 # [[open.prepend_rules]]

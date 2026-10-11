@@ -31,9 +31,9 @@
 # "SUPER+Tab" = "spawn,mango-noctalia-window-switcher"
 "SUPER+Shift+Tab" = "overcircle,next"
 
-# Scratchpad
-"SUPER+Grave"       = "toggle_special_tag"
-"SUPER+SHIFT+Grave" = "tag_special_silent"
+"SUPER+Grave"       = "view,2,0"
+"SUPER+Space"       = "toggle_special_tag"
+"SUPER+SHIFT+Space" = "tag_special_silent"
 
 # Named Scratchpads
 # "SUPER+KP_Subtract" = "toggle_named_scratchpad,FFPWA-01M1N04JYMGMGPJAGJA1SZ6P7T,none,firefoxpwa site launch 01M1N04JYMGMGPJAGJA1SZ6P7T # Whatsapp"
@@ -65,11 +65,11 @@
 "SUPER+R"     = "switch_proportion_preset"
 
 # switch window status
-"SUPER+CTRL+space" = "togglefloating"
-"SUPER+g"          = "toggleglobal"
-"SUPER+BackSpace"  = "togglemaximizescreen"
-"SUPER+backslash"  = "togglefakefullscreen"
-"SUPER+f"          = "togglefullscreen"
+# "SUPER+CTRL+space" = "togglefloating"
+"SUPER+g"         = "toggleglobal"
+"SUPER+BackSpace" = "togglemaximizescreen"
+"SUPER+backslash" = "togglefakefullscreen"
+"SUPER+f"         = "togglefullscreen"
 
 "SUPER+1" = "view,1,0"
 "SUPER+2" = "view,2,0"

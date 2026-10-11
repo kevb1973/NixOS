@@ -50,6 +50,8 @@ app_id              = "org.kde.kpat"
 is_named_scratchpad = 1
 width               = 1150
 height              = 1250
+offset_x            = 10
+offset_y            = 40
 
 [[rule.window_rule]]
 app_id              = "Spotify"

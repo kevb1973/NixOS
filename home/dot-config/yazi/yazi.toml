@@ -40,6 +40,9 @@ open = [{ run = "xdg-open %s", desc = "Open", block = false, for = "linux" }]
 pdf_view = [
   { run = "zen-beta %s", desc = "Open with Zen Browser", block = false, for = "linux" },
 ]
+md_view = [
+  { run = "viv %s", desc = "Open with Browser using vivify", block = false, for = "linux" },
+]
 img_view = [
   { run = "pix %s", desc = "Open with pix image viewer", block = false, for = "linux" },
 ]
@@ -48,6 +51,7 @@ img_view = [
 prepend_rules = [
   # { url = "*.md", use = [ "markdown", "edit", ] },
   { url = "*.pdf", use = "pdf_view" },
+  { url = "*.md", use = "md_view" },
   { url = "bulk-rename.txt", use = "bulk-rename" },
   { mime = "image/*", use = "img_view" },
 ]

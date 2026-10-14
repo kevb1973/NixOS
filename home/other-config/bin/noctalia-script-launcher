@@ -8,13 +8,13 @@ selection=$(
 Noctalia Restart
 Update Noctalia
 Update jjui
-Toggle Visualizer
 Stopwatch
 Toggle System Dark/Light
 Open Directory (tui)
 Manage Scheduled Reminders (at-rm)
 Edit Script Launcher
 Color Picker
+Fish Documentation (local)
 Mango Docs
 NixOS Docs
 Nixpkgs Docs
@@ -40,16 +40,19 @@ case "$selection" in
   ;;
 "Mango Docs")
   # kitty --detach markless ~/Code/mango/docs/
-  plus.silverbullet.desktop ~/Code/mango/docs/
+  viv ~/Code/mango/docs/
   ;;
 "NixOS Docs")
-  kitty --detach markless /etc/nix/inputs/nixpkgs/nixos/doc/manual/
+  # kitty --detach markless /etc/nix/inputs/nixpkgs/nixos/doc/manual/
+  viv /etc/nix/inputs/nixpkgs/nixos/doc/manual/
   ;;
 "Nixpkgs Docs")
-  kitty --detach markless /etc/nix/inputs/nixpkgs/doc/
+  # kitty --detach markless /etc/nix/inputs/nixpkgs/doc/
+  viv /etc/nix/inputs/nixpkgs/doc/
   ;;
 "Noctalia Docs")
-  kitty --detach markless ~/Code/noctalia/docs/user/
+  # kitty --detach markless ~/Code/noctalia/docs/user/
+  viv ~/Code/noctalia/docs/user/
   ;;
 "Mixer (gui)")
   pwvucontrol &
@@ -72,8 +75,8 @@ case "$selection" in
 "Update jjui")
   kitty --detach --app-id floater -- nix profile upgrade jjui
   ;;
-"Toggle Visualizer")
-  pkill kwybars || kwybars
+"Fish Documentation (local)")
+  zen-beta /run/current-system/sw/share/doc/fish/index.html
   ;;
 "Stopwatch")
   kitty --detach clock-rs stopwatch

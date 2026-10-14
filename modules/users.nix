@@ -149,6 +149,7 @@
         uv # Wiki says this is an easy way to manage python versions and packages (non-declarative)
         uwu-colors # LSP to display color swatches
         virt-manager
+        vivify # Browse markdown docs in browser
         vlc
         vscode-langservers-extracted # Various LS
         wakeonlan # For lgtv control

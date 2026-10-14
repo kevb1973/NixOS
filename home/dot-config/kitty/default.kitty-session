@@ -2,9 +2,12 @@ layout tall
 cd ~
 launch --title "Main" fish
 
-new_tab NixOS
+new_tab NixOS Repo
 cd ~/NixOS
 launch --hold jjui
+
+new_tab NixOS Mgr
+launch --hold nixdatifier --flake ~/NixOS
 
 new_tab Feeds
 launch --hold newsboat

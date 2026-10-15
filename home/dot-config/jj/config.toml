@@ -1,23 +1,23 @@
 "$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
 
 [user]
-name = "Kev"
+name  = "Kev"
 email = "kyfeman@gmail.com"
 
 [ui]
-editor = "micro +2"
+editor      = "micro +8"
 diff-editor = ":builtin"
 # diff-editor = "oyui"
-diff-instructions = false
-default-command = "status"
+diff-instructions     = false
+default-command       = "status"
 conflict-marker-style = "snapshot"
-graph.style = "square"
-log-word-wrap = true
-paginate = "auto"
-pager = ":builtin"
+graph.style           = "square"
+log-word-wrap         = true
+paginate              = "auto"
+pager                 = ":builtin"
 
 [merge-tools.oyui]
-program = "oyui"
+program   = "oyui"
 edit-args = ["diff", "$left", "$right"]
 
 [template-aliases]

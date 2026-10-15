@@ -126,7 +126,7 @@
         poppler-utils # For nnn previews
         pwvucontrol # Pipewire GUI mixer
         python3
-        # qalculate-gtk
+        qalculate-gtk
         ripgrep
         rmpc # nice alternative to ncmpcpp
         # satty # Screenshot Editor

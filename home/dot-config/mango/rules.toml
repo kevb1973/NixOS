@@ -105,9 +105,10 @@ scroller_proportion = 1.0
 [[rule.window_rule]]
 app_id              = "qalculate-gtk"
 is_named_scratchpad = 1
-width               = 600
+width               = 500
 height              = 300
 offset_y            = -99
+offset_x            = 99
 
 # SudokuSlam PWA
 [[rule.window_rule]]

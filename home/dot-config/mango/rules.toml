@@ -33,14 +33,14 @@ app_id = "emacs"
 tags   = 2
 
 [[rule.window_rule]]
-app_id              = "silverbullet-app.bin"
+app_id              = "silverbullet"
 scroller_proportion = 1.0
-tags                = 3
+tags                = 0
 
 [[rule.window_rule]]
 app_id = "superproductivity"
 # is_named_scratchpad = 1
-tags                = 3
+tags                = 0
 scroller_proportion = 1.0
 # width               = 2400
 # height              = 1370

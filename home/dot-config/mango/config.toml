@@ -8,6 +8,7 @@ exec_once = [
   # kitty --app-id=kitty-session -- zellij",
   "neovide",
   "kitty --app-id=kitty-session --session ~/.config/kitty/default.kitty-session",
+  "superproductivity",
 ]
 
 circle_layout         = ["scroller", "fair"]

@@ -4,9 +4,7 @@
 
 # alias cat="bat" # this alias causes error. Fine if I put it in config.fish. ??
 alias edit-aliases="nvim ~/NixOS/home/dot-config/fish/conf.d/aliases-abbrs.fish && source ~/NixOS/home/dots/fish/conf.d/aliases-abbrs.fish"
-alias conf="nvim ~/NixOS/"
 alias dg="nh clean user --ask"
-alias edit-broken="nvim ~/bin/check_broken" # Edit list of currently broken packages
 alias e="nvim"
 alias find-font="fc-list --format='%{family}\n' | grep"
 alias gcroots="sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'"
@@ -20,7 +18,6 @@ alias logs="sudo lazyjournal"
 alias lp="nix profile list"
 alias more="bat --paging=always"
 alias no="optnix -s nixos"
-alias nd="nixdatifier menu --flake ~/NixOS"
 alias opt="nix-store --optimize"
 alias ports="netstat -lntup"
 alias rb="nh os switch ~/NixOS/"
@@ -29,10 +26,7 @@ alias rbb="nh os boot ~/NixOS/"
 alias referrer="nix-store --query --referrers"
 alias repair-store="sudo nix-store --verify --check-contents --repair"
 alias rev="nixos-version --hash | cut -c 1-7"
-alias sam_ssh="kitten ssh sam@10.0.0.4"
-alias sam_suspend="ssh -t sam@10.0.0.4 'sudo systemctl suspend'" # may need to switch to double quotes around cmd..
 alias sct="systemctl-tui"
-# alias sg="nixos-rebuild list-generations"
 alias sdg="nh clean all --ask"
 alias sg="nh os info"
 alias sn="nh search packages -l 100"
@@ -47,7 +41,6 @@ alias up="nh os switch --update --ask ~/NixOS && changes"
 # alias up="nix flake update --flake /home/kev/NixOS"
 alias verify-store="sudo nix-store --verify --check-contents"
 alias v="vifm"
-alias windows="lswt"
 alias zzz="cd (fd . -td -tl -H -d2 -c always | fzf --height 50% --color=dark --ansi)" # search for dirs, change dir
 alias zz="zi"
 
@@ -55,11 +48,10 @@ alias zz="zi"
 # Abbreviations
 # =============
 abbr -a --set-cursor='%' -- jbm 'jj bookmark move main -t @-'
-abbr -a --set-cursor='%' -- jgc 'jj git clone --colocate %'
+abbr -a --set-cursor='%' -- jgc 'jj git clone %'
 abbr -a --set-cursor='%' -- nor 'nixos-option -r % --flake ~/NixOS'
 abbr -a --set-cursor='%' -- npg 'nix profile add github:%/'
-abbr -a --set-cursor='%' -- npi 'nix profile add nixpkgs#%'
-abbr -a --set-cursor='%' -- npis 'nix profile add nixpkgs/release-24.11#%'
+abbr -a --set-cursor='%' -- npa 'nix profile add nixpkgs#%'
 abbr -a --set-cursor='%' -- nr 'nix run nixpkgs#%'
 abbr -a --set-cursor='%' -- ns 'nix shell nixpkgs#% -c fish'
 abbr -a --set-cursor='%' -- pin 'nix profile add nixpkgs/(nixos-version --hash)#%'

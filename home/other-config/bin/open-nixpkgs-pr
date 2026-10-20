@@ -3,4 +3,4 @@
 # For use in kitty bind alt-space>p
 
 # brave --new-tab "https://github.com/NixOS/nixpkgs/pull/$1"
-firefox-beta --new-tab "https://github.com/NixOS/nixpkgs/pull/$1"
+zen-beta --new-tab "https://github.com/NixOS/nixpkgs/pull/$1"

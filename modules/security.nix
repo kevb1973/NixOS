@@ -1,6 +1,11 @@
 _:
 {
   security = {
+    # Disable compromised root certs see: https://www.reddit.com/r/NixOS/comments/1xaxozr/patch_the_planet/
+    pki.caCertificateBlacklist = [
+      "Comodo AAA Services root"
+      "emSign ECC Root CA - G3"
+    ];
     polkit = {
       enable = true;
       extraConfig = ''

@@ -69,7 +69,7 @@ source = [
   "~/.config/mango/binds.toml",
   "~/.config/mango/rules.toml",
   "~/.config/mango/noctalia/noctalia-v5-binds.toml",
-  # "~/.config/mango/dms/dms-binds.conf",
+  # "~/.config/mango/dms/dms-binds.toml",
   # "~/.config/mango/dms/colors.conf",
   # "~/.config/mango/dms/cursor.conf"
 ]

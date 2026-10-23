@@ -136,6 +136,12 @@ layer_name   = "selection"
 no_animation = 1
 
 [[rule.layer_rule]]
+layer_name   = "nowcaption"
+no_animation = 1
+no_shadow    = 1
+no_blur      = 1
+
+[[rule.layer_rule]]
 layer_name   = "dms:.*"
 no_animation = 1
 

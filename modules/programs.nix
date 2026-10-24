@@ -35,6 +35,10 @@
       fuzzyCompletion = true;
     };
 
+    hyprland = {
+      enable = true;
+    };
+
     mango = {
       enable = true;
     };

@@ -1,0 +1,18 @@
+hl.config({
+	general = {
+		resize_on_border = true,
+		layout = "dwindle",
+
+		allow_tearing = false,
+		no_focus_fallback = true,
+	},
+	cursor = {
+		persistent_warps = true,
+		inactive_timeout = 3,
+	},
+
+	dwindle = {
+		preserve_split = true,
+		force_split = 2,
+	},
+})

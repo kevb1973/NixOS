@@ -1,0 +1,13 @@
+require("modules.vars")
+
+require("modules.animations")
+require("modules.autostart")
+require("modules.env")
+require("modules.feel")
+require("modules.input")
+require("modules.keybinds")
+require("modules.monitor")
+require("modules.noctalia")
+require("modules.options")
+require("modules.rules")
+require("modules.zoom")

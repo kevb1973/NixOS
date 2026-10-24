@@ -1,0 +1,31 @@
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("noctalia msg volume-up 1"), { locked = true, repeating = false })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("noctalia msg volume-down 1"), { locked = true, repeating = false })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("noctalia msg volume-mute"), { locked = true })
+hl.bind("SUPER + B", hl.dsp.exec_cmd("noctalia msg bar-toggle"), { locked = true })
+hl.bind("SUPER + M", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center media"), { locked = true })
+hl.bind("SUPER + P", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher /wall"), { locked = true })
+hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd("noctalia msg wallpaper-set color:#15212f"), { locked = true })
+hl.bind("SUPER + S", hl.dsp.exec_cmd("noctalia msg screenshot-region"), { locked = true })
+hl.bind("SUPER + W", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center weather"), { locked = true })
+hl.bind("SUPER + SHIFT + W", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center calendar"), { locked = true })
+hl.bind("SUPER + Q", hl.dsp.exec_cmd("noctalia msg panel-toggle session"), { locked = true })
+hl.bind("SUPER + PERIOD", hl.dsp.exec_cmd("noctalia msg settings-toggle"), { locked = true })
+hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center system"), { locked = true })
+hl.bind("SUPER + C", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"), { locked = true })
+hl.bind(
+	"SUPER + U",
+	hl.dsp.exec_cmd("noctalia msg panel-toggle avivbintangaringga/nix-monitor:panel"),
+	{ locked = true }
+)
+hl.bind("SUPER + SHIFT + T", hl.dsp.exec_cmd("noctalia msg theme-mode-toggle"), { locked = true })
+hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("noctalia msg clipboard-clear"), { locked = true })
+hl.bind("SUPER + Z", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"), { locked = true })
+hl.bind("SUPER + SHIFT + Z", hl.dsp.exec_cmd("noctalia-script-launcher"), { locked = true })
+hl.bind("SUPER + A", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center notifications"), { locked = true })
+hl.bind("SUPER + SHIFT + A", hl.dsp.exec_cmd("noctalia msg notification-clear-history"), { locked = true })
+hl.bind("SUPER + D", hl.dsp.exec_cmd("noctalia msg notification-clear-active"), { locked = true })
+hl.bind("SUPER + T", hl.dsp.exec_cmd("kitty clock-rs stopwatch"), { locked = true })
+-- Use key codes here because KP_7, KP_8 and KP_9 aren't working..
+hl.bind("SUPER + code:79", hl.dsp.exec_cmd("noctalia msg media toggle"), { locked = true })
+hl.bind("SUPER + code:80", hl.dsp.exec_cmd("noctalia msg media previous"), { locked = true })
+hl.bind("SUPER + code:81", hl.dsp.exec_cmd("noctalia msg media next"), { locked = true })

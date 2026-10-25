@@ -63,12 +63,12 @@ hl.window_rule({
 
 hl.window_rule({
 	match = { class = "^(neovide)$" },
-	workspace = "2",
+	workspace = "special:scratch",
 })
 
 hl.window_rule({
 	match = { class = "^(kitty-session)$" },
-	workspace = "2",
+	workspace = "special:scratch",
 })
 -- Workspace rules
 
@@ -94,6 +94,11 @@ hl.workspace_rule({
 
 hl.workspace_rule({
 	workspace = "special:todonotes",
+	layout = "scrolling",
+})
+
+hl.workspace_rule({
+	workspace = "special:scratch",
 	layout = "scrolling",
 })
 

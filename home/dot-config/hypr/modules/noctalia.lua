@@ -3,7 +3,7 @@ hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("noctalia msg volume-down 1"), {
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("noctalia msg volume-mute"), { locked = true })
 hl.bind("SUPER + B", hl.dsp.exec_cmd("noctalia msg bar-toggle"), { locked = true })
 hl.bind("SUPER + M", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center media"), { locked = true })
-hl.bind("SUPER + P", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher /wall"), { locked = true })
+hl.bind("SUPER + P", hl.dsp.exec_cmd("noctalia msg panel-toggle wallpaper"), { locked = true })
 hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd("noctalia msg wallpaper-set color:#15212f"), { locked = true })
 hl.bind("SUPER + S", hl.dsp.exec_cmd("noctalia msg screenshot-region"), { locked = true })
 hl.bind("SUPER + W", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center weather"), { locked = true })

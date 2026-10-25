@@ -11,3 +11,6 @@ require("modules.noctalia")
 require("modules.options")
 require("modules.rules")
 require("modules.zoom")
+
+-- For Noctalia Color templates
+require("noctalia").apply_theme()

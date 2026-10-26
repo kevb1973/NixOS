@@ -2,7 +2,7 @@ local vars = require("modules.vars")
 local terminal = vars.terminal
 
 hl.bind("SUPER + Return", hl.dsp.exec_cmd(terminal))
-hl.bind("SUPER + SHIFT + Return", hl.dsp.exec_cmd("nautilus"))
+hl.bind("SUPER + SHIFT + Return", hl.dsp.exec_cmd("strata"))
 hl.bind("SUPER + KP_Multiply", hl.dsp.workspace.toggle_special("calc"))
 hl.bind("SUPER + code:87", hl.dsp.workspace.toggle_special("spotify"))
 hl.bind("SUPER + code:88", hl.dsp.workspace.toggle_special("kpat"))

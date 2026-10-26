@@ -40,7 +40,7 @@
     };
 
     mango = {
-      enable = true;
+      enable = false;
     };
 
     niri = {

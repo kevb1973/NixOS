@@ -4,7 +4,7 @@
 
 # alias cat="bat" # this alias causes error. Fine if I put it in config.fish. ??
 alias edit-aliases="nvim ~/NixOS/home/dot-config/fish/conf.d/aliases-abbrs.fish && source ~/NixOS/home/dots/fish/conf.d/aliases-abbrs.fish"
-alias dg="nh clean user --ask"
+alias dg="nh clean user"
 alias e="nvim"
 alias find-font="fc-list --format='%{family}\n' | grep"
 alias gcroots="sudo nix-store --gc --print-roots | grep -Ev '^(/proc|/nix|/run)'"

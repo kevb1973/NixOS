@@ -2,12 +2,12 @@ layout tall
 cd ~
 launch --title "Main" fish
 
+new_tab Feeds
+launch --hold newsboat
+
 new_tab NixOS Repo
 cd ~/NixOS
 launch --hold jjui
-
-new_tab Feeds
-launch --hold newsboat
 
 new_tab Music
 launch --hold rmpc
@@ -20,6 +20,3 @@ new_tab Noctalia
 cd ~/Code/noctalia
 launch --hold jjui
 
-new_tab Mango
-cd ~/Code/mango/
-launch --hold jjui

@@ -1,0 +1,12 @@
+
+[config]
+version_check = false
+
+# [templates.cava]
+# input_path = '~/.config/matugen/templates/cava-colors.ini'
+# output_path = '~/.config/cava/themes/noctalia'
+# post_hook = "pkill -USR1 cava"
+
+[templates.strata]
+input_path  = '~/.config/matugen/templates/strata-theme.toml'
+output_path = '~/.config/strata/themes/noctalia.toml'

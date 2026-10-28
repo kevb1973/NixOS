@@ -41,7 +41,7 @@
       # enable = false; # disable ALL display managers
       # autoLogin.enable = false;
       # autoLogin.user = "kev";
-      defaultSession = "mango"; 
+      defaultSession = "hyprland";
       gdm.enable = false;
       lemurs = {
         enable = false;

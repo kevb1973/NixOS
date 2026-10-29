@@ -4,7 +4,7 @@
       "/run/current-system/sw/share/hypr/stubs"
     ]
   },
-    "diagnostics.globals": [
-        "mToggle"
-    ]
+  "diagnostics.globals": [
+    "hl"
+  ]
 }

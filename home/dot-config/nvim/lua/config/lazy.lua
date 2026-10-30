@@ -30,7 +30,8 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "base16-flat" } },
+  -- commented below trying to get matugen wokring.. kev Oct 30 26
+  -- install = { colorscheme = { "base16-flat" } },
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update

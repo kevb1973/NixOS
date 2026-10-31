@@ -6,6 +6,7 @@ home/dot-config/niri/dms/colors.kdl
 home/dot-config/kitty/dank-tabs.conf
 home/dot-config/nvim/lazy-lock.json
 home/dot-config/nvim/.neoconf.json
+home/dot-config/nvim/lua/matugen.lua
 home/dot-config/nvim/lazyvim.json
 home/dot-config/fish/fish_variables*
 home/dot-config/helix/themes/my_theme.toml

@@ -10,6 +10,9 @@ hl.config({
 
 		border_size = 2,
 	},
+	debug = {
+		-- disable_logs = false,
+	},
 
 	decoration = {
 		rounding = 0,
@@ -18,6 +21,9 @@ hl.config({
 			enabled = true,
 			size = 10,
 			passes = 3,
+		},
+		wobble = {
+			enabled = true,
 		},
 	},
 

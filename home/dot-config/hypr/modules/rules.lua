@@ -20,7 +20,7 @@ hl.window_rule({
 	float = true,
 	size = { "1150", "1250" },
 	workspace = "special:kpat",
-	-- move = { "2050", "100" },
+	move = { "575", "173" },
 })
 
 hl.window_rule({
@@ -36,8 +36,8 @@ hl.window_rule({
 	float = true,
 	pin = true,
 	no_initial_focus = true,
-	size = { "600", "340" },
-	move = { "1950", "200" },
+	size = { "807", "453" },
+	move = { "1730", "970" },
 })
 
 hl.window_rule({
@@ -48,6 +48,11 @@ hl.window_rule({
 hl.window_rule({
 	match = { class = "^(kitty-session)$" },
 	workspace = "special:scratch",
+})
+
+hl.window_rule({
+	match = { class = "^(zen-beta)$" },
+	workspace = "1",
 })
 
 -- Workspace rules

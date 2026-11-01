@@ -23,4 +23,5 @@ hl.gesture({
 	action = "workspace",
 })
 
-hl.bind("F10", hl.dsp.exec_cmd("wlrctl pointer move 2560 1440"))
+-- Move mouse off screen
+hl.bind("F10", hl.dsp.cursor.move({ x = 2559, y = 1439 }))

@@ -12,7 +12,7 @@ hl.bind(
 )
 hl.bind("SUPER + grave", hl.dsp.workspace.toggle_special("scratch"))
 hl.bind("SUPER + SHIFT + grave", hl.dsp.window.move({ workspace = "special:scratch" }))
-hl.bind("SUPER + SPACE", hl.dsp.workspace.toggle_special("todonotes"))
+hl.bind("SUPER + code:89", hl.dsp.workspace.toggle_special("todonotes"))
 
 hl.bind("SUPER + SHIFT + X", hl.dsp.window.close())
 -- hl.bind("SUPER + F", hl.dsp.window.float({ action = "toggle" }))
@@ -63,3 +63,22 @@ hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
 -- Maximize / Fullscreen
 hl.bind("SUPER + BackSpace", hl.dsp.window.fullscreen({ mode = "maximized" }))
 hl.bind("SUPER + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
+
+-- LGTV Controls
+hl.bind("SUPER + Delete", hl.dsp.exec_cmd("lgtv system turnOff"))
+hl.bind("SUPER + SHIFT + Delete", hl.dsp.exec_cmd("lgtv wakeonlan"))
+hl.bind("SUPER + Prior", hl.dsp.exec_cmd("lgtv audio setMute true"))
+hl.bind("SUPER + SHIFT + Prior", hl.dsp.exec_cmd("lgtv audio setMute false"))
+hl.bind("SUPER + Next", hl.dsp.exec_cmd("lgtv audio volumeDown"))
+hl.bind("SUPER + SHIFT + Next", hl.dsp.exec_cmd("lgtv audio volumeUp"))
+
+hl.bind("SUPER + space", function()
+	local window = hl.get_active_window()
+	if not window then
+		return
+	end
+	hl.dispatch(hl.dsp.window.cycle_next({
+		floating = not window.floating,
+		tiled = window.floating,
+	}))
+end, { description = "Switch focus between tiled and floating windows" })

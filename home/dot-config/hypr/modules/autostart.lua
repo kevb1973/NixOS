@@ -1,6 +1,5 @@
 hl.on("hyprland.start", function()
 	hl.exec_cmd("ssh-add")
-	hl.exec_cmd("ydotoold")
 	hl.exec_cmd("kanata-tray")
 	hl.exec_cmd("noctalia -d")
 	hl.exec_cmd("zen-beta")

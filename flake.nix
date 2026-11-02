@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "https://nixos.org/channels/nixos-unstable/nixexprs.tar.zst";
+    hyprland.url = "github:hyprwm/Hyprland";
     # umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
     home-manager = {
       url = "github:nix-community/home-manager";

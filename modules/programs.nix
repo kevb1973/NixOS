@@ -59,74 +59,72 @@
       enable = true;
       libraries = with pkgs; [
         # Add missing dynamic libraries for unpackged programs here.. not systemPackages or user packages.
-        alsa-lib
-        at-spi2-atk
-        at-spi2-core
-        atk
-        cairo
-        cups
-        curl
-        dbus
-        expat
-        fontconfig
-        freetype
-        fuse
-        gdk-pixbuf
-        glib
-        glibc_memusage
-        gtk2
-        gtk2-x11
-        gtk3
-        gtk3-x11
-        gtk4
-        harfbuzz
-        icu
-        krb5
-        libgbm
-        libgcc
-        libGL
-        libappindicator-gtk3
-        libdrm
-        libedit
-        libglvnd
-        libnotify
-        libpulseaudio
-        libsoup_3
-        libunwind
-        libusb1
-        libuuid
-        libxkbcommon
-        libxml2
-        mesa
-        ncurses
-        nspr
-        nss
-        openssl
-        pango
-        pipewire
-        # speechd
+        # alsa-lib
+        # at-spi2-atk
+        # at-spi2-core
+        # atk
+        # cairo
+        # cups
+        # curl
+        # dbus
+        # expat
+        # fontconfig
+        # freetype
+        # fuse
+        # gdk-pixbuf
+        # glib
+        # glibc_memusage
+        # gtk3
+        # gtk3-x11
+        # gtk4
+        # harfbuzz
+        # icu
+        # krb5
+        # libgbm
+        # libgcc
+        # libGL
+        # libappindicator-gtk3
+        # libdrm
+        # libedit
+        # libglvnd
+        # libnotify
+        # libpulseaudio
+        # libsoup_3
+        # libunwind
+        # libusb1
+        # libuuid
+        # libxkbcommon
+        # libxml2
+        # mesa
+        # ncurses
+        # nspr
+        # nss
+        # openssl
+        # pango
+        # pipewire
+        # # speechd
         stdenv.cc.cc
-        systemd
-        tree-sitter
-        vulkan-loader
-        webkitgtk_4_1
-        libX11
-        libXScrnSaver
-        libXcomposite
-        libXcursor
-        libXdamage
-        libXext
-        libXfixes
-        libXi
-        libXrandr
-        libXrender
-        libXtst
-        libxcb
-        libxkbfile
-        libxshmfence
-        libXinerama
-        xorg_sys_opengl
-        zlib
+        # systemd
+        # tree-sitter
+        # vulkan-loader
+        # webkitgtk_4_1
+        # libX11
+        # libXScrnSaver
+        # libXcomposite
+        # libXcursor
+        # libXdamage
+        # libXext
+        # libXfixes
+        # libXi
+        # libXrandr
+        # libXrender
+        # libXtst
+        # libxcb
+        # libxkbfile
+        # libxshmfence
+        # libXinerama
+        # xorg_sys_opengl
+        # zlib
       ];
     };
   }; # End of programs

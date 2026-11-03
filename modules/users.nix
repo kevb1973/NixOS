@@ -13,6 +13,7 @@
       isNormalUser = true;
       description = "kev";
       linger = true; # Auto start user systemd units at boot. Keep running on logout.
+      shell = pkgs.fish;
       extraGroups = [
         "adbusers"
         "audio"

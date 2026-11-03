@@ -9,8 +9,6 @@ export NNN_FIFO=/tmp/nnn.fifo
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias p='yay'
-alias arch='distrobox enter arch'
 alias h='Hyprland'
 alias rb='pushd ~/NixOS && sudo nixos-rebuild switch --flake .# && /home/kev/bin/sysdiff && popd'
 alias n='niri --session'
@@ -19,4 +17,3 @@ PS1='[\u@\h \W]\$ '
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/home/kev/.lmstudio/bin"
 # End of LM Studio CLI section
-

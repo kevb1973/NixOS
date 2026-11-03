@@ -97,6 +97,16 @@
       # autologinUser = "kev";
     };
 
+    kmscon = {
+      enable = true;
+      config = {
+        hwaccel = true;
+        font-name = "Maple Mono NF";
+        font-size = 24;
+        term = "xterm-256color";
+      };
+    };
+
     miniflux = {
       enable = false;
       adminCredentialsFile = "/etc/nixos/miniflux-admin-credentials";

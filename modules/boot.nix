@@ -28,6 +28,7 @@
       "quiet" #for silent boot 
       "boot.shell_on_fail" #for silent boot 
       "loglevel=3" #for silent boot 
+      "video=2560x1440@165.08" # Set KMSCon resolution
       # "rd.systemd.show_status=auto" #for silent boot 
       # "rd.udev.log_level=3" #for silent boot 
       "udev.log_priority=3" #for silent boot 

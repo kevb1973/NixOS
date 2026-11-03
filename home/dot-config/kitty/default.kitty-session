@@ -12,8 +12,8 @@ launch --hold jjui
 new_tab Music
 launch --hold rmpc
 
-new_tab jjui-jj
-cd ~/Code/jjui
+new_tab Hyprland
+cd ~/Code/Hyprland/
 launch --hold jjui
 
 new_tab Noctalia

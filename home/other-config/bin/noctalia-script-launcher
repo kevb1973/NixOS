@@ -6,6 +6,7 @@ set -euo pipefail
 selection=$(
   noctalia dmenu -p "Choose Script" <<'EOF'
 Noctalia Restart
+Hyprland Docs
 Update Noctalia
 Update jjui
 Stopwatch
@@ -45,6 +46,10 @@ case "$selection" in
 "NixOS Docs")
   # kitty --detach markless /etc/nix/inputs/nixpkgs/nixos/doc/manual/
   viv /etc/nix/inputs/nixpkgs/nixos/doc/manual/
+  ;;
+"Hyprland Docs")
+  # kitty --detach markless /etc/nix/inputs/nixpkgs/nixos/doc/manual/
+  viv ~/Code/hyprland-wiki/content/
   ;;
 "Nixpkgs Docs")
   # kitty --detach markless /etc/nix/inputs/nixpkgs/doc/

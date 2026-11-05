@@ -3,6 +3,7 @@ high_contrast = false
 ui_scale      = 1.0
 
 [audio]
+colorize_icons   = false
 enable_overdrive = false
 enable_sounds    = true
 sound_volume     = 0.5
@@ -25,7 +26,7 @@ capsule_fill = "surface_container"
 capsule_opacity = 1.0
 capsule_padding = 6.0
 capsule_thickness = 0.75999999046325684
-center = ["group:g1", "weather", "notifications"]
+center = ["group:g1", "weather", "notifications", "nix-monitor"]
 concave_edge_corners = true
 contact_shadow = false
 enabled = true
@@ -36,11 +37,8 @@ end = [
   "ram",
   "tray",
   "clipboard",
-  "control-center",
   "toggle_spotify",
   "toggle_kpat",
-  "nix-monitor",
-  "widget",
   "session",
 ]
 font_weight = 500
@@ -66,11 +64,12 @@ start = ["launcher", "workspaces", "active_window"]
 thickness = 34
 widget_spacing = 6
 
-[bar.main.dead_zone]
+[bar.main.dead_zone.actions]
+middle = "settings-toggle"
 
 [[bar.main.capsule_group]]
 enabled = true
-fill    = "surface_variant"
+fill    = "surface_container"
 id      = "g1"
 members = ["clock-date", "clock"]
 opacity = 1.0
@@ -99,8 +98,9 @@ type       = "google"
 username   = ""
 
 [control_center]
-hidden_tabs = []
-width       = 700
+hidden_tabs = ["monitor", "power", "screen-time"]
+sidebar     = "full"
+width       = 1000
 
 [control_center.calendar]
 show_events_card = true
@@ -112,13 +112,7 @@ type = "wifi"
 type = "bluetooth"
 
 [[control_center.shortcuts]]
-type = "caffeine"
-
-[[control_center.shortcuts]]
 type = "nightlight"
-
-[[control_center.shortcuts]]
-type = "power_profile"
 
 [[control_center.shortcuts]]
 type = "dark_mode"
@@ -140,6 +134,7 @@ auto_hide                      = true
 background_opacity             = 0.87999999523162842
 border                         = "outline_variant"
 border_width                   = 0.0
+colorize_icons                 = false
 concave_edge_corners           = true
 cross_axis_padding             = 8
 enabled                        = false
@@ -218,21 +213,21 @@ action         = "lock"
 command        = ""
 enabled        = false
 resume_command = ""
-timeout        = 600
+timeout        = 600.0
 
 [idle.behavior.lock-and-suspend]
 action         = "lock_and_suspend"
 command        = ""
 enabled        = false
 resume_command = ""
-timeout        = 900
+timeout        = 900.0
 
 [idle.behavior.screen-off]
 action         = "screen_off"
 command        = ""
 enabled        = true
 resume_command = ""
-timeout        = 3600
+timeout        = 600.0
 
 [keybinds]
 cancel       = ["Escape"]
@@ -246,9 +241,76 @@ validate     = ["Return"]
 
 [location]
 address         = ""
+auto_locate     = true
 custom_schedule = false
 sunrise         = ""
 sunset          = ""
+
+[lockscreen_widgets]
+enabled        = false
+schema_version = 2
+widget_order   = ["lockscreen-login-box@DP-3", "lockscreen-login-box@FALLBACK"]
+
+[lockscreen_widgets.grid]
+cell_size      = 16
+major_interval = 4
+visible        = true
+
+[lockscreen_widgets.widget."lockscreen-login-box@DP-3"]
+box_height       = 196.0
+box_width        = 810.0
+cx               = 1280.0
+cy               = 1249.5
+output           = "DP-3"
+placement_height = 1440.0
+placement_width  = 2560.0
+rotation         = 0.0
+type             = "login_box"
+
+[lockscreen_widgets.widget."lockscreen-login-box@DP-3".settings]
+background_color     = "surface_container"
+background_opacity   = 0.88
+background_radius    = 12.0
+center_password_text = false
+input_opacity        = 1.0
+input_radius         = 6.0
+layout               = "regular"
+show_caps_lock       = true
+show_keyboard_layout = true
+show_login_button    = true
+show_media           = true
+show_password_reveal = true
+show_session_buttons = true
+show_unlock_hint     = true
+show_weather         = true
+
+[lockscreen_widgets.widget."lockscreen-login-box@FALLBACK"]
+box_height       = 196.0
+box_width        = 810.0
+cx               = 960.0
+cy               = 898.0
+output           = "FALLBACK"
+placement_height = 1080.0
+placement_width  = 1920.0
+rotation         = 0.0
+type             = "login_box"
+
+[lockscreen_widgets.widget."lockscreen-login-box@FALLBACK".settings]
+background_color     = "surface_container"
+background_opacity   = 0.88
+background_radius    = 12.0
+center_password_text = false
+input_opacity        = 1.0
+input_radius         = 6.0
+layout               = "regular"
+show_caps_lock       = true
+show_keyboard_layout = true
+show_login_button    = true
+show_media           = true
+show_password_reveal = true
+show_session_buttons = true
+show_unlock_hint     = true
+show_weather         = true
 
 [nightlight]
 enabled           = true
@@ -260,9 +322,10 @@ temperature_night = 4000
 background_opacity  = 0.97000002861022949
 border              = true
 collapse_on_dismiss = true
+colorize_icons      = false
 enable_daemon       = true
 filter_order        = ["filter"]
-layer               = "top"
+layer               = "overlay"
 monitors            = []
 offset_x            = 20
 offset_y            = 8
@@ -334,7 +397,6 @@ name     = "my-plugins"
 
 [shell]
 app_icon_color                       = "primary"
-app_icon_colorize                    = true
 avatar_path                          = "/home/kev/Pictures/nixos.png"
 button_borders                       = true
 clipboard_auto_paste                 = "auto"
@@ -353,13 +415,16 @@ niri_overview_type_to_launch_enabled = false
 offline_mode                         = false
 password_style                       = "default"
 polkit_agent                         = true
-screen_time_enabled                  = true
-settings_show_advanced               = false
+polkit_colorize_icons                = false
+screen_time_colorize_icons           = false
+screen_time_enabled                  = false
+settings_show_advanced               = true
+settings_window_translucent          = true
 setup_wizard_enabled                 = true
 shared_gl_context                    = true
 show_location                        = true
 telemetry_enabled                    = false
-time_format                          = "{:%H:%M}"
+time_format                          = "{:%I:%M %p}"
 
 [shell.animation]
 enabled = true
@@ -371,8 +436,10 @@ auto_sync = false
 [shell.launcher]
 app_grid        = false
 categories      = true
+colorize_icons  = false
+pinned          = ["zen-beta"]
 provider_prefix = "/"
-show_icons      = true
+show_icons      = false
 sort_by_usage   = true
 
 [shell.launcher.dmenu]
@@ -385,7 +452,7 @@ borders                        = true
 clipboard_placement            = "attached"
 clipboard_position             = "center"
 control_center_placement       = "attached"
-control_center_position        = "auto"
+control_center_position        = "center"
 floating_offset                = 8
 launcher_placement             = "attached"
 launcher_position              = "center"
@@ -394,12 +461,12 @@ open_near_click_control_center = false
 open_near_click_launcher       = false
 open_near_click_session        = false
 open_near_click_wallpaper      = false
-polkit_placement               = "floating"
+polkit_placement               = "attached"
 polkit_position                = "center"
 session_placement              = "attached"
 session_position               = "auto"
 shadow                         = true
-transparency_mode              = "solid"
+transparency_mode              = "glass"
 wallpaper_placement            = "attached"
 wallpaper_position             = "auto"
 
@@ -413,7 +480,8 @@ enabled = false
 size    = 32
 
 [shell.screenshot]
-confirm_region    = true
+annotate          = true
+confirm_region    = false
 copy_to_clipboard = true
 directory         = ""
 filename_pattern  = ""
@@ -460,6 +528,9 @@ variant = "destructive"
 alpha     = 0.55000001192092896
 direction = "down"
 
+[shell.window_switcher]
+colorize_icons = false
+
 [system.monitor]
 cpu_poll_seconds             = 2.0
 cpu_temp_activity_threshold  = 60.0
@@ -488,18 +559,35 @@ swap_pct_activity_threshold  = 20.0
 swap_pct_critical_threshold  = 80.0
 
 [theme]
-builtin           = "Tokyo-Night"
-community_palette = "Ayu Blue"
+builtin           = "Ayu"
+community_palette = "Everforest Material"
 custom_palette    = ""
-mode              = "auto"
+mode              = "dark"
 pure_black_dark   = false
-source            = "community"
-wallpaper_scheme  = "m3-content"
+source            = "wallpaper"
+wallpaper_scheme  = "vibrant"
 
 [theme.templates]
-builtin_ids                = []
-community_ids              = []
-enable_builtin_templates   = true
+builtin_ids = [
+  "btop",
+  "gtk3",
+  "gtk4",
+  "hyprland",
+  "kcolorscheme",
+  "kitty",
+  "qt",
+]
+community_ids = [
+  "zen-browser",
+  "micro",
+  "neovim",
+  "rofi",
+  "strata",
+  "bat",
+  "fzf",
+  "yazi",
+]
+enable_builtin_templates = true
 enable_community_templates = true
 
 [wallpaper]
@@ -522,13 +610,13 @@ order            = "random"
 recursive        = true
 
 [wallpaper.default]
-path = "color:#15212f"
+path = "/home/kev/Pictures/wallpaper/1440p/marble-2560x1440-blue-orange-25796.jpg"
 
 [wallpaper.last]
-path = "color:#15212f"
+path = "/home/kev/Pictures/wallpaper/1440p/marble-2560x1440-blue-orange-25796.jpg"
 
 [wallpaper.monitors.DP-3]
-path = "color:#15212f"
+path = "/home/kev/Pictures/wallpaper/1440p/marble-2560x1440-blue-orange-25796.jpg"
 
 [weather]
 effects         = true
@@ -537,11 +625,12 @@ refresh_minutes = 30
 unit            = "metric"
 
 [widget.active_window]
-icon_size    = 14.0
-max_length   = 260.0
-min_length   = 80.0
-title_scroll = "none"
-type         = "active_window"
+colorize_icons = false
+icon_size      = 14.0
+max_length     = 260.0
+min_length     = 80.0
+title_scroll   = "none"
+type           = "active_window"
 
 [widget.clock]
 format = "%I:%M %p"
@@ -589,8 +678,15 @@ stat = "net_tx"
 type = "sysmon"
 
 [widget.nix-monitor]
-colorize_glyph = false
-type           = "avivbintangaringga/nix-monitor:nix-monitor"
+checking_color   = "hover"
+colorize_glyph   = true
+colorize_text    = true
+show_text        = false
+type             = "avivbintangaringga/nix-monitor:nix-monitor"
+up_to_date_color = "primary"
+
+[widget.nix-monitor.actions]
+right = "exec kitty --detach -- nh os switch --update --ask ~/NixOS"
 
 [widget.output_volume]
 device = "output"
@@ -603,6 +699,9 @@ type = "sysmon"
 [widget.spacer]
 type = "spacer"
 
+[widget.taskbar]
+colorize_icons = false
+
 [widget.temp]
 stat = "cpu_temp"
 type = "sysmon"
@@ -612,7 +711,7 @@ glyph = "spade"
 type  = "custom_button"
 
 [widget.toggle_kpat.actions]
-left = "exec mmsg dispatch toggle_named_scratchpad,org.kde.kpat,none,kpat"
+left = "exec hyprctl dispatch 'hl.dsp.workspace.toggle_special(\"kpat\")'"
 
 [widget.toggle_spotify]
 glyph   = "brand-spotify"
@@ -620,10 +719,14 @@ tooltip = "Toggle Spotify"
 type    = "custom_button"
 
 [widget.toggle_spotify.actions]
-left        = "exec mmsg dispatch toggle_named_scratchpad,Spotify,none,spotify"
+left        = "exec hyprctl dispatch 'hl.dsp.workspace.toggle_special(\"spotify\")'"
 scroll_down = "none"
 scroll_up   = "none"
 
+[widget.tray]
+colorize_icons = true
+
 [widget.workspaces]
+colorize_icons  = false
 hide_when_empty = true
 type            = "workspaces"

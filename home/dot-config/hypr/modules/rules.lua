@@ -41,6 +41,18 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	match = { class = "^(reminder-tui)$" },
+	float = true,
+	size = { "600", "453" },
+})
+
+hl.window_rule({
+	match = { class = "^(atd-manager)$" },
+	float = true,
+	size = { "900", "550" },
+})
+
+hl.window_rule({
 	match = { class = "^(neovide)$" },
 	workspace = "special:scratch",
 })

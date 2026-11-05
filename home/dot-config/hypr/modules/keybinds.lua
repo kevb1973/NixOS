@@ -6,6 +6,7 @@ hl.bind("SUPER + SHIFT + Return", hl.dsp.exec_cmd("strata"))
 hl.bind("SUPER + KP_Multiply", hl.dsp.workspace.toggle_special("calc"))
 hl.bind("SUPER + code:87", hl.dsp.workspace.toggle_special("spotify"))
 hl.bind("SUPER + code:88", hl.dsp.workspace.toggle_special("kpat"))
+hl.bind("SUPER + N", hl.dsp.exec_cmd(terminal .. " --app-id=reminder-tui -- remind_tui"))
 hl.bind(
 	"SUPER + ALT + Return",
 	hl.dsp.exec_cmd(terminal .. " --app-id=kitty-session --session ~/.config/kitty/default.kitty-session")

@@ -78,6 +78,7 @@
         gum # Script enhancer - use for remind_tui
         hydra-check # check build status.. hydra-check --channel unstable <pkg>
         hyprpicker # Simple color picker with zoom and hex preview
+        jjui
         jq
         jujutsu
         kanata-with-cmd # Keyboard layers/mouse-keys

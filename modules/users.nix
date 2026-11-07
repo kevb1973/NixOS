@@ -107,7 +107,7 @@
         mpv-shim-default-shaders
         nautilus
         ncpamixer
-        neovide
+        # neovide # BROKEN: Nov 7th, 2026
         nettools
         newsboat
         nh # nix helper

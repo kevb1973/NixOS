@@ -8,6 +8,14 @@ hl.bind("SUPER + code:87", hl.dsp.workspace.toggle_special("spotify"))
 hl.bind("SUPER + code:88", hl.dsp.workspace.toggle_special("kpat"))
 hl.bind("SUPER + N", hl.dsp.exec_cmd(terminal .. " --app-id=reminder-tui -- remind_tui"))
 hl.bind(
+	"SUPER + Escape",
+	hl.dsp.exec_cmd("wl-kbptr -o modes=floating,click -o mode_floating.source=detect -o mode_click.button=left")
+)
+hl.bind(
+	"SUPER + Shift + Escape",
+	hl.dsp.exec_cmd("wl-kbptr -o modes=floating,click -o mode_floating.source=detect -o mode_click.button=right")
+)
+hl.bind(
 	"SUPER + ALT + Return",
 	hl.dsp.exec_cmd(terminal .. " --app-id=kitty-session --session ~/.config/kitty/default.kitty-session")
 )
